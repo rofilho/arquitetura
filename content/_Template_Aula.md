@@ -1,4 +1,4 @@
-�---
+---
 disciplina: Cloud Computing
 codigo: "14189"
 aula: 00
@@ -13,18 +13,18 @@ tags:
 publicar: false
 ---
 
-# �xx� Aula NN: TÍTULO DA AULA
+# 🟢 Aula NN: TÍTULO DA AULA
 
 **Disciplina:** Cloud Computing (Cód. 14189)
 **Curso:** Inteligência Artificial e Ciência de Dados, Uniube
 **Semana:** N | Sexta-feira
 **Professor:** Romualdo Mathias Filho
-**Tipo:** �x� Teórica / �x� Prática
+**Tipo:** 📘 Teórica / 🔬 Prática
 **Tópicos:** LISTAR AQUI
 
 ---
 
-## �x}� Objetivo da Aula
+## 🎯 Objetivo da Aula
 
 Ao final desta aula, os alunos serão capazes de:
 - [ Objetivo 1 ]
@@ -33,7 +33,7 @@ Ao final desta aula, os alunos serão capazes de:
 
 ---
 
-## �x Revisão Rápida (5 min)
+## 🔄 Revisão Rápida (5 min)
 
 | **Conceito (Aula Anterior)** | **Conexão com hoje** |
 | --- | --- |
@@ -43,26 +43,26 @@ Ao final desta aula, os alunos serão capazes de:
 
 ---
 
-## �xR 1. PRIMEIRO T�PICO
+## 📌 1. PRIMEIRO TÓPICO
 
 Explicação do conteúdo...
 
-> �x� **Exemplo prático:** Use exemplos do cotidiano brasileiro (iFood, Nubank, Pix, etc.)
+> 💡 **Exemplo prático:** Use exemplos do cotidiano brasileiro (iFood, Nubank, Pix, etc.)
 
 ![[assets/aulaNUM_diagrama.png]]
 > *Legenda: Descrição da imagem. Fonte: AWS Documentation.*
 
 ---
 
-## �xR 2. SEGUNDO T�PICO
+## 📌 2. SEGUNDO TÓPICO
 
 ---
 
-## �xR 3. TERCEIRO T�PICO
+## 📌 3. TERCEIRO TÓPICO
 
 ---
 
-## �x9 Resumo Estrutural
+## 📋 Resumo Estrutural
 
 | **Conceito** | **Definição em Uma Frase** |
 | --- | --- |
@@ -72,40 +72,40 @@ Explicação do conteúdo...
 
 ---
 
-## � Banco de Questões
+## ❓ Banco de Questões
 
-> �x Esta seção é visível apenas no Obsidian do professor. Não publicada.
+> 🔒 Esta seção é visível apenas no Obsidian do professor. Não publicada.
 
-### Questão 1: Prática (Múltipla Escolha � Nível: Intermediário)
+### Questão 1: Prática (Múltipla Escolha — Nível: Intermediário)
 **Enunciado:** [Situação prática/Estudo de caso]
 
 - [ ] A) 
 - [ ] B) 
-- [x] C) �S&
+- [x] C) ✅
 - [ ] D) 
 
 **Justificativa:** 
 
 ---
 
-### Questão 2: Teórica (Dissertativa � Nível: Básico/Intermediário)
+### Questão 2: Teórica (Dissertativa — Nível: Básico/Intermediário)
 **Enunciado:** [Conceito teórico fundamental]
 
 **Resposta esperada:** 
 
 ---
 
-## �x Artigo de Aprofundamento
+## 📄 Artigo de Aprofundamento
 
 - [Título do Artigo Acadêmico ou Documentação Oficial da Ferramenta](https://link.com)
 > *Resumo prático: Qual é a relevância deste artigo para a aula de hoje? (1-2 frases)*
 
 ---
 
-## �xa Referências Bibliográficas e Citações
+## 📚 Referências Bibliográficas e Citações
 
 - **Autor(es)**, *Título do Livro/Artigo*. Editora/Revista, Ano. **Página Citada: [XX - YY]**
 - [Outra fonte com formatação padrão ABNT ou similar]
 
 ---
-*�altima atualização: {{date}} | Status: {{status}}*
+*Última atualização: {{date}} | Status: {{status}}*
