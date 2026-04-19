@@ -1,11 +1,11 @@
-�# �x�️ Aula 02: Fundamentos da Organização de Computadores
+# 🖥️ Aula 02: Fundamentos da Organização de Computadores
 
-## �x}� Objetivo da Aula
+## 🎯 Objetivo da Aula
 
 Ao final, o aluno deve:
 
 - Identificar CPU, Memória e E/S
-- Explicar o fluxo básico Entrada �  Processamento �  Saída
+- Explicar o fluxo básico Entrada → Processamento → Saída
 - Reconhecer esses blocos em qualquer dispositivo computacional
 
 Base conceitual alinhada com:
@@ -15,28 +15,28 @@ Base conceitual alinhada com:
 
 ---
 
-# 1️⒣ Visão Macro: O Sistema Computacional
+# 1️⃣ Visão Macro: O Sistema Computacional
 
-## �x Ciclo Fundamental
+## 🔄 Ciclo Fundamental
 
-Entrada �  Processamento �  Saída
+Entrada → Processamento → Saída
 
-�xR Mensagem-chave: todo dispositivo computacional executa esse ciclo.
+📌 Mensagem-chave: todo dispositivo computacional executa esse ciclo.
 
 ---
 
 ## Diagrama simples em blocos:
 
-[ Entrada ] �  [ Processamento ] �  [ Saída ]
+[ Entrada ] → [ Processamento ] → [ Saída ]
 
 - Ancoragem visual imediata
 - Redução da carga cognitiva textual
 
 ---
 
-# 2️⒣ Os Três Pilares do Hardware
+# 2️⃣ Os Três Pilares do Hardware
 
-## �x�� 2.1 Processador, CPU
+## 🧠 2.1 Processador, CPU
 
 Função:
 
@@ -62,7 +62,7 @@ Cozinheiro executando uma receita.
 
 ---
 
-## �x� 2.2 Memória Principal, RAM
+## 💾 2.2 Memória Principal, RAM
 
 Função:
 
@@ -95,7 +95,7 @@ Objetivo:
 
 ---
 
-## �xR 2.3 Entrada e Saída, E/S
+## 🔌 2.3 Entrada e Saída, E/S
 
 ### Entrada
 
@@ -115,7 +115,7 @@ Guardar dados permanentemente.
 
 ---
 
-## 3️⒣ Interconexão, Barramentos
+## 3️⃣ Interconexão, Barramentos
 
 - Pente de RAM
 - SSD NVMe
@@ -167,7 +167,7 @@ Ainda não é o momento.
 
 ---
 
-# 4️⒣ Resumo Estrutural
+# 4️⃣ Resumo Estrutural
 
 | Componente | Função | Exemplo Real |
 | --- | --- | --- |
@@ -179,7 +179,7 @@ Ainda não é o momento.
 
 ---
 
-# 5️⒣ Metodologia Ativa, Anatomia Física
+# 5️⃣ Metodologia Ativa, Anatomia Física
 
 ## Processador
 
@@ -188,7 +188,7 @@ Ainda não é o momento.
 
 ![[assets/image 8.png]]
 
-### �x William Stallings
+### 📖 William Stallings
 
 - **Obra:** *Arquitetura e organização de computadores: projetando com foco em desempenho* (11ª Edição, 2024).
 - **Capítulo 1 (Introdução):** A seção de "Estrutura e Função" define exatamente a visão de alto nível apresentada no diagrama, separando o computador em CPU, Memória Principal e Entrada/Saída.

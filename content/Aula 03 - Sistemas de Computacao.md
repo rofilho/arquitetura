@@ -1,6 +1,6 @@
-�# �x�️ Aula 03: Sistemas de Computação
+# 🖥️ Aula 03: Sistemas de Computação
 
-## **�x}� Objetivo da Aula**
+## **🎯 Objetivo da Aula**
 
 Ao final, o aluno deve:
 
@@ -16,9 +16,9 @@ Base conceitual alinhada com:
 
 ---
 
-# **1️⒣ Recapitulação: De Onde Viemos?**
+# **1️⃣ Recapitulação: De Onde Viemos?**
 
-## **�x Conexão com a Aula 02**
+## **🔗 Conexão com a Aula 02**
 
 Na aula anterior, identificamos os **três pilares do hardware**:
 
@@ -33,9 +33,9 @@ Na aula anterior, identificamos os **três pilares do hardware**:
 
 ---
 
-# **2️⒣ Classificação dos Sistemas de Computação**
+# **2️⃣ Classificação dos Sistemas de Computação**
 
-## **�x️ O "Zoológico dos Computadores" (Tanenbaum, Cap. 1.3)**
+## **🗂️ O "Zoológico dos Computadores" (Tanenbaum, Cap. 1.3)**
 
 Tanenbaum organiza os computadores em categorias com base em **porte**, **custo** e **finalidade**:
 
@@ -47,7 +47,7 @@ Tanenbaum organiza os computadores em categorias com base em **porte**, **cust
 | **Mainframes** | Processamento massivo de transações empresariais | IBM zSeries |
 | **Supercomputadores** | Alto desempenho para cálculos científicos extremos | Fugaku, Frontier |
 
-> A diferença entre essas categorias **não é apenas potência**. �0 uma combinação de **requisitos de confiabilidade** (um mainframe bancário não pode parar), **throughput vs. latência** (supercomputadores priorizam throughput, embarcados priorizam latência) e **custo por operação** (microcontroladores custam centavos, supercomputadores custam milhões).
+> A diferença entre essas categorias **não é apenas potência**. É uma combinação de **requisitos de confiabilidade** (um mainframe bancário não pode parar), **throughput vs. latência** (supercomputadores priorizam throughput, embarcados priorizam latência) e **custo por operação** (microcontroladores custam centavos, supercomputadores custam milhões).
 > 
 
 ---
@@ -58,9 +58,9 @@ Tanenbaum organiza os computadores em categorias com base em **porte**, **cust
 
 ---
 
-# **3️⒣ Sistemas Embarcados**
+# **3️⃣ Sistemas Embarcados**
 
-## **�x� 3.1 Definição**
+## **🔧 3.1 Definição**
 
 Um **sistema embarcado** é um computador projetado para executar uma **função dedicada** dentro de um sistema maior. Possui hardware e software otimizados para uma tarefa específica.
 
@@ -70,7 +70,7 @@ Um **sistema embarcado** é um computador projetado para executar uma **funç
 
 ---
 
-## **�x�� 3.2 Características Técnicas**
+## **🧩 3.2 Características Técnicas**
 
 | **Característica** | **Detalhe** |
 | --- | --- |
@@ -83,7 +83,7 @@ Um **sistema embarcado** é um computador projetado para executar uma **funç
 
 ---
 
-## **�xR� 3.3 Exemplos Reais no Cotidiano**
+## **🌍 3.3 Exemplos Reais no Cotidiano**
 
 - **Automotivo:** controle do motor (ECU), ABS, airbag
 - **Eletrodomésticos:** micro-ondas, máquina de lavar, ar-condicionado
@@ -97,14 +97,14 @@ Um **sistema embarcado** é um computador projetado para executar uma **funç
 
 ---
 
-## **�x� 3.4 Analogia**
+## **💡 3.4 Analogia**
 
 > O sistema embarcado é como um **especialista**: faz uma coisa só, mas faz com excelência, usando o mínimo de recursos. Não navega na internet, não abre planilhas, mas controla o motor do seu carro a 6.000 RPM sem falhar.
 > 
 
 ---
 
-# **4️⒣ Sistemas de Tempo Real (Real-Time)**
+# **4️⃣ Sistemas de Tempo Real (Real-Time)**
 
 ## **⏱️ 4.1 Definição**
 
@@ -114,25 +114,25 @@ Um **sistema de tempo real** é aquele no qual a **correção da resposta** 
 
 ---
 
-## **�a️ 4.2 Classificação: Hard vs. Soft Real-Time**
+## **⚖️ 4.2 Classificação: Hard vs. Soft Real-Time**
 
 | **Tipo** | **Consequência do Atraso** | **Exemplo** |
 | --- | --- | --- |
 | **Hard Real-Time** | Falha catastrófica (perda de vida, destruição de equipamento) | Airbag, sistema de pouso de aeronave, marca-passo |
 | **Soft Real-Time** | Degradação de qualidade (aceitável em certos limites) | Streaming de vídeo, videochamada, jogos online |
 
-> A diferença entre Hard e Soft **não é velocidade**. �0 a **consequência do descumprimento do prazo**: **Hard** significa que prazo perdido = sistema falhou. **Soft** significa que prazo perdido = qualidade degradada, mas o sistema continua.
+> A diferença entre Hard e Soft **não é velocidade**. É a **consequência do descumprimento do prazo**: **Hard** significa que prazo perdido = sistema falhou. **Soft** significa que prazo perdido = qualidade degradada, mas o sistema continua.
 > 
 
 ---
 
-## **�x 4.3 Componentes de um Sistema de Tempo Real**
+## **🔄 4.3 Componentes de um Sistema de Tempo Real**
 
 ```
 
-[ Sensores ] �  [ Controlador (CPU + RTOS) ] �  [ Atuadores ]
-      �                                             |
-      ��������������������� Feedback (malha fechada) ��������������������
+[ Sensores ] → [ Controlador (CPU + RTOS) ] → [ Atuadores ]
+      ↑                                            |
+      └────────── Feedback (malha fechada) ─────────┘
 ```
 
 - **Sensores:** captam dados do ambiente (temperatura, velocidade, pressão)
@@ -148,7 +148,7 @@ Um **sistema de tempo real** é aquele no qual a **correção da resposta** 
 
 ---
 
-## **�x�� 4.4 Exemplos Críticos**
+## **🏭 4.4 Exemplos Críticos**
 
 | **Setor** | **Sistema** | **Tipo** |
 | --- | --- | --- |
@@ -161,16 +161,16 @@ Um **sistema de tempo real** é aquele no qual a **correção da resposta** 
 
 ---
 
-## **�x� 4.5 Analogia**
+## **💡 4.5 Analogia**
 
 > Imagine um **goleiro defendendo um pênalti**: ele precisa dar a resposta certa (direção correta) **no tempo certo** (antes da bola chegar). Se acertar a direção mas reagir 1 segundo atrasado, a resposta correta é inútil. Isso é tempo real.
 > 
 
 ---
 
-# **5️⒣ Sistemas Distribuídos**
+# **5️⃣ Sistemas Distribuídos**
 
-## **�xR� 5.1 Definição**
+## **🌐 5.1 Definição**
 
 Um **sistema distribuído** é um conjunto de computadores independentes que se comunicam por rede e se apresentam ao usuário como um **sistema único e coerente**.
 
@@ -180,7 +180,7 @@ Um **sistema distribuído** é um conjunto de computadores independentes que s
 
 ---
 
-## **�x�️ 5.2 Características Fundamentais**
+## **🏗️ 5.2 Características Fundamentais**
 
 | **Característica** | **Descrição** |
 | --- | --- |
@@ -192,30 +192,30 @@ Um **sistema distribuído** é um conjunto de computadores independentes que s
 
 ---
 
-## **�x 5.3 Diagrama Conceitual**
+## **🔄 5.3 Diagrama Conceitual**
 
 ```
 
-�R����������������������    �R����������������������    �R����������������������
- � Máquina A�    � Máquina B�   � Máquina C�
- �  (Nó 1)  �    �  (Nó 2)  �   �  (Nó 3)  �
- �����������������������    �����������������������   �����������������������
-      �               �              �
- �"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"�
-      �          REDE (Barramento      �
-      �          ou Internet)          �
- �"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"�
-                      �
-               �R����������������������������
-               �   Usuário   �
-               � (vê sistema �
-               �   único)    �
-               �����������������������������
+┌──────────┐    ┌──────────┐    ┌──────────┐
+ │ Máquina A│    │ Máquina B│   │ Máquina C│
+ │  (Nó 1)  │    │  (Nó 2)  │   │  (Nó 3)  │
+ └────┬─────┘    └────┬─────┘   └────┬─────┘
+      │               │              │
+ ═════╪═══════════════╪══════════════╪═════
+      │          REDE (Barramento      │
+      │          ou Internet)          │
+ ═════╪═══════════════════════════════╪═════
+                      │
+               ┌──────┴──────┐
+               │   Usuário   │
+               │ (vê sistema │
+               │   único)    │
+               └─────────────┘
 ```
 
 ---
 
-## **�xR� 5.4 Exemplos Reais**
+## **🌍 5.4 Exemplos Reais**
 
 | **Sistema** | **Como funciona** | **O que o usuário vê** |
 | --- | --- | --- |
@@ -233,14 +233,14 @@ Um **sistema distribuído** é um conjunto de computadores independentes que s
 
 ---
 
-## **�x� 5.5 Analogia**
+## **💡 5.5 Analogia**
 
 > Um sistema distribuído é como uma **rede de restaurantes franqueados**: cada unidade opera de forma independente, com seus próprios funcionários e cozinha, mas o cliente percebe uma experiência unificada (cardápio, identidade visual, padrão de atendimento). Se uma unidade fecha, as outras continuam funcionando.
 > 
 
 ---
 
-# **6️⒣ Comparação Estrutural dos Três Sistemas**
+# **6️⃣ Comparação Estrutural dos Três Sistemas**
 
 | **Critério** | **Embarcado** | **Tempo Real** | **Distribuído** |
 | --- | --- | --- | --- |
@@ -257,9 +257,9 @@ Um **sistema distribuído** é um conjunto de computadores independentes que s
 
 ---
 
-# **7️⒣ Tendências Contemporâneas**
+# **7️⃣ Tendências Contemporâneas**
 
-## **�xa� 7.1 Convergências Atuais**
+## **🚀 7.1 Convergências Atuais**
 
 | **Tendência** | **Descrição** | **Relação com a Aula** |
 | --- | --- | --- |
@@ -275,7 +275,7 @@ Um **sistema distribuído** é um conjunto de computadores independentes que s
 
 ---
 
-# **8️⒣ Resumo Estrutural da Aula**
+# **8️⃣ Resumo Estrutural da Aula**
 
 | **Conceito** | **Definição em uma frase** |
 | --- | --- |
@@ -288,9 +288,9 @@ Um **sistema distribuído** é um conjunto de computadores independentes que s
 
 ---
 
-# **9️⒣ Metodologia Ativa: Atividade Prática**
+# **9️⃣ Metodologia Ativa: Atividade Prática**
 
-## **�x} Atividade: "Classifique o Sistema"**
+## **🎓 Atividade: "Classifique o Sistema"**
 
 **Formato:** Aprendizagem Baseada em Problemas (PBL)
 
@@ -314,7 +314,7 @@ Para cada cenário abaixo, identifique:
 
 ---
 
-## **�x�� Desafio Extra (Sala de Aula Invertida)**
+## **🧪 Desafio Extra (Sala de Aula Invertida)**
 
 **Para casa:** Pesquisar e trazer para a próxima aula **um exemplo real do cotidiano** que combine os três tipos (embarcado + tempo real + distribuído). O aluno deve:
 
@@ -325,18 +325,18 @@ Para cada cenário abaixo, identifique:
 
 ---
 
-# **�xx Referências Bibliográficas**
+# **🔟 Referências Bibliográficas**
 
-## **�x Referências Obrigatórias**
+## **📖 Referências Obrigatórias**
 
 - **STALLINGS, W.** *Arquitetura e Organização de Computadores: projetando com foco em desempenho.* 11ª ed. São Paulo: Pearson, 2024.
     - **Capítulo 2:** Evolução e Desempenho do Computador, seção sobre evolução dos microprocessadores e tipos de sistemas.
     - **Capítulo 1:** Introdução, seção sobre Estrutura e Função.
 - **TANENBAUM, A. S.** *Organização Estruturada de Computadores.* 6ª ed. São Paulo: Pearson, 2013.
     - **Capítulo 1, Seção 1.3:** "O Zoológico dos Computadores", com classificação: microcontroladores, PCs, servidores, mainframes.
-- **CORR�`A, A. G. D.** *Organização e Arquitetura de Computadores.* São Paulo: Pearson, 2016.
+- **CORRÊA, A. G. D.** *Organização e Arquitetura de Computadores.* São Paulo: Pearson, 2016.
 
-## **�x Referências Complementares e Artigos**
+## **📄 Referências Complementares e Artigos**
 
 - **TANENBAUM, A. S.; VAN STEEN, M.** *Sistemas Distribuídos: Princípios e Paradigmas.* 2ª ed. São Paulo: Pearson, 2007.
     - Definição formal de sistema distribuído e propriedades de transparência.
@@ -351,7 +351,7 @@ Para cada cenário abaixo, identifique:
 
 ---
 
-## **�x Links �ateis para Aprofundamento**
+## **🔗 Links Úteis para Aprofundamento**
 
 | **Recurso** | **Descrição** | **Link** |
 | --- | --- | --- |

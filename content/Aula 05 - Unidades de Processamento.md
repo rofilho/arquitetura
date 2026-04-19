@@ -1,6 +1,6 @@
-�# �x�️ Aula 05: Unidades de Processamento e Ciclo de Instrução
+# 🖥️ Aula 05: Unidades de Processamento e Ciclo de Instrução
 
-## �x}� Objetivo da Aula
+## 🎯 Objetivo da Aula
 
 Ao final, o aluno deve:
 
@@ -16,7 +16,7 @@ Base conceitual alinhada com:
 
 ---
 
-# 0️⒣ Revisão da Aula Anterior: 5 Perguntas sobre Arquiteturas CISC vs RISC
+# 0️⃣ Revisão da Aula Anterior: 5 Perguntas sobre Arquiteturas CISC vs RISC
 
 > Antes de avançar para o interior do processador, vamos revisar os conceitos da Aula 04:
 > 
@@ -34,9 +34,9 @@ Base conceitual alinhada com:
 
 ---
 
-# 1️⒣ Recapitulação: De Onde Viemos?
+# 1️⃣ Recapitulação: De Onde Viemos?
 
-## �x Conexão com a Aula 04
+## 🔗 Conexão com a Aula 04
 
 Na aula anterior, entendemos o **Conjunto de Instruções (ISA)** como o "idioma" do processador, onde discutimos as duas filosofias principais (CISC e RISC) e como as instruções fluem através do **Pipeline**.
 
@@ -45,15 +45,15 @@ Na aula anterior, entendemos o **Conjunto de Instruções (ISA)** como o "idio
 
 ---
 
-# 2️⒣ A Unidade Central de Processamento (UCP)
+# 2️⃣ A Unidade Central de Processamento (UCP)
 
-## �x9 2.1 Definição
+## 📋 2.1 Definição
 
 A **UCP** (ou CPU) é o componente lógico central encarregado de buscar, decodificar e executar as instruções armazenadas na memória principal.
 
 **Stallings (Cap. 12):** descreve que para executar instruções, o processador deve ter memória de curto prazo acoplada a ele, os registradores, além de sistemas para cálculos lógicos e tomada de decisão eletrônica.
 
-## �x�� 2.2 Componentes Internos
+## 🧩 2.2 Componentes Internos
 
 | **Componente** | **Detalhe Funcional** |
 | --- | --- |
@@ -66,20 +66,20 @@ A **UCP** (ou CPU) é o componente lógico central encarregado de buscar, deco
 
 *Diagrama bloco ULA, Unidade de Controle, Registradores conectando-se internamente em uma UCP genérica.*
 
-## �x� 2.3 Analogia
+## 💡 2.3 Analogia
 
 > A CPU é como um **chef de cozinha em ação**. A **ULA** é a faca e as panelas (quem faz efetivamente o trabalho de transformação). A **Unidade de Controle** é a mente do chef, lendo um livro de receitas e comandando os movimentos do corpo. Os **Registradores** são os pratos e as tigelas mantidas na bancada imediata onde os ingredientes (dados) ficam temporariamente guardados durante o choque térmico ou corte.
 > 
 
 ---
 
-# 3️⒣ A Unidade de Processamento: Registradores
+# 3️⃣ A Unidade de Processamento: Registradores
 
-## �x� 3.1 Definição
+## 🔧 3.1 Definição
 
 Os processadores dividem os registradores em categorias lógicas. Nem todo registrador pode ser alterado deliberadamente pelo software. Eles se dividem em **Visíveis ao Usuário** e **Registradores de Controle e Estado**.
 
-## �x�� 3.2 Registradores Críticos de Controle e Estado
+## 🧩 3.2 Registradores Críticos de Controle e Estado
 
 Estes são essenciais para o ciclo mecânico repetitivo da CPU:
 
@@ -97,15 +97,15 @@ Estes são essenciais para o ciclo mecânico repetitivo da CPU:
 
 ---
 
-# 4️⒣ O Ciclo de Instrução Básico
+# 4️⃣ O Ciclo de Instrução Básico
 
-## �a� 4.1 Definição
+## ⚡ 4.1 Definição
 
 A função básica do computador é executar programas, e um programa consiste em uma sequência sequencial de instruções contidas em endereços na memória. O processo ordenado para engolir e processar uma única instrução é nomeado **Ciclo de Instrução**.
 
 **Stallings (Cap. 3):** define que na forma arquitetônica mais simples imaginável, o processamento de uma instrução possui dois subciclos primordiais intercalados: **Ciclo de Busca** (Fetch) e **Ciclo de Execução** (Execute).
 
-## �x�� 4.2 O Fluxo Básico de Estados
+## 🧩 4.2 O Fluxo Básico de Estados
 
 | **Estado** | **O que Ocorre em Hardware** |
 | --- | --- |
@@ -119,13 +119,13 @@ A função básica do computador é executar programas, e um programa consiste e
 *Flowchart cíclico (Início -> Ciclo de Busca (Fetch) -> Ciclo de Execução (Execute) -> loop infinito).*
 
 <aside>
-�x�
+💡
 
 Avaliação.
 
 </aside>
 
-## �x� 4.3 O Passo a Passo Físico da Busca (Fetch)
+## 📝 4.3 O Passo a Passo Físico da Busca (Fetch)
 
 Quando o micro-estágio de Busca começa, ocorre um "balé" coordenado de pulsos elétricos:
 
@@ -134,20 +134,20 @@ Quando o micro-estágio de Busca começa, ocorre um "balé" coordenado de pulsos
 3. Como a unidade central sabe que está num momento de busca da instrução ativa, ela copia o conteúdo ilhado no **MBR** para o **IR**.
 4. O valor do **PC** é incrementado localmente para apontar para a instrução vizinha e sucessora no espaço da memória.
 
-## �x� 4.4 Analogia
+## 💡 4.4 Analogia
 
 > O funcionamento contínuo assemelha-se a **seguir um longo roteiro teatral**. O **PC** é o dedo apontador do diretor marcando duramente qual linha exata de texto (endereço) será lida a seguir. O **IR** é o cérebro interpretativo do ator. Após ler e meditar (Busca/Fetch), o ator exibe a ação no palco material (Execução). E o dedo impiedoso (PC) logo move para a próxima frase após a verificação.
 > 
 
 ---
 
-# 5️⒣ O Fim do Ciclo: Interrupções Mestre
+# 5️⃣ O Fim do Ciclo: Interrupções Mestre
 
-## �x� 5.1 O Que São Interrupções Sistêmicas?
+## 🔀 5.1 O Que São Interrupções Sistêmicas?
 
 A sequência normal infalível iterando Busca -> Execução assume um pressuposto estático perigoso: as coisas vivem no vácuo e são perfeitamente lineares. Quase todos os computadores viáveis suportam **Interrupções**: mecanismos arquitetados onde módulos autônomos adjacentes (como HD, placa de rede, ou falhas na memória) tem passe-livre para **interromper a sequência de processamento e roubar a atenção para eles**.
 
-## �x�� 5.2 Fluxo Estruturado do Ciclo com Interrupções
+## 🧩 5.2 Fluxo Estruturado do Ciclo com Interrupções
 
 | **Etapa** | **Detalhe Relevante** |
 | --- | --- |
@@ -162,9 +162,9 @@ A sequência normal infalível iterando Busca -> Execução assume um pressupost
 
 ---
 
-# 6️⒣ Tendências e Otimizações Contemporâneas
+# 6️⃣ Tendências e Otimizações Contemporâneas
 
-## �xa� Previsão Sistêmica de Desvios (Branch Prediction)
+## 🚀 Previsão Sistêmica de Desvios (Branch Prediction)
 
 O conceito basilar e histórico é o sequenciamento fixo do PC. Contudo, em hardwares moderníssimos baseados em processamento temporal esticado, quando um ciclo desagua em um salto variável (como estruturas "IF-ELSE"), o fluxo se confunde, paralisando etapas superescalares.
 
@@ -172,7 +172,7 @@ Atrelado às buscas do PC, arquiteturas com o sufixo "Core" intel ou "M" Apple p
 
 ---
 
-# 7️⒣ Resumo Estrutural Consolidador
+# 7️⃣ Resumo Estrutural Consolidador
 
 | **Conceito Crítico** | **Definição Básica em uma só sentença** |
 | --- | --- |
@@ -186,9 +186,9 @@ Atrelado às buscas do PC, arquiteturas com o sufixo "Core" intel ou "M" Apple p
 
 ---
 
-# 8️⒣ Metodologia Ativa de Contexto: Atividade Prática
+# 8️⃣ Metodologia Ativa de Contexto: Atividade Prática
 
-## �x} Atividade Central: "Rastreando Sinais no Datapath"
+## 🎓 Atividade Central: "Rastreando Sinais no Datapath"
 
 **Formato Metodológico:** Aprendizagem Baseada em Problemas (PBL) - Desafio grupal para consolidar as funções temporais.
 
@@ -216,7 +216,7 @@ No princípio original, PC = 100 . Complete as passagens mentais:
 
 ---
 
-## �x�� Estímulo Paralelo (Desafio para Casa via Sala Invertida)
+## 🧪 Estímulo Paralelo (Desafio para Casa via Sala Invertida)
 
 **Missão Autônoma:** No Ciclo da Interrupção verificado no fluxograma, as literaturas confirmam piamente que a máquina tem de salvaguardar o abençoado "Estado Original Intocado" do processo moribundo. Investigue os dois parâmetros essenciais:
 
@@ -225,9 +225,9 @@ No princípio original, PC = 100 . Complete as passagens mentais:
 
 ---
 
-# 9️⒣ Referências Bibliográficas Baseológicas
+# 9️⃣ Referências Bibliográficas Baseológicas
 
-## �x Referências Obrigatórias Focais
+## 📖 Referências Obrigatórias Focais
 
 - **STALLINGS, W.** *Arquitetura e Organização de Computadores: projetando com foco em desempenho.* 11ª ed. São Paulo: Pearson, 2024.
     - **Capítulo 3 Exato:** Visão de Alto Nível: Função e Interconexão do Computador. Construto do ciclo formalizado e quebras interpostas com interrupções base.
@@ -235,12 +235,12 @@ No princípio original, PC = 100 . Complete as passagens mentais:
 - **TANENBAUM, A. S.** *Organização Estruturada de Computadores.* 6ª ed. São Paulo: Pearson, 2013.
     - **Capítulo 2 Indutivo:** Organização de Sistemas de Computadores enraizando os fluxos contidos e ciclos macro da instrução primária nas seções basilares de funcionamento de CPU.
 
-## �x Literaturas Complementares �ateis
+## 📄 Literaturas Complementares Úteis
 
 - **NULL, L.; LOBUR, J.** *The Essentials of Computer Organization and Architecture.* 5th ed. Jones & Bartlett, 2018.
     - Uma visão macro do modelo matemático original descritivo sob a máquina imaculada típica estrita com fluxos e datapaths altamente intuitivos do ciclo fundamental de processamento de informações.
 
-## �x Links �ateis para Imersão Plural e Prática Dinâmica
+## 🔗 Links Úteis para Imersão Plural e Prática Dinâmica
 
 | **Recurso Extendido** | **Enfoque Conceitual** | **Domínio Atuante** |
 | --- | --- | --- |
