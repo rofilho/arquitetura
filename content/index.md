@@ -20,6 +20,7 @@ Bem-vindo ao portal de estudos! Aqui você encontra os roteiros das aulas, mater
 - [[Aula 03 - Sistemas de Computacao|Aula 03 — Sistemas de Computação]]
 - [[Aula 04 - Arquiteturas CISC vs RISC|Aula 04 — Arquiteturas CISC vs RISC]]
 - [[Aula 05 - Unidades de Processamento|Aula 05 — Unidades de Processamento]]
+- [[Aula 06 - Hierarquia de Memoria e Memoria Virtual|Aula 06 — Hierarquia de Memória e Memória Virtual]]
 
 ---
 
