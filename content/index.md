@@ -41,7 +41,9 @@ html, body, #quartz-root, #quartz-body, .page, .center, .center-content, article
   display: flex;
   align-items: center;
   padding: 2rem 3rem;
-  background-image: linear-gradient(135deg, #0f172a 0%, #10b981 150%);
+  background-image:
+    linear-gradient(to right, rgba(15,23,42,0.95) 0%, rgba(15,23,42,0.6) 40%, transparent 100%),
+    url('assets/hero.png');
   background-size: cover;
   background-position: center;
   border-radius: 16px;
@@ -50,14 +52,7 @@ html, body, #quartz-root, #quartz-body, .page, .center, .center-content, article
   box-shadow: 0 10px 30px rgba(0,0,0,0.3);
   overflow: hidden;
 }
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: url('https://uniube.br/assets/images/logo.png') no-repeat right 30px center;
-  background-size: contain;
-  opacity: 0.1;
-}
+
 .tag {
   display: inline-block;
   padding: 4px 12px;
@@ -224,3 +219,4 @@ html, body, #quartz-root, #quartz-body, .page, .center, .center-content, article
 </div>
 
 </div>
+
