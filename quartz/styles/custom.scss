@@ -1,4 +1,4 @@
-@use "./base.scss";
+﻿@use "./base.scss";
 
 /* ╔══════════════════════════════════════════════════════════╗
    ║   UNIUBE – CLOUD COMPUTING DESIGN SYSTEM                ║
@@ -13,7 +13,7 @@
   --uniube-blue-dark:  #003366;   /* Azul profundo — headers, contraste forte */
   --uniube-blue-core:  #004B87;   /* Azul principal da marca */
   --uniube-blue-light: #2D6A9F;   /* Azul suave — fundos e bordas */
-  --uniube-accent:     #f97316;   /* Laranja — ênfase, botões, links */
+  --uniube-accent: #10b981;   /* Laranja — ênfase, botões, links */
 
   /* Escala tipográfica (Major Third 1.250×) */
   --text-xs:   0.8rem;
@@ -304,3 +304,4 @@ article td {
   padding: var(--sp-4);
   border-bottom: 1px solid color-mix(in srgb, var(--text-color) 10%, transparent);
 }
+
