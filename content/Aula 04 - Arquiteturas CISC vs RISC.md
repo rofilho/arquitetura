@@ -1,3 +1,7 @@
+﻿---
+title: "💻 🖥️ Aula 04: Arquiteturas CISC vs. RISC"
+---
+
 # 🖥️ Aula 04: Arquiteturas CISC vs. RISC
 
 ## 🎯 Objetivo da Aula

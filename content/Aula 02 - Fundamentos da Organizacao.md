@@ -1,3 +1,7 @@
+﻿---
+title: "💻 🖥️ Aula 02: Fundamentos da Organização de Computadores"
+---
+
 # 🖥️ Aula 02: Fundamentos da Organização de Computadores
 
 ## 🎯 Objetivo da Aula

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+    <channel>
+      <title>💻 Arquitetura de Computadores</title>
+      <link>https://rofilho.github.io/arquitetura</link>
+      <description>Últimas 10 notas on 💻 Arquitetura de Computadores</description>
+      <generator>Quartz -- quartz.jzhao.xyz</generator>
+      <item>
+    <title>💻 🟢 Aula 06: Hierarquia de Memória e Memória Virtual</title>
+    <link>https://rofilho.github.io/arquitetura/Aula-06---Hierarquia-de-Memoria-e-Memoria-Virtual</link>
+    <guid>https://rofilho.github.io/arquitetura/Aula-06---Hierarquia-de-Memoria-e-Memoria-Virtual</guid>
+    <description><![CDATA[  disciplina: Arquitetura de Computadores codigo: “14188” aula: 6 titulo: “Hierarquia de Memória e Memória Virtual” tipo: teorica semana: 6 data: 2026-04-27 status: publicado tags: arquitetura memoria cache ram paginacao publicar: true 🟢 Aula 06: Hierarquia de Memória e Memória Virtual Disciplina: A... ]]></description>
+    <pubDate>Mon, 27 Apr 2026 21:12:09 GMT</pubDate>
+  </item><item>
+    <title>💻 Arquitetura de Computadores — Uniube</title>
+    <link>https://rofilho.github.io/arquitetura/</link>
+    <guid>https://rofilho.github.io/arquitetura/</guid>
+    <description><![CDATA[ 💻 Arquitetura e Organização de Computadores Disciplina: Arquitetura e Organização de Computadores Professor: Romualdo Mathias Filho Bem-vindo ao portal de estudos! Aqui você encontra os roteiros das aulas, materiais complementares e as referências completas da disciplina. ]]></description>
+    <pubDate>Mon, 27 Apr 2026 21:04:57 GMT</pubDate>
+  </item><item>
+    <title>💻 Aula  – Arquitetura e Organização de Computadores – Plano de Aulas</title>
+    <link>https://rofilho.github.io/arquitetura/Aula-01---Arquitetura-e-Organizacao</link>
+    <guid>https://rofilho.github.io/arquitetura/Aula-01---Arquitetura-e-Organizacao</guid>
+    <description><![CDATA[ Aula-01: Arquitetura e Organização de Computadores – Plano de Aulas 📄 Ementa A disciplina visa ao entendimento dos princípios básicos de funcionamento de um computador, abordando seus componentes (CPU, memória, barramentos, dispositivos de E/S), bem como o conjunto de instruções, ciclos de execução... ]]></description>
+    <pubDate>Sun, 19 Apr 2026 15:29:42 GMT</pubDate>
+  </item><item>
+    <title>💻 🖥️ Aula 02: Fundamentos da Organização de Computadores</title>
+    <link>https://rofilho.github.io/arquitetura/Aula-02---Fundamentos-da-Organizacao</link>
+    <guid>https://rofilho.github.io/arquitetura/Aula-02---Fundamentos-da-Organizacao</guid>
+    <description><![CDATA[ 🖥️ Aula 02: Fundamentos da Organização de Computadores 🎯 Objetivo da Aula Ao final, o aluno deve: Identificar CPU, Memória e E/S Explicar o fluxo básico Entrada → Processamento → Saída Reconhecer esses blocos em qualquer dispositivo computacional Base conceitual alinhada com: Andrew S. ]]></description>
+    <pubDate>Sun, 19 Apr 2026 15:29:42 GMT</pubDate>
+  </item><item>
+    <title>💻 🖥️ Aula 03: Sistemas de Computação</title>
+    <link>https://rofilho.github.io/arquitetura/Aula-03---Sistemas-de-Computacao</link>
+    <guid>https://rofilho.github.io/arquitetura/Aula-03---Sistemas-de-Computacao</guid>
+    <description><![CDATA[ 🖥️ Aula 03: Sistemas de Computação 🎯 Objetivo da Aula Ao final, o aluno deve: Classificar os principais tipos de sistemas de computação Diferenciar sistemas embarcados, de tempo real e distribuídos Identificar exemplos reais de cada categoria no cotidiano Relacionar a arquitetura de hardware com o... ]]></description>
+    <pubDate>Sun, 19 Apr 2026 15:29:42 GMT</pubDate>
+  </item><item>
+    <title>💻 🖥️ Aula 04: Arquiteturas CISC vs. RISC</title>
+    <link>https://rofilho.github.io/arquitetura/Aula-04---Arquiteturas-CISC-vs-RISC</link>
+    <guid>https://rofilho.github.io/arquitetura/Aula-04---Arquiteturas-CISC-vs-RISC</guid>
+    <description><![CDATA[ 🖥️ Aula 04: Arquiteturas CISC vs. ]]></description>
+    <pubDate>Sun, 19 Apr 2026 15:29:42 GMT</pubDate>
+  </item><item>
+    <title>💻 🖥️ Aula 05: Unidades de Processamento e Ciclo de Instrução</title>
+    <link>https://rofilho.github.io/arquitetura/Aula-05---Unidades-de-Processamento</link>
+    <guid>https://rofilho.github.io/arquitetura/Aula-05---Unidades-de-Processamento</guid>
+    <description><![CDATA[ 🖥️ Aula 05: Unidades de Processamento e Ciclo de Instrução 🎯 Objetivo da Aula Ao final, o aluno deve: Identificar os componentes internos da Unidade Central de Processamento (UCP) Diferenciar registradores visíveis ao usuário de registradores de controle e estado Descrever o fluxo de dados durante... ]]></description>
+    <pubDate>Sun, 19 Apr 2026 15:29:42 GMT</pubDate>
+  </item>
+    </channel>
+  </rss>

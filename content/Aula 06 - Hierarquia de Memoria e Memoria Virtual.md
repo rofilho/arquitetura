@@ -1,3 +1,7 @@
+﻿---
+title: "💻 🟢 Aula 06: Hierarquia de Memória e Memória Virtual"
+---
+
 ---
 disciplina: Arquitetura de Computadores
 codigo: "14188"

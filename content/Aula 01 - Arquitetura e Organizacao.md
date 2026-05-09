@@ -1,3 +1,7 @@
+﻿---
+title: "💻 Aula  – Arquitetura e Organização de Computadores – Plano de Aulas"
+---
+
 # Aula-01: Arquitetura e Organização de Computadores – Plano de Aulas
 
 📄 **Ementa**

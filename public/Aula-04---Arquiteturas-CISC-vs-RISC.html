@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="pt" dir="ltr"><head><title>💻 🖥️ Aula 04: Arquiteturas CISC vs. RISC | Prof. Romualdo</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;family=Inter:ital,wght@0,400;0,600;1,400;1,600&amp;family=JetBrains Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="💻 Arquitetura de Computadores"/><meta property="og:title" content="💻 🖥️ Aula 04: Arquiteturas CISC vs. RISC | Prof. Romualdo"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="💻 🖥️ Aula 04: Arquiteturas CISC vs. RISC | Prof. Romualdo"/><meta name="twitter:description" content="🖥️ Aula 04: Arquiteturas CISC vs."/><meta property="og:description" content="🖥️ Aula 04: Arquiteturas CISC vs."/><meta property="og:image:alt" content="🖥️ Aula 04: Arquiteturas CISC vs."/><meta property="twitter:domain" content="rofilho.github.io/arquitetura"/><meta property="og:url" content="https://rofilho.github.io/arquitetura/Aula-04---Arquiteturas-CISC-vs-RISC"/><meta property="twitter:url" content="https://rofilho.github.io/arquitetura/Aula-04---Arquiteturas-CISC-vs-RISC"/><link rel="icon" href="./static/icon.png"/><meta name="description" content="🖥️ Aula 04: Arquiteturas CISC vs."/><meta name="generator" content="Quartz"/><link href="./index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiQzpcXFVzZXJzXFxyb211YVxcQXBwRGF0YVxcTG9jYWxcXFRlbXBcXGFycXVpdGV0dXJhXFxxdWFydHpcXGNvbXBvbmVudHNcXHN0eWxlcyIsInNvdXJjZXMiOlsibWVybWFpZC5pbmxpbmUuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTs7QUFHRjtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTs7O0FBS0Y7RUFDRTtFQUNBOzs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTs7QUFHRjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTs7QUFHRjtFQUNFO0VBQ0E7O0FBSUo7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7O0FBSUY7RUFDRTtFQUNBO0VBQ0EiLCJzb3VyY2VzQ29udGVudCI6WyIuZXhwYW5kLWJ1dHRvbiB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxvYXQ6IHJpZ2h0O1xuICBwYWRkaW5nOiAwLjRyZW07XG4gIG1hcmdpbjogMC4zcmVtO1xuICByaWdodDogMDsgLy8gTk9URTogcmlnaHQgd2lsbCBiZSBzZXQgaW4gbWVybWFpZC5pbmxpbmUudHNcbiAgY29sb3I6IHZhcigtLWdyYXkpO1xuICBib3JkZXItY29sb3I6IHZhcigtLWRhcmspO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gIGJvcmRlcjogMXB4IHNvbGlkO1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIG9wYWNpdHk6IDA7XG4gIHRyYW5zaXRpb246IDAuMnM7XG5cbiAgJiA+IHN2ZyB7XG4gICAgZmlsbDogdmFyKC0tbGlnaHQpO1xuICAgIGZpbHRlcjogY29udHJhc3QoMC4zKTtcbiAgfVxuXG4gICY6aG92ZXIge1xuICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICBib3JkZXItY29sb3I6IHZhcigtLXNlY29uZGFyeSk7XG4gIH1cblxuICAmOmZvY3VzIHtcbiAgICBvdXRsaW5lOiAwO1xuICB9XG59XG5cbnByZSB7XG4gICY6aG92ZXIgPiAuZXhwYW5kLWJ1dHRvbiB7XG4gICAgb3BhY2l0eTogMTtcbiAgICB0cmFuc2l0aW9uOiAwLjJzO1xuICB9XG59XG5cbiNtZXJtYWlkLWNvbnRhaW5lciB7XG4gIHBvc2l0aW9uOiBmaXhlZDtcbiAgY29udGFpbjogbGF5b3V0O1xuICB6LWluZGV4OiA5OTk7XG4gIGxlZnQ6IDA7XG4gIHRvcDogMDtcbiAgd2lkdGg6IDEwMHZ3O1xuICBoZWlnaHQ6IDEwMHZoO1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICBkaXNwbGF5OiBub25lO1xuICBiYWNrZHJvcC1maWx0ZXI6IGJsdXIoNHB4KTtcbiAgYmFja2dyb3VuZDogcmdiYSgwLCAwLCAwLCAwLjUpO1xuXG4gICYuYWN0aXZlIHtcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIH1cblxuICAmID4gI21lcm1haWQtc3BhY2Uge1xuICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbGlnaHQpO1xuICAgIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgICBwb3NpdGlvbjogZml4ZWQ7XG4gICAgdG9wOiA1MCU7XG4gICAgbGVmdDogNTAlO1xuICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlKC01MCUsIC01MCUpO1xuICAgIGhlaWdodDogODB2aDtcbiAgICB3aWR0aDogODB2dztcbiAgICBvdmVyZmxvdzogaGlkZGVuO1xuXG4gICAgJiA+IC5tZXJtYWlkLWNvbnRlbnQge1xuICAgICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgICAgdHJhbnNmb3JtLW9yaWdpbjogMCAwO1xuICAgICAgdHJhbnNpdGlvbjogdHJhbnNmb3JtIDAuMXMgZWFzZTtcbiAgICAgIG92ZXJmbG93OiB2aXNpYmxlO1xuICAgICAgbWluLWhlaWdodDogMjAwcHg7XG4gICAgICBtaW4td2lkdGg6IDIwMHB4O1xuXG4gICAgICBwcmUge1xuICAgICAgICBtYXJnaW46IDA7XG4gICAgICAgIGJvcmRlcjogbm9uZTtcbiAgICAgIH1cblxuICAgICAgc3ZnIHtcbiAgICAgICAgbWF4LXdpZHRoOiBub25lO1xuICAgICAgICBoZWlnaHQ6IGF1dG87XG4gICAgICB9XG4gICAgfVxuXG4gICAgJiA+IC5tZXJtYWlkLWNvbnRyb2xzIHtcbiAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICAgIGJvdHRvbTogMjBweDtcbiAgICAgIHJpZ2h0OiAyMHB4O1xuICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgIGdhcDogOHB4O1xuICAgICAgcGFkZGluZzogOHB4O1xuICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xuICAgICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgIGJvcmRlci1yYWRpdXM6IDZweDtcbiAgICAgIGJveC1zaGFkb3c6IDAgMnB4IDRweCByZ2JhKDAsIDAsIDAsIDAuMSk7XG4gICAgICB6LWluZGV4OiAyO1xuXG4gICAgICAubWVybWFpZC1jb250cm9sLWJ1dHRvbiB7XG4gICAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAgICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICAgICAgICB3aWR0aDogMzJweDtcbiAgICAgICAgaGVpZ2h0OiAzMnB4O1xuICAgICAgICBwYWRkaW5nOiAwO1xuICAgICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICAgIGNvbG9yOiB2YXIoLS1kYXJrKTtcbiAgICAgICAgYm9yZGVyLXJhZGl1czogNHB4O1xuICAgICAgICBjdXJzb3I6IHBvaW50ZXI7XG4gICAgICAgIGZvbnQtc2l6ZTogMTZweDtcbiAgICAgICAgZm9udC1mYW1pbHk6IHZhcigtLWJvZHlGb250KTtcbiAgICAgICAgdHJhbnNpdGlvbjogYWxsIDAuMnMgZWFzZTtcblxuICAgICAgICAmOmhvdmVyIHtcbiAgICAgICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgICB9XG5cbiAgICAgICAgJjphY3RpdmUge1xuICAgICAgICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWSgxcHgpO1xuICAgICAgICB9XG5cbiAgICAgICAgLy8gU3R5bGUgdGhlIHJlc2V0IGJ1dHRvbiBkaWZmZXJlbnRseVxuICAgICAgICAmOm50aC1jaGlsZCgyKSB7XG4gICAgICAgICAgd2lkdGg6IGF1dG87XG4gICAgICAgICAgcGFkZGluZzogMCAxMnB4O1xuICAgICAgICAgIGZvbnQtc2l6ZTogMTRweDtcbiAgICAgICAgfVxuICAgICAgfVxuICAgIH1cbiAgfVxufVxuIl19 */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="./prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("./static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://rofilho.github.io/arquitetura/index.xml"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://rofilho.github.io/arquitetura/Aula-04---Arquiteturas-CISC-vs-RISC-og-image.webp"/><meta property="og:image:url" content="https://rofilho.github.io/arquitetura/Aula-04---Arquiteturas-CISC-vs-RISC-og-image.webp"/><meta name="twitter:image" content="https://rofilho.github.io/arquitetura/Aula-04---Arquiteturas-CISC-vs-RISC-og-image.webp"/><meta property="og:image:type" content="image/.webp"/></head><body data-slug="Aula-04---Arquiteturas-CISC-vs-RISC"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"></div><div class="center"><div class="page-header"><header><h2 class="page-title"><a href="." class="page-title__link"><img src="https://uniube.br/img/landing/logo_azul.svg" alt="Uniube" class="page-title__logo page-title__logo--light"/><img src="https://uniube.br/img/landing/logo_branca.svg" alt="Uniube" class="page-title__logo page-title__logo--dark"/><span class="page-title__text">💻 Arquitetura de Computadores</span></a></h2><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Pesquisar</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Pesquisar por algo" placeholder="Pesquisar por algo"/><div class="search-layout" data-preview="true"></div></div></div></div><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Tema escuro"><title>Tema escuro</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Tema claro"><title>Tema claro</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></header><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="./">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>💻 🖥️ Aula 04: Arquiteturas CISC vs. RISC</a></div></nav><nav class="lesson-nav" aria-label="Navegação entre aulas"><div class="lesson-nav__slot"><a href="/Aula-03---Sistemas-de-Computacao" class="nav-pill nav-pill--prev" data-spa="true"><div class="nav-pill__icon">📖</div><div class="nav-pill__body"><span class="nav-pill__label">← Anterior</span><span class="nav-pill__title">💻 🖥️ Aula 03: Sistemas de Computação</span></div></a></div><div class="lesson-nav__slot lesson-nav__slot--right"><a href="/Aula-05---Unidades-de-Processamento" class="nav-pill nav-pill--next" data-spa="true"><div class="nav-pill__icon">📖</div><div class="nav-pill__body"><span class="nav-pill__label">Próxima →</span><span class="nav-pill__title">💻 🖥️ Aula 05: Unidades de Processamento e Ciclo de Instrução</span></div></a></div></nav><h1 class="article-title">💻 🖥️ Aula 04: Arquiteturas CISC vs. RISC</h1><p show-comma="true" class="content-meta"><time datetime="2026-04-19T15:29:42.000Z">19 de abr. de 2026</time><span>Leitura de 11 min</span></p></div></div><article class="popover-hint"><h1 id="️-aula-04-arquiteturas-cisc-vs-risc">🖥️ Aula 04: Arquiteturas CISC vs. RISC<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-aula-04-arquiteturas-cisc-vs-risc" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="-objetivo-da-aula">🎯 Objetivo da Aula<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-objetivo-da-aula" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Ao final, o aluno deve:</p>
+<ul>
+<li><strong>Definir</strong> o que são conjuntos de instruções (ISA) e por que são fundamentais na arquitetura de um processador</li>
+<li><strong>Diferenciar</strong> as filosofias CISC e RISC com critérios técnicos objetivos</li>
+<li><strong>Analisar</strong> vantagens e desvantagens de cada abordagem em cenários reais</li>
+<li><strong>Identificar</strong> a convergência atual entre CISC e RISC nos processadores modernos</li>
+<li><strong>Relacionar</strong> a escolha de arquitetura com aplicações práticas (servidores, mobile, embarcados)</li>
+</ul>
+<p>Base conceitual alinhada com:</p>
+<ul>
+<li><strong>William Stallings</strong>, Arquitetura e Organização de Computadores, 11ª ed., Cap. 15 (“Conjuntos de Instruções: Características e Funções”) e Cap. 13 (“RISC”)</li>
+<li><strong>Andrew S. Tanenbaum</strong>, Organização Estruturada de Computadores, 6ª ed., Cap. 2 (“Organização de Sistemas de Computadores”) e Cap. 5 (“O Nível de Arquitetura do Conjunto de Instruções”)</li>
+</ul>
+<hr/>
+<h1 id="0️⃣-revisão-da-aula-anterior-5-perguntas-sobre-sistemas-de-computação">0️⃣ Revisão da Aula Anterior: 5 Perguntas sobre Sistemas de Computação<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#0️⃣-revisão-da-aula-anterior-5-perguntas-sobre-sistemas-de-computação" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<blockquote>
+<p>Antes de avançar, vamos verificar os conceitos da Aula 03. Responda mentalmente ou anote:</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>#</strong></th><th><strong>Pergunta</strong></th><th><strong>Conceito Avaliado</strong></th></tr></thead><tbody><tr><td>1</td><td>Qual a diferença fundamental entre um sistema <strong>Hard Real-Time</strong> e um <strong>Soft Real-Time</strong>? Dê um exemplo de cada.</td><td>Classificação de Sistemas de Tempo Real</td></tr><tr><td>2</td><td>Um <strong>microcontrolador</strong> (como o Arduino) pode ser considerado um computador? Justifique com base nos três pilares do hardware (CPU, Memória, E/S).</td><td>Sistemas Embarcados + Pilares do Hardware</td></tr><tr><td>3</td><td>O que significa <strong>transparência</strong> no contexto de sistemas distribuídos? Por que ela é importante?</td><td>Sistemas Distribuídos</td></tr><tr><td>4</td><td>O sistema de freio <strong>ABS</strong> de um carro é apenas embarcado, apenas tempo real, ou ambos? Justifique.</td><td>Sobreposição de categorias</td></tr><tr><td>5</td><td>Um <strong>termostato inteligente</strong> (como o Nest) combina quais tipos de sistema? Explique como ele se conecta a cada categoria.</td><td>Convergência: Embarcado + Soft RT + Distribuído</td></tr></tbody></table></div>
+<blockquote>
+<p><strong>Respostas rápidas para discussão em sala:</strong></p>
+</blockquote>
+<hr/>
+<h1 id="1️⃣-recapitulação-de-onde-viemos">1️⃣ Recapitulação: De Onde Viemos?<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1️⃣-recapitulação-de-onde-viemos" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="-conexão-com-a-aula-03">🔗 Conexão com a Aula 03<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-conexão-com-a-aula-03" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Na aula anterior, classificamos os <strong>sistemas de computação</strong> em três grandes categorias:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Sistema</strong></th><th><strong>Foco Principal</strong></th><th><strong>Exemplo Síntese</strong></th></tr></thead><tbody><tr><td><strong>Embarcado</strong></td><td>Função dedicada com hardware otimizado</td><td>Controle de micro-ondas</td></tr><tr><td><strong>Tempo Real</strong></td><td>Resposta correta dentro de um prazo (deadline)</td><td>ABS de um carro</td></tr><tr><td><strong>Distribuído</strong></td><td>Cooperação entre máquinas com transparência</td><td>Google Search</td></tr></tbody></table></div>
+<blockquote>
+<p><strong>Mensagem-chave:</strong></p>
+<p><strong>conjunto de instruções33,</strong></p>
+</blockquote>
+<hr/>
+<h1 id="2️⃣-o-que-é-um-conjunto-de-instruções-isa">2️⃣ O Que É um Conjunto de Instruções (ISA)?<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2️⃣-o-que-é-um-conjunto-de-instruções-isa" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="-21-definição">📋 2.1 Definição<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-21-definição" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>O <strong>ISA (Instruction Set Architecture)</strong> é a interface entre o software e o hardware. Define:</p>
+<ul>
+<li><strong>Quais instruções</strong> o processador pode executar (somar, comparar, mover dados)</li>
+<li><strong>Quantos registradores</strong> estão disponíveis</li>
+<li><strong>Como os dados</strong> são acessados na memória (modos de endereçamento)</li>
+<li><strong>O formato</strong> das instruções (tamanho fixo ou variável)</li>
+</ul>
+<p><strong>Stallings (Cap. 15):</strong> define ISA como “a especificação de todas as funções que o processador pode executar, incluindo tipos de dados, instruções, registradores e modos de endereçamento.”</p>
+<p><strong>Tanenbaum (Cap. 5):</strong> trata o ISA como um “nível” na organização hierárquica do computador, situado entre a microprogramação (hardware) e o sistema operacional (software).</p>
+<hr/>
+<h2 id="-22-por-que-o-isa-importa">🧩 2.2 Por Que o ISA Importa?<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-22-por-que-o-isa-importa" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Aspecto</strong></th><th><strong>Impacto</strong></th></tr></thead><tbody><tr><td><strong>Compatibilidade de software</strong></td><td>Programas compilados para um ISA (ex: x86) não rodam nativamente em outro (ex: ARM)</td></tr><tr><td><strong>Desempenho</strong></td><td>O projeto do ISA influencia diretamente velocidade de clock, pipeline e consumo</td></tr><tr><td><strong>Custo do hardware</strong></td><td>ISAs mais complexos exigem circuitos maiores e mais caros</td></tr><tr><td><strong>Consumo energético</strong></td><td>ISAs mais simples consomem menos energia (crucial para mobile e IoT)</td></tr><tr><td><strong>Ecossistema</strong></td><td>O ISA define o ecossistema de compiladores, sistemas operacionais e ferramentas</td></tr></tbody></table></div>
+<hr/>
+<h2 id="-23-analogia">💡 2.3 Analogia<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-23-analogia" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<blockquote>
+<p>O ISA é como o <strong>idioma</strong></p>
+</blockquote>
+<hr/>
+<h1 id="3️⃣-arquitetura-cisc-complex-instruction-set-computer">3️⃣ Arquitetura CISC (Complex Instruction Set Computer)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3️⃣-arquitetura-cisc-complex-instruction-set-computer" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="-31-definição">🔧 3.1 Definição<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-31-definição" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><strong>CISC</strong> é uma filosofia de projeto de processadores que oferece um <strong>grande número de instruções</strong>, muitas delas complexas, capazes de realizar operações de alto nível em uma única instrução.</p>
+<p><strong>Stallings (Cap. 13):</strong> descreve a motivação original do CISC: aproximar a linguagem de máquina das linguagens de alto nível, reduzindo o “gap semântico” entre o que o programador escreve e o que o hardware executa.</p>
+<p><strong>Tanenbaum (Cap. 5):</strong> explica que a abordagem CISC surgiu numa época em que compiladores eram primitivos e a memória era cara, então instruções complexas economizavam memória.</p>
+<hr/>
+<h2 id="-32-características-técnicas">🧩 3.2 Características Técnicas<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-32-características-técnicas" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Característica</strong></th><th><strong>Detalhe</strong></th></tr></thead><tbody><tr><td><strong>Número de instruções</strong></td><td>Grande (centenas a milhares)</td></tr><tr><td><strong>Formato das instruções</strong></td><td>Comprimento variável (1 a 15 bytes no x86)</td></tr><tr><td><strong>Modos de endereçamento</strong></td><td>Muitos e complexos (direto, indireto, indexado, base+deslocamento)</td></tr><tr><td><strong>Acesso à memória</strong></td><td>Qualquer instrução pode acessar a memória diretamente</td></tr><tr><td><strong>Unidade de controle</strong></td><td>Microprogramada (microcódigo interpreta instruções complexas)</td></tr><tr><td><strong>Registradores</strong></td><td>Poucos registradores de propósito geral</td></tr><tr><td><strong>Ciclos por instrução (CPI)</strong></td><td>Variável (1 a muitos ciclos por instrução)</td></tr><tr><td><strong>Pipeline</strong></td><td>Difícil de otimizar devido à variabilidade das instruções</td></tr></tbody></table></div>
+<hr/>
+<h2 id="-33-exemplos-reais">🌍 3.3 Exemplos Reais<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-33-exemplos-reais" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><strong>Intel x86/x64:</strong> presente em PCs, notebooks e servidores desde 1978</li>
+<li><strong>AMD x86-64:</strong> extensão 64 bits da arquitetura x86</li>
+<li><strong>VAX (DEC):</strong> arquitetura clássica CISC dos anos 1970-80 com mais de 300 instruções</li>
+<li><strong>IBM System/360:</strong> uma das primeiras arquiteturas CISC, revolucionou a computação empresarial</li>
+<li><strong>Motorola 68000:</strong> usada no Macintosh original e Amiga</li>
+</ul>
+<hr/>
+<h2 id="-34-exemplo-de-instrução-cisc">📝 3.4 Exemplo de Instrução CISC<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-34-exemplo-de-instrução-cisc" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Uma única instrução CISC pode fazer o trabalho de várias instruções simples:</p>
+<p><img src="./assets/image-9.png" width="auto" height="auto" alt/></p>
+<blockquote>
+<p>Essa única instrução envolve: cálculo de endereço complexo, leitura da memória, operação aritmética e escrita na memória.</p>
+</blockquote>
+<hr/>
+<h2 id="-35-analogia">💡 3.5 Analogia<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-35-analogia" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<blockquote>
+<p>O processador CISC é como um <strong>canivete suíço</strong></p>
+</blockquote>
+<hr/>
+<h1 id="4️⃣-arquitetura-risc-reduced-instruction-set-computer">4️⃣ Arquitetura RISC (Reduced Instruction Set Computer)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#4️⃣-arquitetura-risc-reduced-instruction-set-computer" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="-41-definição">⚡ 4.1 Definição<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-41-definição" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><strong>RISC</strong> é uma filosofia de projeto que utiliza um <strong>conjunto reduzido de instruções simples</strong>, cada uma executada em um único ciclo de clock, permitindo pipelines eficientes e alto desempenho.</p>
+<p><strong>Stallings (Cap. 13):</strong> apresenta os princípios fundadores do RISC estabelecidos por Patterson (Berkeley) e Hennessy (Stanford) nos anos 1980: instruções simples, formato fixo, execução em um ciclo, muitos registradores.</p>
+<p><strong>Tanenbaum (Cap. 2):</strong> explica que a filosofia RISC se baseia na observação de que, na prática, compiladores usam apenas um subconjunto pequeno das instruções CISC, então faz mais sentido otimizar esse subconjunto.</p>
+<hr/>
+<h2 id="-42-características-técnicas">🧩 4.2 Características Técnicas<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-42-características-técnicas" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Característica</strong></th><th><strong>Detalhe</strong></th></tr></thead><tbody><tr><td><strong>Número de instruções</strong></td><td>Reduzido (tipicamente menos de 100 instruções base)</td></tr><tr><td><strong>Formato das instruções</strong></td><td>Comprimento fixo (32 bits no ARM, MIPS)</td></tr><tr><td><strong>Modos de endereçamento</strong></td><td>Poucos e simples (registrador, imediato, base+deslocamento)</td></tr><tr><td><strong>Acesso à memória</strong></td><td>Apenas instruções LOAD/STORE acessam a memória</td></tr><tr><td><strong>Unidade de controle</strong></td><td>Hardwired (circuito lógico direto, sem microcódigo)</td></tr><tr><td><strong>Registradores</strong></td><td>Muitos registradores de propósito geral (32 a 64)</td></tr><tr><td><strong>Ciclos por instrução (CPI)</strong></td><td>Idealmente 1 ciclo por instrução</td></tr><tr><td><strong>Pipeline</strong></td><td>Altamente eficiente devido à uniformidade das instruções</td></tr></tbody></table></div>
+<hr/>
+<h2 id="-43-exemplos-reais">🌍 4.3 Exemplos Reais<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-43-exemplos-reais" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><strong>ARM:</strong> presente em 99% dos smartphones, tablets e relógios inteligentes do mundo</li>
+<li><strong>Apple M1/M2/M3/M4:</strong> processadores ARM que revolucionaram o mercado de notebooks e desktops</li>
+<li><strong>MIPS:</strong> usado em roteadores, consoles (PlayStation 1/2), e base do ensino de arquitetura</li>
+<li><strong>RISC-V:</strong> ISA aberto e livre, em crescimento acelerado para IoT e embarcados</li>
+<li><strong>SPARC:</strong> usado em servidores Sun/Oracle de alta performance</li>
+<li><strong>AWS Graviton:</strong> processadores ARM para servidores em nuvem da Amazon</li>
+</ul>
+<hr/>
+<h2 id="-44-exemplo-de-instrução-risc">📝 4.4 Exemplo de Instrução RISC<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-44-exemplo-de-instrução-risc" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>A mesma operação do exemplo CISC requer múltiplas instruções simples em RISC:</p>
+<p><img src="./assets/image-10.png" width="auto" height="auto" alt/></p>
+<blockquote>
+<p>São 6 instruções em vez de 1, mas cada uma é simples, tem formato fixo e passa pelo pipeline sem gargalos.</p>
+</blockquote>
+<hr/>
+<p><img src="./assets/01_cisc_vs_risc_comparacao.jpg" width="auto" height="auto" alt/></p>
+<p><em>Infográfico comparativo CISC vs. RISC lado a lado, com características principais de cada filosofia em destaque.</em></p>
+<hr/>
+<h2 id="-45-analogia">💡 4.5 Analogia<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-45-analogia" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<blockquote>
+<p>O processador RISC é como uma <strong>linha de montagem industrial</strong></p>
+</blockquote>
+<hr/>
+<h1 id="5️⃣-comparação-estrutural-cisc-vs-risc">5️⃣ Comparação Estrutural: CISC vs. RISC<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#5️⃣-comparação-estrutural-cisc-vs-risc" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Critério</strong></th><th><strong>CISC</strong></th><th><strong>RISC</strong></th></tr></thead><tbody><tr><td><strong>Filosofia</strong></td><td>Instruções complexas no hardware</td><td>Instruções simples otimizadas</td></tr><tr><td><strong>Número de instruções</strong></td><td>Centenas a milhares</td><td>Dezenas a ~100</td></tr><tr><td><strong>Formato</strong></td><td>Comprimento variável</td><td>Comprimento fixo</td></tr><tr><td><strong>Acesso à memória</strong></td><td>Qualquer instrução</td><td>Apenas LOAD/STORE</td></tr><tr><td><strong>Registradores</strong></td><td>Poucos (8-16)</td><td>Muitos (32-64)</td></tr><tr><td><strong>Controle</strong></td><td>Microprogramado (microcódigo)</td><td>Hardwired (circuito direto)</td></tr><tr><td><strong>CPI médio</strong></td><td>Alto e variável</td><td>Próximo de 1</td></tr><tr><td><strong>Pipeline</strong></td><td>Complexo e ineficiente</td><td>Simples e eficiente</td></tr><tr><td><strong>Complexidade do compilador</strong></td><td>Menor (hardware “ajuda”)</td><td>Maior (compilador otimiza)</td></tr><tr><td><strong>Consumo energético</strong></td><td>Maior</td><td>Menor</td></tr><tr><td><strong>Uso típico</strong></td><td>PCs, servidores legados</td><td>Mobile, embarcados, IoT</td></tr><tr><td><strong>Exemplo principal</strong></td><td>Intel x86</td><td>ARM</td></tr></tbody></table></div>
+<blockquote>
+<p>A diferença entre CISC e RISC <strong>não é que um é melhor que o outro</strong></p>
+</blockquote>
+<hr/>
+<p><img src="./assets/02_pipeline_cisc_risc.jpg" width="auto" height="auto" alt/></p>
+<p><em>Diagrama comparando pipeline CISC (estágios variáveis) vs. pipeline RISC (5 estágios uniformes: IF, ID, EX, MEM, WB).</em></p>
+<hr/>
+<h1 id="6️⃣-o-conceito-de-pipeline">6️⃣ O Conceito de Pipeline<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#6️⃣-o-conceito-de-pipeline" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="-61-o-que-é-pipeline">🔄 6.1 O Que É Pipeline?<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-61-o-que-é-pipeline" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Pipeline é a técnica de dividir a execução de uma instrução em <strong>estágios</strong>, permitindo que múltiplas instruções sejam processadas simultaneamente (como uma linha de montagem).</p>
+<p><strong>Stallings (Cap. 12):</strong> dedica um capítulo inteiro ao pipeline, mostrando como ele multiplica o throughput do processador.</p>
+<hr/>
+<h2 id="️-62-pipeline-clássico-risc-5-estágios">🏗️ 6.2 Pipeline Clássico RISC (5 Estágios)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-62-pipeline-clássico-risc-5-estágios" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<pre><code>Instrução 1: | IF | ID | EX | MEM | WB |
+Instrução 2:      | IF | ID | EX  | MEM | WB |
+Instrução 3:           | IF | ID  | EX  | MEM | WB |
+Instrução 4:                | IF  | ID  | EX  | MEM | WB |
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Estágio</strong></th><th><strong>Nome</strong></th><th><strong>Função</strong></th></tr></thead><tbody><tr><td><strong>IF</strong></td><td>Instruction Fetch</td><td>Buscar a instrução na memória</td></tr><tr><td><strong>ID</strong></td><td>Instruction Decode</td><td>Decodificar e ler registradores</td></tr><tr><td><strong>EX</strong></td><td>Execute</td><td>Executar a operação na ALU</td></tr><tr><td><strong>MEM</strong></td><td>Memory Access</td><td>Acessar memória (se LOAD/STORE)</td></tr><tr><td><strong>WB</strong></td><td>Write Back</td><td>Escrever resultado no registrador</td></tr></tbody></table></div>
+<blockquote>
+<p>No RISC, como todas as instruções têm formato fixo e mesma duração, o pipeline flui sem interrupções. No CISC, instruções de tamanhos diferentes criam “bolhas” no pipeline, reduzindo a eficiência.</p>
+</blockquote>
+<hr/>
+<h2 id="-63-analogia">💡 6.3 Analogia<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-63-analogia" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<blockquote>
+<p>O pipeline é como uma <strong>lavanderia com várias máquinas</strong></p>
+</blockquote>
+<p><img src="./assets/image-11.png" width="auto" height="auto" alt/></p>
+<p><img src="./assets/image-12.png" width="auto" height="auto" alt/></p>
+<hr/>
+<h1 id="7️⃣-a-convergência-processadores-modernos">7️⃣ A Convergência: Processadores Modernos<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#7️⃣-a-convergência-processadores-modernos" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="-71-cisc-por-fora-risc-por-dentro">🔀 7.1 CISC Por Fora, RISC Por Dentro<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-71-cisc-por-fora-risc-por-dentro" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>A partir dos anos 1990, a Intel adotou uma estratégia híbrida: processadores x86 mantêm a <strong>interface CISC</strong> externamente (compatibilidade com software), mas internamente traduzem as instruções complexas em <strong>micro-operações (μops)</strong> similares a RISC.</p>
+<p><strong>Stallings (Cap. 13):</strong> documenta a convergência: “processadores modernos x86 utilizam um front-end que decodifica instruções CISC em micro-operações RISC, alimentando um back-end superescalar.”</p>
+<hr/>
+<h2 id="-72-evidências-da-convergência">📊 7.2 Evidências da Convergência<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-72-evidências-da-convergência" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Evidência</strong></th><th><strong>CISC → RISC</strong></th><th><strong>RISC → CISC</strong></th></tr></thead><tbody><tr><td><strong>Intel/AMD x86</strong></td><td>Traduzem instruções em μops RISC internamente</td><td>—</td></tr><tr><td><strong>ARM</strong></td><td>—</td><td>Adicionaram instruções complexas (NEON, SVE) para multimídia</td></tr><tr><td><strong>Apple M-series</strong></td><td>—</td><td>ARM com decodificadores largos e execução fora de ordem (técnica originalmente CISC)</td></tr><tr><td><strong>RISC-V</strong></td><td>—</td><td>Extensões opcionais adicionam complexidade quando necessário</td></tr></tbody></table></div>
+<hr/>
+<p><img src="./assets/03_evolucao_arquiteturas.jpg" width="auto" height="auto" alt/></p>
+<p><em>Timeline da evolução dos processadores: era CISC (1970s), revolução RISC (1980s), convergência (2000s), era ARM moderna (2020s).</em></p>
+<hr/>
+<h2 id="-73-o-caso-arm-de-celulares-a-servidores">🌍 7.3 O Caso ARM: De Celulares a Servidores<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-73-o-caso-arm-de-celulares-a-servidores" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>O ARM é o maior caso de sucesso da filosofia RISC:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Marco</strong></th><th><strong>Ano</strong></th><th><strong>Significado</strong></th></tr></thead><tbody><tr><td>ARM1 (Acorn)</td><td>1985</td><td>Primeiro processador ARM, 25 mil transistores</td></tr><tr><td>ARM no Newton (Apple)</td><td>1993</td><td>Primeiro uso da Apple com ARM</td></tr><tr><td>ARM em smartphones</td><td>2007+</td><td>iPhone e Android adotam ARM massivamente</td></tr><tr><td>Apple M1</td><td>2020</td><td>ARM supera Intel em desempenho/watt em notebooks</td></tr><tr><td>AWS Graviton 3</td><td>2021</td><td>ARM em servidores de nuvem com melhor custo-benefício</td></tr><tr><td>ARM em supercomputadores</td><td>2020</td><td>Fugaku (Japão): supercomputador #1 do mundo usando ARM (A64FX)</td></tr></tbody></table></div>
+<blockquote>
+<p>Mais de</p>
+<p><strong>280 bilhões</strong></p>
+</blockquote>
+<hr/>
+<p><img src="./assets/04_arm_aplicacoes_modernas.jpg" width="auto" height="auto" alt/></p>
+<p><em>Infográfico mostrando ARM em smartphones, tablets, servidores, MacBooks (M-series), drones e IoT.</em></p>
+<hr/>
+<h1 id="8️⃣-risc-v-o-futuro-aberto">8️⃣ RISC-V: O Futuro Aberto<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#8️⃣-risc-v-o-futuro-aberto" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="-81-o-que-é-risc-v">🔓 8.1 O Que É RISC-V?<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-81-o-que-é-risc-v" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><strong>RISC-V</strong> (pronuncia-se “RISC five”) é uma arquitetura de conjunto de instruções <strong>aberta e livre</strong> (open-source ISA), criada na UC Berkeley em 2010. Qualquer empresa pode projetar processadores RISC-V sem pagar royalties.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Característica</strong></th><th><strong>Detalhe</strong></th></tr></thead><tbody><tr><td><strong>Origem</strong></td><td>UC Berkeley, 2010</td></tr><tr><td><strong>Licença</strong></td><td>Aberta (sem royalties)</td></tr><tr><td><strong>Filosofia</strong></td><td>RISC modular com extensões opcionais</td></tr><tr><td><strong>Governança</strong></td><td>RISC-V International (fundação sem fins lucrativos)</td></tr><tr><td><strong>Aplicações atuais</strong></td><td>IoT, embarcados, aceleradores de IA</td></tr><tr><td><strong>Apoiadores</strong></td><td>Google, NVIDIA, Qualcomm, Samsung, entre outros</td></tr></tbody></table></div>
+<blockquote>
+<p>RISC-V está para processadores assim como <strong>Linux está para sistemas operacionais</strong></p>
+</blockquote>
+<hr/>
+<h1 id="9️⃣-resumo-estrutural-da-aula">9️⃣ Resumo Estrutural da Aula<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#9️⃣-resumo-estrutural-da-aula" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Conceito</strong></th><th><strong>Definição em uma frase</strong></th></tr></thead><tbody><tr><td><strong>ISA</strong></td><td>Interface que define quais instruções o processador entende</td></tr><tr><td><strong>CISC</strong></td><td>Filosofia com muitas instruções complexas, formato variável, controle microprogramado</td></tr><tr><td><strong>RISC</strong></td><td>Filosofia com poucas instruções simples, formato fixo, controle hardwired</td></tr><tr><td><strong>Pipeline</strong></td><td>Técnica que divide a execução em estágios para processar múltiplas instruções em paralelo</td></tr><tr><td><strong>Convergência</strong></td><td>Processadores modernos misturam elementos CISC e RISC</td></tr><tr><td><strong>ARM</strong></td><td>Maior caso de sucesso RISC: de celulares a supercomputadores</td></tr><tr><td><strong>RISC-V</strong></td><td>ISA aberto e livre, o futuro democrático da arquitetura de processadores</td></tr><tr><td><strong>μops</strong></td><td>Micro-operações RISC geradas internamente por processadores x86 (CISC por fora, RISC por dentro)</td></tr></tbody></table></div>
+<hr/>
+<h1 id="-metodologia-ativa-atividade-prática">🔟 Metodologia Ativa: Atividade Prática<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-metodologia-ativa-atividade-prática" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="-atividade-analise-a-arquitetura">🎓 Atividade: “Analise a Arquitetura”<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-atividade-analise-a-arquitetura" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><strong>Formato:</strong> Aprendizagem Baseada em Problemas (PBL)</p>
+<p><strong>Instrução para os alunos:</strong></p>
+<p>Para cada cenário abaixo, determine:</p>
+<ol>
+<li>Qual filosofia de ISA é mais adequada (<strong>CISC ou RISC</strong>)?</li>
+<li>Justifique com base em pelo menos <strong>dois critérios</strong> da tabela comparativa</li>
+<li>Cite um <strong>processador real</strong> que atenderia ao cenário</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>#</strong></th><th><strong>Cenário</strong></th><th><strong>Resposta Esperada</strong></th></tr></thead><tbody><tr><td>1</td><td>Projetar um sensor IoT alimentado por bateria que deve operar por anos</td><td>RISC (ARM Cortex-M / RISC-V): baixo consumo, instruções simples</td></tr><tr><td>2</td><td>Servidor empresarial que precisa rodar software legado Windows/Linux de 20 anos</td><td>CISC (x86/x64): compatibilidade retroativa com software existente</td></tr><tr><td>3</td><td>Smartphone que precisa equilibrar desempenho e duração de bateria</td><td>RISC (ARM Cortex-A, big.LITTLE): eficiência energética com alto desempenho</td></tr><tr><td>4</td><td>Workstation para edição de vídeo 4K com software Adobe</td><td>CISC (x86) ou ARM (Apple M-series): depende do ecossistema de software</td></tr><tr><td>5</td><td>Supercomputador para simulação climática</td><td>RISC (ARM A64FX como no Fugaku): alto throughput, eficiência energética</td></tr><tr><td>6</td><td>Console de videogame de nova geração</td><td>CISC (x86 customizado pela AMD, como no PS5/Xbox): ecossistema de jogos x86</td></tr><tr><td>7</td><td>Microcontrolador para controle de motor de drone</td><td>RISC (ARM Cortex-M / RISC-V): tempo real, baixo consumo, custo baixo</td></tr></tbody></table></div>
+<hr/>
+<h2 id="-desafio-extra-sala-de-aula-invertida">🧪 Desafio Extra (Sala de Aula Invertida)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-desafio-extra-sala-de-aula-invertida" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><strong>Para casa:</strong> Pesquisar e trazer para a próxima aula uma análise comparativa entre <strong>dois processadores reais</strong>: um CISC e um RISC. O aluno deve:</p>
+<ul>
+<li>Identificar o processador e seu ISA</li>
+<li>Listar: número de transistores, clock máximo, TDP (consumo), ano de lançamento</li>
+<li>Comparar usando a tabela CISC vs. RISC da aula</li>
+<li>Concluir qual é mais adequado para o cenário escolhido e por quê</li>
+</ul>
+<p><strong>Sugestões de pares para comparação:</strong></p>
+<ul>
+<li>Intel Core i7 (13ª geração) vs. Apple M3</li>
+<li>AMD Ryzen 9 vs. AWS Graviton 3</li>
+<li>Intel Atom vs. ARM Cortex-A55</li>
+<li>Qualquer processador x86 vs. qualquer processador RISC-V</li>
+</ul>
+<hr/>
+<h1 id="1️⃣1️⃣-referências-bibliográficas">1️⃣1️⃣ Referências Bibliográficas<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1️⃣1️⃣-referências-bibliográficas" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="-referências-obrigatórias">📖 Referências Obrigatórias<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-referências-obrigatórias" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><strong>STALLINGS, W.</strong> <em>Arquitetura e Organização de Computadores: projetando com foco em desempenho.</em> 11ª ed. São Paulo: Pearson, 2024.
+<ul>
+<li><strong>Capítulo 13:</strong> Computadores com Conjunto Reduzido de Instruções (RISC), comparação CISC vs. RISC e princípios do projeto RISC.</li>
+<li><strong>Capítulo 15:</strong> Conjuntos de Instruções: Características e Funções, definição de ISA, formatos, modos de endereçamento.</li>
+<li><strong>Capítulo 12:</strong> Estrutura e Função do Processador, pipeline e execução de instruções.</li>
+</ul>
+</li>
+<li><strong>TANENBAUM, A. S.</strong> <em>Organização Estruturada de Computadores.</em> 6ª ed. São Paulo: Pearson, 2013.
+<ul>
+<li><strong>Capítulo 2:</strong> Organização de Sistemas de Computadores, visão geral de CPU, registradores e ciclo de instrução.</li>
+<li><strong>Capítulo 5:</strong> O Nível de Arquitetura do Conjunto de Instruções, formatos de instrução e filosofias de projeto.</li>
+</ul>
+</li>
+<li><strong>CORRÊA, A. G. D.</strong> <em>Organização e Arquitetura de Computadores.</em> São Paulo: Pearson, 2016.</li>
+</ul>
+<h2 id="-referências-complementares-e-artigos">📄 Referências Complementares e Artigos<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-referências-complementares-e-artigos" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><strong>PATTERSON, D. A.; HENNESSY, J. L.</strong> <em>Computer Organization and Design: The Hardware/Software Interface.</em> 6th ed. Morgan Kaufmann, 2020.
+<ul>
+<li>Referência clássica que apresenta a filosofia RISC pelos próprios criadores do conceito. Capítulo 2 cobre o ISA do MIPS em detalhes.</li>
+</ul>
+</li>
+<li><strong>PATTERSON, D. A.; DITZEL, D. R.</strong> “The Case for the Reduced Instruction Set Computer.” <em>ACM SIGARCH Computer Architecture News</em>, vol. 8, no. 6, 1980, pp. 25-33.
+<ul>
+<li>Artigo seminal que inaugurou o debate CISC vs. RISC e formalizou os argumentos a favor do RISC.</li>
+</ul>
+</li>
+<li><strong>WATERMAN, A.; ASANOVIĆ, K. (Eds.)</strong> “The RISC-V Instruction Set Manual.” <em>RISC-V International</em>, 2019.
+<ul>
+<li>Especificação oficial do ISA RISC-V, disponível gratuitamente. Documenta a arquitetura base e extensões.</li>
+</ul>
+</li>
+<li><strong>BLEM, E.; MENON, J.; SANKARALINGAM, K.</strong> “Power Struggles: Revisiting the RISC vs. CISC Debate on Contemporary ARM and x86 Architectures.” <em>Proceedings of HPCA</em>, 2013.
+<ul>
+<li>Estudo comparativo moderno que analisa consumo energético real entre ARM e x86, confirmando a convergência.</li>
+</ul>
+</li>
+</ul>
+<hr/>
+<h2 id="-links-úteis-para-aprofundamento">🔗 Links Úteis para Aprofundamento<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-links-úteis-para-aprofundamento" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Recurso</strong></th><th><strong>Descrição</strong></th><th><strong>Link</strong></th></tr></thead><tbody><tr><td>RISC-V International</td><td>Organização oficial do ISA aberto RISC-V</td><td>riscv.org</td></tr><tr><td>ARM Developer</td><td>Documentação técnica oficial da ARM</td><td>developer.arm.com</td></tr><tr><td>Intel Developer Zone</td><td>Manuais de ISA x86 e ferramentas</td><td>intel.com/developer</td></tr><tr><td>MARS Simulator</td><td>Simulador MIPS para prática de assembly RISC</td><td>courses.missouristate.edu/MARS</td></tr><tr><td>Godbolt Compiler Explorer</td><td>Visualizador online de assembly para diferentes ISAs</td><td>godbolt.org</td></tr></tbody></table></div></article><hr/><div class="page-footer"></div></div><div class="right sidebar"></div><footer class="footer "><div class="footer__brand"><img src="https://uniube.br/img/landing/logo_azul.svg" alt="Universidade de Uberaba" class="footer__logo footer__logo--light"/><img src="https://uniube.br/img/landing/logo_branca.svg" alt="Universidade de Uberaba" class="footer__logo footer__logo--dark"/><div class="footer__info"><span class="footer__name">Prof. Romualdo Filho</span><a class="footer__email" href="mailto:romualdo.filho@uniube.br">romualdo.filho@uniube.br</a></div></div><ul class="footer__links"><li><a href="https://uniube.br" target="_blank" rel="noopener noreferrer">Mural Uniube</a></li></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="./postscript.js" type="module" data-persist="true"></script></html>

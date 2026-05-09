@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="pt" dir="ltr"><head><title>💻 🖥️ Aula 05: Unidades de Processamento e Ciclo de Instrução | Prof. Romualdo</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;family=Inter:ital,wght@0,400;0,600;1,400;1,600&amp;family=JetBrains Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="💻 Arquitetura de Computadores"/><meta property="og:title" content="💻 🖥️ Aula 05: Unidades de Processamento e Ciclo de Instrução | Prof. Romualdo"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="💻 🖥️ Aula 05: Unidades de Processamento e Ciclo de Instrução | Prof. Romualdo"/><meta name="twitter:description" content="🖥️ Aula 05: Unidades de Processamento e Ciclo de Instrução 🎯 Objetivo da Aula Ao final, o aluno deve: Identificar os componentes internos da Unidade Central de Processamento (UCP) Diferenciar registradores visíveis ao usuário de registradores de controle e estado Descrever o fluxo de dados durante..."/><meta property="og:description" content="🖥️ Aula 05: Unidades de Processamento e Ciclo de Instrução 🎯 Objetivo da Aula Ao final, o aluno deve: Identificar os componentes internos da Unidade Central de Processamento (UCP) Diferenciar registradores visíveis ao usuário de registradores de controle e estado Descrever o fluxo de dados durante..."/><meta property="og:image:alt" content="🖥️ Aula 05: Unidades de Processamento e Ciclo de Instrução 🎯 Objetivo da Aula Ao final, o aluno deve: Identificar os componentes internos da Unidade Central de Processamento (UCP) Diferenciar registradores visíveis ao usuário de registradores de controle e estado Descrever o fluxo de dados durante..."/><meta property="twitter:domain" content="rofilho.github.io/arquitetura"/><meta property="og:url" content="https://rofilho.github.io/arquitetura/Aula-05---Unidades-de-Processamento"/><meta property="twitter:url" content="https://rofilho.github.io/arquitetura/Aula-05---Unidades-de-Processamento"/><link rel="icon" href="./static/icon.png"/><meta name="description" content="🖥️ Aula 05: Unidades de Processamento e Ciclo de Instrução 🎯 Objetivo da Aula Ao final, o aluno deve: Identificar os componentes internos da Unidade Central de Processamento (UCP) Diferenciar registradores visíveis ao usuário de registradores de controle e estado Descrever o fluxo de dados durante..."/><meta name="generator" content="Quartz"/><link href="./index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiQzpcXFVzZXJzXFxyb211YVxcQXBwRGF0YVxcTG9jYWxcXFRlbXBcXGFycXVpdGV0dXJhXFxxdWFydHpcXGNvbXBvbmVudHNcXHN0eWxlcyIsInNvdXJjZXMiOlsibWVybWFpZC5pbmxpbmUuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTs7QUFHRjtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTs7O0FBS0Y7RUFDRTtFQUNBOzs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTs7QUFHRjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTs7QUFHRjtFQUNFO0VBQ0E7O0FBSUo7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7O0FBSUY7RUFDRTtFQUNBO0VBQ0EiLCJzb3VyY2VzQ29udGVudCI6WyIuZXhwYW5kLWJ1dHRvbiB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxvYXQ6IHJpZ2h0O1xuICBwYWRkaW5nOiAwLjRyZW07XG4gIG1hcmdpbjogMC4zcmVtO1xuICByaWdodDogMDsgLy8gTk9URTogcmlnaHQgd2lsbCBiZSBzZXQgaW4gbWVybWFpZC5pbmxpbmUudHNcbiAgY29sb3I6IHZhcigtLWdyYXkpO1xuICBib3JkZXItY29sb3I6IHZhcigtLWRhcmspO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gIGJvcmRlcjogMXB4IHNvbGlkO1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIG9wYWNpdHk6IDA7XG4gIHRyYW5zaXRpb246IDAuMnM7XG5cbiAgJiA+IHN2ZyB7XG4gICAgZmlsbDogdmFyKC0tbGlnaHQpO1xuICAgIGZpbHRlcjogY29udHJhc3QoMC4zKTtcbiAgfVxuXG4gICY6aG92ZXIge1xuICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICBib3JkZXItY29sb3I6IHZhcigtLXNlY29uZGFyeSk7XG4gIH1cblxuICAmOmZvY3VzIHtcbiAgICBvdXRsaW5lOiAwO1xuICB9XG59XG5cbnByZSB7XG4gICY6aG92ZXIgPiAuZXhwYW5kLWJ1dHRvbiB7XG4gICAgb3BhY2l0eTogMTtcbiAgICB0cmFuc2l0aW9uOiAwLjJzO1xuICB9XG59XG5cbiNtZXJtYWlkLWNvbnRhaW5lciB7XG4gIHBvc2l0aW9uOiBmaXhlZDtcbiAgY29udGFpbjogbGF5b3V0O1xuICB6LWluZGV4OiA5OTk7XG4gIGxlZnQ6IDA7XG4gIHRvcDogMDtcbiAgd2lkdGg6IDEwMHZ3O1xuICBoZWlnaHQ6IDEwMHZoO1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICBkaXNwbGF5OiBub25lO1xuICBiYWNrZHJvcC1maWx0ZXI6IGJsdXIoNHB4KTtcbiAgYmFja2dyb3VuZDogcmdiYSgwLCAwLCAwLCAwLjUpO1xuXG4gICYuYWN0aXZlIHtcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIH1cblxuICAmID4gI21lcm1haWQtc3BhY2Uge1xuICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbGlnaHQpO1xuICAgIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgICBwb3NpdGlvbjogZml4ZWQ7XG4gICAgdG9wOiA1MCU7XG4gICAgbGVmdDogNTAlO1xuICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlKC01MCUsIC01MCUpO1xuICAgIGhlaWdodDogODB2aDtcbiAgICB3aWR0aDogODB2dztcbiAgICBvdmVyZmxvdzogaGlkZGVuO1xuXG4gICAgJiA+IC5tZXJtYWlkLWNvbnRlbnQge1xuICAgICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgICAgdHJhbnNmb3JtLW9yaWdpbjogMCAwO1xuICAgICAgdHJhbnNpdGlvbjogdHJhbnNmb3JtIDAuMXMgZWFzZTtcbiAgICAgIG92ZXJmbG93OiB2aXNpYmxlO1xuICAgICAgbWluLWhlaWdodDogMjAwcHg7XG4gICAgICBtaW4td2lkdGg6IDIwMHB4O1xuXG4gICAgICBwcmUge1xuICAgICAgICBtYXJnaW46IDA7XG4gICAgICAgIGJvcmRlcjogbm9uZTtcbiAgICAgIH1cblxuICAgICAgc3ZnIHtcbiAgICAgICAgbWF4LXdpZHRoOiBub25lO1xuICAgICAgICBoZWlnaHQ6IGF1dG87XG4gICAgICB9XG4gICAgfVxuXG4gICAgJiA+IC5tZXJtYWlkLWNvbnRyb2xzIHtcbiAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICAgIGJvdHRvbTogMjBweDtcbiAgICAgIHJpZ2h0OiAyMHB4O1xuICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgIGdhcDogOHB4O1xuICAgICAgcGFkZGluZzogOHB4O1xuICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xuICAgICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgIGJvcmRlci1yYWRpdXM6IDZweDtcbiAgICAgIGJveC1zaGFkb3c6IDAgMnB4IDRweCByZ2JhKDAsIDAsIDAsIDAuMSk7XG4gICAgICB6LWluZGV4OiAyO1xuXG4gICAgICAubWVybWFpZC1jb250cm9sLWJ1dHRvbiB7XG4gICAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAgICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICAgICAgICB3aWR0aDogMzJweDtcbiAgICAgICAgaGVpZ2h0OiAzMnB4O1xuICAgICAgICBwYWRkaW5nOiAwO1xuICAgICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICAgIGNvbG9yOiB2YXIoLS1kYXJrKTtcbiAgICAgICAgYm9yZGVyLXJhZGl1czogNHB4O1xuICAgICAgICBjdXJzb3I6IHBvaW50ZXI7XG4gICAgICAgIGZvbnQtc2l6ZTogMTZweDtcbiAgICAgICAgZm9udC1mYW1pbHk6IHZhcigtLWJvZHlGb250KTtcbiAgICAgICAgdHJhbnNpdGlvbjogYWxsIDAuMnMgZWFzZTtcblxuICAgICAgICAmOmhvdmVyIHtcbiAgICAgICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgICB9XG5cbiAgICAgICAgJjphY3RpdmUge1xuICAgICAgICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWSgxcHgpO1xuICAgICAgICB9XG5cbiAgICAgICAgLy8gU3R5bGUgdGhlIHJlc2V0IGJ1dHRvbiBkaWZmZXJlbnRseVxuICAgICAgICAmOm50aC1jaGlsZCgyKSB7XG4gICAgICAgICAgd2lkdGg6IGF1dG87XG4gICAgICAgICAgcGFkZGluZzogMCAxMnB4O1xuICAgICAgICAgIGZvbnQtc2l6ZTogMTRweDtcbiAgICAgICAgfVxuICAgICAgfVxuICAgIH1cbiAgfVxufVxuIl19 */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="./prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("./static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://rofilho.github.io/arquitetura/index.xml"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://rofilho.github.io/arquitetura/Aula-05---Unidades-de-Processamento-og-image.webp"/><meta property="og:image:url" content="https://rofilho.github.io/arquitetura/Aula-05---Unidades-de-Processamento-og-image.webp"/><meta name="twitter:image" content="https://rofilho.github.io/arquitetura/Aula-05---Unidades-de-Processamento-og-image.webp"/><meta property="og:image:type" content="image/.webp"/></head><body data-slug="Aula-05---Unidades-de-Processamento"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"></div><div class="center"><div class="page-header"><header><h2 class="page-title"><a href="." class="page-title__link"><img src="https://uniube.br/img/landing/logo_azul.svg" alt="Uniube" class="page-title__logo page-title__logo--light"/><img src="https://uniube.br/img/landing/logo_branca.svg" alt="Uniube" class="page-title__logo page-title__logo--dark"/><span class="page-title__text">💻 Arquitetura de Computadores</span></a></h2><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Pesquisar</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Pesquisar por algo" placeholder="Pesquisar por algo"/><div class="search-layout" data-preview="true"></div></div></div></div><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Tema escuro"><title>Tema escuro</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Tema claro"><title>Tema claro</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></header><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="./">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>💻 🖥️ Aula 05: Unidades de Processamento e Ciclo de Instrução</a></div></nav><nav class="lesson-nav" aria-label="Navegação entre aulas"><div class="lesson-nav__slot"><a href="/Aula-04---Arquiteturas-CISC-vs-RISC" class="nav-pill nav-pill--prev" data-spa="true"><div class="nav-pill__icon">📖</div><div class="nav-pill__body"><span class="nav-pill__label">← Anterior</span><span class="nav-pill__title">💻 🖥️ Aula 04: Arquiteturas CISC vs. RISC</span></div></a></div><div class="lesson-nav__slot lesson-nav__slot--right"><a href="/Aula-06---Hierarquia-de-Memoria-e-Memoria-Virtual" class="nav-pill nav-pill--next" data-spa="true"><div class="nav-pill__icon">📖</div><div class="nav-pill__body"><span class="nav-pill__label">Próxima →</span><span class="nav-pill__title">💻 🟢 Aula 06: Hierarquia de Memória e Memória Virtual</span></div></a></div></nav><h1 class="article-title">💻 🖥️ Aula 05: Unidades de Processamento e Ciclo de Instrução</h1><p show-comma="true" class="content-meta"><time datetime="2026-04-19T15:29:42.000Z">19 de abr. de 2026</time><span>Leitura de 10 min</span></p></div></div><article class="popover-hint"><h1 id="️-aula-05-unidades-de-processamento-e-ciclo-de-instrução">🖥️ Aula 05: Unidades de Processamento e Ciclo de Instrução<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-aula-05-unidades-de-processamento-e-ciclo-de-instrução" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="-objetivo-da-aula">🎯 Objetivo da Aula<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-objetivo-da-aula" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Ao final, o aluno deve:</p>
+<ul>
+<li><strong>Identificar</strong> os componentes internos da Unidade Central de Processamento (UCP)</li>
+<li><strong>Diferenciar</strong> registradores visíveis ao usuário de registradores de controle e estado</li>
+<li><strong>Descrever</strong> o fluxo de dados durante o Ciclo de Busca (Fetch) e Execução (Execute)</li>
+<li><strong>Compreender</strong> o papel das interrupções na quebra do fluxo normal de execução</li>
+<li><strong>Relacionar</strong> a arquitetura de registradores com o desempenho do processador</li>
+</ul>
+<p>Base conceitual alinhada com:</p>
+<ul>
+<li><strong>William Stallings</strong>, Arquitetura e Organização de Computadores, 11ª ed., Cap. 12 (“Estrutura e Função do Processador”) e Cap. 3 (“Visão de Alto Nível: Função e Interconexão do Computador”).</li>
+</ul>
+<hr/>
+<h1 id="0️⃣-revisão-da-aula-anterior-5-perguntas-sobre-arquiteturas-cisc-vs-risc">0️⃣ Revisão da Aula Anterior: 5 Perguntas sobre Arquiteturas CISC vs RISC<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#0️⃣-revisão-da-aula-anterior-5-perguntas-sobre-arquiteturas-cisc-vs-risc" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<blockquote>
+<p>Antes de avançar para o interior do processador, vamos revisar os conceitos da Aula 04:</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>#</strong></th><th><strong>Pergunta</strong></th><th><strong>Conceito Avaliado</strong></th></tr></thead><tbody><tr><td>1</td><td>Qual a diferença fundamental entre as filosofias CISC e RISC em relação ao número e tamanho das instruções?</td><td>Características Estruturais</td></tr><tr><td>2</td><td>O que é a técnica de <strong>Pipeline</strong> e qual a sua maior vantagem?</td><td>Desempenho / Pipeline</td></tr><tr><td>3</td><td>Por que os processadores RISC (como o ARM) dominam o mercado de dispositivos móveis (smartphones) e IoT?</td><td>Eficiência Energética</td></tr><tr><td>4</td><td>Como a Intel/AMD aplicaram o conceito de convergência arquitetural nos processadores modernos (ex: Core i7)?</td><td>Convergência (CISC por fora, RISC por dentro)</td></tr><tr><td>5</td><td>O que significa CPI (Ciclos por Instrução) e qual arquitetura (CISC ou RISC) busca aproximar esse valor de 1?</td><td>Medidas de Desempenho</td></tr></tbody></table></div>
+<blockquote>
+<p><strong>Respostas rápidas para discussão em sala:</strong></p>
+</blockquote>
+<hr/>
+<h1 id="1️⃣-recapitulação-de-onde-viemos">1️⃣ Recapitulação: De Onde Viemos?<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1️⃣-recapitulação-de-onde-viemos" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="-conexão-com-a-aula-04">🔗 Conexão com a Aula 04<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-conexão-com-a-aula-04" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Na aula anterior, entendemos o <strong>Conjunto de Instruções (ISA)</strong> como o “idioma” do processador, onde discutimos as duas filosofias principais (CISC e RISC) e como as instruções fluem através do <strong>Pipeline</strong>.</p>
+<blockquote>
+<p><strong>Mensagem-chave:</strong> Já sabemos o que o processador pode fazer (suas instruções). Hoje vamos abrir a “caixa preta” da CPU para entender <strong>como</strong> ele faz. Vamos analisar as engrenagens internas e o ritmo contínuo que mantém o computador funcionando: o Ciclo de Instrução.</p>
+</blockquote>
+<hr/>
+<h1 id="2️⃣-a-unidade-central-de-processamento-ucp">2️⃣ A Unidade Central de Processamento (UCP)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2️⃣-a-unidade-central-de-processamento-ucp" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="-21-definição">📋 2.1 Definição<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-21-definição" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>A <strong>UCP</strong> (ou CPU) é o componente lógico central encarregado de buscar, decodificar e executar as instruções armazenadas na memória principal.</p>
+<p><strong>Stallings (Cap. 12):</strong> descreve que para executar instruções, o processador deve ter memória de curto prazo acoplada a ele, os registradores, além de sistemas para cálculos lógicos e tomada de decisão eletrônica.</p>
+<h2 id="-22-componentes-internos">🧩 2.2 Componentes Internos<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-22-componentes-internos" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Componente</strong></th><th><strong>Detalhe Funcional</strong></th></tr></thead><tbody><tr><td><strong>Unidade Lógica e Aritmética (ULA)</strong></td><td>Realiza cálculos (somas, subtrações) e operações booleanas (AND, OR, NOT).</td></tr><tr><td><strong>Unidade de Controle (UC)</strong></td><td>Interpreta a instrução e envia os sinais elétricos necessários para ativar a ULA e caminhos de dados.</td></tr><tr><td><strong>Registradores</strong></td><td>Memória ultra-rápida interna (nível zero na hierarquia). Armazenam dados imediatos e estados da CPU.</td></tr><tr><td><strong>Barramentos Internos</strong></td><td>Caminhos elétricos que conectam a ULA, UC e Registradores dentro do próprio chip.</td></tr></tbody></table></div>
+<p><img src="./assets/01_ucp_componentes.png" width="auto" height="auto" alt/></p>
+<p><em>Diagrama bloco ULA, Unidade de Controle, Registradores conectando-se internamente em uma UCP genérica.</em></p>
+<h2 id="-23-analogia">💡 2.3 Analogia<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-23-analogia" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<blockquote>
+<p>A CPU é como um <strong>chef de cozinha em ação</strong>. A <strong>ULA</strong> é a faca e as panelas (quem faz efetivamente o trabalho de transformação). A <strong>Unidade de Controle</strong> é a mente do chef, lendo um livro de receitas e comandando os movimentos do corpo. Os <strong>Registradores</strong> são os pratos e as tigelas mantidas na bancada imediata onde os ingredientes (dados) ficam temporariamente guardados durante o choque térmico ou corte.</p>
+</blockquote>
+<hr/>
+<h1 id="3️⃣-a-unidade-de-processamento-registradores">3️⃣ A Unidade de Processamento: Registradores<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3️⃣-a-unidade-de-processamento-registradores" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="-31-definição">🔧 3.1 Definição<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-31-definição" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Os processadores dividem os registradores em categorias lógicas. Nem todo registrador pode ser alterado deliberadamente pelo software. Eles se dividem em <strong>Visíveis ao Usuário</strong> e <strong>Registradores de Controle e Estado</strong>.</p>
+<h2 id="-32-registradores-críticos-de-controle-e-estado">🧩 3.2 Registradores Críticos de Controle e Estado<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-32-registradores-críticos-de-controle-e-estado" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Estes são essenciais para o ciclo mecânico repetitivo da CPU:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Registrador</strong></th><th><strong>Nome Completo</strong></th><th><strong>Função Crítica</strong></th></tr></thead><tbody><tr><td><strong>PC</strong></td><td><em>Program Counter</em></td><td>Armazena o <strong>endereço</strong> da <em>próxima</em> instrução a ser buscada na memória.</td></tr><tr><td><strong>IR</strong></td><td><em>Instruction Register</em></td><td>Armazena a instrução <em>atual</em> que acabou de ser buscada e está sendo decodificada/executada.</td></tr><tr><td><strong>MAR</strong></td><td><em>Memory Address Register</em></td><td>Especifica o <strong>endereço</strong> na memória principal onde será feita uma leitura ou escrita.</td></tr><tr><td><strong>MBR</strong></td><td><em>Memory Buffer Register</em></td><td>Contém o genérico <strong>dado lógico</strong> (ou instrução lida) que veio da memória ou que irá para lá.</td></tr><tr><td><strong>PSW</strong></td><td><em>Program Status Word</em></td><td>Guarda flags de estado de sistema (ex: se a última soma deu zero, deu overflow, foi negativa).</td></tr></tbody></table></div>
+<p><img src="./assets/image-13.png" width="auto" height="auto" alt/></p>
+<p><em>Sequência de Busca usando registradores. A ilustração exibe o PC apontando para o MAR, depois comunicando com a Memória e retornando o resultado pelo MBR até chegar no IR.</em></p>
+<hr/>
+<h1 id="4️⃣-o-ciclo-de-instrução-básico">4️⃣ O Ciclo de Instrução Básico<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#4️⃣-o-ciclo-de-instrução-básico" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="-41-definição">⚡ 4.1 Definição<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-41-definição" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>A função básica do computador é executar programas, e um programa consiste em uma sequência sequencial de instruções contidas em endereços na memória. O processo ordenado para engolir e processar uma única instrução é nomeado <strong>Ciclo de Instrução</strong>.</p>
+<p><strong>Stallings (Cap. 3):</strong> define que na forma arquitetônica mais simples imaginável, o processamento de uma instrução possui dois subciclos primordiais intercalados: <strong>Ciclo de Busca</strong> (Fetch) e <strong>Ciclo de Execução</strong> (Execute).</p>
+<h2 id="-42-o-fluxo-básico-de-estados">🧩 4.2 O Fluxo Básico de Estados<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-42-o-fluxo-básico-de-estados" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Estado</strong></th><th><strong>O que Ocorre em Hardware</strong></th></tr></thead><tbody><tr><td><strong>Busca (Fetch)</strong></td><td>O processador lê a próxima estrutura codificada da memória e manda para o IR, avançando o PC.</td></tr><tr><td><strong>Decodificação</strong></td><td>A UC descobre o que a instrução faz (identificando seu Opcode interno).</td></tr><tr><td><strong>Execução (Execute)</strong></td><td>O hardware realiza a ação: soma de componentes, movimento mestre de dados ou salto.</td></tr><tr><td><strong>Múltiplos Ciclos</strong></td><td>Este macro-ciclo é contínuo e obedece ao ritmo biológico do relógio do sistema (Frequência do Clock).</td></tr></tbody></table></div>
+<p><img src="./assets/03_ciclo_instrucao_basico.png" width="auto" height="auto" alt/></p>
+<p><em>Flowchart cíclico (Início <span>→</span> Ciclo de Busca (Fetch) <span>→</span> Ciclo de Execução (Execute) <span>→</span> loop infinito).</em></p>
+<aside>
+💡
+<p>Avaliação.</p>
+</aside>
+<h2 id="-43-o-passo-a-passo-físico-da-busca-fetch">📝 4.3 O Passo a Passo Físico da Busca (Fetch)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-43-o-passo-a-passo-físico-da-busca-fetch" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Quando o micro-estágio de Busca começa, ocorre um “balé” coordenado de pulsos elétricos:</p>
+<ol>
+<li>O Hardware envia o endereço do <strong>PC</strong> para o <strong>MAR</strong> e sinaliza pelo barramento que solicita uma leitura.</li>
+<li>A memória principal decodifica a requisição e devolve o valor de bits, abrigando-o no <strong>MBR</strong>.</li>
+<li>Como a unidade central sabe que está num momento de busca da instrução ativa, ela copia o conteúdo ilhado no <strong>MBR</strong> para o <strong>IR</strong>.</li>
+<li>O valor do <strong>PC</strong> é incrementado localmente para apontar para a instrução vizinha e sucessora no espaço da memória.</li>
+</ol>
+<h2 id="-44-analogia">💡 4.4 Analogia<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-44-analogia" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<blockquote>
+<p>O funcionamento contínuo assemelha-se a <strong>seguir um longo roteiro teatral</strong>. O <strong>PC</strong> é o dedo apontador do diretor marcando duramente qual linha exata de texto (endereço) será lida a seguir. O <strong>IR</strong> é o cérebro interpretativo do ator. Após ler e meditar (Busca/Fetch), o ator exibe a ação no palco material (Execução). E o dedo impiedoso (PC) logo move para a próxima frase após a verificação.</p>
+</blockquote>
+<hr/>
+<h1 id="5️⃣-o-fim-do-ciclo-interrupções-mestre">5️⃣ O Fim do Ciclo: Interrupções Mestre<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#5️⃣-o-fim-do-ciclo-interrupções-mestre" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="-51-o-que-são-interrupções-sistêmicas">🔀 5.1 O Que São Interrupções Sistêmicas?<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-51-o-que-são-interrupções-sistêmicas" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>A sequência normal infalível iterando Busca <span>→</span> Execução assume um pressuposto estático perigoso: as coisas vivem no vácuo e são perfeitamente lineares. Quase todos os computadores viáveis suportam <strong>Interrupções</strong>: mecanismos arquitetados onde módulos autônomos adjacentes (como HD, placa de rede, ou falhas na memória) tem passe-livre para <strong>interromper a sequência de processamento e roubar a atenção para eles</strong>.</p>
+<h2 id="-52-fluxo-estruturado-do-ciclo-com-interrupções">🧩 5.2 Fluxo Estruturado do Ciclo com Interrupções<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-52-fluxo-estruturado-do-ciclo-com-interrupções" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Etapa</strong></th><th><strong>Detalhe Relevante</strong></th></tr></thead><tbody><tr><td><strong>Janela Fim-de-Execução</strong></td><td>Exatamente logo após completar uma execução, o hardware inspeciona um fio sinalizador sensível verificando se alguém pede atenção de emergência.</td></tr><tr><td><strong>Preservação de Contexto</strong></td><td>Havendo interrupção atestada, a CPU freia a busca seguinte. O registrador PC vigente e PSW crítico são fisicamente guardados na memória para não os perder.</td></tr><tr><td><strong>Rotina de Tratamento (ISR)</strong></td><td>O ponteiro PC agora adquire o novíssimo endereço da Rotina de Tratamento de Interrupção específica do sistema operacional hospedado.</td></tr><tr><td><strong>Retorno Conclusivo</strong></td><td>Encerrada a emergência do driver ou software corretor, os valores exatos de PC e PSW são repostos pela ordem inversa e tudo parece um lapso sutil da perspectiva do software original que foi interrompido.</td></tr></tbody></table></div>
+<p><img src="./assets/04_ciclo_com_interrupcao.png" width="auto" height="auto" alt/></p>
+<p><em>Flowchart do Ciclo estendido com o estágio obrigatório de checagem. Apresenta o losango “Houve interrupção?“.</em></p>
+<hr/>
+<h1 id="6️⃣-tendências-e-otimizações-contemporâneas">6️⃣ Tendências e Otimizações Contemporâneas<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#6️⃣-tendências-e-otimizações-contemporâneas" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="-previsão-sistêmica-de-desvios-branch-prediction">🚀 Previsão Sistêmica de Desvios (Branch Prediction)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-previsão-sistêmica-de-desvios-branch-prediction" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>O conceito basilar e histórico é o sequenciamento fixo do PC. Contudo, em hardwares moderníssimos baseados em processamento temporal esticado, quando um ciclo desagua em um salto variável (como estruturas “IF-ELSE”), o fluxo se confunde, paralisando etapas superescalares.</p>
+<p>Atrelado às buscas do PC, arquiteturas com o sufixo “Core” intel ou “M” Apple portam hardware preditor incrustado altamente complexo calcado em tabelas de histórico lógico que tenta proativamente deduzir se um desvio no programa se realizará ou não muito antes dele fluir efetivamente pelas ULA, agilizando fluxos em milhões de microssegundos em massa.</p>
+<hr/>
+<h1 id="7️⃣-resumo-estrutural-consolidador">7️⃣ Resumo Estrutural Consolidador<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#7️⃣-resumo-estrutural-consolidador" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Conceito Crítico</strong></th><th><strong>Definição Básica em uma só sentença</strong></th></tr></thead><tbody><tr><td><strong>UCP / CPU Funcional</strong></td><td>Estrato composto fundamental de ULA, UC e Registradores.</td></tr><tr><td><strong>ULA Processual</strong></td><td>O operário elétrico braçal e direto focado nos malabarismos matemáticos.</td></tr><tr><td><strong>PC (Program Counter)</strong></td><td>O passaporte com carimbo da <em>próxima</em> parada temporal na memória principal.</td></tr><tr><td><strong>IR Constante</strong></td><td>A urna sacrossanta portando fielmente a instrução codificada <em>em imediata</em> elaboração ou execução.</td></tr><tr><td><strong>Fetch</strong></td><td>(Busca) Subciclo metódico e temporal de abdução de bits válidos até a CPU.</td></tr><tr><td><strong>Execute</strong></td><td>(Execução) Translado final do dado na decodificação explícita do material lido.</td></tr><tr><td><strong>Interrupção de Hardware</strong></td><td>Solução estrutural inteligente da quebra rítmica linear para tratamento exógeno de eventos.</td></tr></tbody></table></div>
+<hr/>
+<h1 id="8️⃣-metodologia-ativa-de-contexto-atividade-prática">8️⃣ Metodologia Ativa de Contexto: Atividade Prática<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#8️⃣-metodologia-ativa-de-contexto-atividade-prática" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="-atividade-central-rastreando-sinais-no-datapath">🎓 Atividade Central: “Rastreando Sinais no Datapath”<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-atividade-central-rastreando-sinais-no-datapath" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><strong>Formato Metodológico:</strong> Aprendizagem Baseada em Problemas (PBL) - Desafio grupal para consolidar as funções temporais.</p>
+<p><strong>Instrução para a reflexão:</strong></p>
+<p>Imagine um processador miniatura didático operando em uma máquina. A memória indica que a instrução base no endereço principal 100 é textualmente LOAD R1, Endereço 500 (ou seja, carregar no registrador de dados R1 contido internamente, aquilo que reside na gaveta 500 na memória).</p>
+<p>No princípio original, PC = 100 . Complete as passagens mentais:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Etapa Global</strong></th><th><strong>PC Registrado</strong></th><th><strong>MAR Registrado</strong></th><th><strong>MBR Variável</strong></th><th><strong>IR Estático</strong></th><th><strong>Oração do Fato e Ação Causal</strong></th></tr></thead><tbody><tr><td><strong>Instante Zero de Fetch</strong></td><td>100</td><td>Vazio</td><td>Vazio</td><td>Vazio</td><td>Estagnação pré-ciclo biológico absoluto.</td></tr><tr><td><strong>Fim do Macro-Caminho (Metade do Fetch)</strong></td><td>100</td><td><strong>[?]</strong></td><td><strong>[?]</strong></td><td>Vazio</td><td>MAR espelha o PC. A memória lê e expõe valores no MBR após ciclo elétrico natural.</td></tr><tr><td><strong>Encerramento da Busca</strong></td><td><strong>[?]</strong></td><td>100</td><td><code>LOAD R1, 500</code></td><td><strong>[?]</strong></td><td>Conclusão arquitetônica por cópias inter-registradores e o PC dá um salto de avanço preparatório inevitável.</td></tr><tr><td><strong>Processo de Execução</strong></td><td>101</td><td><strong>[?]</strong></td><td><strong>[?]</strong></td><td><code>LOAD R1, 500</code></td><td>A UC envia feixes decodificados para acessar memória secundariamente em razão do dado estipulado lá longe.</td></tr></tbody></table></div>
+<blockquote>
+<p><strong>Chave Mestra de Correção Rápida:</strong></p>
+<ul>
+<li></li>
+<li>[RESP_2]: LOAD R1, 500</li>
+<li></li>
+<li>[RESP_4]: LOAD R1, 500</li>
+<li></li>
+<li>[RESP_6]: [Conteúdo final alocado em 500 na RAM]</li>
+</ul>
+</blockquote>
+<hr/>
+<h2 id="-estímulo-paralelo-desafio-para-casa-via-sala-invertida">🧪 Estímulo Paralelo (Desafio para Casa via Sala Invertida)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-estímulo-paralelo-desafio-para-casa-via-sala-invertida" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><strong>Missão Autônoma:</strong> No Ciclo da Interrupção verificado no fluxograma, as literaturas confirmam piamente que a máquina tem de salvaguardar o abençoado “Estado Original Intocado” do processo moribundo. Investigue os dois parâmetros essenciais:</p>
+<ol>
+<li>Como um hardware eletrônico sabe, invariavelmente, que dois e somente dois dados bastam no geral? Cite quais os nomes primários desses dois blocos que descrevem onde se estava correndo o fluxo e qual o temperamento elétrico.</li>
+<li>Em que estrutura de dados exata a arquitetura costuma lançar esse estado salvo para uso pelo SO, obedecendo ao LIFO elementar? Referencie Stallings Cap 12.</li>
+</ol>
+<hr/>
+<h1 id="9️⃣-referências-bibliográficas-baseológicas">9️⃣ Referências Bibliográficas Baseológicas<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#9️⃣-referências-bibliográficas-baseológicas" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="-referências-obrigatórias-focais">📖 Referências Obrigatórias Focais<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-referências-obrigatórias-focais" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><strong>STALLINGS, W.</strong> <em>Arquitetura e Organização de Computadores: projetando com foco em desempenho.</em> 11ª ed. São Paulo: Pearson, 2024.
+<ul>
+<li><strong>Capítulo 3 Exato:</strong> Visão de Alto Nível: Função e Interconexão do Computador. Construto do ciclo formalizado e quebras interpostas com interrupções base.</li>
+<li><strong>Capítulo 12 Primário:</strong> Estrutura e Função do Processador. Dinâmica intrínseca macro da ULA com base registral exposta a alto nível e ciclo pormenorizado em estágios simples.</li>
+</ul>
+</li>
+<li><strong>TANENBAUM, A. S.</strong> <em>Organização Estruturada de Computadores.</em> 6ª ed. São Paulo: Pearson, 2013.
+<ul>
+<li><strong>Capítulo 2 Indutivo:</strong> Organização de Sistemas de Computadores enraizando os fluxos contidos e ciclos macro da instrução primária nas seções basilares de funcionamento de CPU.</li>
+</ul>
+</li>
+</ul>
+<h2 id="-literaturas-complementares-úteis">📄 Literaturas Complementares Úteis<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-literaturas-complementares-úteis" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><strong>NULL, L.; LOBUR, J.</strong> <em>The Essentials of Computer Organization and Architecture.</em> 5th ed. Jones &amp; Bartlett, 2018.
+<ul>
+<li>Uma visão macro do modelo matemático original descritivo sob a máquina imaculada típica estrita com fluxos e datapaths altamente intuitivos do ciclo fundamental de processamento de informações.</li>
+</ul>
+</li>
+</ul>
+<h2 id="-links-úteis-para-imersão-plural-e-prática-dinâmica">🔗 Links Úteis para Imersão Plural e Prática Dinâmica<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-links-úteis-para-imersão-plural-e-prática-dinâmica" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Recurso Extendido</strong></th><th><strong>Enfoque Conceitual</strong></th><th><strong>Domínio Atuante</strong></th></tr></thead><tbody><tr><td>Visualizador CPU Global Gráfico</td><td>Prata da casa dos <em>applets</em> de navegação em tempo-real para compreensão e vivência de fluídos simulados do datapath.</td><td><a href="https://cpulator.01xz.net/" class="external">cpulator.01xz.net<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></td></tr><tr><td>Simulador Interativo Clássico (LMC)</td><td>Um modelo prático simplista massivo derivado de experiências da academia em lógica fundamental usado para decifrar buscar-executar.</td><td><a href="https://peterhigginson.co.uk/lmc" class="external">peterhigginson.co.uk/lmc<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></td></tr><tr><td>Exploração Conceitual</td><td>Materiais complementares didáticos abordando de maneira engajante as interrupções de hardware.</td><td><a href="https://csfieldguide.org.nz/" class="external">csfieldguide.org.nz<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></td></tr></tbody></table></div></article><hr/><div class="page-footer"></div></div><div class="right sidebar"></div><footer class="footer "><div class="footer__brand"><img src="https://uniube.br/img/landing/logo_azul.svg" alt="Universidade de Uberaba" class="footer__logo footer__logo--light"/><img src="https://uniube.br/img/landing/logo_branca.svg" alt="Universidade de Uberaba" class="footer__logo footer__logo--dark"/><div class="footer__info"><span class="footer__name">Prof. Romualdo Filho</span><a class="footer__email" href="mailto:romualdo.filho@uniube.br">romualdo.filho@uniube.br</a></div></div><ul class="footer__links"><li><a href="https://uniube.br" target="_blank" rel="noopener noreferrer">Mural Uniube</a></li></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="./postscript.js" type="module" data-persist="true"></script></html>

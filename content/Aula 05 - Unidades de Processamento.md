@@ -1,3 +1,7 @@
+﻿---
+title: "💻 🖥️ Aula 05: Unidades de Processamento e Ciclo de Instrução"
+---
+
 # 🖥️ Aula 05: Unidades de Processamento e Ciclo de Instrução
 
 ## 🎯 Objetivo da Aula

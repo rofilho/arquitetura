@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="pt" dir="ltr"><head><title>💻 🖥️ Aula 03: Sistemas de Computação | Prof. Romualdo</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;family=Inter:ital,wght@0,400;0,600;1,400;1,600&amp;family=JetBrains Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="💻 Arquitetura de Computadores"/><meta property="og:title" content="💻 🖥️ Aula 03: Sistemas de Computação | Prof. Romualdo"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="💻 🖥️ Aula 03: Sistemas de Computação | Prof. Romualdo"/><meta name="twitter:description" content="🖥️ Aula 03: Sistemas de Computação 🎯 Objetivo da Aula Ao final, o aluno deve: Classificar os principais tipos de sistemas de computação Diferenciar sistemas embarcados, de tempo real e distribuídos Identificar exemplos reais de cada categoria no cotidiano Relacionar a arquitetura de hardware com o..."/><meta property="og:description" content="🖥️ Aula 03: Sistemas de Computação 🎯 Objetivo da Aula Ao final, o aluno deve: Classificar os principais tipos de sistemas de computação Diferenciar sistemas embarcados, de tempo real e distribuídos Identificar exemplos reais de cada categoria no cotidiano Relacionar a arquitetura de hardware com o..."/><meta property="og:image:alt" content="🖥️ Aula 03: Sistemas de Computação 🎯 Objetivo da Aula Ao final, o aluno deve: Classificar os principais tipos de sistemas de computação Diferenciar sistemas embarcados, de tempo real e distribuídos Identificar exemplos reais de cada categoria no cotidiano Relacionar a arquitetura de hardware com o..."/><meta property="twitter:domain" content="rofilho.github.io/arquitetura"/><meta property="og:url" content="https://rofilho.github.io/arquitetura/Aula-03---Sistemas-de-Computacao"/><meta property="twitter:url" content="https://rofilho.github.io/arquitetura/Aula-03---Sistemas-de-Computacao"/><link rel="icon" href="./static/icon.png"/><meta name="description" content="🖥️ Aula 03: Sistemas de Computação 🎯 Objetivo da Aula Ao final, o aluno deve: Classificar os principais tipos de sistemas de computação Diferenciar sistemas embarcados, de tempo real e distribuídos Identificar exemplos reais de cada categoria no cotidiano Relacionar a arquitetura de hardware com o..."/><meta name="generator" content="Quartz"/><link href="./index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiQzpcXFVzZXJzXFxyb211YVxcQXBwRGF0YVxcTG9jYWxcXFRlbXBcXGFycXVpdGV0dXJhXFxxdWFydHpcXGNvbXBvbmVudHNcXHN0eWxlcyIsInNvdXJjZXMiOlsibWVybWFpZC5pbmxpbmUuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTs7QUFHRjtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTs7O0FBS0Y7RUFDRTtFQUNBOzs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTs7QUFHRjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTs7QUFHRjtFQUNFO0VBQ0E7O0FBSUo7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7O0FBSUY7RUFDRTtFQUNBO0VBQ0EiLCJzb3VyY2VzQ29udGVudCI6WyIuZXhwYW5kLWJ1dHRvbiB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxvYXQ6IHJpZ2h0O1xuICBwYWRkaW5nOiAwLjRyZW07XG4gIG1hcmdpbjogMC4zcmVtO1xuICByaWdodDogMDsgLy8gTk9URTogcmlnaHQgd2lsbCBiZSBzZXQgaW4gbWVybWFpZC5pbmxpbmUudHNcbiAgY29sb3I6IHZhcigtLWdyYXkpO1xuICBib3JkZXItY29sb3I6IHZhcigtLWRhcmspO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gIGJvcmRlcjogMXB4IHNvbGlkO1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIG9wYWNpdHk6IDA7XG4gIHRyYW5zaXRpb246IDAuMnM7XG5cbiAgJiA+IHN2ZyB7XG4gICAgZmlsbDogdmFyKC0tbGlnaHQpO1xuICAgIGZpbHRlcjogY29udHJhc3QoMC4zKTtcbiAgfVxuXG4gICY6aG92ZXIge1xuICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICBib3JkZXItY29sb3I6IHZhcigtLXNlY29uZGFyeSk7XG4gIH1cblxuICAmOmZvY3VzIHtcbiAgICBvdXRsaW5lOiAwO1xuICB9XG59XG5cbnByZSB7XG4gICY6aG92ZXIgPiAuZXhwYW5kLWJ1dHRvbiB7XG4gICAgb3BhY2l0eTogMTtcbiAgICB0cmFuc2l0aW9uOiAwLjJzO1xuICB9XG59XG5cbiNtZXJtYWlkLWNvbnRhaW5lciB7XG4gIHBvc2l0aW9uOiBmaXhlZDtcbiAgY29udGFpbjogbGF5b3V0O1xuICB6LWluZGV4OiA5OTk7XG4gIGxlZnQ6IDA7XG4gIHRvcDogMDtcbiAgd2lkdGg6IDEwMHZ3O1xuICBoZWlnaHQ6IDEwMHZoO1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICBkaXNwbGF5OiBub25lO1xuICBiYWNrZHJvcC1maWx0ZXI6IGJsdXIoNHB4KTtcbiAgYmFja2dyb3VuZDogcmdiYSgwLCAwLCAwLCAwLjUpO1xuXG4gICYuYWN0aXZlIHtcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIH1cblxuICAmID4gI21lcm1haWQtc3BhY2Uge1xuICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbGlnaHQpO1xuICAgIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgICBwb3NpdGlvbjogZml4ZWQ7XG4gICAgdG9wOiA1MCU7XG4gICAgbGVmdDogNTAlO1xuICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlKC01MCUsIC01MCUpO1xuICAgIGhlaWdodDogODB2aDtcbiAgICB3aWR0aDogODB2dztcbiAgICBvdmVyZmxvdzogaGlkZGVuO1xuXG4gICAgJiA+IC5tZXJtYWlkLWNvbnRlbnQge1xuICAgICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgICAgdHJhbnNmb3JtLW9yaWdpbjogMCAwO1xuICAgICAgdHJhbnNpdGlvbjogdHJhbnNmb3JtIDAuMXMgZWFzZTtcbiAgICAgIG92ZXJmbG93OiB2aXNpYmxlO1xuICAgICAgbWluLWhlaWdodDogMjAwcHg7XG4gICAgICBtaW4td2lkdGg6IDIwMHB4O1xuXG4gICAgICBwcmUge1xuICAgICAgICBtYXJnaW46IDA7XG4gICAgICAgIGJvcmRlcjogbm9uZTtcbiAgICAgIH1cblxuICAgICAgc3ZnIHtcbiAgICAgICAgbWF4LXdpZHRoOiBub25lO1xuICAgICAgICBoZWlnaHQ6IGF1dG87XG4gICAgICB9XG4gICAgfVxuXG4gICAgJiA+IC5tZXJtYWlkLWNvbnRyb2xzIHtcbiAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICAgIGJvdHRvbTogMjBweDtcbiAgICAgIHJpZ2h0OiAyMHB4O1xuICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgIGdhcDogOHB4O1xuICAgICAgcGFkZGluZzogOHB4O1xuICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xuICAgICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgIGJvcmRlci1yYWRpdXM6IDZweDtcbiAgICAgIGJveC1zaGFkb3c6IDAgMnB4IDRweCByZ2JhKDAsIDAsIDAsIDAuMSk7XG4gICAgICB6LWluZGV4OiAyO1xuXG4gICAgICAubWVybWFpZC1jb250cm9sLWJ1dHRvbiB7XG4gICAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAgICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICAgICAgICB3aWR0aDogMzJweDtcbiAgICAgICAgaGVpZ2h0OiAzMnB4O1xuICAgICAgICBwYWRkaW5nOiAwO1xuICAgICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICAgIGNvbG9yOiB2YXIoLS1kYXJrKTtcbiAgICAgICAgYm9yZGVyLXJhZGl1czogNHB4O1xuICAgICAgICBjdXJzb3I6IHBvaW50ZXI7XG4gICAgICAgIGZvbnQtc2l6ZTogMTZweDtcbiAgICAgICAgZm9udC1mYW1pbHk6IHZhcigtLWJvZHlGb250KTtcbiAgICAgICAgdHJhbnNpdGlvbjogYWxsIDAuMnMgZWFzZTtcblxuICAgICAgICAmOmhvdmVyIHtcbiAgICAgICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgICB9XG5cbiAgICAgICAgJjphY3RpdmUge1xuICAgICAgICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWSgxcHgpO1xuICAgICAgICB9XG5cbiAgICAgICAgLy8gU3R5bGUgdGhlIHJlc2V0IGJ1dHRvbiBkaWZmZXJlbnRseVxuICAgICAgICAmOm50aC1jaGlsZCgyKSB7XG4gICAgICAgICAgd2lkdGg6IGF1dG87XG4gICAgICAgICAgcGFkZGluZzogMCAxMnB4O1xuICAgICAgICAgIGZvbnQtc2l6ZTogMTRweDtcbiAgICAgICAgfVxuICAgICAgfVxuICAgIH1cbiAgfVxufVxuIl19 */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="./prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("./static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://rofilho.github.io/arquitetura/index.xml"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://rofilho.github.io/arquitetura/Aula-03---Sistemas-de-Computacao-og-image.webp"/><meta property="og:image:url" content="https://rofilho.github.io/arquitetura/Aula-03---Sistemas-de-Computacao-og-image.webp"/><meta name="twitter:image" content="https://rofilho.github.io/arquitetura/Aula-03---Sistemas-de-Computacao-og-image.webp"/><meta property="og:image:type" content="image/.webp"/></head><body data-slug="Aula-03---Sistemas-de-Computacao"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"></div><div class="center"><div class="page-header"><header><h2 class="page-title"><a href="." class="page-title__link"><img src="https://uniube.br/img/landing/logo_azul.svg" alt="Uniube" class="page-title__logo page-title__logo--light"/><img src="https://uniube.br/img/landing/logo_branca.svg" alt="Uniube" class="page-title__logo page-title__logo--dark"/><span class="page-title__text">💻 Arquitetura de Computadores</span></a></h2><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Pesquisar</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Pesquisar por algo" placeholder="Pesquisar por algo"/><div class="search-layout" data-preview="true"></div></div></div></div><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Tema escuro"><title>Tema escuro</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Tema claro"><title>Tema claro</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></header><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="./">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>💻 🖥️ Aula 03: Sistemas de Computação</a></div></nav><nav class="lesson-nav" aria-label="Navegação entre aulas"><div class="lesson-nav__slot"><a href="/Aula-02---Fundamentos-da-Organizacao" class="nav-pill nav-pill--prev" data-spa="true"><div class="nav-pill__icon">📖</div><div class="nav-pill__body"><span class="nav-pill__label">← Anterior</span><span class="nav-pill__title">💻 🖥️ Aula 02: Fundamentos da Organização de Computadores</span></div></a></div><div class="lesson-nav__slot lesson-nav__slot--right"><a href="/Aula-04---Arquiteturas-CISC-vs-RISC" class="nav-pill nav-pill--next" data-spa="true"><div class="nav-pill__icon">📖</div><div class="nav-pill__body"><span class="nav-pill__label">Próxima →</span><span class="nav-pill__title">💻 🖥️ Aula 04: Arquiteturas CISC vs. RISC</span></div></a></div></nav><h1 class="article-title">💻 🖥️ Aula 03: Sistemas de Computação</h1><p show-comma="true" class="content-meta"><time datetime="2026-04-19T15:29:42.000Z">19 de abr. de 2026</time><span>Leitura de 9 min</span></p></div></div><article class="popover-hint"><h1 id="️-aula-03-sistemas-de-computação">🖥️ Aula 03: Sistemas de Computação<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-aula-03-sistemas-de-computação" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="-objetivo-da-aula"><strong>🎯 Objetivo da Aula</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-objetivo-da-aula" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Ao final, o aluno deve:</p>
+<ul>
+<li><strong>Classificar</strong> os principais tipos de sistemas de computação</li>
+<li><strong>Diferenciar</strong> sistemas embarcados, de tempo real e distribuídos</li>
+<li><strong>Identificar</strong> exemplos reais de cada categoria no cotidiano</li>
+<li><strong>Relacionar</strong> a arquitetura de hardware com o propósito de cada sistema</li>
+</ul>
+<p>Base conceitual alinhada com:</p>
+<ul>
+<li><strong>Andrew S. Tanenbaum</strong>, Organização Estruturada de Computadores, 6ª ed., Cap. 1 (“O Zoológico dos Computadores”)</li>
+<li><strong>William Stallings</strong>, Arquitetura e Organização de Computadores, 11ª ed., Cap. 2 (“Evolução e Desempenho do Computador”)</li>
+</ul>
+<hr/>
+<h1 id="1️⃣-recapitulação-de-onde-viemos"><strong>1️⃣ Recapitulação: De Onde Viemos?</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1️⃣-recapitulação-de-onde-viemos" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="-conexão-com-a-aula-02"><strong>🔗 Conexão com a Aula 02</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-conexão-com-a-aula-02" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Na aula anterior, identificamos os <strong>três pilares do hardware</strong>:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Componente</strong></th><th><strong>Função</strong></th></tr></thead><tbody><tr><td><strong>CPU</strong></td><td>Executar cálculos e coordenar o sistema</td></tr><tr><td><strong>Memória (RAM)</strong></td><td>Armazenamento temporário de programas e dados</td></tr><tr><td><strong>E/S</strong></td><td>Interface com o mundo externo</td></tr></tbody></table></div>
+<blockquote>
+<p><strong>Mensagem-chave:</strong> esses três blocos estão presentes em <strong>todo</strong> sistema computacional, do menor microcontrolador ao maior data center. O que muda é a <strong>escala</strong>, o <strong>propósito</strong> e a <strong>organização</strong> desses componentes.</p>
+</blockquote>
+<hr/>
+<h1 id="2️⃣-classificação-dos-sistemas-de-computação"><strong>2️⃣ Classificação dos Sistemas de Computação</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2️⃣-classificação-dos-sistemas-de-computação" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="️-o-zoológico-dos-computadores-tanenbaum-cap-13"><strong>🗂️ O “Zoológico dos Computadores” (Tanenbaum, Cap. 1.3)</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-o-zoológico-dos-computadores-tanenbaum-cap-13" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Tanenbaum organiza os computadores em categorias com base em <strong>porte</strong>, <strong>custo</strong> e <strong>finalidade</strong>:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Categoria</strong></th><th><strong>Descrição</strong></th><th><strong>Exemplo</strong></th></tr></thead><tbody><tr><td><strong>Microcontroladores</strong></td><td>Chip único com CPU, memória e E/S integrados</td><td>Arduino, ESP32</td></tr><tr><td><strong>Computadores Pessoais</strong></td><td>Uso geral, individual, preço acessível</td><td>Notebook, Desktop</td></tr><tr><td><strong>Servidores</strong></td><td>Atendem múltiplos usuários e serviços simultaneamente</td><td>Dell PowerEdge, HPE ProLiant</td></tr><tr><td><strong>Mainframes</strong></td><td>Processamento massivo de transações empresariais</td><td>IBM zSeries</td></tr><tr><td><strong>Supercomputadores</strong></td><td>Alto desempenho para cálculos científicos extremos</td><td>Fugaku, Frontier</td></tr></tbody></table></div>
+<blockquote>
+<p>A diferença entre essas categorias <strong>não é apenas potência</strong>. É uma combinação de <strong>requisitos de confiabilidade</strong> (um mainframe bancário não pode parar), <strong>throughput vs. latência</strong> (supercomputadores priorizam throughput, embarcados priorizam latência) e <strong>custo por operação</strong> (microcontroladores custam centavos, supercomputadores custam milhões).</p>
+</blockquote>
+<hr/>
+<p><img src="./assets/escala_sistemas_1773619384253.png" width="auto" height="auto" alt/></p>
+<p><em>Escala dos Sistemas de Computação</em></p>
+<hr/>
+<h1 id="3️⃣-sistemas-embarcados"><strong>3️⃣ Sistemas Embarcados</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3️⃣-sistemas-embarcados" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="-31-definição"><strong>🔧 3.1 Definição</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-31-definição" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Um <strong>sistema embarcado</strong> é um computador projetado para executar uma <strong>função dedicada</strong> dentro de um sistema maior. Possui hardware e software otimizados para uma tarefa específica.</p>
+<p><strong>Stallings (Cap. 2):</strong> referencia a evolução dos microprocessadores que tornaram os sistemas embarcados viáveis, passando de circuitos dedicados para microcontroladores programáveis com arquitetura Von Neumann miniaturizada.</p>
+<p><strong>Tanenbaum (Cap. 1.3):</strong> classifica microcontroladores como a faixa mais baixa do “zoológico”, mas enfatiza que são os computadores <strong>mais numerosos do planeta</strong>: bilhões de unidades em circulação.</p>
+<hr/>
+<h2 id="-32-características-técnicas"><strong>🧩 3.2 Características Técnicas</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-32-características-técnicas" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Característica</strong></th><th><strong>Detalhe</strong></th></tr></thead><tbody><tr><td><strong>Função</strong></td><td>Dedicada (tarefa única ou conjunto restrito)</td></tr><tr><td><strong>Hardware</strong></td><td>Microcontrolador (CPU + RAM + Flash em chip único)</td></tr><tr><td><strong>Software</strong></td><td>Firmware gravado em memória não volátil (ROM/Flash)</td></tr><tr><td><strong>Interação</strong></td><td>Mínima ou nenhuma interface com o usuário</td></tr><tr><td><strong>Consumo</strong></td><td>Baixo consumo energético</td></tr><tr><td><strong>Custo</strong></td><td>Muito acessível (centavos a poucos reais por unidade)</td></tr></tbody></table></div>
+<hr/>
+<h2 id="-33-exemplos-reais-no-cotidiano"><strong>🌍 3.3 Exemplos Reais no Cotidiano</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-33-exemplos-reais-no-cotidiano" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><strong>Automotivo:</strong> controle do motor (ECU), ABS, airbag</li>
+<li><strong>Eletrodomésticos:</strong> micro-ondas, máquina de lavar, ar-condicionado</li>
+<li><strong>Saúde:</strong> marca-passo, bomba de insulina, medidor de glicose</li>
+<li><strong>Infraestrutura:</strong> semáforos, catracas de metrô, leitores de cartão</li>
+<li><strong>IoT (Internet das Coisas):</strong> sensores de temperatura, fechaduras inteligentes, lâmpadas smart</li>
+</ul>
+<p><img src="./assets/microcontrolador_legendas_1773619396550.png" width="auto" height="auto" alt/></p>
+<p><em>Microcontrolador com legendas: CPU, Memória Flash, Pinos de E/S</em></p>
+<hr/>
+<h2 id="-34-analogia"><strong>💡 3.4 Analogia</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-34-analogia" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<blockquote>
+<p>O sistema embarcado é como um <strong>especialista</strong>: faz uma coisa só, mas faz com excelência, usando o mínimo de recursos. Não navega na internet, não abre planilhas, mas controla o motor do seu carro a 6.000 RPM sem falhar.</p>
+</blockquote>
+<hr/>
+<h1 id="4️⃣-sistemas-de-tempo-real-real-time"><strong>4️⃣ Sistemas de Tempo Real (Real-Time)</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#4️⃣-sistemas-de-tempo-real-real-time" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="️-41-definição"><strong>⏱️ 4.1 Definição</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-41-definição" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Um <strong>sistema de tempo real</strong> é aquele no qual a <strong>correção da resposta</strong> depende não apenas do resultado lógico, mas também do <strong>tempo</strong> em que o resultado é produzido.</p>
+<p><strong>Stallings (Cap. 1):</strong> aborda sistemas de tempo real no contexto de sistemas operacionais de tempo real (RTOS), onde o escalonamento de tarefas deve respeitar prazos rígidos.</p>
+<hr/>
+<h2 id="️-42-classificação-hard-vs-soft-real-time"><strong>⚖️ 4.2 Classificação: Hard vs. Soft Real-Time</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-42-classificação-hard-vs-soft-real-time" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Tipo</strong></th><th><strong>Consequência do Atraso</strong></th><th><strong>Exemplo</strong></th></tr></thead><tbody><tr><td><strong>Hard Real-Time</strong></td><td>Falha catastrófica (perda de vida, destruição de equipamento)</td><td>Airbag, sistema de pouso de aeronave, marca-passo</td></tr><tr><td><strong>Soft Real-Time</strong></td><td>Degradação de qualidade (aceitável em certos limites)</td><td>Streaming de vídeo, videochamada, jogos online</td></tr></tbody></table></div>
+<blockquote>
+<p>A diferença entre Hard e Soft <strong>não é velocidade</strong>. É a <strong>consequência do descumprimento do prazo</strong>: <strong>Hard</strong> significa que prazo perdido = sistema falhou. <strong>Soft</strong> significa que prazo perdido = qualidade degradada, mas o sistema continua.</p>
+</blockquote>
+<hr/>
+<h2 id="-43-componentes-de-um-sistema-de-tempo-real"><strong>🔄 4.3 Componentes de um Sistema de Tempo Real</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-43-componentes-de-um-sistema-de-tempo-real" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<pre><code>
+[ Sensores ] → [ Controlador (CPU + RTOS) ] → [ Atuadores ]
+      ↑                                            |
+      └────────── Feedback (malha fechada) ─────────┘
+</code></pre>
+<ul>
+<li><strong>Sensores:</strong> captam dados do ambiente (temperatura, velocidade, pressão)</li>
+<li><strong>Controlador:</strong> processa dados dentro do prazo (deadline)</li>
+<li><strong>Atuadores:</strong> executam a ação física (abrir válvula, acionar freio)</li>
+<li><strong>RTOS:</strong> sistema operacional que garante escalonamento com prazos (ex: FreeRTOS, VxWorks)</li>
+</ul>
+<hr/>
+<p><img src="./assets/malha_fechada_abs_1773619411021.png" width="auto" height="auto" alt/></p>
+<p><em>Diagrama de malha fechada: Sistema de freio ABS</em></p>
+<hr/>
+<h2 id="-44-exemplos-críticos"><strong>🏭 4.4 Exemplos Críticos</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-44-exemplos-críticos" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Setor</strong></th><th><strong>Sistema</strong></th><th><strong>Tipo</strong></th></tr></thead><tbody><tr><td><strong>Aviação</strong></td><td>Fly-by-wire (controle de voo eletrônico)</td><td>Hard</td></tr><tr><td><strong>Automotivo</strong></td><td>ABS, controle de estabilidade (ESP)</td><td>Hard</td></tr><tr><td><strong>Medicina</strong></td><td>Marca-passo cardíaco</td><td>Hard</td></tr><tr><td><strong>Entretenimento</strong></td><td>Reprodução de vídeo em streaming</td><td>Soft</td></tr><tr><td><strong>Telecomunicações</strong></td><td>VoIP, videoconferência</td><td>Soft</td></tr><tr><td><strong>Indústria</strong></td><td>Controle de temperatura em forno industrial</td><td>Hard</td></tr></tbody></table></div>
+<hr/>
+<h2 id="-45-analogia"><strong>💡 4.5 Analogia</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-45-analogia" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<blockquote>
+<p>Imagine um <strong>goleiro defendendo um pênalti</strong>: ele precisa dar a resposta certa (direção correta) <strong>no tempo certo</strong> (antes da bola chegar). Se acertar a direção mas reagir 1 segundo atrasado, a resposta correta é inútil. Isso é tempo real.</p>
+</blockquote>
+<hr/>
+<h1 id="5️⃣-sistemas-distribuídos"><strong>5️⃣ Sistemas Distribuídos</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#5️⃣-sistemas-distribuídos" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="-51-definição"><strong>🌐 5.1 Definição</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-51-definição" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Um <strong>sistema distribuído</strong> é um conjunto de computadores independentes que se comunicam por rede e se apresentam ao usuário como um <strong>sistema único e coerente</strong>.</p>
+<p><strong>Tanenbaum (Sistemas Distribuídos, Princípios e Paradigmas):</strong> define que a transparência é o objetivo central: o usuário não percebe que está interagindo com múltiplas máquinas.</p>
+<p><strong>Stallings (Cap. 2):</strong> contextualiza os sistemas distribuídos dentro da evolução das arquiteturas, onde o desempenho escala horizontalmente (mais máquinas) ao invés de verticalmente (máquina mais potente).</p>
+<hr/>
+<h2 id="️-52-características-fundamentais"><strong>🏗️ 5.2 Características Fundamentais</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-52-características-fundamentais" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Característica</strong></th><th><strong>Descrição</strong></th></tr></thead><tbody><tr><td><strong>Transparência</strong></td><td>O usuário não percebe a distribuição</td></tr><tr><td><strong>Escalabilidade</strong></td><td>Adição de nós para aumentar capacidade</td></tr><tr><td><strong>Tolerância a Falhas</strong></td><td>Redundância permite que o sistema sobreviva a falhas parciais</td></tr><tr><td><strong>Concorrência</strong></td><td>Múltiplos processos executam simultaneamente</td></tr><tr><td><strong>Heterogeneidade</strong></td><td>Componentes com SO, hardware e linguagens diferentes podem cooperar</td></tr></tbody></table></div>
+<hr/>
+<h2 id="-53-diagrama-conceitual"><strong>🔄 5.3 Diagrama Conceitual</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-53-diagrama-conceitual" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<pre><code>
+┌──────────┐    ┌──────────┐    ┌──────────┐
+ │ Máquina A│    │ Máquina B│   │ Máquina C│
+ │  (Nó 1)  │    │  (Nó 2)  │   │  (Nó 3)  │
+ └────┬─────┘    └────┬─────┘   └────┬─────┘
+      │               │              │
+ ═════╪═══════════════╪══════════════╪═════
+      │          REDE (Barramento      │
+      │          ou Internet)          │
+ ═════╪═══════════════════════════════╪═════
+                      │
+               ┌──────┴──────┐
+               │   Usuário   │
+               │ (vê sistema │
+               │   único)    │
+               └─────────────┘
+</code></pre>
+<hr/>
+<h2 id="-54-exemplos-reais"><strong>🌍 5.4 Exemplos Reais</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-54-exemplos-reais" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Sistema</strong></th><th><strong>Como funciona</strong></th><th><strong>O que o usuário vê</strong></th></tr></thead><tbody><tr><td><strong>Google Search</strong></td><td>Milhares de servidores processam sua busca em paralelo</td><td>Uma caixa de pesquisa simples</td></tr><tr><td><strong>Netflix</strong></td><td>CDNs distribuídas globalmente entregam conteúdo do servidor mais próximo</td><td>Um botão de play</td></tr><tr><td><strong>Bitcoin/Blockchain</strong></td><td>Milhares de nós mantêm cópia do ledger sem autoridade central</td><td>Uma carteira digital</td></tr><tr><td><strong>WhatsApp</strong></td><td>Servidores distribuídos roteiam mensagens entre usuários</td><td>Um app de mensagens</td></tr><tr><td><strong>Computação em Nuvem (AWS, Azure)</strong></td><td>Data centers espalhados pelo mundo oferecem poder computacional sob demanda</td><td>Um console web</td></tr></tbody></table></div>
+<hr/>
+<p><img src="./assets/datacenters_distribuidos_1773619429488.png" width="auto" height="auto" alt/></p>
+<p><em>Data Centers Distribuídos pelo Mundo</em></p>
+<hr/>
+<h2 id="-55-analogia"><strong>💡 5.5 Analogia</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-55-analogia" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<blockquote>
+<p>Um sistema distribuído é como uma <strong>rede de restaurantes franqueados</strong>: cada unidade opera de forma independente, com seus próprios funcionários e cozinha, mas o cliente percebe uma experiência unificada (cardápio, identidade visual, padrão de atendimento). Se uma unidade fecha, as outras continuam funcionando.</p>
+</blockquote>
+<hr/>
+<h1 id="6️⃣-comparação-estrutural-dos-três-sistemas"><strong>6️⃣ Comparação Estrutural dos Três Sistemas</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#6️⃣-comparação-estrutural-dos-três-sistemas" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Critério</strong></th><th><strong>Embarcado</strong></th><th><strong>Tempo Real</strong></th><th><strong>Distribuído</strong></th></tr></thead><tbody><tr><td><strong>Foco principal</strong></td><td>Função dedicada</td><td>Resposta dentro do prazo</td><td>Cooperação entre máquinas</td></tr><tr><td><strong>Hardware típico</strong></td><td>Microcontrolador</td><td>CPU + RTOS</td><td>Múltiplos servidores em rede</td></tr><tr><td><strong>Memória</strong></td><td>Kilobytes a Megabytes</td><td>Variável (depende da aplicação)</td><td>Gigabytes a Terabytes (agregado)</td></tr><tr><td><strong>Interação com usuário</strong></td><td>Mínima ou nenhuma</td><td>Geralmente nenhuma (sensores)</td><td>Transparente ao usuário</td></tr><tr><td><strong>Tolerância a falhas</strong></td><td>Baixa (reinicia ou falha)</td><td>Crítica em Hard RT</td><td>Alta (redundância de nós)</td></tr><tr><td><strong>Exemplo síntese</strong></td><td>Controle de micro-ondas</td><td>ABS de um carro</td><td>Google Search</td></tr><tr><td><strong>Sobreposição</strong></td><td>Pode ser tempo real</td><td>Pode ser embarcado</td><td>Pode conter embarcados e RT</td></tr></tbody></table></div>
+<blockquote>
+<p>Essas categorias <strong>não são mutuamente exclusivas</strong>. Um sistema pode ser <strong>embarcado E de tempo real</strong> (ex: ECU do motor). Um sistema distribuído pode conter nós que são embarcados e de tempo real (ex: frota de drones autônomos coordenados).</p>
+</blockquote>
+<hr/>
+<h1 id="7️⃣-tendências-contemporâneas"><strong>7️⃣ Tendências Contemporâneas</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#7️⃣-tendências-contemporâneas" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="-71-convergências-atuais"><strong>🚀 7.1 Convergências Atuais</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-71-convergências-atuais" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Tendência</strong></th><th><strong>Descrição</strong></th><th><strong>Relação com a Aula</strong></th></tr></thead><tbody><tr><td><strong>IoT (Internet das Coisas)</strong></td><td>Bilhões de dispositivos embarcados conectados à rede</td><td>Embarcados + Distribuídos</td></tr><tr><td><strong>Edge Computing</strong></td><td>Processamento na borda da rede, próximo ao dispositivo</td><td>Embarcados + Tempo Real</td></tr><tr><td><strong>Fog Computing</strong></td><td>Camada intermediária entre dispositivos IoT e nuvem</td><td>Distribuídos + Tempo Real</td></tr><tr><td><strong>AIoT</strong></td><td>Inteligência Artificial executada em dispositivos embarcados</td><td>Embarcados + IA</td></tr><tr><td><strong>RISC-V</strong></td><td>Arquitetura aberta de conjunto de instruções para embarcados</td><td>Embarcados + Hardware Aberto</td></tr></tbody></table></div>
+<p><img src="./assets/iot_fog_cloud_1773619446205.png" width="auto" height="auto" alt/></p>
+<p><em>Arquitetura em Camadas: IoT, Fog/Edge e Cloud</em></p>
+<hr/>
+<h1 id="8️⃣-resumo-estrutural-da-aula"><strong>8️⃣ Resumo Estrutural da Aula</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#8️⃣-resumo-estrutural-da-aula" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Conceito</strong></th><th><strong>Definição em uma frase</strong></th></tr></thead><tbody><tr><td><strong>Sistema Embarcado</strong></td><td>Computador dedicado a uma função específica, integrado a um dispositivo maior</td></tr><tr><td><strong>Sistema de Tempo Real</strong></td><td>Sistema cuja correção depende do resultado E do tempo de resposta</td></tr><tr><td><strong>Hard Real-Time</strong></td><td>Atraso = falha catastrófica</td></tr><tr><td><strong>Soft Real-Time</strong></td><td>Atraso = degradação aceitável</td></tr><tr><td><strong>Sistema Distribuído</strong></td><td>Conjunto de máquinas independentes que parecem uma só para o usuário</td></tr><tr><td><strong>IoT</strong></td><td>Dispositivos embarcados conectados em rede formando um sistema distribuído</td></tr></tbody></table></div>
+<hr/>
+<h1 id="9️⃣-metodologia-ativa-atividade-prática"><strong>9️⃣ Metodologia Ativa: Atividade Prática</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#9️⃣-metodologia-ativa-atividade-prática" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="-atividade-classifique-o-sistema"><strong>🎓 Atividade: “Classifique o Sistema”</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-atividade-classifique-o-sistema" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><strong>Formato:</strong> Aprendizagem Baseada em Problemas (PBL)</p>
+<p><strong>Instrução para os alunos:</strong></p>
+<p>Para cada cenário abaixo, identifique:</p>
+<ol>
+<li>O <strong>tipo de sistema</strong> (Embarcado, Tempo Real, Distribuído, ou combinação)</li>
+<li>Se tempo real, classifique como <strong>Hard ou Soft</strong></li>
+<li>Justifique com base nos conceitos da aula</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>#</strong></th><th><strong>Cenário</strong></th><th><strong>Resposta Esperada</strong></th></tr></thead><tbody><tr><td>1</td><td>Sistema de freio ABS de um carro</td><td>Embarcado + Hard Real-Time</td></tr><tr><td>2</td><td>Serviço de busca do Google</td><td>Distribuído</td></tr><tr><td>3</td><td>Termostato inteligente (Nest)</td><td>Embarcado + Soft Real-Time + Distribuído (conectado à nuvem)</td></tr><tr><td>4</td><td>Sistema de controle de voo de um avião</td><td>Embarcado + Hard Real-Time</td></tr><tr><td>5</td><td>Spotify transmitindo música</td><td>Distribuído + Soft Real-Time</td></tr><tr><td>6</td><td>Semáforo de trânsito com temporizador</td><td>Embarcado</td></tr><tr><td>7</td><td>Frota de drones de entrega coordenados</td><td>Embarcado + Hard Real-Time + Distribuído</td></tr></tbody></table></div>
+<hr/>
+<h2 id="-desafio-extra-sala-de-aula-invertida"><strong>🧪 Desafio Extra (Sala de Aula Invertida)</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-desafio-extra-sala-de-aula-invertida" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><strong>Para casa:</strong> Pesquisar e trazer para a próxima aula <strong>um exemplo real do cotidiano</strong> que combine os três tipos (embarcado + tempo real + distribuído). O aluno deve:</p>
+<ul>
+<li>Descrever o sistema</li>
+<li>Identificar os componentes de hardware (CPU, Memória, E/S)</li>
+<li>Justificar a classificação</li>
+<li>Citar se o sistema é Hard ou Soft Real-Time</li>
+</ul>
+<hr/>
+<h1 id="-referências-bibliográficas"><strong>🔟 Referências Bibliográficas</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-referências-bibliográficas" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="-referências-obrigatórias"><strong>📖 Referências Obrigatórias</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-referências-obrigatórias" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><strong>STALLINGS, W.</strong> <em>Arquitetura e Organização de Computadores: projetando com foco em desempenho.</em> 11ª ed. São Paulo: Pearson, 2024.
+<ul>
+<li><strong>Capítulo 2:</strong> Evolução e Desempenho do Computador, seção sobre evolução dos microprocessadores e tipos de sistemas.</li>
+<li><strong>Capítulo 1:</strong> Introdução, seção sobre Estrutura e Função.</li>
+</ul>
+</li>
+<li><strong>TANENBAUM, A. S.</strong> <em>Organização Estruturada de Computadores.</em> 6ª ed. São Paulo: Pearson, 2013.
+<ul>
+<li><strong>Capítulo 1, Seção 1.3:</strong> “O Zoológico dos Computadores”, com classificação: microcontroladores, PCs, servidores, mainframes.</li>
+</ul>
+</li>
+<li><strong>CORRÊA, A. G. D.</strong> <em>Organização e Arquitetura de Computadores.</em> São Paulo: Pearson, 2016.</li>
+</ul>
+<h2 id="-referências-complementares-e-artigos"><strong>📄 Referências Complementares e Artigos</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-referências-complementares-e-artigos" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><strong>TANENBAUM, A. S.; VAN STEEN, M.</strong> <em>Sistemas Distribuídos: Princípios e Paradigmas.</em> 2ª ed. São Paulo: Pearson, 2007.
+<ul>
+<li>Definição formal de sistema distribuído e propriedades de transparência.</li>
+</ul>
+</li>
+<li><strong>MARWEDEL, P.</strong> <em>Embedded System Design: Embedded Systems Foundations of Cyber-Physical Systems and the Internet of Things.</em> 4th ed. Springer, 2021.
+<ul>
+<li>Referência avançada sobre projeto de sistemas embarcados e sua relação com IoT.</li>
+</ul>
+</li>
+<li><strong>KOPETZ, H.</strong> <em>Real-Time Systems: Design Principles for Distributed Embedded Applications.</em> 2nd ed. Springer, 2011.
+<ul>
+<li>Referência clássica sobre sistemas de tempo real, incluindo a distinção Hard/Soft e o conceito de malha fechada.</li>
+</ul>
+</li>
+<li><strong>BONOMI, F. et al.</strong> “Fog Computing and Its Role in the Internet of Things.” <em>Proceedings of the First Edition of the MCC Workshop on Mobile Cloud Computing (MCC ‘12)</em>, ACM, 2012, pp. 13-16.
+<ul>
+<li>Artigo seminal que introduziu o conceito de Fog Computing.</li>
+</ul>
+</li>
+<li><strong>SHI, W.; DUSTDAR, S.</strong> “The Promise of Edge Computing.” <em>IEEE Computer</em>, vol. 49, no. 5, 2016, pp. 78-81.
+<ul>
+<li>Artigo introdutório sobre Edge Computing e suas aplicações em IoT.</li>
+</ul>
+</li>
+</ul>
+<hr/>
+<h2 id="-links-úteis-para-aprofundamento"><strong>🔗 Links Úteis para Aprofundamento</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-links-úteis-para-aprofundamento" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Recurso</strong></th><th><strong>Descrição</strong></th><th><strong>Link</strong></th></tr></thead><tbody><tr><td>FreeRTOS</td><td>RTOS open-source para embarcados</td><td>freertos.org</td></tr><tr><td>Arduino</td><td>Plataforma de prototipagem embarcada</td><td>arduino.cc</td></tr><tr><td>AWS IoT</td><td>Plataforma de IoT na nuvem</td><td>aws.amazon.com/iot</td></tr><tr><td>RISC-V Foundation</td><td>Arquitetura aberta de instruções</td><td>riscv.org</td></tr></tbody></table></div></article><hr/><div class="page-footer"></div></div><div class="right sidebar"></div><footer class="footer "><div class="footer__brand"><img src="https://uniube.br/img/landing/logo_azul.svg" alt="Universidade de Uberaba" class="footer__logo footer__logo--light"/><img src="https://uniube.br/img/landing/logo_branca.svg" alt="Universidade de Uberaba" class="footer__logo footer__logo--dark"/><div class="footer__info"><span class="footer__name">Prof. Romualdo Filho</span><a class="footer__email" href="mailto:romualdo.filho@uniube.br">romualdo.filho@uniube.br</a></div></div><ul class="footer__links"><li><a href="https://uniube.br" target="_blank" rel="noopener noreferrer">Mural Uniube</a></li></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="./postscript.js" type="module" data-persist="true"></script></html>
