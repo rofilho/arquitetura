@@ -3,8 +3,6 @@ title: "💻 🖥️ Aula 05: Unidades de Processamento e Ciclo de Instrução"
 ---
 
 
-![Capa](assets/capa_aula05.png)
-
 # 🖥️ Aula 05: Unidades de Processamento e Ciclo de Instrução
 
 ## 🎯 Objetivo da Aula
@@ -254,3 +252,4 @@ No princípio original, PC = 100 . Complete as passagens mentais:
 | Visualizador CPU Global Gráfico | Prata da casa dos *applets* de navegação em tempo-real para compreensão e vivência de fluídos simulados do datapath. | [cpulator.01xz.net](https://cpulator.01xz.net/) |
 | Simulador Interativo Clássico (LMC) | Um modelo prático simplista massivo derivado de experiências da academia em lógica fundamental usado para decifrar buscar-executar. | [peterhigginson.co.uk/lmc](https://peterhigginson.co.uk/lmc) |
 | Exploração Conceitual | Materiais complementares didáticos abordando de maneira engajante as interrupções de hardware. | [csfieldguide.org.nz](https://csfieldguide.org.nz/) |
+

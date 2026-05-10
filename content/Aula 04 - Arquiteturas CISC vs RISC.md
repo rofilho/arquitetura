@@ -3,8 +3,6 @@ title: "💻 🖥️ Aula 04: Arquiteturas CISC vs. RISC"
 ---
 
 
-![Capa](assets/capa_aula04.png)
-
 # 🖥️ Aula 04: Arquiteturas CISC vs. RISC
 
 ## 🎯 Objetivo da Aula
@@ -454,3 +452,4 @@ Para cada cenário abaixo, determine:
 | Intel Developer Zone | Manuais de ISA x86 e ferramentas | intel.com/developer |
 | MARS Simulator | Simulador MIPS para prática de assembly RISC | courses.missouristate.edu/MARS |
 | Godbolt Compiler Explorer | Visualizador online de assembly para diferentes ISAs | godbolt.org |
+

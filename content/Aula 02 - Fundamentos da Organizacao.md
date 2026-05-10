@@ -3,8 +3,6 @@ title: "💻 🖥️ Aula 02: Fundamentos da Organização de Computadores"
 ---
 
 
-![Capa](assets/capa_aula02.png)
-
 # 🖥️ Aula 02: Fundamentos da Organização de Computadores
 
 ## 🎯 Objetivo da Aula
@@ -200,3 +198,4 @@ Ainda não é o momento.
 - **Obra:** *Arquitetura e organização de computadores: projetando com foco em desempenho* (11ª Edição, 2024).
 - **Capítulo 1 (Introdução):** A seção de "Estrutura e Função" define exatamente a visão de alto nível apresentada no diagrama, separando o computador em CPU, Memória Principal e Entrada/Saída.
 - **Capítulo 2 (Evolução e Desempenho do Computador):** Apresenta o projeto arquitetônico da Máquina de Von Neumann, consolidando o conceito de programa armazenado e o fluxo de busca e execução.
+

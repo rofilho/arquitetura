@@ -3,8 +3,6 @@ title: "💻 🖥️ Aula 03: Sistemas de Computação"
 ---
 
 
-![Capa](assets/capa_aula03.png)
-
 # 🖥️ Aula 03: Sistemas de Computação
 
 ## **🎯 Objetivo da Aula**
@@ -366,3 +364,4 @@ Para cada cenário abaixo, identifique:
 | Arduino | Plataforma de prototipagem embarcada | arduino.cc |
 | AWS IoT | Plataforma de IoT na nuvem | aws.amazon.com/iot |
 | RISC-V Foundation | Arquitetura aberta de instruções | riscv.org |
+

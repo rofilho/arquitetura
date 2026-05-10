@@ -3,8 +3,6 @@ title: "💻 Aula  – Arquitetura e Organização de Computadores – Plano de 
 ---
 
 
-![Capa](assets/capa_aula01.png)
-
 # Aula-01: Arquitetura e Organização de Computadores – Plano de Aulas
 
 📄 **Ementa**
@@ -68,3 +66,4 @@ A disciplina visa ao entendimento dos princípios básicos de funcionamento de u
 - **STALLINGS, W.** Arquitetura e Organização de Computadores. 11. ed. 2024.
 - **TANENBAUM, A. S.** Organização Estruturada de Computadores. 6. ed. 2013.
 - **CORRÊA, A. G. D.** Organização e arquitetura de computadores. 2016.
+
