@@ -1,11 +1,11 @@
 ﻿---
-title: "🖥️ Aula - 02: 💻 🖥️ : Fundamentos da Organização de Computadores"
+title: "🖥️ Aula - 02: Fundamentos da Organização de Computadores"
 ---
 
 
-# 🖥️ Aula - 02: 🖥️ : Fundamentos da Organização de Computadores
+# 🖥️ Aula - 02: Fundamentos da Organização de Computadores
 
-# 🖥️ Aula - 02: 🖥️ : Fundamentos da Organização de Computadores
+# 🖥️ Aula - 02: Fundamentos da Organização de Computadores
 
 Ao final, o aluno deve:
 
@@ -20,9 +20,9 @@ Base conceitual alinhada com:
 
 ---
 
-# 🖥️ Aula - 02: 🖥️ : Fundamentos da Organização de Computadores
+# 🖥️ Aula - 02: Fundamentos da Organização de Computadores
 
-# 🖥️ Aula - 02: 🖥️ : Fundamentos da Organização de Computadores
+# 🖥️ Aula - 02: Fundamentos da Organização de Computadores
 
 Entrada → Processamento → Saída
 
@@ -30,7 +30,7 @@ Entrada → Processamento → Saída
 
 ---
 
-# 🖥️ Aula - 02: 🖥️ : Fundamentos da Organização de Computadores
+# 🖥️ Aula - 02: Fundamentos da Organização de Computadores
 
 [ Entrada ] → [ Processamento ] → [ Saída ]
 
@@ -39,9 +39,9 @@ Entrada → Processamento → Saída
 
 ---
 
-# 🖥️ Aula - 02: 🖥️ : Fundamentos da Organização de Computadores
+# 🖥️ Aula - 02: Fundamentos da Organização de Computadores
 
-# 🖥️ Aula - 02: 🖥️ : Fundamentos da Organização de Computadores
+# 🖥️ Aula - 02: Fundamentos da Organização de Computadores
 
 Função:
 
@@ -67,7 +67,7 @@ Cozinheiro executando uma receita.
 
 ---
 
-# 🖥️ Aula - 02: 🖥️ : Fundamentos da Organização de Computadores
+# 🖥️ Aula - 02: Fundamentos da Organização de Computadores
 
 Função:
 
@@ -85,7 +85,7 @@ Bancada da cozinha.
 
 ---
 
-# 🖥️ Aula - 02: 🖥️ : Fundamentos da Organização de Computadores
+# 🖥️ Aula - 02: Fundamentos da Organização de Computadores
 
 ![[assets/image 4.png]]
 
@@ -100,17 +100,17 @@ Objetivo:
 
 ---
 
-# 🖥️ Aula - 02: 🖥️ : Fundamentos da Organização de Computadores
+# 🖥️ Aula - 02: Fundamentos da Organização de Computadores
 
-# 🖥️ Aula - 02: 🖥️ : Fundamentos da Organização de Computadores
+# 🖥️ Aula - 02: Fundamentos da Organização de Computadores
 
 Teclado, mouse, microfone.
 
-# 🖥️ Aula - 02: 🖥️ : Fundamentos da Organização de Computadores
+# 🖥️ Aula - 02: Fundamentos da Organização de Computadores
 
 Monitor, projetor, caixas de som.
 
-# 🖥️ Aula - 02: 🖥️ : Fundamentos da Organização de Computadores
+# 🖥️ Aula - 02: Fundamentos da Organização de Computadores
 
 HD ou SSD.
 
@@ -120,7 +120,7 @@ Guardar dados permanentemente.
 
 ---
 
-# 🖥️ Aula - 02: 🖥️ : Fundamentos da Organização de Computadores
+# 🖥️ Aula - 02: Fundamentos da Organização de Computadores
 
 - Pente de RAM
 - SSD NVMe
@@ -137,7 +137,7 @@ Rodovia de dados.
 
 ---
 
-# 🖥️ Aula - 02: 🖥️ : Fundamentos da Organização de Computadores
+# 🖥️ Aula - 02: Fundamentos da Organização de Computadores
 
 ![[assets/image 7.png]]
 
@@ -172,7 +172,7 @@ Ainda não é o momento.
 
 ---
 
-# 🖥️ Aula - 02: 🖥️ : Fundamentos da Organização de Computadores
+# 🖥️ Aula - 02: Fundamentos da Organização de Computadores
 
 | Componente | Função | Exemplo Real |
 | --- | --- | --- |
@@ -184,19 +184,20 @@ Ainda não é o momento.
 
 ---
 
-# 🖥️ Aula - 02: 🖥️ : Fundamentos da Organização de Computadores
+# 🖥️ Aula - 02: Fundamentos da Organização de Computadores
 
-# 🖥️ Aula - 02: 🖥️ : Fundamentos da Organização de Computadores
+# 🖥️ Aula - 02: Fundamentos da Organização de Computadores
 
 - Memória RAM
 - Conectores de E/S
 
 ![[assets/image 8.png]]
 
-# 🖥️ Aula - 02: 🖥️ : Fundamentos da Organização de Computadores
+# 🖥️ Aula - 02: Fundamentos da Organização de Computadores
 
 - **Obra:** *Arquitetura e organização de computadores: projetando com foco em desempenho* (11ª Edição, 2024).
 - **Capítulo 1 (Introdução):** A seção de "Estrutura e Função" define exatamente a visão de alto nível apresentada no diagrama, separando o computador em CPU, Memória Principal e Entrada/Saída.
 - **Capítulo 2 (Evolução e Desempenho do Computador):** Apresenta o projeto arquitetônico da Máquina de Von Neumann, consolidando o conceito de programa armazenado e o fluxo de busca e execução.
+
 
 
