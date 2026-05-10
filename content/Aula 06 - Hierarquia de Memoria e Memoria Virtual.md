@@ -2,6 +2,9 @@
 title: "💻 🟢 Aula 06: Hierarquia de Memória e Memória Virtual"
 ---
 
+
+![Capa](assets/capa_aula06.png)
+
 ---
 disciplina: Arquitetura de Computadores
 codigo: "14188"
@@ -250,3 +253,4 @@ sequenceDiagram
 
 ---
 *Última atualização: 2026-04-27 | Status: publicado*
+

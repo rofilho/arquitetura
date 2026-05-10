@@ -2,6 +2,9 @@
 title: "💻 Aula  – Arquitetura e Organização de Computadores – Plano de Aulas"
 ---
 
+
+![Capa](assets/capa_aula01.png)
+
 # Aula-01: Arquitetura e Organização de Computadores – Plano de Aulas
 
 📄 **Ementa**

@@ -2,6 +2,9 @@
 title: "💻 🖥️ Aula 03: Sistemas de Computação"
 ---
 
+
+![Capa](assets/capa_aula03.png)
+
 # 🖥️ Aula 03: Sistemas de Computação
 
 ## **🎯 Objetivo da Aula**

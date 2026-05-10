@@ -2,6 +2,9 @@
 title: "💻 🖥️ Aula 02: Fundamentos da Organização de Computadores"
 ---
 
+
+![Capa](assets/capa_aula02.png)
+
 # 🖥️ Aula 02: Fundamentos da Organização de Computadores
 
 ## 🎯 Objetivo da Aula

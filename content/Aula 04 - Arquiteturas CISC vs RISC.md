@@ -2,6 +2,9 @@
 title: "💻 🖥️ Aula 04: Arquiteturas CISC vs. RISC"
 ---
 
+
+![Capa](assets/capa_aula04.png)
+
 # 🖥️ Aula 04: Arquiteturas CISC vs. RISC
 
 ## 🎯 Objetivo da Aula
