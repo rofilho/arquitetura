@@ -1,11 +1,11 @@
 ﻿---
-title: "💻 🖥️ Aula 05: Unidades de Processamento e Ciclo de Instrução"
+title: "🖥️ Aula - 05: 💻 🖥️ : Unidades de Processamento e Ciclo de Instrução"
 ---
 
 
-# 🖥️ Aula 05: Unidades de Processamento e Ciclo de Instrução
+# 🖥️ Aula - 05: 🖥️ : Unidades de Processamento e Ciclo de Instrução
 
-## 🎯 Objetivo da Aula
+# 🖥️ Aula - 05: 🖥️ : Unidades de Processamento e Ciclo de Instrução
 
 Ao final, o aluno deve:
 
@@ -21,7 +21,7 @@ Base conceitual alinhada com:
 
 ---
 
-# 0️⃣ Revisão da Aula Anterior: 5 Perguntas sobre Arquiteturas CISC vs RISC
+# 🖥️ Aula - 05: 🖥️ : Unidades de Processamento e Ciclo de Instrução
 
 > Antes de avançar para o interior do processador, vamos revisar os conceitos da Aula 04:
 > 
@@ -39,9 +39,9 @@ Base conceitual alinhada com:
 
 ---
 
-# 1️⃣ Recapitulação: De Onde Viemos?
+# 🖥️ Aula - 05: 🖥️ : Unidades de Processamento e Ciclo de Instrução
 
-## 🔗 Conexão com a Aula 04
+# 🖥️ Aula - 05: 🖥️ : Unidades de Processamento e Ciclo de Instrução
 
 Na aula anterior, entendemos o **Conjunto de Instruções (ISA)** como o "idioma" do processador, onde discutimos as duas filosofias principais (CISC e RISC) e como as instruções fluem através do **Pipeline**.
 
@@ -50,15 +50,15 @@ Na aula anterior, entendemos o **Conjunto de Instruções (ISA)** como o "idio
 
 ---
 
-# 2️⃣ A Unidade Central de Processamento (UCP)
+# 🖥️ Aula - 05: 🖥️ : Unidades de Processamento e Ciclo de Instrução
 
-## 📋 2.1 Definição
+# 🖥️ Aula - 05: 🖥️ : Unidades de Processamento e Ciclo de Instrução
 
 A **UCP** (ou CPU) é o componente lógico central encarregado de buscar, decodificar e executar as instruções armazenadas na memória principal.
 
 **Stallings (Cap. 12):** descreve que para executar instruções, o processador deve ter memória de curto prazo acoplada a ele, os registradores, além de sistemas para cálculos lógicos e tomada de decisão eletrônica.
 
-## 🧩 2.2 Componentes Internos
+# 🖥️ Aula - 05: 🖥️ : Unidades de Processamento e Ciclo de Instrução
 
 | **Componente** | **Detalhe Funcional** |
 | --- | --- |
@@ -71,20 +71,20 @@ A **UCP** (ou CPU) é o componente lógico central encarregado de buscar, deco
 
 *Diagrama bloco ULA, Unidade de Controle, Registradores conectando-se internamente em uma UCP genérica.*
 
-## 💡 2.3 Analogia
+# 🖥️ Aula - 05: 🖥️ : Unidades de Processamento e Ciclo de Instrução
 
 > A CPU é como um **chef de cozinha em ação**. A **ULA** é a faca e as panelas (quem faz efetivamente o trabalho de transformação). A **Unidade de Controle** é a mente do chef, lendo um livro de receitas e comandando os movimentos do corpo. Os **Registradores** são os pratos e as tigelas mantidas na bancada imediata onde os ingredientes (dados) ficam temporariamente guardados durante o choque térmico ou corte.
 > 
 
 ---
 
-# 3️⃣ A Unidade de Processamento: Registradores
+# 🖥️ Aula - 05: 🖥️ : Unidades de Processamento e Ciclo de Instrução
 
-## 🔧 3.1 Definição
+# 🖥️ Aula - 05: 🖥️ : Unidades de Processamento e Ciclo de Instrução
 
 Os processadores dividem os registradores em categorias lógicas. Nem todo registrador pode ser alterado deliberadamente pelo software. Eles se dividem em **Visíveis ao Usuário** e **Registradores de Controle e Estado**.
 
-## 🧩 3.2 Registradores Críticos de Controle e Estado
+# 🖥️ Aula - 05: 🖥️ : Unidades de Processamento e Ciclo de Instrução
 
 Estes são essenciais para o ciclo mecânico repetitivo da CPU:
 
@@ -102,15 +102,15 @@ Estes são essenciais para o ciclo mecânico repetitivo da CPU:
 
 ---
 
-# 4️⃣ O Ciclo de Instrução Básico
+# 🖥️ Aula - 05: 🖥️ : Unidades de Processamento e Ciclo de Instrução
 
-## ⚡ 4.1 Definição
+# 🖥️ Aula - 05: 🖥️ : Unidades de Processamento e Ciclo de Instrução
 
 A função básica do computador é executar programas, e um programa consiste em uma sequência sequencial de instruções contidas em endereços na memória. O processo ordenado para engolir e processar uma única instrução é nomeado **Ciclo de Instrução**.
 
 **Stallings (Cap. 3):** define que na forma arquitetônica mais simples imaginável, o processamento de uma instrução possui dois subciclos primordiais intercalados: **Ciclo de Busca** (Fetch) e **Ciclo de Execução** (Execute).
 
-## 🧩 4.2 O Fluxo Básico de Estados
+# 🖥️ Aula - 05: 🖥️ : Unidades de Processamento e Ciclo de Instrução
 
 | **Estado** | **O que Ocorre em Hardware** |
 | --- | --- |
@@ -130,7 +130,7 @@ Avaliação.
 
 </aside>
 
-## 📝 4.3 O Passo a Passo Físico da Busca (Fetch)
+# 🖥️ Aula - 05: 🖥️ : Unidades de Processamento e Ciclo de Instrução
 
 Quando o micro-estágio de Busca começa, ocorre um "balé" coordenado de pulsos elétricos:
 
@@ -139,20 +139,20 @@ Quando o micro-estágio de Busca começa, ocorre um "balé" coordenado de pulsos
 3. Como a unidade central sabe que está num momento de busca da instrução ativa, ela copia o conteúdo ilhado no **MBR** para o **IR**.
 4. O valor do **PC** é incrementado localmente para apontar para a instrução vizinha e sucessora no espaço da memória.
 
-## 💡 4.4 Analogia
+# 🖥️ Aula - 05: 🖥️ : Unidades de Processamento e Ciclo de Instrução
 
 > O funcionamento contínuo assemelha-se a **seguir um longo roteiro teatral**. O **PC** é o dedo apontador do diretor marcando duramente qual linha exata de texto (endereço) será lida a seguir. O **IR** é o cérebro interpretativo do ator. Após ler e meditar (Busca/Fetch), o ator exibe a ação no palco material (Execução). E o dedo impiedoso (PC) logo move para a próxima frase após a verificação.
 > 
 
 ---
 
-# 5️⃣ O Fim do Ciclo: Interrupções Mestre
+# 🖥️ Aula - 05: 🖥️ : Unidades de Processamento e Ciclo de Instrução
 
-## 🔀 5.1 O Que São Interrupções Sistêmicas?
+# 🖥️ Aula - 05: 🖥️ : Unidades de Processamento e Ciclo de Instrução
 
 A sequência normal infalível iterando Busca -> Execução assume um pressuposto estático perigoso: as coisas vivem no vácuo e são perfeitamente lineares. Quase todos os computadores viáveis suportam **Interrupções**: mecanismos arquitetados onde módulos autônomos adjacentes (como HD, placa de rede, ou falhas na memória) tem passe-livre para **interromper a sequência de processamento e roubar a atenção para eles**.
 
-## 🧩 5.2 Fluxo Estruturado do Ciclo com Interrupções
+# 🖥️ Aula - 05: 🖥️ : Unidades de Processamento e Ciclo de Instrução
 
 | **Etapa** | **Detalhe Relevante** |
 | --- | --- |
@@ -167,9 +167,9 @@ A sequência normal infalível iterando Busca -> Execução assume um pressupost
 
 ---
 
-# 6️⃣ Tendências e Otimizações Contemporâneas
+# 🖥️ Aula - 05: 🖥️ : Unidades de Processamento e Ciclo de Instrução
 
-## 🚀 Previsão Sistêmica de Desvios (Branch Prediction)
+# 🖥️ Aula - 05: 🖥️ : Unidades de Processamento e Ciclo de Instrução
 
 O conceito basilar e histórico é o sequenciamento fixo do PC. Contudo, em hardwares moderníssimos baseados em processamento temporal esticado, quando um ciclo desagua em um salto variável (como estruturas "IF-ELSE"), o fluxo se confunde, paralisando etapas superescalares.
 
@@ -177,7 +177,7 @@ Atrelado às buscas do PC, arquiteturas com o sufixo "Core" intel ou "M" Apple p
 
 ---
 
-# 7️⃣ Resumo Estrutural Consolidador
+# 🖥️ Aula - 05: 🖥️ : Unidades de Processamento e Ciclo de Instrução
 
 | **Conceito Crítico** | **Definição Básica em uma só sentença** |
 | --- | --- |
@@ -191,9 +191,9 @@ Atrelado às buscas do PC, arquiteturas com o sufixo "Core" intel ou "M" Apple p
 
 ---
 
-# 8️⃣ Metodologia Ativa de Contexto: Atividade Prática
+# 🖥️ Aula - 05: 🖥️ : Unidades de Processamento e Ciclo de Instrução
 
-## 🎓 Atividade Central: "Rastreando Sinais no Datapath"
+# 🖥️ Aula - 05: 🖥️ : Unidades de Processamento e Ciclo de Instrução
 
 **Formato Metodológico:** Aprendizagem Baseada em Problemas (PBL) - Desafio grupal para consolidar as funções temporais.
 
@@ -221,7 +221,7 @@ No princípio original, PC = 100 . Complete as passagens mentais:
 
 ---
 
-## 🧪 Estímulo Paralelo (Desafio para Casa via Sala Invertida)
+# 🖥️ Aula - 05: 🖥️ : Unidades de Processamento e Ciclo de Instrução
 
 **Missão Autônoma:** No Ciclo da Interrupção verificado no fluxograma, as literaturas confirmam piamente que a máquina tem de salvaguardar o abençoado "Estado Original Intocado" do processo moribundo. Investigue os dois parâmetros essenciais:
 
@@ -230,9 +230,9 @@ No princípio original, PC = 100 . Complete as passagens mentais:
 
 ---
 
-# 9️⃣ Referências Bibliográficas Baseológicas
+# 🖥️ Aula - 05: 🖥️ : Unidades de Processamento e Ciclo de Instrução
 
-## 📖 Referências Obrigatórias Focais
+# 🖥️ Aula - 05: 🖥️ : Unidades de Processamento e Ciclo de Instrução
 
 - **STALLINGS, W.** *Arquitetura e Organização de Computadores: projetando com foco em desempenho.* 11ª ed. São Paulo: Pearson, 2024.
     - **Capítulo 3 Exato:** Visão de Alto Nível: Função e Interconexão do Computador. Construto do ciclo formalizado e quebras interpostas com interrupções base.
@@ -240,16 +240,17 @@ No princípio original, PC = 100 . Complete as passagens mentais:
 - **TANENBAUM, A. S.** *Organização Estruturada de Computadores.* 6ª ed. São Paulo: Pearson, 2013.
     - **Capítulo 2 Indutivo:** Organização de Sistemas de Computadores enraizando os fluxos contidos e ciclos macro da instrução primária nas seções basilares de funcionamento de CPU.
 
-## 📄 Literaturas Complementares Úteis
+# 🖥️ Aula - 05: 🖥️ : Unidades de Processamento e Ciclo de Instrução
 
 - **NULL, L.; LOBUR, J.** *The Essentials of Computer Organization and Architecture.* 5th ed. Jones & Bartlett, 2018.
     - Uma visão macro do modelo matemático original descritivo sob a máquina imaculada típica estrita com fluxos e datapaths altamente intuitivos do ciclo fundamental de processamento de informações.
 
-## 🔗 Links Úteis para Imersão Plural e Prática Dinâmica
+# 🖥️ Aula - 05: 🖥️ : Unidades de Processamento e Ciclo de Instrução
 
 | **Recurso Extendido** | **Enfoque Conceitual** | **Domínio Atuante** |
 | --- | --- | --- |
 | Visualizador CPU Global Gráfico | Prata da casa dos *applets* de navegação em tempo-real para compreensão e vivência de fluídos simulados do datapath. | [cpulator.01xz.net](https://cpulator.01xz.net/) |
 | Simulador Interativo Clássico (LMC) | Um modelo prático simplista massivo derivado de experiências da academia em lógica fundamental usado para decifrar buscar-executar. | [peterhigginson.co.uk/lmc](https://peterhigginson.co.uk/lmc) |
 | Exploração Conceitual | Materiais complementares didáticos abordando de maneira engajante as interrupções de hardware. | [csfieldguide.org.nz](https://csfieldguide.org.nz/) |
+
 

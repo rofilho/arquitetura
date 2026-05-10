@@ -1,11 +1,11 @@
 ﻿---
-title: "💻 🖥️ Aula 03: Sistemas de Computação"
+title: "🖥️ Aula - 03: 💻 🖥️ : Sistemas de Computação"
 ---
 
 
-# 🖥️ Aula 03: Sistemas de Computação
+# 🖥️ Aula - 03: 🖥️ : Sistemas de Computação
 
-## **🎯 Objetivo da Aula**
+# 🖥️ Aula - 03: 🖥️ : Sistemas de Computação
 
 Ao final, o aluno deve:
 
@@ -21,9 +21,9 @@ Base conceitual alinhada com:
 
 ---
 
-# **1️⃣ Recapitulação: De Onde Viemos?**
+# 🖥️ Aula - 03: 🖥️ : Sistemas de Computação
 
-## **🔗 Conexão com a Aula 02**
+# 🖥️ Aula - 03: 🖥️ : Sistemas de Computação
 
 Na aula anterior, identificamos os **três pilares do hardware**:
 
@@ -38,9 +38,9 @@ Na aula anterior, identificamos os **três pilares do hardware**:
 
 ---
 
-# **2️⃣ Classificação dos Sistemas de Computação**
+# 🖥️ Aula - 03: 🖥️ : Sistemas de Computação
 
-## **🗂️ O "Zoológico dos Computadores" (Tanenbaum, Cap. 1.3)**
+# 🖥️ Aula - 03: 🖥️ : Sistemas de Computação
 
 Tanenbaum organiza os computadores em categorias com base em **porte**, **custo** e **finalidade**:
 
@@ -63,9 +63,9 @@ Tanenbaum organiza os computadores em categorias com base em **porte**, **cust
 
 ---
 
-# **3️⃣ Sistemas Embarcados**
+# 🖥️ Aula - 03: 🖥️ : Sistemas de Computação
 
-## **🔧 3.1 Definição**
+# 🖥️ Aula - 03: 🖥️ : Sistemas de Computação
 
 Um **sistema embarcado** é um computador projetado para executar uma **função dedicada** dentro de um sistema maior. Possui hardware e software otimizados para uma tarefa específica.
 
@@ -75,7 +75,7 @@ Um **sistema embarcado** é um computador projetado para executar uma **funç
 
 ---
 
-## **🧩 3.2 Características Técnicas**
+# 🖥️ Aula - 03: 🖥️ : Sistemas de Computação
 
 | **Característica** | **Detalhe** |
 | --- | --- |
@@ -88,7 +88,7 @@ Um **sistema embarcado** é um computador projetado para executar uma **funç
 
 ---
 
-## **🌍 3.3 Exemplos Reais no Cotidiano**
+# 🖥️ Aula - 03: 🖥️ : Sistemas de Computação
 
 - **Automotivo:** controle do motor (ECU), ABS, airbag
 - **Eletrodomésticos:** micro-ondas, máquina de lavar, ar-condicionado
@@ -102,16 +102,16 @@ Um **sistema embarcado** é um computador projetado para executar uma **funç
 
 ---
 
-## **💡 3.4 Analogia**
+# 🖥️ Aula - 03: 🖥️ : Sistemas de Computação
 
 > O sistema embarcado é como um **especialista**: faz uma coisa só, mas faz com excelência, usando o mínimo de recursos. Não navega na internet, não abre planilhas, mas controla o motor do seu carro a 6.000 RPM sem falhar.
 > 
 
 ---
 
-# **4️⃣ Sistemas de Tempo Real (Real-Time)**
+# 🖥️ Aula - 03: 🖥️ : Sistemas de Computação
 
-## **⏱️ 4.1 Definição**
+# 🖥️ Aula - 03: 🖥️ : Sistemas de Computação
 
 Um **sistema de tempo real** é aquele no qual a **correção da resposta** depende não apenas do resultado lógico, mas também do **tempo** em que o resultado é produzido.
 
@@ -119,7 +119,7 @@ Um **sistema de tempo real** é aquele no qual a **correção da resposta** 
 
 ---
 
-## **⚖️ 4.2 Classificação: Hard vs. Soft Real-Time**
+# 🖥️ Aula - 03: 🖥️ : Sistemas de Computação
 
 | **Tipo** | **Consequência do Atraso** | **Exemplo** |
 | --- | --- | --- |
@@ -131,7 +131,7 @@ Um **sistema de tempo real** é aquele no qual a **correção da resposta** 
 
 ---
 
-## **🔄 4.3 Componentes de um Sistema de Tempo Real**
+# 🖥️ Aula - 03: 🖥️ : Sistemas de Computação
 
 ```
 
@@ -153,7 +153,7 @@ Um **sistema de tempo real** é aquele no qual a **correção da resposta** 
 
 ---
 
-## **🏭 4.4 Exemplos Críticos**
+# 🖥️ Aula - 03: 🖥️ : Sistemas de Computação
 
 | **Setor** | **Sistema** | **Tipo** |
 | --- | --- | --- |
@@ -166,16 +166,16 @@ Um **sistema de tempo real** é aquele no qual a **correção da resposta** 
 
 ---
 
-## **💡 4.5 Analogia**
+# 🖥️ Aula - 03: 🖥️ : Sistemas de Computação
 
 > Imagine um **goleiro defendendo um pênalti**: ele precisa dar a resposta certa (direção correta) **no tempo certo** (antes da bola chegar). Se acertar a direção mas reagir 1 segundo atrasado, a resposta correta é inútil. Isso é tempo real.
 > 
 
 ---
 
-# **5️⃣ Sistemas Distribuídos**
+# 🖥️ Aula - 03: 🖥️ : Sistemas de Computação
 
-## **🌐 5.1 Definição**
+# 🖥️ Aula - 03: 🖥️ : Sistemas de Computação
 
 Um **sistema distribuído** é um conjunto de computadores independentes que se comunicam por rede e se apresentam ao usuário como um **sistema único e coerente**.
 
@@ -185,7 +185,7 @@ Um **sistema distribuído** é um conjunto de computadores independentes que s
 
 ---
 
-## **🏗️ 5.2 Características Fundamentais**
+# 🖥️ Aula - 03: 🖥️ : Sistemas de Computação
 
 | **Característica** | **Descrição** |
 | --- | --- |
@@ -197,7 +197,7 @@ Um **sistema distribuído** é um conjunto de computadores independentes que s
 
 ---
 
-## **🔄 5.3 Diagrama Conceitual**
+# 🖥️ Aula - 03: 🖥️ : Sistemas de Computação
 
 ```
 
@@ -220,7 +220,7 @@ Um **sistema distribuído** é um conjunto de computadores independentes que s
 
 ---
 
-## **🌍 5.4 Exemplos Reais**
+# 🖥️ Aula - 03: 🖥️ : Sistemas de Computação
 
 | **Sistema** | **Como funciona** | **O que o usuário vê** |
 | --- | --- | --- |
@@ -238,14 +238,14 @@ Um **sistema distribuído** é um conjunto de computadores independentes que s
 
 ---
 
-## **💡 5.5 Analogia**
+# 🖥️ Aula - 03: 🖥️ : Sistemas de Computação
 
 > Um sistema distribuído é como uma **rede de restaurantes franqueados**: cada unidade opera de forma independente, com seus próprios funcionários e cozinha, mas o cliente percebe uma experiência unificada (cardápio, identidade visual, padrão de atendimento). Se uma unidade fecha, as outras continuam funcionando.
 > 
 
 ---
 
-# **6️⃣ Comparação Estrutural dos Três Sistemas**
+# 🖥️ Aula - 03: 🖥️ : Sistemas de Computação
 
 | **Critério** | **Embarcado** | **Tempo Real** | **Distribuído** |
 | --- | --- | --- | --- |
@@ -262,9 +262,9 @@ Um **sistema distribuído** é um conjunto de computadores independentes que s
 
 ---
 
-# **7️⃣ Tendências Contemporâneas**
+# 🖥️ Aula - 03: 🖥️ : Sistemas de Computação
 
-## **🚀 7.1 Convergências Atuais**
+# 🖥️ Aula - 03: 🖥️ : Sistemas de Computação
 
 | **Tendência** | **Descrição** | **Relação com a Aula** |
 | --- | --- | --- |
@@ -280,7 +280,7 @@ Um **sistema distribuído** é um conjunto de computadores independentes que s
 
 ---
 
-# **8️⃣ Resumo Estrutural da Aula**
+# 🖥️ Aula - 03: 🖥️ : Sistemas de Computação
 
 | **Conceito** | **Definição em uma frase** |
 | --- | --- |
@@ -293,9 +293,9 @@ Um **sistema distribuído** é um conjunto de computadores independentes que s
 
 ---
 
-# **9️⃣ Metodologia Ativa: Atividade Prática**
+# 🖥️ Aula - 03: 🖥️ : Sistemas de Computação
 
-## **🎓 Atividade: "Classifique o Sistema"**
+# 🖥️ Aula - 03: 🖥️ : Sistemas de Computação
 
 **Formato:** Aprendizagem Baseada em Problemas (PBL)
 
@@ -319,7 +319,7 @@ Para cada cenário abaixo, identifique:
 
 ---
 
-## **🧪 Desafio Extra (Sala de Aula Invertida)**
+# 🖥️ Aula - 03: 🖥️ : Sistemas de Computação
 
 **Para casa:** Pesquisar e trazer para a próxima aula **um exemplo real do cotidiano** que combine os três tipos (embarcado + tempo real + distribuído). O aluno deve:
 
@@ -330,9 +330,9 @@ Para cada cenário abaixo, identifique:
 
 ---
 
-# **🔟 Referências Bibliográficas**
+# 🖥️ Aula - 03: 🖥️ : Sistemas de Computação
 
-## **📖 Referências Obrigatórias**
+# 🖥️ Aula - 03: 🖥️ : Sistemas de Computação
 
 - **STALLINGS, W.** *Arquitetura e Organização de Computadores: projetando com foco em desempenho.* 11ª ed. São Paulo: Pearson, 2024.
     - **Capítulo 2:** Evolução e Desempenho do Computador, seção sobre evolução dos microprocessadores e tipos de sistemas.
@@ -341,7 +341,7 @@ Para cada cenário abaixo, identifique:
     - **Capítulo 1, Seção 1.3:** "O Zoológico dos Computadores", com classificação: microcontroladores, PCs, servidores, mainframes.
 - **CORRÊA, A. G. D.** *Organização e Arquitetura de Computadores.* São Paulo: Pearson, 2016.
 
-## **📄 Referências Complementares e Artigos**
+# 🖥️ Aula - 03: 🖥️ : Sistemas de Computação
 
 - **TANENBAUM, A. S.; VAN STEEN, M.** *Sistemas Distribuídos: Princípios e Paradigmas.* 2ª ed. São Paulo: Pearson, 2007.
     - Definição formal de sistema distribuído e propriedades de transparência.
@@ -356,7 +356,7 @@ Para cada cenário abaixo, identifique:
 
 ---
 
-## **🔗 Links Úteis para Aprofundamento**
+# 🖥️ Aula - 03: 🖥️ : Sistemas de Computação
 
 | **Recurso** | **Descrição** | **Link** |
 | --- | --- | --- |
@@ -364,4 +364,5 @@ Para cada cenário abaixo, identifique:
 | Arduino | Plataforma de prototipagem embarcada | arduino.cc |
 | AWS IoT | Plataforma de IoT na nuvem | aws.amazon.com/iot |
 | RISC-V Foundation | Arquitetura aberta de instruções | riscv.org |
+
 

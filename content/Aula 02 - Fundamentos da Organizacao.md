@@ -1,11 +1,11 @@
 ﻿---
-title: "💻 🖥️ Aula 02: Fundamentos da Organização de Computadores"
+title: "🖥️ Aula - 02: 💻 🖥️ : Fundamentos da Organização de Computadores"
 ---
 
 
-# 🖥️ Aula 02: Fundamentos da Organização de Computadores
+# 🖥️ Aula - 02: 🖥️ : Fundamentos da Organização de Computadores
 
-## 🎯 Objetivo da Aula
+# 🖥️ Aula - 02: 🖥️ : Fundamentos da Organização de Computadores
 
 Ao final, o aluno deve:
 
@@ -20,9 +20,9 @@ Base conceitual alinhada com:
 
 ---
 
-# 1️⃣ Visão Macro: O Sistema Computacional
+# 🖥️ Aula - 02: 🖥️ : Fundamentos da Organização de Computadores
 
-## 🔄 Ciclo Fundamental
+# 🖥️ Aula - 02: 🖥️ : Fundamentos da Organização de Computadores
 
 Entrada → Processamento → Saída
 
@@ -30,7 +30,7 @@ Entrada → Processamento → Saída
 
 ---
 
-## Diagrama simples em blocos:
+# 🖥️ Aula - 02: 🖥️ : Fundamentos da Organização de Computadores
 
 [ Entrada ] → [ Processamento ] → [ Saída ]
 
@@ -39,9 +39,9 @@ Entrada → Processamento → Saída
 
 ---
 
-# 2️⃣ Os Três Pilares do Hardware
+# 🖥️ Aula - 02: 🖥️ : Fundamentos da Organização de Computadores
 
-## 🧠 2.1 Processador, CPU
+# 🖥️ Aula - 02: 🖥️ : Fundamentos da Organização de Computadores
 
 Função:
 
@@ -67,7 +67,7 @@ Cozinheiro executando uma receita.
 
 ---
 
-## 💾 2.2 Memória Principal, RAM
+# 🖥️ Aula - 02: 🖥️ : Fundamentos da Organização de Computadores
 
 Função:
 
@@ -85,7 +85,7 @@ Bancada da cozinha.
 
 ---
 
-## Pente de Memória RAM
+# 🖥️ Aula - 02: 🖥️ : Fundamentos da Organização de Computadores
 
 ![[assets/image 4.png]]
 
@@ -100,17 +100,17 @@ Objetivo:
 
 ---
 
-## 🔌 2.3 Entrada e Saída, E/S
+# 🖥️ Aula - 02: 🖥️ : Fundamentos da Organização de Computadores
 
-### Entrada
+# 🖥️ Aula - 02: 🖥️ : Fundamentos da Organização de Computadores
 
 Teclado, mouse, microfone.
 
-### Saída
+# 🖥️ Aula - 02: 🖥️ : Fundamentos da Organização de Computadores
 
 Monitor, projetor, caixas de som.
 
-### Armazenamento Secundário
+# 🖥️ Aula - 02: 🖥️ : Fundamentos da Organização de Computadores
 
 HD ou SSD.
 
@@ -120,7 +120,7 @@ Guardar dados permanentemente.
 
 ---
 
-## 3️⃣ Interconexão, Barramentos
+# 🖥️ Aula - 02: 🖥️ : Fundamentos da Organização de Computadores
 
 - Pente de RAM
 - SSD NVMe
@@ -137,7 +137,7 @@ Rodovia de dados.
 
 ---
 
-## Diagrama Simplificado do Modelo de Von Neumann
+# 🖥️ Aula - 02: 🖥️ : Fundamentos da Organização de Computadores
 
 ![[assets/image 7.png]]
 
@@ -172,7 +172,7 @@ Ainda não é o momento.
 
 ---
 
-# 4️⃣ Resumo Estrutural
+# 🖥️ Aula - 02: 🖥️ : Fundamentos da Organização de Computadores
 
 | Componente | Função | Exemplo Real |
 | --- | --- | --- |
@@ -184,18 +184,19 @@ Ainda não é o momento.
 
 ---
 
-# 5️⃣ Metodologia Ativa, Anatomia Física
+# 🖥️ Aula - 02: 🖥️ : Fundamentos da Organização de Computadores
 
-## Processador
+# 🖥️ Aula - 02: 🖥️ : Fundamentos da Organização de Computadores
 
 - Memória RAM
 - Conectores de E/S
 
 ![[assets/image 8.png]]
 
-### 📖 William Stallings
+# 🖥️ Aula - 02: 🖥️ : Fundamentos da Organização de Computadores
 
 - **Obra:** *Arquitetura e organização de computadores: projetando com foco em desempenho* (11ª Edição, 2024).
 - **Capítulo 1 (Introdução):** A seção de "Estrutura e Função" define exatamente a visão de alto nível apresentada no diagrama, separando o computador em CPU, Memória Principal e Entrada/Saída.
 - **Capítulo 2 (Evolução e Desempenho do Computador):** Apresenta o projeto arquitetônico da Máquina de Von Neumann, consolidando o conceito de programa armazenado e o fluxo de busca e execução.
+
 

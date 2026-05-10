@@ -1,5 +1,5 @@
 ﻿---
-title: "💻 🟢 Aula 06: Hierarquia de Memória e Memória Virtual"
+title: "🖥️ Aula - 06: 💻 🟢 : Hierarquia de Memória e Memória Virtual"
 ---
 
 
@@ -21,7 +21,7 @@ tags:
 publicar: true
 ---
 
-# 🟢 Aula 06: Hierarquia de Memória e Memória Virtual
+# 🖥️ Aula - 06: 🟢 : Hierarquia de Memória e Memória Virtual
 
 **Disciplina:** Arquitetura de Computadores
 **Curso:** Inteligência Artificial e Ciência de Dados — Uniube
@@ -32,7 +32,7 @@ publicar: true
 
 ---
 
-## 🎯 Objetivo da Aula
+# 🖥️ Aula - 06: 🟢 : Hierarquia de Memória e Memória Virtual
 
 Ao final desta aula, os alunos serão capazes de:
 - **Compreender** o conceito e a necessidade da hierarquia de memória nos sistemas computacionais.
@@ -42,7 +42,7 @@ Ao final desta aula, os alunos serão capazes de:
 
 ---
 
-## 🔄 Revisão Rápida (5 min)
+# 🖥️ Aula - 06: 🟢 : Hierarquia de Memória e Memória Virtual
 
 | **Conceito (Aula Anterior)** | **Conexão com hoje** |
 | --- | --- |
@@ -52,14 +52,14 @@ Ao final desta aula, os alunos serão capazes de:
 
 ---
 
-## 📌 1. A Pirâmide: Hierarquia de Memória
+# 🖥️ Aula - 06: 🟢 : Hierarquia de Memória e Memória Virtual
 
 A **hierarquia de memória** é uma organização estruturada das tecnologias de armazenamento. O objetivo é criar a ilusão para o processador de que existe uma memória com a **velocidade dos registradores** e a **capacidade e custo do armazenamento em massa**.
 
 ![[assets/aula06_piramide_memoria.png]]
 > *Legenda: Pirâmide da hierarquia de memória. No topo: memórias menores, mais rápidas e caras (Registradores, Cache). Na base: memórias maiores, mais lentas e baratas (HDD/SSD, Nuvem). Fonte: Elaborado pelo Prof. Romualdo com base em Stallings (2024, Cap. 4).*
 
-### Regras de Ouro da Hierarquia
+# 🖥️ Aula - 06: 🟢 : Hierarquia de Memória e Memória Virtual
 
 | **Característica** | **Do topo ao fundo da pirâmide** |
 | --- | --- |
@@ -77,14 +77,14 @@ A **hierarquia de memória** é uma organização estruturada das tecnologias de
 
 ---
 
-## 📌 2. Memória Cache: O Amortecedor da CPU
+# 🖥️ Aula - 06: 🟢 : Hierarquia de Memória e Memória Virtual
 
 A **Cache** é o segredo de desempenho dos processadores modernos. Ela fica entre a CPU ultrarrápida e a RAM relativamente lenta, armazenando cópias dos dados que a CPU usa com maior frequência.
 
 ![[assets/aula06_cache_L1_L2_L3.png]]
 > *Legenda: Organização interna dos níveis de cache em um processador multi-core moderno. L1 e L2 são privadas por núcleo; L3 é compartilhada. Fonte: Elaborado pelo Prof. Romualdo com base em Stallings (2024, p. 154).*
 
-### Níveis de Cache e suas Latências Reais
+# 🖥️ Aula - 06: 🟢 : Hierarquia de Memória e Memória Virtual
 
 | **Nível** | **Tamanho Típico** | **Latência** | **Quem compartilha** |
 | --- | --- | --- | --- |
@@ -97,7 +97,7 @@ A **Cache** é o segredo de desempenho dos processadores modernos. Ela fica entr
 
 > ⚠️ **Cache Miss:** Quando a CPU busca um dado e ele **não está na cache**, ocorre um "Cache Miss". O processador então busca na RAM (100x mais lento). Esse é o motivo pelo qual algoritmos que acessam memória de forma sequencial (cache-friendly) são muito mais rápidos do que os que pulam endereços aleatoriamente.
 
-### Fluxo de Busca de Dado na Hierarquia de Cache
+# 🖥️ Aula - 06: 🟢 : Hierarquia de Memória e Memória Virtual
 
 ```mermaid
 flowchart TD
@@ -116,34 +116,34 @@ flowchart TD
 
 ---
 
-## 📌 3. Memória Principal (RAM) e Secundária
+# 🖥️ Aula - 06: 🟢 : Hierarquia de Memória e Memória Virtual
 
-### RAM — A Área de Trabalho Ativa
+# 🖥️ Aula - 06: 🟢 : Hierarquia de Memória e Memória Virtual
 
 A **RAM (Random Access Memory)** é feita de tecnologia **DRAM (Dynamic RAM)** — mais lenta que a SRAM da Cache, mas viável em grandes quantidades. É **volátil**: desligou, perdeu tudo.
 
 Tudo que está "aberto e em execução" no seu computador vive na RAM: o navegador com 50 abas, o Spotify, o VSCode, o jogo, o Discord. Quando a RAM esgota, o sistema operacional precisa de um plano B.
 
-### SSD/HDD — Armazenamento Persistente
+# 🖥️ Aula - 06: 🟢 : Hierarquia de Memória e Memória Virtual
 
 A memória secundária é **não volátil** (dados sobrevivem ao desligamento). Os SSDs NVMe revolucionaram essa camada com latências em microssegundos, mas continuam sendo **estruturalmente 1000x mais lentos** que a RAM no acesso aleatório.
 
 ---
 
-## 📌 4. Memória Virtual: A Mágica do Sistema Operacional
+# 🖥️ Aula - 06: 🟢 : Hierarquia de Memória e Memória Virtual
 
-### O Problema
+# 🖥️ Aula - 06: 🟢 : Hierarquia de Memória e Memória Virtual
 
 Você abre o Chrome com 50 abas, o Photoshop, o VS Code e um jogo. A RAM de 8GB esgota. O que acontece?
 
-### A Solução: Paginação (Paging)
+# 🖥️ Aula - 06: 🟢 : Hierarquia de Memória e Memória Virtual
 
 A **Memória Virtual** é uma técnica gerenciada em conjunto pela **MMU (Memory Management Unit)** do processador e pelo **Sistema Operacional**. Ela "engana" os aplicativos fazendo cada processo acreditar que possui toda a memória do sistema para si, enquanto na prática os dados são distribuídos entre RAM e disco.
 
 ![[assets/aula06_memoria_virtual_paginacao.png]]
 > *Legenda: Mecanismo de Paginação (Swap). Quando a RAM enche, páginas inativas são movidas para o disco (Swap-Out). Quando necessárias novamente, retornam para a RAM (Swap-In). A Tabela de Páginas traduz endereços lógicos em físicos. Fonte: Elaborado pelo Prof. Romualdo com base em Tanenbaum (2015, Cap. 3).*
 
-### O Fluxo Completo da Paginação
+# 🖥️ Aula - 06: 🟢 : Hierarquia de Memória e Memória Virtual
 
 ```mermaid
 sequenceDiagram
@@ -170,7 +170,7 @@ sequenceDiagram
 ```
 > *Legenda: Sequência completa de um acesso à memória virtual. O Page Fault é o evento mais custoso — toda vez que ocorre, a CPU entra em estado de espera aguardando o disco.*
 
-### O Perigo: Thrashing
+# 🖥️ Aula - 06: 🟢 : Hierarquia de Memória e Memória Virtual
 
 > ⚠️ **Thrashing:** Quando a RAM está tão cheia que o SO fica o tempo todo movendo páginas entre disco e RAM (Swap-Out e Swap-In contínuos), sem conseguir executar nada de útil. Sintoma clássico: disco em 100%, máquina travada, CPU em baixo uso — ela está apenas esperando.
 
@@ -182,7 +182,7 @@ sequenceDiagram
 
 ---
 
-## 📋 Resumo Estrutural
+# 🖥️ Aula - 06: 🟢 : Hierarquia de Memória e Memória Virtual
 
 | **Conceito** | **Definição em Uma Frase** |
 | --- | --- |
@@ -199,11 +199,11 @@ sequenceDiagram
 
 ---
 
-## ❓ Banco de Questões
+# 🖥️ Aula - 06: 🟢 : Hierarquia de Memória e Memória Virtual
 
 > 🔒 Esta seção é visível apenas no Obsidian do professor. Não publicada.
 
-### Questão 1: Prática (Múltipla Escolha — Nível: Intermediário)
+# 🖥️ Aula - 06: 🟢 : Hierarquia de Memória e Memória Virtual
 
 **Enunciado:** Em um cenário de suporte, um usuário relata que seu computador, ao ter vários programas pesados abertos simultaneamente, não apresenta travamento total, mas sofre de extrema lentidão com a luz indicadora de uso do disco (HDD/SSD) acesa quase 100% do tempo. Qual conceito arquitetural explica esse comportamento?
 
@@ -216,7 +216,7 @@ sequenceDiagram
 
 ---
 
-### Questão 2: Teórica (Dissertativa — Nível: Básico/Intermediário)
+# 🖥️ Aula - 06: 🟢 : Hierarquia de Memória e Memória Virtual
 
 **Enunciado:** Baseando-se no princípio de custo e velocidade, explique por que a arquitetura de computadores adota uma "hierarquia" de memórias em vez de construir toda a memória do computador utilizando a tecnologia super-rápida da Cache L1.
 
@@ -224,7 +224,7 @@ sequenceDiagram
 
 ---
 
-### Questão 3: Prática (Múltipla Escolha — Nível: Avançado)
+# 🖥️ Aula - 06: 🟢 : Hierarquia de Memória e Memória Virtual
 
 **Enunciado:** Um programador percebe que seu algoritmo de ordenação A processa um array de 100 MB em 2 segundos, enquanto o algoritmo B, com a mesma complexidade Big-O, leva 8 segundos. A análise do profiler revela que o algoritmo B realiza muitos acessos a posições aleatórias do array. Qual é a causa mais provável dessa diferença de desempenho?
 
@@ -237,19 +237,20 @@ sequenceDiagram
 
 ---
 
-## 📄 Artigo de Aprofundamento
+# 🖥️ Aula - 06: 🟢 : Hierarquia de Memória e Memória Virtual
 
 - [What is Virtual Memory? (Red Hat — En)](https://www.redhat.com/en/blog/what-virtual-memory)
 > *Resumo prático: Artigo direto ao ponto que explica como o kernel Linux gerencia a abstração da memória virtual, garantindo isolamento entre processos e escalabilidade do sistema operacional.*
 
 ---
 
-## 📚 Referências Bibliográficas e Citações
+# 🖥️ Aula - 06: 🟢 : Hierarquia de Memória e Memória Virtual
 
 - **STALLINGS, William**, *Arquitetura e Organização de Computadores: projetando com foco em desempenho*. 11ª ed. Pearson, 2024. **(Capítulo 4: Memória Cache — p. 132–170; Capítulo 8: Memória Principal — p. 250–285)**.
 - **TANENBAUM, Andrew S.**, *Sistemas Operacionais Modernos*. 4ª ed. Pearson, 2015. **(Capítulo 3: Gerenciamento de Memória — Páginas e Memória Virtual — p. 193–267)**.
 
 ---
 *Última atualização: 2026-04-27 | Status: publicado*
+
 
 
