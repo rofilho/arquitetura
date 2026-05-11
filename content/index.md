@@ -83,19 +83,15 @@ html, body, #quartz-root, #quartz-body, .page, .center, .center-content, article
 }
 .btn:hover { background: #f1f5f9; transform: scale(1.05); }
 
-/* ── Linhas de cards (módulos) ── */
+/* ── Grade de cards (módulos) ── */
 .row-wrapper { margin-bottom: 2.5rem; }
 .row-title   { font-size: 20px; font-weight: 700; margin-bottom: 15px; margin-left: 5px; opacity: 0.9; }
 .row {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   padding: 10px 5px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 }
-.row::-webkit-scrollbar { display: none; }
 
 /* ── Cards de aulas ── */
 .card {
@@ -150,12 +146,13 @@ html, body, #quartz-root, #quartz-body, .page, .center, .center-content, article
 .card-meta { font-size: 11px; color: #64748b; margin-top: auto; display: flex; justify-content: space-between; }
 
 /* ── Responsivo ── */
+@media (max-width: 1024px) { .row { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 768px) {
-  .card { flex: 0 0 calc(50% - 15px); }
+  .row { grid-template-columns: repeat(2, 1fr); }
   .hero { padding: 1.5rem; height: 300px; }
   .hero h1 { font-size: 28px; }
 }
-@media (max-width: 480px) { .card { flex: 0 0 85%; } }
+@media (max-width: 480px) { .row { grid-template-columns: 1fr; } }
 </style>
 
 <div class="dashboard-container">
