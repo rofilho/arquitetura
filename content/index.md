@@ -1,4 +1,4 @@
-﻿---
+---
 title: "💻 Arquitetura de Computadores"
 cssclasses:
   - dashboard-layout
@@ -165,7 +165,7 @@ html, body, #quartz-root, #quartz-body, .page, .center, .center-content, article
     <span class="tag">▶ Continue Estudando</span>
     <h1>💻 Arquitetura de Computadores</h1>
     <p>Fundamentos, hardware, processadores e memória.</p>
-    <a href="./Aula-06---Hierarquia-de-Memoria-e-Memoria-Virtual" class="btn" data-spa>Retomar: 💻 🟢 Aula 06: Hierarquia de Memória e Memória Virtual</a>
+    <a href="./Aula-08---Processamento-Paralelo-e-Multicore" class="btn" data-spa>Retomar: 💻 🟢 Aula 08: Processamento Paralelo, Multicore e Distribuído</a>
   </div>
 </div>
 
@@ -214,10 +214,22 @@ html, body, #quartz-root, #quartz-body, .page, .center, .center-content, article
         <div class="card-meta"><span>Acessar Aula</span><span></span></div>
       </div>
     </a>
+    <a href="./Aula-07---Conjunto-de-Instrucoes-e-Ciclo-da-Instrucao" class="card" data-spa>
+      <div class="card-thumb" style="background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);"><div class="card-progress-bar"><div class="card-progress" style="width: 100%"></div></div></div>
+      <div class="card-content">
+        <div class="card-title">💻 🟢 Aula 07: Conjunto de Instruções, Ciclo de Instrução e Pipeline</div>
+        <div class="card-meta"><span>Acessar Aula</span><span></span></div>
+      </div>
+    </a>
+    <a href="./Aula-08---Processamento-Paralelo-e-Multicore" class="card" data-spa>
+      <div class="card-thumb" style="background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);"><div class="card-progress-bar"><div class="card-progress" style="width: 100%"></div></div></div>
+      <div class="card-content">
+        <div class="card-title">💻 🟢 Aula 08: Processamento Paralelo, Multicore e Distribuído</div>
+        <div class="card-meta"><span>Acessar Aula</span><span></span></div>
+      </div>
+    </a>
 
   </div>
 </div>
 
 </div>
-
-
