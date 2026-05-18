@@ -88,19 +88,15 @@ html, body, #quartz-root, #quartz-body, .page, .center, .center-content, article
 .row-title   { font-size: 20px; font-weight: 700; margin-bottom: 15px; margin-left: 5px; opacity: 0.9; }
 .row {
   display: flex;
+  flex-wrap: wrap;
   gap: 16px;
   padding: 10px 5px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 }
-.row::-webkit-scrollbar { display: none; }
 
 /* ── Cards de aulas ── */
 .card {
-  flex: 0 0 calc(100% / 4 - 15px);
-  min-width: 220px;
+  flex: 0 0 calc(25% - 12px);
+  min-width: 200px;
   background: #1e293b;
   border-radius: 12px;
   overflow: hidden;
@@ -151,11 +147,11 @@ html, body, #quartz-root, #quartz-body, .page, .center, .center-content, article
 
 /* ── Responsivo ── */
 @media (max-width: 768px) {
-  .card { flex: 0 0 calc(50% - 15px); }
+  .card { flex: 0 0 calc(50% - 8px); }
   .hero { padding: 1.5rem; height: 300px; }
   .hero h1 { font-size: 28px; }
 }
-@media (max-width: 480px) { .card { flex: 0 0 85%; } }
+@media (max-width: 480px) { .card { flex: 0 0 100%; } }
 </style>
 
 <div class="dashboard-container">
