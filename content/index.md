@@ -1,4 +1,4 @@
-﻿---
+---
 title: "💻 Arquitetura de Computadores"
 cssclasses:
   - dashboard-layout
@@ -165,7 +165,7 @@ html, body, #quartz-root, #quartz-body, .page, .center, .center-content, article
     <span class="tag">▶ Continue Estudando</span>
     <h1>💻 Arquitetura de Computadores</h1>
     <p>Fundamentos, hardware, processadores e memória.</p>
-    <a href="./Aula-06---Hierarquia-de-Memoria-e-Memoria-Virtual" class="btn" data-spa>Retomar: 💻 🟢 Aula 06: Hierarquia de Memória e Memória Virtual</a>
+    <a href="./Aula-09---Mecanismos-de-Entrada-e-Saida" class="btn" data-spa>Retomar: 💻 🟢 Aula 09: Mecanismos de Entrada e Saída</a>
   </div>
 </div>
 
@@ -173,44 +173,65 @@ html, body, #quartz-root, #quartz-body, .page, .center, .center-content, article
   <div class="row-title">Conteúdo da Disciplina</div>
   <div class="row">
     <a href="./Aula-01---Arquitetura-e-Organizacao" class="card" data-spa>
-      <div class="card-thumb" style="background-image: url('assets/capa_aula01.png'); background-size: cover; background-position: center;"><div class="card-progress-bar"><div class="card-progress" style="width: 36%"></div></div></div>
+      <div class="card-thumb" style="background-image: url('assets/capa_aula01.png'); background-size: cover; background-position: center;"><div class="card-progress-bar"><div class="card-progress" style="width: 100%"></div></div></div>
       <div class="card-content">
-        <div class="card-title">💻 Aula  – Arquitetura e Organização de Computadores – Plano de Aulas</div>
+        <div class="card-title">💻 Aula 01 – Arquitetura e Organização de Computadores</div>
         <div class="card-meta"><span>Acessar Aula</span><span></span></div>
       </div>
     </a>
     <a href="./Aula-02---Fundamentos-da-Organizacao" class="card" data-spa>
-      <div class="card-thumb" style="background-image: url('assets/capa_aula02.png'); background-size: cover; background-position: center;"><div class="card-progress-bar"><div class="card-progress" style="width: 89%"></div></div></div>
+      <div class="card-thumb" style="background-image: url('assets/capa_aula02.png'); background-size: cover; background-position: center;"><div class="card-progress-bar"><div class="card-progress" style="width: 100%"></div></div></div>
       <div class="card-content">
-        <div class="card-title">💻 🖥️ Aula 02: Fundamentos da Organização de Computadores</div>
+        <div class="card-title">💻 Aula 02 – Fundamentos da Organização de Computadores</div>
         <div class="card-meta"><span>Acessar Aula</span><span></span></div>
       </div>
     </a>
     <a href="./Aula-03---Sistemas-de-Computacao" class="card" data-spa>
-      <div class="card-thumb" style="background-image: url('assets/capa_aula03.png'); background-size: cover; background-position: center;"><div class="card-progress-bar"><div class="card-progress" style="width: 18%"></div></div></div>
+      <div class="card-thumb" style="background-image: url('assets/capa_aula03.png'); background-size: cover; background-position: center;"><div class="card-progress-bar"><div class="card-progress" style="width: 100%"></div></div></div>
       <div class="card-content">
-        <div class="card-title">💻 🖥️ Aula 03: Sistemas de Computação</div>
+        <div class="card-title">💻 Aula 03 – Sistemas de Computação</div>
         <div class="card-meta"><span>Acessar Aula</span><span></span></div>
       </div>
     </a>
     <a href="./Aula-04---Arquiteturas-CISC-vs-RISC" class="card" data-spa>
-      <div class="card-thumb" style="background-image: url('assets/capa_aula04.png'); background-size: cover; background-position: center;"><div class="card-progress-bar"><div class="card-progress" style="width: 28%"></div></div></div>
+      <div class="card-thumb" style="background-image: url('assets/capa_aula04.png'); background-size: cover; background-position: center;"><div class="card-progress-bar"><div class="card-progress" style="width: 100%"></div></div></div>
       <div class="card-content">
-        <div class="card-title">💻 🖥️ Aula 04: Arquiteturas CISC vs. RISC</div>
+        <div class="card-title">💻 Aula 04 – Arquiteturas CISC vs. RISC</div>
         <div class="card-meta"><span>Acessar Aula</span><span></span></div>
       </div>
     </a>
     <a href="./Aula-05---Unidades-de-Processamento" class="card" data-spa>
-      <div class="card-thumb" style="background-image: url('assets/capa_aula05.png'); background-size: cover; background-position: center;"><div class="card-progress-bar"><div class="card-progress" style="width: 91%"></div></div></div>
+      <div class="card-thumb" style="background-image: url('assets/capa_aula05.png'); background-size: cover; background-position: center;"><div class="card-progress-bar"><div class="card-progress" style="width: 100%"></div></div></div>
       <div class="card-content">
-        <div class="card-title">💻 🖥️ Aula 05: Unidades de Processamento e Ciclo de Instrução</div>
+        <div class="card-title">💻 Aula 05 – Unidades de Processamento e Ciclo de Instrução</div>
         <div class="card-meta"><span>Acessar Aula</span><span></span></div>
       </div>
     </a>
     <a href="./Aula-06---Hierarquia-de-Memoria-e-Memoria-Virtual" class="card" data-spa>
-      <div class="card-thumb" style="background-image: url('assets/capa_aula06.png'); background-size: cover; background-position: center;"><div class="card-progress-bar"><div class="card-progress" style="width: 83%"></div></div></div>
+      <div class="card-thumb" style="background-image: url('assets/capa_aula06.png'); background-size: cover; background-position: center;"><div class="card-progress-bar"><div class="card-progress" style="width: 100%"></div></div></div>
       <div class="card-content">
-        <div class="card-title">💻 🟢 Aula 06: Hierarquia de Memória e Memória Virtual</div>
+        <div class="card-title">💻 Aula 06 – Hierarquia de Memória e Memória Virtual</div>
+        <div class="card-meta"><span>Acessar Aula</span><span></span></div>
+      </div>
+    </a>
+    <a href="./Aula-07---Conjunto-de-Instrucoes-e-Ciclo-da-Instrucao" class="card" data-spa>
+      <div class="card-thumb" style="background-image: url('assets/capa_aula07.png'); background-size: cover; background-position: center;"><div class="card-progress-bar"><div class="card-progress" style="width: 100%"></div></div></div>
+      <div class="card-content">
+        <div class="card-title">💻 Aula 07 – Conjunto de Instruções e Ciclo da Instrução</div>
+        <div class="card-meta"><span>Acessar Aula</span><span></span></div>
+      </div>
+    </a>
+    <a href="./Aula-08---Processamento-Paralelo-e-Multicore" class="card" data-spa>
+      <div class="card-thumb" style="background-image: url('assets/capa_aula08.png'); background-size: cover; background-position: center;"><div class="card-progress-bar"><div class="card-progress" style="width: 100%"></div></div></div>
+      <div class="card-content">
+        <div class="card-title">💻 Aula 08 – Processamento Paralelo, Multicore e Distribuído</div>
+        <div class="card-meta"><span>Acessar Aula</span><span></span></div>
+      </div>
+    </a>
+    <a href="./Aula-09---Mecanismos-de-Entrada-e-Saida" class="card" data-spa>
+      <div class="card-thumb" style="background-image: url('assets/capa_aula09.png'); background-size: cover; background-position: center;"><div class="card-progress-bar"><div class="card-progress" style="width: 100%"></div></div></div>
+      <div class="card-content">
+        <div class="card-title">💻 Aula 09 – Mecanismos de Entrada e Saída (E/S)</div>
         <div class="card-meta"><span>Acessar Aula</span><span></span></div>
       </div>
     </a>
