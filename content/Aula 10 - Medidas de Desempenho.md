@@ -40,7 +40,7 @@ publicar: true
 >   - Compreender as três engrenagens que definem o tempo de execução de um programa no computador.
 >   - Entender de forma leve a matemática por trás da Lei de Amdahl e por que existem gargalos impossíveis de acelerar.
 > * **📂 Recursos Adicionais para Download:**
->   - [Amdahl's Law Calculator (Simulador Interativo Web)](https://www.amdahlslaw.com/) — Uma ferramenta interativa simples para você arrastar barras e ver os limites de ganho de velocidade graficamente.
+>   - [Amdahl's Law Calculator (Simulador Interativo Omni)](https://www.omnicalculator.com/other/amdahls-law) — Uma ferramenta interativa fantástica para você arrastar barras e simular os limites de ganho de velocidade de forma imediata e visual.
 
 ---
 
