@@ -259,7 +259,7 @@ sudo nano index.html
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aula 12: Arquitetura de Virtualização</title>
+    <title>Aula 11: Arquitetura de Virtualização</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -325,7 +325,7 @@ sudo nano index.html
 </head>
 <body>
     <div class="container">
-        <h1>AOC - Aula 12 🖥️</h1>
+        <h1>AOC - Aula 11 🖥️</h1>
         <p>Laboratório Prático de Virtualização de Servidores e Hipervisores</p>
         <input type="text" id="nameInput" placeholder="Digite seu nome para o log" />
         <br>
