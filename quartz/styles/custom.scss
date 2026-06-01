@@ -241,9 +241,9 @@ figure[data-rehype-pretty-code-figure] pre {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* Garante contraste mínimo no tema claro */
+/* Garante contraste mínimo adaptativo */
 figure[data-rehype-pretty-code-figure] pre code {
-  color: var(--shiki-light, #24292e);
+  color: var(--text-color);
 }
 
 /* Responsivo: scroll horizontal em telas pequenas */
