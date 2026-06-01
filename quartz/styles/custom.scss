@@ -207,13 +207,13 @@ article blockquote {
 /* Blocos de código — estilo macOS */
 figure[data-rehype-pretty-code-figure] {
   border-radius: 12px !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   margin: var(--sp-8) 0 !important;
   position: relative;
   padding-top: 2.5rem !important;
-  background-color: #1e293b !important;
+  background-color: var(--lightgray) !important; /* Adaptativo: #e2e8f0 no tema claro, #1e293b no escuro */
   overflow: hidden !important;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--lightgray);
 }
 /* Bolinhas macOS (vermelho/amarelo/verde) */
 figure[data-rehype-pretty-code-figure]::before {
@@ -235,9 +235,10 @@ figure[data-rehype-pretty-code-figure] pre {
   overflow-x: auto !important;
 }
 
-/* Fix texto de código no tema escuro */
-[saved-theme="dark"] figure[data-rehype-pretty-code-figure] pre code span {
-  color: var(--shiki-dark, #e2e8f0) !important;
+/* Ajustes finos de borda e sombra no tema escuro */
+[saved-theme="dark"] figure[data-rehype-pretty-code-figure] {
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 /* Garante contraste mínimo no tema claro */
