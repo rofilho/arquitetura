@@ -208,24 +208,29 @@ Agora colocaremos em prática os conceitos de virtualização no hardware. Farem
 Após instalar a VM e realizar o login, configure o sistema de rede e o servidor Nginx com os comandos de terminal Bash:
 
 1.  **Atualize as listas de pacotes e pacotes de sistema:**
-    ```bash
-    sudo apt update && sudo apt upgrade -y
-    ```
+
+```bash
+sudo apt update && sudo apt upgrade -y
+```
+
 2.  **Instale o servidor web Nginx (servidor de alta performance e baixo consumo de CPU):**
-    ```bash
-    sudo apt install nginx -y
-    ```
+
+```bash
+sudo apt install nginx -y
+```
+
 3.  **Inicie e habilite o serviço do Nginx no sistema:**
-    ```bash
-    sudo systemctl start nginx
-    ```
-    ```bash
-    sudo systemctl enable nginx
-    ```
+
+```bash
+sudo systemctl start nginx
+sudo systemctl enable nginx
+```
+
 4.  **Descubra o IP local da VM atribuído pelo roteador:**
-    ```bash
-    ip a
-    ```
+
+```bash
+ip a
+```
 5.  No navegador da sua máquina física (Host Windows), digite o IP da VM. Você deverá visualizar a tela de boas-vindas padrão do Nginx.
 
 ---
@@ -235,110 +240,112 @@ Após instalar a VM e realizar o login, configure o sistema de rede e o servidor
 Navegue até o diretório padrão de publicação do Nginx e substitua a página inicial estática por um painel dinâmico e responsivo em HTML/CSS/JS para saudar os alunos de arquitetura:
 
 1.  Acesse o diretório HTML padrão:
-    ```bash
-    cd /var/www/html
-    ```
+
+```bash
+cd /var/www/html
+```
+
 2.  Crie um backup da página padrão e edite o arquivo principal:
-    ```bash
-    sudo mv index.nginx-debian.html index.nginx-debian.html.bak
-    ```
-    ```bash
-    sudo nano index.html
-    ```
+
+```bash
+sudo mv index.nginx-debian.html index.nginx-debian.html.bak
+sudo nano index.html
+```
 3.  Cole o seguinte código unificado no editor `nano`, pressione `Ctrl+O` para salvar e `Ctrl+X` para sair:
-    ```html
-    <!DOCTYPE html>
-    <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Aula 12: Arquitetura de Virtualização</title>
-        <style>
-            body {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                background-color: #0d1117;
-                color: #c9d1d9;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                margin: 0;
+
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 12: Arquitetura de Virtualização</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0d1117;
+            color: #c9d1d9;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 40px;
+            max-width: 480px;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            color: #58a6ff;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #8b949e;
+            font-size: 1rem;
+            margin-bottom: 25px;
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 12px;
+            border: 1px solid #30363d;
+            background-color: #0d1117;
+            color: #c9d1d9;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+        button {
+            padding: 12px 24px;
+            background-color: #238636;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        button:hover {
+            background-color: #2ea043;
+        }
+        #greeting {
+            margin-top: 25px;
+            font-size: 1.2rem;
+            color: #3fb950;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AOC - Aula 12 🖥️</h1>
+        <p>Laboratório Prático de Virtualização de Servidores e Hipervisores</p>
+        <input type="text" id="nameInput" placeholder="Digite seu nome para o log" />
+        <br>
+        <button id="greetButton"> Registrar Acesso </button>
+        <div id="greeting"></div>
+    </div>
+    <script>
+        document.getElementById('greetButton').addEventListener('click', function() {
+            const name = document.getElementById('nameInput').value;
+            const out = document.getElementById('greeting');
+            if (name) {
+                out.innerText = `Olá, ${name}! VM e Nginx respondendo diretamente do hardware virtualizado.`;
+            } else {
+                out.innerText = 'Por favor, insira o seu nome de aluno!';
             }
-            .container {
-                background-color: #161b22;
-                border: 1px solid #30363d;
-                border-radius: 12px;
-                padding: 40px;
-                max-width: 480px;
-                text-align: center;
-                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-            }
-            h1 {
-                color: #58a6ff;
-                font-size: 1.8rem;
-                margin-bottom: 10px;
-            }
-            p {
-                color: #8b949e;
-                font-size: 1rem;
-                margin-bottom: 25px;
-            }
-            input[type="text"] {
-                width: 80%;
-                padding: 12px;
-                border: 1px solid #30363d;
-                background-color: #0d1117;
-                color: #c9d1d9;
-                border-radius: 6px;
-                margin-bottom: 15px;
-                font-size: 1rem;
-            }
-            button {
-                padding: 12px 24px;
-                background-color: #238636;
-                color: #ffffff;
-                border: none;
-                border-radius: 6px;
-                font-size: 1rem;
-                font-weight: bold;
-                cursor: pointer;
-                transition: background-color 0.2s;
-            }
-            button:hover {
-                background-color: #2ea043;
-            }
-            #greeting {
-                margin-top: 25px;
-                font-size: 1.2rem;
-                color: #3fb950;
-                font-weight: bold;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <h1>AOC - Aula 12 🖥️</h1>
-            <p>Laboratório Prático de Virtualização de Servidores e Hipervisores</p>
-            <input type="text" id="nameInput" placeholder="Digite seu nome para o log" />
-            <br>
-            <button id="greetButton"> Registrar Acesso </button>
-            <div id="greeting"></div>
-        </div>
-        <script>
-            document.getElementById('greetButton').addEventListener('click', function() {
-                const name = document.getElementById('nameInput').value;
-                const out = document.getElementById('greeting');
-                if (name) {
-                    out.innerText = `Olá, ${name}! VM e Nginx respondendo diretamente do hardware virtualizado.`;
-                } else {
-                    out.innerText = 'Por favor, insira o seu nome de aluno!';
-                }
-            });
-        </script>
-    </body>
-    </html>
-    ```
+        });
+    </script>
+</body>
+</html>
+```
 4.  Atualize a página no navegador do seu host. O painel dinâmico em dark-mode estará totalmente funcional.
 
 ---
@@ -348,24 +355,29 @@ Navegue até o diretório padrão de publicação do Nginx e substitua a página
 Agora executaremos a mesma página web utilizando contêineres **Docker**. Diferente da VM, que virtualiza todo o hardware físico (processador, controladoras e disco), o Docker realiza a **virtualização a nível de sistema operacional**, compartilhando o próprio Kernel do Linux host com as instâncias por meio de recursos de isolamento lógicos do Kernel: **Namespaces** (isolamento de processos/redes) e **Control Groups - cgroups** (limitação física de uso de RAM/CPU).
 
 1.  **Instale o Docker na sua máquina virtual Ubuntu:**
-    ```bash
-    sudo apt update
-    ```
-    ```bash
-    sudo apt install docker.io -y
-    ```
+
+```bash
+sudo apt update
+sudo apt install docker.io -y
+```
+
 2.  **Inicie e habilite o serviço do Docker daemon:**
-    ```bash
-    sudo systemctl start docker && sudo systemctl enable docker
-    ```
+
+```bash
+sudo systemctl start docker && sudo systemctl enable docker
+```
+
 3.  **Inicie um container isolado do Nginx mapeando a porta local 8080 para a porta do container:**
-    ```bash
-    sudo docker run -d -p 8080:80 --name nginx-aoc nginx
-    ```
+
+```bash
+sudo docker run -d -p 8080:80 --name nginx-aoc nginx
+```
+
 4.  **Copie o código da sua página HTML que criamos para dentro da pasta pública do container:**
-    ```bash
-    sudo docker cp index.html nginx-aoc:/usr/share/nginx/html/index.html
-    ```
+
+```bash
+sudo docker cp index.html nginx-aoc:/usr/share/nginx/html/index.html
+```
 5.  Acesse o IP da VM no navegador especificando a porta do container: `http://<IP_DA_VM>:8080`.
 6.  A mesma página interativa responderá instantaneamente.
 
