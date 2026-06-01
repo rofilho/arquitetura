@@ -42,7 +42,7 @@ publicar: true
 >   - Provisionar na prática uma máquina virtual Linux, implantar serviços web (Nginx) e comparar o custo operacional com a conteinerização (Docker).
 > * **Pré-requisitos:** Noções de Lógica Digital (Aula 10) e Memória Virtual (Aula 06).
 > * **📂 Recursos Adicionais para Download:**
->   - [[../../40_Recursos/Cheatsheet_Comandos_Linux_SRE.pdf|Cheatsheet de Comandos Linux e Docker (PDF)]]
+>   - [Docker CLI Cheat Sheet Oficial (PDF)](https://docs.docker.com/get-started/docker_cheatsheet.pdf) — Folha de comandos essenciais do Docker para acompanhar o laboratório prático.
 >   - [VirtualBox Oficial (Hipervisor Tipo 2 para testes)](https://www.virtualbox.org) — Alternativa local recomendada caso o Windows do aluno não suporte o Hyper-V.
 
 ---
@@ -193,13 +193,16 @@ Agora colocaremos em prática os conceitos de virtualização no hardware. Farem
 
 1.  Abra o menu Iniciar, digite **Hyper-V Manager** e execute-o.
 2.  No menu da direita, clique em **New ➔ Virtual Machine**.
-3.  Defina o nome da máquina virtual como `AOC_Aula13_VM` e avance.
+3.  Defina o nome da máquina virtual como `AOC_Aula11_VM` e avance.
 4.  Selecione **Generation 2** (recomendada para sistemas modernos de 64 bits com firmware UEFI).
 5.  Defina a RAM como **2048 MB** (2GB) e deixe marcado "Use Dynamic Memory" (que permite ao hipervisor reaver RAM ociosa fisicamente).
 6.  Em Networking, selecione o switch virtual conectado à internet (geralmente **Default Switch**).
 7.  Crie um novo disco rígido virtual dinâmico de **20 GB**.
 8.  Em Installation Options, selecione **Install an operating system from a bootable image file** e aponte para o arquivo ISO do **Ubuntu Server 24.04 LTS** previamente baixado.
 9.  Finalize a criação, conecte-se à VM e inicie-a. Siga os passos na tela configurando seu usuário e senha.
+
+> [!WARNING] ⚠️ Gotcha de Infraestrutura: Secure Boot bloqueia o Ubuntu
+> Máquinas **Generation 2** ativam o **Secure Boot** com o template **"Microsoft Windows"** por padrão. Esse template não confia no bootloader do Ubuntu e provoca a falha clássica `Boot failed. EFI SCSI Device` ao iniciar a ISO. **Antes de ligar a VM**, abra **Settings ➔ Security** e troque o template para **"Microsoft UEFI Certificate Authority"** (ou desmarque "Enable Secure Boot"). Sem esse ajuste, o Ubuntu Server simplesmente não inicializa.
 
 ---
 
@@ -373,10 +376,10 @@ sudo systemctl start docker && sudo systemctl enable docker
 sudo docker run -d -p 8080:80 --name nginx-aoc nginx
 ```
 
-4.  **Copie o código da sua página HTML que criamos para dentro da pasta pública do container:**
+4.  **Copie o código da sua página HTML que criamos para dentro da pasta pública do container** (usando o caminho absoluto para funcionar independente do diretório atual):
 
 ```bash
-sudo docker cp index.html nginx-aoc:/usr/share/nginx/html/index.html
+sudo docker cp /var/www/html/index.html nginx-aoc:/usr/share/nginx/html/index.html
 ```
 5.  Acesse o IP da VM no navegador especificando a porta do container: `http://<IP_DA_VM>:8080`.
 6.  A mesma página interativa responderá instantaneamente.
