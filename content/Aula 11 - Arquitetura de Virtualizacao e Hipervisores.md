@@ -7,11 +7,11 @@ semester: "2026-1"
 ai_tier: hot
 disciplina: Arquitetura de Computadores
 codigo: "ARQ-01"
-aula: 12
+aula: 11
 titulo: "Arquitetura de Virtualização e Hipervisores"
 tipo: teorica
-semana: 17
-data: 2026-06-08
+semana: 11
+data: 2026-04-27
 tags:
   - arquitetura
   - virtualizacao
@@ -22,11 +22,11 @@ tags:
 publicar: true
 ---
 
-# 🟢 Aula 12: Arquitetura de Virtualização e Hipervisores
+# 🟢 Aula 11: Arquitetura de Virtualização e Hipervisores
 
 **Disciplina:** Arquitetura de Computadores (Cód. ARQ-01)  
 **Curso:** Inteligência Artificial e Ciência de Dados, Uniube  
-**Semana:** 17 | 08/06/2026  
+**Semana:** 11 | 27/04/2026  
 **Professor:** Romualdo Mathias Filho  
 **Tipo:** 📘 Teórica / 🔬 Prática  
 **Tópicos:** Anéis de Proteção da CPU e o Teorema de Popek-Goldberg, Hipervisores Tipo 1 vs. Tipo 2 e Aceleração por Hardware (Intel VT-x/AMD-V e SLAT/EPT), e Laboratório Prático de Provisionamento com Hyper-V, Nginx e Docker.
@@ -40,7 +40,7 @@ publicar: true
 >   - Os anéis de execução da CPU e o conceito de instruções privilegiadas vs. sensíveis no silício.
 >   - A arquitetura interna de hipervisores Tipo 1 e Tipo 2, além do funcionamento da aceleração por hardware Intel VT-x/AMD-V (Ring -1) e tabelas de páginas estendidas (SLAT/EPT).
 >   - Provisionar na prática uma máquina virtual Linux, implantar serviços web (Nginx) e comparar o custo operacional com a conteinerização (Docker).
-> * **Pré-requisitos:** Noções de Linguagem de Máquina, Opcodes (Aula 11) e Memória Virtual (Aula 06).
+> * **Pré-requisitos:** Noções de Lógica Digital (Aula 10) e Memória Virtual (Aula 06).
 > * **📂 Recursos Adicionais para Download:**
 >   - [[../../40_Recursos/Cheatsheet_Comandos_Linux_SRE.pdf|Cheatsheet de Comandos Linux e Docker (PDF)]]
 >   - [VirtualBox Oficial (Hipervisor Tipo 2 para testes)](https://www.virtualbox.org) — Alternativa local recomendada caso o Windows do aluno não suporte o Hyper-V.
@@ -61,9 +61,9 @@ Ao final desta aula, os alunos serão capazes de:
 
 | **Conceito (Aulas Anteriores)** | **Conexão com a Aula de Hoje** |
 | :--- | :--- |
-| **[[Aula 12 - Nocoes de Linguagem de Maquina\|Aula 11 (Linguagem de Máquina)]]** | Vimos como as instruções binárias primitivas controlam diretamente a ULA e registradores. Hoje veremos que a virtualização exige classificar e interceptar essas instruções lógicas quando emitidas por uma VM. |
-| **[[Aula 06 - Hierarquia de Memoria e Memoria Virtual\|Aula 06 (Hierarquia de Memória Virtual)]]** | A memória virtual mapeia o espaço de endereços do processo para a RAM física. Hoje aprenderemos sobre a tabela de páginas em dois níveis (EPT/SLAT), que realiza esse mapeamento duas vezes em hardware para as VMs. |
-| **[[Aula 08 - Processamento Paralelo e Multicore\|Aula 08 (Processamento Paralelo)]]** | Discutimos a divisão física de tarefas em múltiplos núcleos. Os hipervisores utilizam o agendamento de hardware para mapear CPUs virtuais (vCPUs) em núcleos físicos reais da CPU. |
+| **[[Aula 10 - Medidas de Desempenho\|Aula 10 (Medidas de Desempenho)]]** | Vimos como medir o tempo de execução e a latência de tarefas síncronas. Hoje entenderemos que a virtualização por software adiciona overhead massivo de transições (VM Exits), degradando drasticamente o desempenho se não for assistida por hardware. |
+| **[[Aula 06 - Hierarquia de Memoria e Memoria Virtual\|Aula 06 (Hierarquia de Memória Virtual)]]** | A memória virtual realiza a tradução de endereços lógicos dos processos para endereços físicos na RAM. Hoje aprenderemos sobre a tabela de páginas em dois níveis (EPT/SLAT), que realiza esse mapeamento em hardware duas vezes para as VMs. |
+| **[[Aula 05 - Unidades de Processamento\|Aula 05 (Unidades de Processamento)]]** | Estudamos a Unidade de Controle e os registradores da CPU. Hoje veremos como o silício e o decodificador interceptam instruções privilegiadas emitidas por uma VM para isolar os registradores físicos. |
 
 ---
 
