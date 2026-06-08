@@ -161,7 +161,7 @@ html, body, #quartz-root, #quartz-body, .page, .center, .center-content, article
     <span class="tag">▶ Continue Estudando</span>
     <h1>💻 Arquitetura de Computadores</h1>
     <p>Fundamentos, hardware, processadores e memória.</p>
-    <a href="./Aula-11---Arquitetura-de-Virtualizacao-e-Hipervisores" class="btn" data-spa>Retomar: 💻 🟢 Aula 11: Arquitetura de Virtualização e Hipervisores</a>
+    <a href="./Aula-12---Representacao-de-Dados-e-Conversao-de-Bases" class="btn" data-spa>Retomar: 💻 🟢 Aula 12: Representação de Dados e Conversão de Bases</a>
   </div>
 </div>
 
@@ -242,6 +242,13 @@ html, body, #quartz-root, #quartz-body, .page, .center, .center-content, article
       <div class="card-thumb" style="background-image: url('assets/capa_aula11.png'); background-size: cover; background-position: center;"><div class="card-progress-bar"><div class="card-progress" style="width: 100%"></div></div></div>
       <div class="card-content">
         <div class="card-title">💻 Aula 11 – Arquitetura de Virtualização e Hipervisores</div>
+        <div class="card-meta"><span>Acessar Aula</span><span></span></div>
+      </div>
+    </a>
+    <a href="./Aula-12---Representacao-de-Dados-e-Conversao-de-Bases" class="card" data-spa>
+      <div class="card-thumb" style="background-image: url('assets/capa_aula11.png'); background-size: cover; background-position: center;"><div class="card-progress-bar"><div class="card-progress" style="width: 100%"></div></div></div>
+      <div class="card-content">
+        <div class="card-title">💻 Aula 12 – Representação de Dados e Conversão de Bases</div>
         <div class="card-meta"><span>Acessar Aula</span><span></span></div>
       </div>
     </a>
