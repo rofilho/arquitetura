@@ -105,7 +105,7 @@ Para converter um valor inteiro da base 10 para outra base $B$ (onde $B$ pode se
 #### Exemplo Prático 1: Converter o decimal $45$ para Binário (Base 2):
 Aplicamos o método das divisões sucessivas por 2 até que o quociente seja zero. O número binário correspondente é obtido pela leitura dos restos da divisão **de baixo para cima** (do último resto ao primeiro).
 
-![Divisões Sucessivas: Decimal 45 para Binário](file:///a:/OneDrive/organizacao/Uniube/10_Acao/Uniube/Arquitetura_de_Computadores/assets/aula12_conversao_decimal_binario.png)
+![[assets/aula12_conversao_decimal_binario.png]]
 
 *Passo a passo matemático:*
 - $45 \div 2 = 22$ (Resto **1** - Dígito menos significativo, LSB)
@@ -119,7 +119,7 @@ Aplicamos o método das divisões sucessivas por 2 até que o quociente seja zer
 #### Exemplo Prático 2: Converter o decimal $12412$ para Hexadecimal (Base 16):
 Para a base 16, dividimos o valor decimal sucessivamente por 16 até que o quociente seja zero. Os restos que resultam em valores entre 10 e 15 são mapeados para suas respectivas letras correspondentes ($A$ a $F$).
 
-![Divisões Sucessivas: Decimal 12412 para Hexadecimal](file:///a:/OneDrive/organizacao/Uniube/10_Acao/Uniube/Arquitetura_de_Computadores/assets/aula12_conversao_decimal_hexadecimal.png)
+![[assets/aula12_conversao_decimal_hexadecimal.png]]
 
 *Passo a passo matemático:*
 - $12412 \div 16 = 775$ (Resto **12** ➔ Equivalente a **C** em hexadecimal)
@@ -137,7 +137,7 @@ $$\text{Valor Decimal} = d_{n-1} \cdot B^{n-1} + d_{n-2} \cdot B^{n-2} + \dots +
 #### Exemplo Prático 1: Converter $110101_2$ para Decimal (Base 10):
 Multiplicamos cada bit pelo peso correspondente de sua posição (potência de base 2), iniciando da direita (posição 0) para a esquerda (posição 5).
 
-![Polinômio Posicional: Binário 110101 para Decimal](file:///a:/OneDrive/organizacao/Uniube/10_Acao/Uniube/Arquitetura_de_Computadores/assets/aula12_conversao_binario_decimal.png)
+![[assets/aula12_conversao_binario_decimal.png]]
 
 *Passo a passo matemático:*
 - Posições (direita para esquerda): $5, 4, 3, 2, 1, 0$
@@ -149,7 +149,7 @@ Multiplicamos cada bit pelo peso correspondente de sua posição (potência de b
 #### Exemplo Prático 2: Converter $2A5_{16}$ para Decimal (Base 10):
 A lógica é a mesma, mas a base de cálculo é 16. Lembre-se de substituir a letra pelo seu valor decimal equivalente (neste caso, $A = 10$).
 
-![Polinômio Posicional: Hexadecimal 2A5 para Decimal](file:///a:/OneDrive/organizacao/Uniube/10_Acao/Uniube/Arquitetura_de_Computadores/assets/aula12_conversao_hexadecimal_decimal.png)
+![[assets/aula12_conversao_hexadecimal_decimal.png]]
 
 *Passo a passo matemático:*
 - Posições (direita para esquerda): $2, 1, 0$ (Lembrando que $A = 10$)
