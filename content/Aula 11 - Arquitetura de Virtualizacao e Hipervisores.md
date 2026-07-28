@@ -69,7 +69,7 @@ Ao final desta aula, os alunos serão capazes de:
 
 ## 📌 1. O Silício Compartilhado: Anéis de Proteção da CPU e o Teorema de Popek-Goldberg [Teoria ⏳ 15 min]
 
-Historicamente, os servidores físicos em data centers operavam com baixíssimas taxas de utilização de hardware (muitas vezes abaixo de $10\%$). Cada sistema operacional exigia um hardware dedicado para evitar conflitos de dependências de bibliotecas e instabilidade de sistema. A **[[30_Conceitos/Virtualizacao|Virtualização]]** surgiu para resolver esse desperdício de energia e espaço físico, permitindo a consolidação de múltiplas máquinas virtuais (VMs) em um único servidor físico com isolamento absoluto.
+Historicamente, os servidores físicos em data centers operavam com baixíssimas taxas de utilização de hardware (muitas vezes abaixo de $10\%$). Cada sistema operacional exigia um hardware dedicado para evitar conflitos de dependências de bibliotecas e instabilidade de sistema. A **Virtualização** surgiu para resolver esse desperdício de energia e espaço físico, permitindo a consolidação de múltiplas máquinas virtuais (VMs) em um único servidor físico com isolamento absoluto.
 
 No silício, a capacidade de isolar múltiplos sistemas operacionais baseia-se na arquitetura dos **Anéis de Proteção do Processador** (Protection Rings).
 
@@ -112,7 +112,7 @@ Quando o Kernel do OS convidado (Guest OS) na VM tentava rodar uma dessas instru
 
 ## 📌 2. A Anatomia dos Hipervisores e Aceleração por Hardware [Teoria & Prática ⏳ 20 min]
 
-O software responsável por gerenciar as VMs, alocar recursos e garantir a emulação segura é o **[[30_Conceitos/Hipervisor|Hipervisor]]** (ou *Virtual Machine Monitor - VMM*).
+O software responsável por gerenciar as VMs, alocar recursos e garantir a emulação segura é o **Hipervisor** (ou *Virtual Machine Monitor - VMM*).
 
 ### 2.1 — Hipervisores Tipo 1 vs. Tipo 2
 
