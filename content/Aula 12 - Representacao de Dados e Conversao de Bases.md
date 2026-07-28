@@ -242,7 +242,7 @@ Sempre que realizamos conversões em nível de sistema operacional (binário rea
 > - **Fabricantes de Hardware (Comercial):** Utilizam a base decimal (10³). Para eles, 1 KB = 1000 Bytes, 1 MB = 10⁶ Bytes e 1 GB = 10⁹ Bytes.
 > - **Sistemas Operacionais (Real Binário):** Utilizam a base binária (2¹⁰). Para o sistema, 1 GiB = 1024 MiB = 1.073.741.824 Bytes.
 > 
-> *Impacto Prático:* Ao comprar um disco físico ou provisionar um disco em nuvem na AWS ou GCP de **1 TB** comercial (1.000.000.000.000 Bytes), o sistema operacional lerá o disco como aproximadamente **931 GB** reais binários. Em arquiteturas em nuvem de escala empresarial, ignorar essa diferença de 7% pode resultar em provisionamento incorreto de volumes persistentes de dados e incidentes de discos cheios (*Out of Space*), além de surpresas financeiras nos relatórios de custos de **[[30_Conceitos/FinOps|FinOps]]**.
+> *Impacto Prático:* Ao comprar um disco físico ou provisionar um disco em nuvem na AWS ou GCP de **1 TB** comercial (1.000.000.000.000 Bytes), o sistema operacional lerá o disco como aproximadamente **931 GB** reais binários. Em arquiteturas em nuvem de escala empresarial, ignorar essa diferença de 7% pode resultar em provisionamento incorreto de volumes persistentes de dados e incidentes de discos cheios (*Out of Space*), além de surpresas financeiras nos relatórios de custos de **FinOps**.
 
 ### ✍️ Exercícios Recomendados de Fixação (Prática Individual)
 

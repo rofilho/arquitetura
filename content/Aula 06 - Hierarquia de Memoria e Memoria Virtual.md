@@ -35,8 +35,6 @@ publicar: true
 >   - O funcionamento dos níveis de cache L1/L2/L3 e o impacto de algoritmos cache-friendly.
 >   - O mecanismo de paginação, MMU e a prevenção da degradação crítica por thrashing.
 > * **Pré-requisitos:** Noções sobre o Ciclo de Instrução (Busca-Decodificação-Execução).
-> * **📂 Recursos Adicionais para Download:**
->   - [[../../40_Recursos/cheatsheet_hierarquia_memoria.pdf|Cheatsheet de Referência Rápida (PDF)]] *(futuro)*
 
 ---
 

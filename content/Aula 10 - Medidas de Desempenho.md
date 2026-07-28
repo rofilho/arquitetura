@@ -202,7 +202,7 @@ Você foi contratado para acelerar o tempo de carregamento da tela inicial do ap
     *   **Resultado B:** A tela inicial agora abre em **4 segundos** (uma melhoria global espetacular de **2.5x**!).
 
 > [!TIP] 💡 Dica de Produção (Pro-Tip)
-> **FinOps e Escolhas Inteligentes de Vida:** A Lei de Amdahl é um guia valioso para a tomada de decisões e economia de custos ([[FinOps]]). Antes de gastar dinheiro comprando um computador novo caro de última geração para o seu homelab ou para a sua empresa achando que tudo ficará mais rápido, analise onde está a verdadeira espera. Se você passa a maior parte do tempo esperando a internet lenta baixar seus arquivos, ter um processador 10x mais rápido gerará quase zero de ganho no seu dia a dia. Investir o dinheiro em uma conexão de internet melhor trará um ganho global incrivelmente superior!
+> **FinOps e Escolhas Inteligentes de Vida:** A Lei de Amdahl é um guia valioso para a tomada de decisões e economia de custos (FinOps). Antes de gastar dinheiro comprando um computador novo caro de última geração para o seu homelab ou para a sua empresa achando que tudo ficará mais rápido, analise onde está a verdadeira espera. Se você passa a maior parte do tempo esperando a internet lenta baixar seus arquivos, ter um processador 10x mais rápido gerará quase zero de ganho no seu dia a dia. Investir o dinheiro em uma conexão de internet melhor trará um ganho global incrivelmente superior!
 
 ---
 
