@@ -109,47 +109,6 @@ Enquanto a instrução A está na fase de Decodificação, a instrução B já e
 | **Data Hazard** | Problema no pipeline quando uma instrução depende de um dado que uma instrução anterior ainda não terminou de calcular. |
 
 ---
-
-%%
-## ❓ Banco de Questões
-
-> 🔒 *Seção exclusiva do professor — não publicada para os alunos.*
-
-### Questão 1 (Múltipla Escolha — Nível: Básico)
-
-**Enunciado:** Em uma arquitetura de processador genérica de 5 estágios, durante qual fase do ciclo da instrução o processador atualiza o PC (Program Counter) para apontar para o endereço da próxima instrução na memória e traz a instrução atual para o IR (Instruction Register)?
-
-- [x] A) Busca (Fetch) ✅
-- [ ] B) Decodificação (Decode)
-- [ ] C) Execução (Execute)
-- [ ] D) Write Back (Escrita de Resultado)
-
-**Justificativa:** Na fase inicial do ciclo, a de Busca ou Fetch, o processador lê a memória no endereço que está no PC, coloca esse conteúdo (a instrução) no IR e então incrementa o PC para que na próxima busca ele aponte para a próxima posição de memória.
-
----
-
-### Questão 2 (Múltipla Escolha — Nível: Intermediário)
-
-**Enunciado:** Analise o código Assembly a seguir: `addi $t0, $t1, 10`. Ele pega o valor do registrador `$t1`, soma com o valor constante `10` e armazena em `$t0`. Como essa instrução é classificada no Conjunto de Instruções RISC/MIPS padrão?
-
-- [ ] A) Tipo R, pois envolve dois registradores `$t0` e `$t1`.
-- [ ] B) Tipo J, pois altera o estado do processador ao final.
-- [x] C) Tipo I, pois um dos operandos é um valor imediato (constante). ✅
-- [ ] D) Tipo M, pois a constante requer acesso direto à memória secundária.
-
-**Justificativa:** A presença do valor numérico fixo `10` junto ao código da instrução a classifica como uma instrução do Tipo I (Imediata). O valor é trazido junto à própria instrução, sem necessidade de buscar um segundo operando em outro registrador.
-
----
-
-### Questão 3 (Dissertativa — Nível: Avançado)
-
-**Enunciado:** A implementação de um Pipeline profundo (com muitos estágios) aumenta drasticamente a quantidade de instruções executadas por segundo. Porém, também gera desafios técnicos para a Unidade de Controle. Descreva o que é um "Data Hazard" (Conflito de Dados) em um pipeline e dê um exemplo lógico.
-
-**Resposta esperada:** Um Conflito de Dados ou "Data Hazard" ocorre no pipeline quando uma instrução necessita de um dado produzido por uma instrução anterior, mas esta instrução anterior ainda não concluiu o seu ciclo (ou seja, ainda não chegou à fase de Write Back para salvar o resultado). Por exemplo, em uma sequência onde a Instrução 1 é `Soma A = B + C` e a Instrução 2 logo abaixo é `Subtrai D = A - E`. Quando a Instrução 2 chegar na fase de Execução, o valor de "A" ainda não foi gravado pela Instrução 1, exigindo que o pipeline sofra paradas (stalls) ou utilize mecanismos avançados como Data Forwarding para resolver a dependência e não gerar cálculos errados. (Stallings, 2024, p. 556).
-
----
-%%
-
 ## 📄 Artigo de Aprofundamento
 
 - [Computer Architecture Pipeline Performance (GeeksforGeeks)](https://www.geeksforgeeks.org/computer-organization-and-architecture-pipelining-set-1-execution-stages-and-throughput/)

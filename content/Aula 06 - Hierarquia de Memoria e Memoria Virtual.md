@@ -229,49 +229,6 @@ sequenceDiagram
 | **Thrashing** | Degradação extrema de desempenho causada por excesso de Page Faults e Swapping contínuo. |
 
 ---
-
-%%
-## ❓ Banco de Questões
-
-> 🔒 Esta seção é visível apenas no Obsidian do professor. Não publicada.
-
-### Questão 1: Prática (Múltipla Escolha — Nível: Intermediário)
-**Enunciado:** Em um dia de Black Friday, um servidor de banco de dados do Mercado Livre em São Paulo começa a apresentar uma lentidão extrema após receber uma avalanche de requisições de compra. O engenheiro de SRE percebe que a CPU está com baixa taxa de utilização (menos de 15%), porém a luz indicadora de tráfego do SSD NVMe está acesa continuamente a 100% de uso de I/O, e a memória RAM física de 32 GB está completamente saturada. Qual conceito arquitetural de gerenciamento de memória explica de forma precisa o travamento parcial do servidor?
-
-- [ ] A) Ocorreu um Cache Miss catastrófico na memória cache L1 de instrução da CPU.
-- [ ] B) A Unidade Lógica e Aritmética (ULA) entrou em ciclo de espera térmica (thermal throttling).
-- [x] C) O sistema entrou em "Thrashing": a memória RAM esgotou e o SO está passando 100% do tempo fazendo Swapping contínuo de páginas entre a RAM e a memória virtual no disco. ✅
-- [ ] D) A MMU do processador sofreu um curto-circuito físico devido ao excesso de requisições Pix simultâneas.
-
-**Justificativa:** Quando a RAM de um servidor esgota, o sistema operacional recorre ao espaço de paginação no disco (Swap) via Memória Virtual. Se os processos ativos exigem dados que estão divididos entre a RAM e o disco e o SO precisa alternar essas páginas continuamente sob alta demanda, o sistema entra em "Thrashing" (degradação extrema por swapping contínuo), saturando a taxa de transferência do disco lento e paralisando o progresso da CPU.
-
----
-
-### Questão 2: Teórica (Dissertativa — Nível: Avançado)
-**Enunciado:** Durante o planejamento arquitetural da infraestrutura de microsserviços do Nubank, os engenheiros de hardware analisam a viabilidade de otimização de custos de chips customizados. Um dos gerentes propôs eliminar totalmente os chips de RAM (DRAM) físicos dos servidores e rodar o banco de dados de clientes do Pix diretamente em um cache SRAM massivo equivalente a 16 GB integrado ao processador.
-1. Avalie a proposta do gerente com base nos **princípios de custo, velocidade e viabilidade física** que sustentam a construção da hierarquia de memória.
-2. Explique a diferença de tecnologia física básica de fabricação de células entre a **SRAM (Cache)** e a **DRAM (RAM)**.
-
-**Resposta esperada:**
-1. **Inviabilidade da proposta:** A proposta é tecnicamente e financeiramente inviável. A hierarquia de memória baseia-se na relação inversa entre velocidade e custo/densidade física de silício. A memória cache (SRAM) utiliza de 4 a 6 transistores por bit (célula estática), o que a torna ultra-rápida, porém fisicamente muito grande e extremamente cara para produzir. Integrar 16 GB de SRAM diretamente no die de uma CPU exigiria um chip gigante (inviável fisicamente devido à taxa de defeitos na fabricação de silício) e custaria dezenas de milhares de dólares por chip, enquanto a DRAM tradicional atinge essa capacidade por uma fração minúscula desse custo. A hierarquia existe justamente para equilibrar custo e velocidade.
-2. **Tecnologia de fabricação física:**
-   - **SRAM (Static RAM):** Feita de flip-flops compostos por transistores (geralmente 6 por bit). É rápida, não precisa de refresh elétrico e retém os dados de forma estável enquanto houver alimentação.
-   - **DRAM (Dynamic RAM):** Feita de um único transistor e um capacitor por bit. Armazena o dado na forma de carga elétrica no capacitor. Como os capacitores vazam carga naturalmente, ela precisa passar por ciclos constantes de recarga (**Refresh**) controlados pelo barramento, o que a torna muito mais lenta que a SRAM, porém muito menor física e economicamente por bit, viabilizando alta capacidade.
-
----
-
-### Questão 3: Prática (Múltipla Escolha — Nível: Intermediário)
-**Enunciado:** Um desenvolvedor da equipe de despacho de entregas do iFood em Uberlândia/MG está otimizando o algoritmo que gera a ordenação de rotas de entregadores próximos. Ele percebe que ao ordenar uma lista massiva de 50.000 localizações geográficas, o algoritmo original **A** que varre o array de forma sequencial na memória executa a tarefa em apenas 0,5 segundos, enquanto o algoritmo **B** que faz acessos não sequenciais (pulando endereços de forma aleatória na memória RAM) demora 4 segundos. Do ponto de vista arquitetural, o que justifica a impressionante diferença de desempenho?
-
-- [ ] A) O algoritmo B causou um Page Fault massivo forçando o uso imediato de Swap no SSD.
-- [x] B) O algoritmo A é "cache-friendly" (aproveita a localidade espacial, gerando Cache Hits sequenciais rápidos), enquanto o B gera altos índices de Cache Misses, forçando a CPU a esperar ~100 ciclos de clock a cada acesso à RAM. ✅
-- [ ] C) O algoritmo A roda exclusivamente no banco de registradores da CPU sem interagir com as caches L1/L2.
-- [ ] D) O compilador desativa as otimizações de barramento da placa-mãe ao ler código aleatório.
-
-**Justificativa:** O processador moderno funciona baseado no Princípio da Localidade Espacial: ao buscar um dado na RAM, ele traz um bloco vizinho inteiro (linha de cache) para a memória Cache super-rápida. O algoritmo A se beneficia disso fazendo varredura contígua (sequencial). Já o B, pulando aleatoriamente, gera Cache Misses constantes, fazendo com que a CPU precise ir à RAM lenta repetidas vezes, gerando enorme degradação.
----
-%%
-
 ## 📄 Artigo de Aprofundamento
 
 - [What is Virtual Memory? (Red Hat — En)](https://www.redhat.com/en/blog/what-virtual-memory)
