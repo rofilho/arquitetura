@@ -106,7 +106,6 @@ A computação encontrou várias maneiras de fazer as coisas ao mesmo tempo. É 
 | **Sincronização** | O desafio de coordenar múltiplos núcleos para que não acessem e corrompam o mesmo dado na memória ao mesmo tempo. |
 
 ---
-
 ## 📄 Artigo de Aprofundamento
 
 - [What is Multicore Processor? (GeeksforGeeks)](https://www.geeksforgeeks.org/multicore-processors/)

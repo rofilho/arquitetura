@@ -346,7 +346,6 @@ Para consolidar o conhecimento, resolva os exercícios abaixo e valide as suas r
 | **Integer Overflow** | Falha de hardware onde o valor binário excede o limite físico de bits de um registrador, resultando no descarte de bits significativos e corrupção de dados. |
 
 ---
-
 ## 📄 Artigo de Aprofundamento
 
 - [Binary Numbers and Conversions — University of Maryland](https://www.cs.umd.edu/class/sum2003/cmsc311/Notes/Data/binary.html)

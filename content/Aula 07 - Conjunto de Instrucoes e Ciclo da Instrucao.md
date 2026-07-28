@@ -109,7 +109,6 @@ Enquanto a instrução A está na fase de Decodificação, a instrução B já e
 | **Data Hazard** | Problema no pipeline quando uma instrução depende de um dado que uma instrução anterior ainda não terminou de calcular. |
 
 ---
-
 ## 📄 Artigo de Aprofundamento
 
 - [Computer Architecture Pipeline Performance (GeeksforGeeks)](https://www.geeksforgeeks.org/computer-organization-and-architecture-pipelining-set-1-execution-stages-and-throughput/)

@@ -199,7 +199,6 @@ O **Controlador de E/S** (ou Módulo de E/S) é um chip intermediário que tradu
 | **Controlador de E/S** | Chip intermediário que traduz os comandos genéricos da CPU em operações específicas do dispositivo periférico. |
 
 ---
-
 ## 📄 Artigo de Aprofundamento
 
 - [Input/Output Organization — GeeksforGeeks](https://www.geeksforgeeks.org/input-output-organization-in-computer-architecture/)

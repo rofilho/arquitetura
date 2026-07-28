@@ -410,7 +410,6 @@ sudo docker cp /var/www/html/index.html nginx-aoc:/usr/share/nginx/html/index.ht
 | `docker cp [arquivo] [container]:[destino]` | Comando utilitário para injetar arquivos ou páginas web do sistema de arquivos host para dentro de uma imagem rodando em container. |
 
 ---
-
 ## 📄 Artigo de Aprofundamento
 
 - [KVM (Kernel-based Virtual Machine) Documentation — Linux Kernel](https://www.kernel.org/doc/html/latest/virt/kvm/index.html)

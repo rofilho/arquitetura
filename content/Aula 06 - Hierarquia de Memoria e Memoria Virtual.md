@@ -229,7 +229,6 @@ sequenceDiagram
 | **Thrashing** | Degradação extrema de desempenho causada por excesso de Page Faults e Swapping contínuo. |
 
 ---
-
 ## 📄 Artigo de Aprofundamento
 
 - [What is Virtual Memory? (Red Hat — En)](https://www.redhat.com/en/blog/what-virtual-memory)
