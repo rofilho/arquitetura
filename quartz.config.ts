@@ -28,32 +28,38 @@ const config: QuartzConfig = {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
-        header: "Inter",
+        header: "Space Grotesk",
         body: "Inter",
         code: "JetBrains Mono",
       },
+      // Paleta ancorada na identidade REAL da Uniube, extraida dos proprios
+      // ativos da instituicao em 26/07/2026 (nao inventada):
+      //   #1D2057  tinta do logo oficial (logo_azul.svg, fill:rgb(29,32,87))
+      //   #11275B  azul profundo do uniube.br
+      //   #2778C4  azul de acao/link do uniube.br
+      //   #00AA9F  turquesa — o acento distintivo da marca
       colors: {
         lightMode: {
-          light: "#f8fafc",
-          lightgray: "#e2e8f0",
-          gray: "#94a3b8",
-          darkgray: "#334155",
-          dark: "#0f172a",
-          secondary: "#f97316",
-          tertiary: "#fb923c",
-          highlight: "rgba(249, 115, 22, 0.08)",
-          textHighlight: "#fde68a88",
+          light: "#fafaf8",
+          lightgray: "#e9e7e2",
+          gray: "#8a8f98",
+          darkgray: "#252a3f",
+          dark: "#1d2057",
+          secondary: "#2778c4",
+          tertiary: "#00aa9f",
+          highlight: "rgba(39, 120, 196, 0.07)",
+          textHighlight: "#ffd97d66",
         },
         darkMode: {
-          light: "#0f172a",
-          lightgray: "#1e293b",
-          gray: "#475569",
-          darkgray: "#cbd5e1",
-          dark: "#f1f5f9",
-          secondary: "#fb923c",
-          tertiary: "#f97316",
-          highlight: "rgba(249, 115, 22, 0.12)",
-          textHighlight: "#92400e88",
+          light: "#10131f",
+          lightgray: "#272c42",
+          gray: "#7b8397",
+          darkgray: "#e2e5ef",
+          dark: "#f4f5f9",
+          secondary: "#3fd0c4",
+          tertiary: "#7fb4ea",
+          highlight: "rgba(63, 208, 196, 0.10)",
+          textHighlight: "#2778c466",
         },
       },
     },
