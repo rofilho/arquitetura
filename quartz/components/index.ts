@@ -1,4 +1,4 @@
-﻿import Content from "./pages/Content"
+import Content from "./pages/Content"
 import TagContent from "./pages/TagContent"
 import FolderContent from "./pages/FolderContent"
 import NotFound from "./pages/404"
@@ -24,6 +24,7 @@ import Comments from "./Comments"
 import Flex from "./Flex"
 import ConditionalRender from "./ConditionalRender"
 import LessonNavigation from "./LessonNavigation"
+import ModoAula from "./ModoAula"
 
 export {
   ArticleTitle,
@@ -52,4 +53,5 @@ export {
   Flex,
   ConditionalRender,
   LessonNavigation,
+  ModoAula,
 }
