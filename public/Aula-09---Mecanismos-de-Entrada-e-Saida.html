@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="pt" dir="ltr"><head><title>Aula 09 - Mecanismos de Entrada e Saida | Prof. Romualdo</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space Grotesk:wght@400;700&amp;family=Inter:ital,wght@0,400;0,600;1,400;1,600&amp;family=JetBrains Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="💻 Arquitetura de Computadores"/><meta property="og:title" content="Aula 09 - Mecanismos de Entrada e Saida | Prof. Romualdo"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Aula 09 - Mecanismos de Entrada e Saida | Prof. Romualdo"/><meta name="twitter:description" content="🟢 Aula 09: Mecanismos de Entrada e Saída (E/S) Disciplina: Arquitetura de Computadores (Cód."/><meta property="og:description" content="🟢 Aula 09: Mecanismos de Entrada e Saída (E/S) Disciplina: Arquitetura de Computadores (Cód."/><meta property="og:image:alt" content="🟢 Aula 09: Mecanismos de Entrada e Saída (E/S) Disciplina: Arquitetura de Computadores (Cód."/><meta property="twitter:domain" content="rofilho.github.io/arquitetura"/><meta property="og:url" content="https://rofilho.github.io/arquitetura/Aula-09---Mecanismos-de-Entrada-e-Saida"/><meta property="twitter:url" content="https://rofilho.github.io/arquitetura/Aula-09---Mecanismos-de-Entrada-e-Saida"/><link rel="icon" href="./static/icon.png"/><meta name="description" content="🟢 Aula 09: Mecanismos de Entrada e Saída (E/S) Disciplina: Arquitetura de Computadores (Cód."/><meta name="generator" content="Quartz"/><link href="./index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiQzpcXFF1YXJ0el9Qb3J0YWlzXFxhcnF1aXRldHVyYVxccXVhcnR6XFxjb21wb25lbnRzXFxzdHlsZXMiLCJzb3VyY2VzIjpbIm1lcm1haWQuaW5saW5lLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTtFQUNBOztBQUdGO0VBQ0U7OztBQUtGO0VBQ0U7RUFDQTs7O0FBSUo7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTtFQUNBOztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTs7QUFHRjtFQUNFOztBQUlGO0VBQ0U7RUFDQTtFQUNBIiwic291cmNlc0NvbnRlbnQiOlsiLmV4cGFuZC1idXR0b24ge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsb2F0OiByaWdodDtcbiAgcGFkZGluZzogMC40cmVtO1xuICBtYXJnaW46IDAuM3JlbTtcbiAgcmlnaHQ6IDA7IC8vIE5PVEU6IHJpZ2h0IHdpbGwgYmUgc2V0IGluIG1lcm1haWQuaW5saW5lLnRzXG4gIGNvbG9yOiB2YXIoLS1ncmF5KTtcbiAgYm9yZGVyLWNvbG9yOiB2YXIoLS1kYXJrKTtcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbGlnaHQpO1xuICBib3JkZXI6IDFweCBzb2xpZDtcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xuICBvcGFjaXR5OiAwO1xuICB0cmFuc2l0aW9uOiAwLjJzO1xuXG4gICYgPiBzdmcge1xuICAgIGZpbGw6IHZhcigtLWxpZ2h0KTtcbiAgICBmaWx0ZXI6IGNvbnRyYXN0KDAuMyk7XG4gIH1cblxuICAmOmhvdmVyIHtcbiAgICBjdXJzb3I6IHBvaW50ZXI7XG4gICAgYm9yZGVyLWNvbG9yOiB2YXIoLS1zZWNvbmRhcnkpO1xuICB9XG5cbiAgJjpmb2N1cyB7XG4gICAgb3V0bGluZTogMDtcbiAgfVxufVxuXG5wcmUge1xuICAmOmhvdmVyID4gLmV4cGFuZC1idXR0b24ge1xuICAgIG9wYWNpdHk6IDE7XG4gICAgdHJhbnNpdGlvbjogMC4ycztcbiAgfVxufVxuXG4jbWVybWFpZC1jb250YWluZXIge1xuICBwb3NpdGlvbjogZml4ZWQ7XG4gIGNvbnRhaW46IGxheW91dDtcbiAgei1pbmRleDogOTk5O1xuICBsZWZ0OiAwO1xuICB0b3A6IDA7XG4gIHdpZHRoOiAxMDB2dztcbiAgaGVpZ2h0OiAxMDB2aDtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgZGlzcGxheTogbm9uZTtcbiAgYmFja2Ryb3AtZmlsdGVyOiBibHVyKDRweCk7XG4gIGJhY2tncm91bmQ6IHJnYmEoMCwgMCwgMCwgMC41KTtcblxuICAmLmFjdGl2ZSB7XG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICB9XG5cbiAgJiA+ICNtZXJtYWlkLXNwYWNlIHtcbiAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgICBib3JkZXItcmFkaXVzOiA1cHg7XG4gICAgcG9zaXRpb246IGZpeGVkO1xuICAgIHRvcDogNTAlO1xuICAgIGxlZnQ6IDUwJTtcbiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlLCAtNTAlKTtcbiAgICBoZWlnaHQ6IDgwdmg7XG4gICAgd2lkdGg6IDgwdnc7XG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcblxuICAgICYgPiAubWVybWFpZC1jb250ZW50IHtcbiAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICAgIHRyYW5zZm9ybS1vcmlnaW46IDAgMDtcbiAgICAgIHRyYW5zaXRpb246IHRyYW5zZm9ybSAwLjFzIGVhc2U7XG4gICAgICBvdmVyZmxvdzogdmlzaWJsZTtcbiAgICAgIG1pbi1oZWlnaHQ6IDIwMHB4O1xuICAgICAgbWluLXdpZHRoOiAyMDBweDtcblxuICAgICAgcHJlIHtcbiAgICAgICAgbWFyZ2luOiAwO1xuICAgICAgICBib3JkZXI6IG5vbmU7XG4gICAgICB9XG5cbiAgICAgIHN2ZyB7XG4gICAgICAgIG1heC13aWR0aDogbm9uZTtcbiAgICAgICAgaGVpZ2h0OiBhdXRvO1xuICAgICAgfVxuICAgIH1cblxuICAgICYgPiAubWVybWFpZC1jb250cm9scyB7XG4gICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICBib3R0b206IDIwcHg7XG4gICAgICByaWdodDogMjBweDtcbiAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICBnYXA6IDhweDtcbiAgICAgIHBhZGRpbmc6IDhweDtcbiAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICBib3JkZXItcmFkaXVzOiA2cHg7XG4gICAgICBib3gtc2hhZG93OiAwIDJweCA0cHggcmdiYSgwLCAwLCAwLCAwLjEpO1xuICAgICAgei1pbmRleDogMjtcblxuICAgICAgLm1lcm1haWQtY29udHJvbC1idXR0b24ge1xuICAgICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICAgICAgd2lkdGg6IDMycHg7XG4gICAgICAgIGhlaWdodDogMzJweDtcbiAgICAgICAgcGFkZGluZzogMDtcbiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xuICAgICAgICBjb2xvcjogdmFyKC0tZGFyayk7XG4gICAgICAgIGJvcmRlci1yYWRpdXM6IDRweDtcbiAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xuICAgICAgICBmb250LXNpemU6IDE2cHg7XG4gICAgICAgIGZvbnQtZmFtaWx5OiB2YXIoLS1ib2R5Rm9udCk7XG4gICAgICAgIHRyYW5zaXRpb246IGFsbCAwLjJzIGVhc2U7XG5cbiAgICAgICAgJjpob3ZlciB7XG4gICAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgfVxuXG4gICAgICAgICY6YWN0aXZlIHtcbiAgICAgICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMXB4KTtcbiAgICAgICAgfVxuXG4gICAgICAgIC8vIFN0eWxlIHRoZSByZXNldCBidXR0b24gZGlmZmVyZW50bHlcbiAgICAgICAgJjpudGgtY2hpbGQoMikge1xuICAgICAgICAgIHdpZHRoOiBhdXRvO1xuICAgICAgICAgIHBhZGRpbmc6IDAgMTJweDtcbiAgICAgICAgICBmb250LXNpemU6IDE0cHg7XG4gICAgICAgIH1cbiAgICAgIH1cbiAgICB9XG4gIH1cbn1cbiJdfQ== */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="./prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("./static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://rofilho.github.io/arquitetura/index.xml"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://rofilho.github.io/arquitetura/Aula-09---Mecanismos-de-Entrada-e-Saida-og-image.webp"/><meta property="og:image:url" content="https://rofilho.github.io/arquitetura/Aula-09---Mecanismos-de-Entrada-e-Saida-og-image.webp"/><meta name="twitter:image" content="https://rofilho.github.io/arquitetura/Aula-09---Mecanismos-de-Entrada-e-Saida-og-image.webp"/><meta property="og:image:type" content="image/.webp"/></head><body data-slug="Aula-09---Mecanismos-de-Entrada-e-Saida"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"></div><div class="center"><div class="page-header"><header><h2 class="page-title"><a href="." class="page-title__link"><img src="https://uniube.br/img/landing/logo_azul.svg" alt="Uniube" class="page-title__logo page-title__logo--light"/><img src="https://uniube.br/img/landing/logo_branca.svg" alt="Uniube" class="page-title__logo page-title__logo--dark"/><span class="page-title__text">💻 Arquitetura de Computadores</span></a></h2><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Pesquisar</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Pesquisar por algo" placeholder="Pesquisar por algo"/><div class="search-layout" data-preview="true"></div></div></div></div><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Tema escuro"><title>Tema escuro</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Tema claro"><title>Tema claro</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></header><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="./">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>Aula 09   Mecanismos de Entrada e Saida</a></div></nav><nav class="lesson-nav" aria-label="Navegação entre aulas"><div class="lesson-nav__slot"><a href="./Aula-08---Processamento-Paralelo-e-Multicore" class="nav-pill nav-pill--prev" data-spa="true"><div class="nav-pill__icon">📖</div><div class="nav-pill__body"><span class="nav-pill__label">← Anterior</span><span class="nav-pill__num">Aula 08</span><span class="nav-pill__title">Processamento Paralelo e Multicore</span></div></a></div><div class="lesson-nav__slot lesson-nav__slot--right"><a href="./Aula-10---Medidas-de-Desempenho" class="nav-pill nav-pill--next" data-spa="true"><div class="nav-pill__icon">📖</div><div class="nav-pill__body"><span class="nav-pill__label">Próxima →</span><span class="nav-pill__num">Aula 10</span><span class="nav-pill__title">Medidas de Desempenho</span></div></a></div></nav><h1 class="article-title">Aula 09 - Mecanismos de Entrada e Saida</h1><p show-comma="true" class="content-meta"><time datetime="2026-07-28T18:59:59.000Z">28 de jul. de 2026</time><span>Leitura de 9 min</span></p><ul class="tags"><li><a href="./tags/arquitetura" class="internal tag-link">arquitetura</a></li><li><a href="./tags/entrada-saida" class="internal tag-link">entrada-saida</a></li><li><a href="./tags/dma" class="internal tag-link">dma</a></li><li><a href="./tags/interrupcoes" class="internal tag-link">interrupcoes</a></li><li><a href="./tags/barramentos" class="internal tag-link">barramentos</a></li></ul></div></div><article class="popover-hint"><h1 id="-aula-09-mecanismos-de-entrada-e-saída-es">🟢 Aula 09: Mecanismos de Entrada e Saída (E/S)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-aula-09-mecanismos-de-entrada-e-saída-es" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p><strong>Disciplina:</strong> Arquitetura de Computadores (Cód. 14188)
+<strong>Curso:</strong> Inteligência Artificial e Ciência de Dados — Uniube
+<strong>Semana:</strong> 9
+<strong>Professor:</strong> Romualdo Mathias Filho
+<strong>Tipo:</strong> 📘 Teórica
+<strong>Tópicos:</strong> Módulos de E/S, E/S Programada (Polling), Interrupções, DMA, Barramentos, Controladores.</p>
+<hr/>
+<blockquote>
+<p>💬 <em>“Um computador sem mecanismos de E/S é como um cérebro sem sentidos — por mais poderoso que seja internamente, não consegue interagir com o mundo.”</em></p>
+</blockquote>
+<hr/>
+<h2 id="-objetivo-da-aula">🎯 Objetivo da Aula<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-objetivo-da-aula" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Ao final desta aula, os alunos serão capazes de:</p>
+<ul>
+<li><strong>Compreender</strong> o papel dos mecanismos de Entrada/Saída (E/S) na comunicação entre o processador e o mundo externo.</li>
+<li><strong>Distinguir</strong> os três métodos de transferência de dados: E/S Programada (Polling), E/S por Interrupções e DMA (Acesso Direto à Memória).</li>
+<li><strong>Identificar</strong> a função dos barramentos (dados, endereços e controle) e dos controladores de E/S na arquitetura de um computador.</li>
+<li><strong>Analisar</strong> as vantagens e limitações de cada método de transferência em cenários práticos do cotidiano.</li>
+</ul>
+<hr/>
+<h2 id="-revisão-rápida-5-min">🔄 Revisão Rápida (5 min)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-revisão-rápida-5-min" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Conceito (Aula Anterior — Aula 08)</strong></th><th><strong>Conexão com hoje</strong></th></tr></thead><tbody><tr><td><strong>Processamento Paralelo</strong></td><td>Múltiplos núcleos processam dados <em>internamente</em> ao mesmo tempo. Hoje, veremos como esses dados chegam e saem do computador — o gargalo externo.</td></tr><tr><td><strong>Lei de Amdahl</strong></td><td>O paralelismo tem limites; da mesma forma, um processador ultrarrápido é limitado pela velocidade com que seus dispositivos de E/S conseguem alimentá-lo de dados.</td></tr><tr><td><strong>Sincronização entre Núcleos</strong></td><td>Assim como núcleos precisam se coordenar para não corromper dados na RAM, a CPU e os dispositivos de E/S precisam de mecanismos de sincronização (interrupções, DMA) para não perder dados na transferência.</td></tr></tbody></table></div>
+<hr/>
+<h2 id="-1-o-problema-da-comunicação-cpu-vs-dispositivos">📌 1. O Problema da Comunicação: CPU vs. Dispositivos<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-1-o-problema-da-comunicação-cpu-vs-dispositivos" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Existe uma diferença brutal de velocidade entre o processador e os dispositivos periféricos:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Dispositivo</strong></th><th><strong>Velocidade Típica</strong></th></tr></thead><tbody><tr><td>CPU (Clock interno)</td><td>3 a 5 GHz</td></tr><tr><td>Memória RAM (DDR5)</td><td>~50 GB/s</td></tr><tr><td>SSD NVMe</td><td>~7 GB/s</td></tr><tr><td>HD Mecânico</td><td>~150 MB/s</td></tr><tr><td>Teclado (digitação)</td><td>&lt; 0,001 MB/s</td></tr></tbody></table></div>
+<blockquote>
+<p>💡 <strong>Analogia:</strong> Imagine que a CPU é um cozinheiro profissional que prepara um prato em 2 segundos. Se ele tiver que esperar 10 minutos pelo entregador de ingredientes (o dispositivo de E/S) para preparar o <em>próximo</em> prato, a maioria do seu tempo é desperdiçada. Os mecanismos de E/S existem para que o cozinheiro não fique parado esperando.</p>
+</blockquote>
+<p>Por isso, surgiram três estratégias progressivamente mais eficientes para gerenciar essa comunicação.</p>
+<p><img src="./assets/aula09_comparacao_es.png" width="auto" height="auto" alt/></p>
+<blockquote>
+<p><em>Legenda: Comparação visual dos três métodos de E/S — Polling, Interrupção e DMA. Fonte: Gerado por IA para fins didáticos.</em></p>
+</blockquote>
+<hr/>
+<h2 id="-2-método-1--es-programada-polling">📌 2. Método 1 — E/S Programada (Polling)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-2-método-1--es-programada-polling" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Na <strong>E/S Programada</strong> (também chamada de <em>polling</em> ou <em>busy-wait</em>), o processador assume o controle total da transferência. Após enviar um comando ao dispositivo, ele entra em um loop de verificação, perguntando repetidamente: <em>“Você já terminou?”</em></p>
+<blockquote>
+<p><em>“No I/O programado, o processador emite um comando de I/O ao módulo de I/O e então deve esperar que a operação seja concluída antes de prosseguir.”</em> (STALLINGS, 2024, Capítulo 7, p. 245).</p>
+</blockquote>
+<p><strong>Como funciona:</strong></p>
+<ol>
+<li>A CPU envia um comando de leitura/escrita ao controlador do dispositivo.</li>
+<li>A CPU verifica em <em>loop</em> o registrador de status do dispositivo (<em>polling</em>).</li>
+<li>Enquanto o dispositivo não termina, a CPU fica presa neste loop — <strong>bloqueada</strong>.</li>
+<li>Quando o dispositivo conclui, a CPU lê o resultado e continua o processamento normal.</li>
+</ol>
+<p><strong>Exemplo real:</strong> Imagine o aplicativo de impressão no Windows esperando a impressora de jato de tinta confirmar que terminou de imprimir a página 1 antes de enviar a página 2. Se fosse por polling, o seu computador ficaria completamente travado durante a impressão.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Vantagem</strong></th><th><strong>Desvantagem</strong></th></tr></thead><tbody><tr><td>Simples de implementar no hardware e software</td><td>CPU desperdiça 100% do seu tempo no loop de espera</td></tr><tr><td>Previsível (sem eventos assíncronos)</td><td>Ineficiente: inviável para múltiplos dispositivos simultâneos</td></tr></tbody></table></div>
+<hr/>
+<h2 id="-3-método-2--es-por-interrupções">📌 3. Método 2 — E/S por Interrupções<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-3-método-2--es-por-interrupções" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>A <strong>E/S por Interrupções</strong> resolve o desperdício da CPU: em vez de o processador <em>perguntar</em> repetidamente ao dispositivo se terminou, o próprio <strong>dispositivo avisa a CPU</strong> quando estiver pronto, enviando um sinal elétrico chamado <strong>interrupção (interrupt)</strong>.</p>
+<blockquote>
+<p><em>“Com I/O controlado por interrupção, o processador envia um comando de I/O ao módulo e então executa outro programa. Quando o módulo de I/O termina a operação, ele interrompe o processador, que salva o contexto do processo atual e trata a interrupção.”</em> (STALLINGS, 2024, Capítulo 7, p. 249).</p>
+</blockquote>
+<p><strong>Como funciona:</strong></p>
+<ol>
+<li>A CPU envia o comando ao controlador e <strong>continua executando outros processos</strong>.</li>
+<li>O controlador opera o dispositivo de forma autônoma.</li>
+<li>Quando termina, o controlador envia um sinal de interrupção à CPU.</li>
+<li>A CPU <strong>pausa o que está fazendo</strong> (salva o estado — <em>context switch</em>), atende a interrupção e retorna ao processo anterior.</li>
+</ol>
+<p><strong>Exemplo real:</strong> Quando você pressiona uma tecla no teclado, o controlador do teclado envia uma interrupção à CPU. A CPU não estava esperando por isso — ela estava rodando o Chrome, o Spotify e o antivírus ao mesmo tempo. Ao receber a interrupção, ela registra o caractere e volta ao que estava fazendo. Isso acontece centenas de vezes por segundo sem que você perceba.</p>
+<pre><button class="expand-button" aria-label="Expand mermaid diagram" data-view-component="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 1.06L2.56 7h10.88l-2.22-2.22a.75.75 0 011.06-1.06l3.5 3.5a.75.75 0 010 1.06l-3.5 3.5a.75.75 0 11-1.06-1.06l2.22-2.22H2.56l2.22 2.22a.75.75 0 11-1.06 1.06l-3.5-3.5a.75.75 0 010-1.06l3.5-3.5z"></path></svg></button><code class="mermaid" data-clipboard="&quot;sequenceDiagram\n    participant CPU\n    participant Controlador as 🖨️ Controlador de E/S\n    participant Dispositivo as 🖨️ Impressora\n\n    CPU->>Controlador: 1. Envia comando de impressão\n    CPU->>CPU: 2. Continua executando outros processos\n    Controlador->>Dispositivo: 3. Opera a impressora autonomamente\n    Dispositivo-->>Controlador: 4. Impressão concluída\n    Controlador->>CPU: 5. ⚡ Envia sinal de INTERRUPÇÃO\n    CPU->>CPU: 6. Salva contexto, atende interrupção\n    CPU->>CPU: 7. Retorna ao processo anterior&quot;">sequenceDiagram
+    participant CPU
+    participant Controlador as 🖨️ Controlador de E/S
+    participant Dispositivo as 🖨️ Impressora
+
+    CPU->>Controlador: 1. Envia comando de impressão
+    CPU->>CPU: 2. Continua executando outros processos
+    Controlador->>Dispositivo: 3. Opera a impressora autonomamente
+    Dispositivo-->>Controlador: 4. Impressão concluída
+    Controlador->>CPU: 5. ⚡ Envia sinal de INTERRUPÇÃO
+    CPU->>CPU: 6. Salva contexto, atende interrupção
+    CPU->>CPU: 7. Retorna ao processo anterior
+</code><div id="mermaid-container" role="dialog"><div id="mermaid-space"><div class="mermaid-content"></div></div></div></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Vantagem</strong></th><th><strong>Desvantagem</strong></th></tr></thead><tbody><tr><td>CPU livre para outras tarefas enquanto espera</td><td>Cada transferência ainda exige intervenção da CPU</td></tr><tr><td>Eficiente para dispositivos lentos (teclado, mouse)</td><td>Ineficiente para grandes volumes de dados (ex: copiar um arquivo de 10 GB)</td></tr></tbody></table></div>
+<hr/>
+<h2 id="-4-método-3--acesso-direto-à-memória-dma">📌 4. Método 3 — Acesso Direto à Memória (DMA)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-4-método-3--acesso-direto-à-memória-dma" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>O <strong>DMA (Direct Memory Access)</strong> é a solução definitiva para grandes transferências. Ele introduz um chip dedicado — o <strong>Controlador DMA</strong> — que transfere blocos de dados diretamente entre o dispositivo e a memória RAM, <strong>sem envolver a CPU</strong> a cada byte transferido.</p>
+<blockquote>
+<p><em>“O DMA permite que o módulo de I/O transfira dados diretamente de/para a memória, sem a intervenção contínua do processador. O processador é liberado para executar outras instruções durante a transferência.”</em> (STALLINGS, 2024, Capítulo 7, p. 255).</p>
+</blockquote>
+<p><strong>Como funciona:</strong></p>
+<ol>
+<li>A CPU configura o Controlador DMA: <em>“Transfira X bytes do endereço Y do disco para o endereço Z da RAM.”</em></li>
+<li>A CPU <strong>vai embora</strong> — o DMA assume o controle do barramento.</li>
+<li>O Controlador DMA realiza a transferência em blocos, usando a técnica de <strong>roubo de ciclo</strong> (<em>cycle stealing</em>): ele usa o barramento nos momentos em que a CPU não está acessando a memória.</li>
+<li>Ao terminar, o DMA envia <strong>apenas uma interrupção</strong> à CPU.</li>
+</ol>
+<p><strong>Exemplo real:</strong> Quando você copia um filme de 4 GB de um HD externo para o SSD interno do seu PC. Se fosse por interrupções, a CPU receberia <em>bilhões</em> de interrupções para transferir cada byte. Com o DMA, a CPU recebe <strong>apenas uma interrupção</strong> ao final de toda a cópia, enquanto esteve livre para você continuar usando o computador normalmente.</p>
+<pre><button class="expand-button" aria-label="Expand mermaid diagram" data-view-component="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 1.06L2.56 7h10.88l-2.22-2.22a.75.75 0 011.06-1.06l3.5 3.5a.75.75 0 010 1.06l-3.5 3.5a.75.75 0 11-1.06-1.06l2.22-2.22H2.56l2.22 2.22a.75.75 0 11-1.06 1.06l-3.5-3.5a.75.75 0 010-1.06l3.5-3.5z"></path></svg></button><code class="mermaid" data-clipboard="&quot;graph LR\n    CPU[\&quot;🧠 CPU\&quot;] -->|\&quot;1. Configura e delega\&quot;| DMA[\&quot;⚡ Controlador DMA\&quot;]\n    CPU -->|\&quot;2. Executa outros processos\&quot;| CPU\n    DMA &lt;-->|\&quot;3. Transfere dados diretamente\\n(Roubo de Ciclo)\&quot;| RAM[\&quot;🗃️ Memória RAM\&quot;]\n    DMA &lt;-->|\&quot;3. Lê dados\&quot;| DISCO[\&quot;💿 Disco / Dispositivo\&quot;]\n    DMA -->|\&quot;4. Uma única interrupção ao final\&quot;| CPU&quot;">graph LR
+    CPU[&quot;🧠 CPU&quot;] -->|&quot;1. Configura e delega&quot;| DMA[&quot;⚡ Controlador DMA&quot;]
+    CPU -->|&quot;2. Executa outros processos&quot;| CPU
+    DMA &lt;-->|&quot;3. Transfere dados diretamente\n(Roubo de Ciclo)&quot;| RAM[&quot;🗃️ Memória RAM&quot;]
+    DMA &lt;-->|&quot;3. Lê dados&quot;| DISCO[&quot;💿 Disco / Dispositivo&quot;]
+    DMA -->|&quot;4. Uma única interrupção ao final&quot;| CPU
+</code><div id="mermaid-container" role="dialog"><div id="mermaid-space"><div class="mermaid-content"></div></div></div></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Vantagem</strong></th><th><strong>Desvantagem</strong></th></tr></thead><tbody><tr><td>CPU quase completamente liberada durante grandes transferências</td><td>Requer hardware adicional (chip controlador DMA)</td></tr><tr><td>Altamente eficiente para mídias de armazenamento e redes</td><td>Pode causar contenção de barramento com a CPU (<em>cycle stealing</em>)</td></tr></tbody></table></div>
+<hr/>
+<h2 id="-5-barramentos-e-controladores-de-es">📌 5. Barramentos e Controladores de E/S<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-5-barramentos-e-controladores-de-es" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Para que qualquer um dos métodos acima funcione, existe uma infraestrutura de comunicação física: os <strong>barramentos</strong> e os <strong>controladores</strong>.</p>
+<h3 id="51--os-três-barramentos">5.1 — Os Três Barramentos<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#51--os-três-barramentos" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote>
+<p><em>“O barramento é um caminho de comunicação conectando dois ou mais dispositivos. Uma característica chave de um barramento é que ele é um meio compartilhado.”</em> (STALLINGS, 2024, p. 68).</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Barramento</strong></th><th><strong>Função</strong></th><th><strong>Analogia</strong></th></tr></thead><tbody><tr><td><strong>Barramento de Dados</strong></td><td>Transporta os dados reais entre CPU, memória e E/S</td><td>O <strong>conteúdo</strong> da carta (os bytes)</td></tr><tr><td><strong>Barramento de Endereços</strong></td><td>Indica o endereço de memória de origem ou destino</td><td>O <strong>CEP</strong> de destino da carta</td></tr><tr><td><strong>Barramento de Controle</strong></td><td>Sinaliza o tipo de operação: leitura ou escrita</td><td>O <strong>tipo de serviço</strong> dos Correios (expresso, sedex)</td></tr></tbody></table></div>
+<h3 id="52--o-controlador-de-es">5.2 — O Controlador de E/S<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#52--o-controlador-de-es" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>O <strong>Controlador de E/S</strong> (ou Módulo de E/S) é um chip intermediário que traduz os comandos genéricos da CPU (em linguagem de barramento) para os comandos específicos de cada dispositivo.</p>
+<blockquote>
+<p>💡 <strong>Analogia:</strong> O Controlador de E/S é como um <strong>intérprete multilíngue</strong> em uma negociação internacional. A CPU fala apenas “protocolo de barramento interno”. A impressora fala “USB”. O controlador sabe os dois idiomas e traduz em tempo real.</p>
+</blockquote>
+<p><strong>Por que ele é necessário?</strong></p>
+<ul>
+<li>Dispositivos operam em velocidades e formatos diferentes.</li>
+<li>A CPU não pode conhecer o protocolo específico de cada periférico do mundo.</li>
+<li>O controlador <strong>abstrai</strong> a complexidade do dispositivo, expondo uma interface padronizada à CPU.</li>
+</ul>
+<hr/>
+<h2 id="-resumo-estrutural">📋 Resumo Estrutural<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-resumo-estrutural" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Conceito</strong></th><th><strong>Definição em Uma Frase</strong></th></tr></thead><tbody><tr><td><strong>E/S Programada (Polling)</strong></td><td>A CPU verifica repetidamente o status do dispositivo, desperdiçando ciclos de processamento na espera.</td></tr><tr><td><strong>E/S por Interrupções</strong></td><td>O dispositivo avisa a CPU quando termina, liberando-a para outras tarefas durante a espera.</td></tr><tr><td><strong>DMA (Direct Memory Access)</strong></td><td>Um controlador dedicado transfere grandes blocos de dados diretamente para a RAM, sem intervenção contínua da CPU.</td></tr><tr><td><strong>Roubo de Ciclo (Cycle Stealing)</strong></td><td>Técnica do DMA de usar o barramento somente nos momentos em que a CPU não o está utilizando.</td></tr><tr><td><strong>Barramento de Dados</strong></td><td>Via física que transporta os bytes entre CPU, memória e dispositivos.</td></tr><tr><td><strong>Barramento de Endereços</strong></td><td>Via física que indica o endereço de origem ou destino de cada transferência.</td></tr><tr><td><strong>Controlador de E/S</strong></td><td>Chip intermediário que traduz os comandos genéricos da CPU em operações específicas do dispositivo periférico.</td></tr></tbody></table></div>
+<hr/>
+<h2 id="-artigo-de-aprofundamento">📄 Artigo de Aprofundamento<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-artigo-de-aprofundamento" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><a href="https://www.geeksforgeeks.org/input-output-organization-in-computer-architecture/" class="external">Input/Output Organization — GeeksforGeeks<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ul>
+<blockquote>
+<p><em>Resumo prático: Artigo técnico com diagramas claros explicando os três métodos de E/S (Polling, Interrupt-driven e DMA), incluindo o fluxo do cycle stealing. Excelente complemento visual para as analogias vistas em aula.</em></p>
+</blockquote>
+<hr/>
+<h2 id="-referências-bibliográficas-e-citações">📚 Referências Bibliográficas e Citações<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-referências-bibliográficas-e-citações" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><strong>STALLINGS, William.</strong> <em>Arquitetura e Organização de Computadores: projetando com foco em desempenho</em>. 11ª ed. Pearson, 2024. <strong>(Capítulo 7: Entrada/Saída — pp. 240–290)</strong>. Abrange E/S Programada, E/S por Interrupção, DMA e Barramentos.</li>
+<li><strong>TANENBAUM, Andrew S.</strong> <em>Organização Estruturada de Computadores</em>. 6ª ed. Pearson, 2013. <strong>(Capítulo 3: Nível de Lógica Digital — pp. 180–220)</strong>. Apresenta a arquitetura dos barramentos e controladores de dispositivos.</li>
+<li><strong>PATTERSON, David A.; HENNESSY, John L.</strong> <em>Organização e Projeto de Computadores: A Interface Hardware/Software</em>. 5ª ed. Elsevier, 2014. <strong>(Apêndice D: Armazenamento, Redes e Outros Tópicos de E/S — pp. D1–D50)</strong>. Análise quantitativa do impacto de E/S no desempenho de sistemas.</li>
+</ul>
+<hr/>
+<p><em>Última atualização: 2026-05-18 | Status: publicado</em></p></article><hr/><div class="page-footer"></div></div><div class="right sidebar"></div><footer class="footer "><div class="footer__brand"><img src="https://uniube.br/img/landing/logo_azul.svg" alt="Universidade de Uberaba" class="footer__logo footer__logo--light"/><img src="https://uniube.br/img/landing/logo_branca.svg" alt="Universidade de Uberaba" class="footer__logo footer__logo--dark"/><div class="footer__info"><span class="footer__name">Prof. Romualdo Filho</span><a class="footer__email" href="mailto:romualdo.filho@uniube.br">romualdo.filho@uniube.br</a></div></div><ul class="footer__links"><li><a href="https://uniube.br" target="_blank" rel="noopener noreferrer">Mural Uniube</a></li></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="./postscript.js" type="module" data-persist="true"></script></html>

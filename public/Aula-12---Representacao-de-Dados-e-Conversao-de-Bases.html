@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="pt" dir="ltr"><head><title>Aula 12 - Representacao de Dados e Conversao de Bases | Prof. Romualdo</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space Grotesk:wght@400;700&amp;family=Inter:ital,wght@0,400;0,600;1,400;1,600&amp;family=JetBrains Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="💻 Arquitetura de Computadores"/><meta property="og:title" content="Aula 12 - Representacao de Dados e Conversao de Bases | Prof. Romualdo"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Aula 12 - Representacao de Dados e Conversao de Bases | Prof. Romualdo"/><meta name="twitter:description" content="🟢 Aula 12: Representação de Dados e Conversão de Bases Disciplina: Arquitetura de Computadores (Cód."/><meta property="og:description" content="🟢 Aula 12: Representação de Dados e Conversão de Bases Disciplina: Arquitetura de Computadores (Cód."/><meta property="og:image:alt" content="🟢 Aula 12: Representação de Dados e Conversão de Bases Disciplina: Arquitetura de Computadores (Cód."/><meta property="twitter:domain" content="rofilho.github.io/arquitetura"/><meta property="og:url" content="https://rofilho.github.io/arquitetura/Aula-12---Representacao-de-Dados-e-Conversao-de-Bases"/><meta property="twitter:url" content="https://rofilho.github.io/arquitetura/Aula-12---Representacao-de-Dados-e-Conversao-de-Bases"/><link rel="icon" href="./static/icon.png"/><meta name="description" content="🟢 Aula 12: Representação de Dados e Conversão de Bases Disciplina: Arquitetura de Computadores (Cód."/><meta name="generator" content="Quartz"/><link href="./index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiQzpcXFF1YXJ0el9Qb3J0YWlzXFxhcnF1aXRldHVyYVxccXVhcnR6XFxjb21wb25lbnRzXFxzdHlsZXMiLCJzb3VyY2VzIjpbIm1lcm1haWQuaW5saW5lLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTtFQUNBOztBQUdGO0VBQ0U7OztBQUtGO0VBQ0U7RUFDQTs7O0FBSUo7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTtFQUNBOztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTs7QUFHRjtFQUNFOztBQUlGO0VBQ0U7RUFDQTtFQUNBIiwic291cmNlc0NvbnRlbnQiOlsiLmV4cGFuZC1idXR0b24ge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsb2F0OiByaWdodDtcbiAgcGFkZGluZzogMC40cmVtO1xuICBtYXJnaW46IDAuM3JlbTtcbiAgcmlnaHQ6IDA7IC8vIE5PVEU6IHJpZ2h0IHdpbGwgYmUgc2V0IGluIG1lcm1haWQuaW5saW5lLnRzXG4gIGNvbG9yOiB2YXIoLS1ncmF5KTtcbiAgYm9yZGVyLWNvbG9yOiB2YXIoLS1kYXJrKTtcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbGlnaHQpO1xuICBib3JkZXI6IDFweCBzb2xpZDtcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xuICBvcGFjaXR5OiAwO1xuICB0cmFuc2l0aW9uOiAwLjJzO1xuXG4gICYgPiBzdmcge1xuICAgIGZpbGw6IHZhcigtLWxpZ2h0KTtcbiAgICBmaWx0ZXI6IGNvbnRyYXN0KDAuMyk7XG4gIH1cblxuICAmOmhvdmVyIHtcbiAgICBjdXJzb3I6IHBvaW50ZXI7XG4gICAgYm9yZGVyLWNvbG9yOiB2YXIoLS1zZWNvbmRhcnkpO1xuICB9XG5cbiAgJjpmb2N1cyB7XG4gICAgb3V0bGluZTogMDtcbiAgfVxufVxuXG5wcmUge1xuICAmOmhvdmVyID4gLmV4cGFuZC1idXR0b24ge1xuICAgIG9wYWNpdHk6IDE7XG4gICAgdHJhbnNpdGlvbjogMC4ycztcbiAgfVxufVxuXG4jbWVybWFpZC1jb250YWluZXIge1xuICBwb3NpdGlvbjogZml4ZWQ7XG4gIGNvbnRhaW46IGxheW91dDtcbiAgei1pbmRleDogOTk5O1xuICBsZWZ0OiAwO1xuICB0b3A6IDA7XG4gIHdpZHRoOiAxMDB2dztcbiAgaGVpZ2h0OiAxMDB2aDtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgZGlzcGxheTogbm9uZTtcbiAgYmFja2Ryb3AtZmlsdGVyOiBibHVyKDRweCk7XG4gIGJhY2tncm91bmQ6IHJnYmEoMCwgMCwgMCwgMC41KTtcblxuICAmLmFjdGl2ZSB7XG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICB9XG5cbiAgJiA+ICNtZXJtYWlkLXNwYWNlIHtcbiAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgICBib3JkZXItcmFkaXVzOiA1cHg7XG4gICAgcG9zaXRpb246IGZpeGVkO1xuICAgIHRvcDogNTAlO1xuICAgIGxlZnQ6IDUwJTtcbiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlLCAtNTAlKTtcbiAgICBoZWlnaHQ6IDgwdmg7XG4gICAgd2lkdGg6IDgwdnc7XG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcblxuICAgICYgPiAubWVybWFpZC1jb250ZW50IHtcbiAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICAgIHRyYW5zZm9ybS1vcmlnaW46IDAgMDtcbiAgICAgIHRyYW5zaXRpb246IHRyYW5zZm9ybSAwLjFzIGVhc2U7XG4gICAgICBvdmVyZmxvdzogdmlzaWJsZTtcbiAgICAgIG1pbi1oZWlnaHQ6IDIwMHB4O1xuICAgICAgbWluLXdpZHRoOiAyMDBweDtcblxuICAgICAgcHJlIHtcbiAgICAgICAgbWFyZ2luOiAwO1xuICAgICAgICBib3JkZXI6IG5vbmU7XG4gICAgICB9XG5cbiAgICAgIHN2ZyB7XG4gICAgICAgIG1heC13aWR0aDogbm9uZTtcbiAgICAgICAgaGVpZ2h0OiBhdXRvO1xuICAgICAgfVxuICAgIH1cblxuICAgICYgPiAubWVybWFpZC1jb250cm9scyB7XG4gICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICBib3R0b206IDIwcHg7XG4gICAgICByaWdodDogMjBweDtcbiAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICBnYXA6IDhweDtcbiAgICAgIHBhZGRpbmc6IDhweDtcbiAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICBib3JkZXItcmFkaXVzOiA2cHg7XG4gICAgICBib3gtc2hhZG93OiAwIDJweCA0cHggcmdiYSgwLCAwLCAwLCAwLjEpO1xuICAgICAgei1pbmRleDogMjtcblxuICAgICAgLm1lcm1haWQtY29udHJvbC1idXR0b24ge1xuICAgICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICAgICAgd2lkdGg6IDMycHg7XG4gICAgICAgIGhlaWdodDogMzJweDtcbiAgICAgICAgcGFkZGluZzogMDtcbiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xuICAgICAgICBjb2xvcjogdmFyKC0tZGFyayk7XG4gICAgICAgIGJvcmRlci1yYWRpdXM6IDRweDtcbiAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xuICAgICAgICBmb250LXNpemU6IDE2cHg7XG4gICAgICAgIGZvbnQtZmFtaWx5OiB2YXIoLS1ib2R5Rm9udCk7XG4gICAgICAgIHRyYW5zaXRpb246IGFsbCAwLjJzIGVhc2U7XG5cbiAgICAgICAgJjpob3ZlciB7XG4gICAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgfVxuXG4gICAgICAgICY6YWN0aXZlIHtcbiAgICAgICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMXB4KTtcbiAgICAgICAgfVxuXG4gICAgICAgIC8vIFN0eWxlIHRoZSByZXNldCBidXR0b24gZGlmZmVyZW50bHlcbiAgICAgICAgJjpudGgtY2hpbGQoMikge1xuICAgICAgICAgIHdpZHRoOiBhdXRvO1xuICAgICAgICAgIHBhZGRpbmc6IDAgMTJweDtcbiAgICAgICAgICBmb250LXNpemU6IDE0cHg7XG4gICAgICAgIH1cbiAgICAgIH1cbiAgICB9XG4gIH1cbn1cbiJdfQ== */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="./prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("./static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://rofilho.github.io/arquitetura/index.xml"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://rofilho.github.io/arquitetura/Aula-12---Representacao-de-Dados-e-Conversao-de-Bases-og-image.webp"/><meta property="og:image:url" content="https://rofilho.github.io/arquitetura/Aula-12---Representacao-de-Dados-e-Conversao-de-Bases-og-image.webp"/><meta name="twitter:image" content="https://rofilho.github.io/arquitetura/Aula-12---Representacao-de-Dados-e-Conversao-de-Bases-og-image.webp"/><meta property="og:image:type" content="image/.webp"/></head><body data-slug="Aula-12---Representacao-de-Dados-e-Conversao-de-Bases"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"></div><div class="center"><div class="page-header"><header><h2 class="page-title"><a href="." class="page-title__link"><img src="https://uniube.br/img/landing/logo_azul.svg" alt="Uniube" class="page-title__logo page-title__logo--light"/><img src="https://uniube.br/img/landing/logo_branca.svg" alt="Uniube" class="page-title__logo page-title__logo--dark"/><span class="page-title__text">💻 Arquitetura de Computadores</span></a></h2><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Pesquisar</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Pesquisar por algo" placeholder="Pesquisar por algo"/><div class="search-layout" data-preview="true"></div></div></div></div><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Tema escuro"><title>Tema escuro</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Tema claro"><title>Tema claro</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></header><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="./">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>Aula 12   Representacao de Dados e Conversao de Bases</a></div></nav><nav class="lesson-nav" aria-label="Navegação entre aulas"><div class="lesson-nav__slot"><a href="./Aula-11---Arquitetura-de-Virtualizacao-e-Hipervisores" class="nav-pill nav-pill--prev" data-spa="true"><div class="nav-pill__icon">📖</div><div class="nav-pill__body"><span class="nav-pill__label">← Anterior</span><span class="nav-pill__num">Aula 11</span><span class="nav-pill__title">Arquitetura de Virtualizacao e Hipervisores</span></div></a></div><div class="lesson-nav__slot lesson-nav__slot--right"><a href="./Aula-01---Arquitetura-e-Organizacao" class="nav-pill nav-pill--next" data-spa="true"><div class="nav-pill__icon">📖</div><div class="nav-pill__body"><span class="nav-pill__label">Próxima →</span><span class="nav-pill__title">🖥️ Aula - 01: Arquitetura e Organização de Computadores – Plano de Aulas</span></div></a></div></nav><h1 class="article-title">Aula 12 - Representacao de Dados e Conversao de Bases</h1><p show-comma="true" class="content-meta"><time datetime="2026-06-08T03:00:00.000Z">08 de jun. de 2026</time><span>Leitura de 16 min</span></p><ul class="tags"><li><a href="./tags/arquitetura" class="internal tag-link">arquitetura</a></li><li><a href="./tags/conversao-bases" class="internal tag-link">conversao-bases</a></li><li><a href="./tags/binario" class="internal tag-link">binario</a></li><li><a href="./tags/hexadecimal" class="internal tag-link">hexadecimal</a></li><li><a href="./tags/armazenamento" class="internal tag-link">armazenamento</a></li></ul></div></div><article class="popover-hint"><h1 id="-aula-12-representação-de-dados-e-conversão-de-bases">🟢 Aula 12: Representação de Dados e Conversão de Bases<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-aula-12-representação-de-dados-e-conversão-de-bases" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p><strong>Disciplina:</strong> Arquitetura de Computadores (Cód. ARQ-01)<br/>
+<strong>Curso:</strong> Inteligência Artificial e Ciência de Dados, Uniube<br/>
+<strong>Semana:</strong> 12 | 04/05/2026<br/>
+<strong>Professor:</strong> Romualdo Mathias Filho<br/>
+<strong>Tipo:</strong> 📘 Teórica<br/>
+<strong>Tópicos:</strong> Sistemas Posicionais e Bases Numéricas (Decimal, Binário e Hexadecimal), Algoritmos de Conversão (Divisões Sucessivas e Polinômio Posicional), e Conversão Direta por Nibbles e Medidas de Armazenamento de Dados.</p>
+<hr/>
+<blockquote class="callout info" data-callout="info">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>🎯 Visão Geral da Aula &amp; Recursos </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p><strong>Compreenderemos a base matemática posicional que permite traduzir pulsos elétricos analógicos de silício para representações binárias lógicas (0 e 1), como compactá-las em formato hexadecimal para depuração de memória e como realizar conversões precisas de unidades de armazenamento.</strong></p>
+<ul>
+<li><strong>O que você vai dominar:</strong>
+<ul>
+<li>A estrutura lógica e posicional dos sistemas decimal, binário e hexadecimal.</li>
+<li>Os algoritmos formais de conversão por divisões sucessivas e polinômios posicionais (soma de pesos).</li>
+<li>A conversão direta binário-hexadecimal por agrupamento de bits e o dimensionamento de unidades de armazenamento (Bytes, KB, MB, GB, TB).</li>
+</ul>
+</li>
+<li><strong>Pré-requisitos:</strong> Fundamentos de Organização (Aula 02) e Memória Virtual (Aula 06).</li>
+<li><strong>📂 Recursos Adicionais para Download:</strong>
+<ul>
+<li><a href="https://www.rapidtables.com/convert/number/base-converter.html" class="external">Base Converter Online (Simulador Visual)<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> — Simulador recomendado para validação rápida de exercícios de conversão múltipla.</li>
+<li><a href="https://www.h-schmidt.net/FloatConverter/IEEE754.html" class="external">IEEE 754 Floating-Point Simulator<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> — Ferramenta interativa de conversão de ponto flutuante em nível de bits.</li>
+</ul>
+</li>
+</ul>
+</div>
+</blockquote>
+<hr/>
+<h2 id="-objetivo-da-aula">🎯 Objetivo da Aula<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-objetivo-da-aula" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Ao final desta aula, os alunos serão capazes de:</p>
+<ul>
+<li><strong>Diferenciar</strong> sistemas posicionais de numeração e suas respectivas bases matemáticas.</li>
+<li><strong>Aplicar</strong> os algoritmos de divisões sucessivas e polinômios posicionais para converter valores entre as bases 2, 10 e 16.</li>
+<li><strong>Executar</strong> conversões diretas por agrupamento de nibbles (4 bits) para otimizar a leitura de dumps de memória.</li>
+<li><strong>Calcular</strong> dimensionamento de armazenamento de dados utilizando múltiplos binários comerciais e lógicos de forma correta.</li>
+</ul>
+<hr/>
+<h2 id="-revisão-rápida-5-min">🔄 Revisão Rápida (5 min)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-revisão-rápida-5-min" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;"><strong>Conceito (Aulas Anteriores)</strong></th><th style="text-align:left;"><strong>Conexão com a Aula de Hoje</strong></th></tr></thead><tbody><tr><td style="text-align:left;"><strong><a href="./Aula-02---Fundamentos-da-Organizacao" class="internal alias" data-slug="Aula-02---Fundamentos-da-Organizacao">Aula 02 (Fundamentos da Organização)</a></strong></td><td style="text-align:left;">Vimos que memórias e registradores armazenam estados elétricos analógicos que são interpretados logicamente como 0 ou 1. Hoje entenderemos a matemática por trás da interpretação posicional desses dados.</td></tr><tr><td style="text-align:left;"><strong><a href="./Aula-07---Conjunto-de-Instrucoes-e-Ciclo-da-Instrucao" class="internal alias" data-slug="Aula-07---Conjunto-de-Instrucoes-e-Ciclo-da-Instrucao">Aula 07 (Conjunto de Instruções)</a></strong></td><td style="text-align:left;">Analisamos os opcodes e dados codificados em linguagem de máquina. Hoje aprenderemos por que essas instruções longas em binário são compactadas em caracteres hexadecimais nos dumps de depuração.</td></tr><tr><td style="text-align:left;"><strong><a href="./Aula-11---Arquitetura-de-Virtualizacao-e-Hipervisores" class="internal alias" data-slug="Aula-11---Arquitetura-de-Virtualizacao-e-Hipervisores">Aula 11 (Hipervisores)</a></strong></td><td style="text-align:left;">Estudamos o gerenciamento de hardware por hipervisores e a alocação de RAM em gigabytes. Hoje dominaremos a exatidão das escalas de armazenamento (Bits, Bytes, KB, MB, GB, TB).</td></tr></tbody></table></div>
+<hr/>
+<h2 id="-1-a-lógica-do-silício-sistemas-posicionais-e-bases-numéricas-teoria--15-min">📌 1. A Lógica do Silício: Sistemas Posicionais e Bases Numéricas [Teoria ⏳ 15 min]<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-1-a-lógica-do-silício-sistemas-posicionais-e-bases-numéricas-teoria--15-min" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Em qualquer computador moderno, o silício processa exclusivamente sinais elétricos. Um circuito integrado detecta tensões de referência: tensões baixas (próximas a 0V) são mapeadas logicamente como o dígito binário <strong>0</strong>, e tensões altas (próximas ao VCC do chip, ex: 1.2V ou 3.3V) são mapeadas como o dígito <strong>1</strong>. Essas duas unidades básicas são os <strong>bits</strong> (binary digits).</p>
+<p>Para que o processador possa representar números maiores, caracteres ou instruções complexas, os bits são agrupados. A forma como esses grupos representam valores baseia-se no conceito de <strong>Sistema Posicional</strong>. Em um sistema posicional, o peso ou valor de cada dígito depende estritamente da sua posição relativa no número.</p>
+<h3 id="11--comparação-de-bases-numéricas-clássicas">1.1 — Comparação de Bases Numéricas Clássicas<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#11--comparação-de-bases-numéricas-clássicas" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Na arquitetura de computadores, três bases posicionais são fundamentais:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:center;">Base</th><th style="text-align:center;">Nome</th><th style="text-align:left;">Dígitos Disponíveis</th><th style="text-align:left;">Relação de Aplicação Técnica</th></tr></thead><tbody><tr><td style="text-align:center;"><strong>10</strong></td><td style="text-align:center;"><strong>Decimal</strong></td><td style="text-align:left;">0, 1, 2, 3, 4, 5, 6, 7, 8, 9</td><td style="text-align:left;">Interface humana tradicional (cálculos de negócios, exibição final).</td></tr><tr><td style="text-align:center;"><strong>2</strong></td><td style="text-align:center;"><strong>Binário</strong></td><td style="text-align:left;">0, 1</td><td style="text-align:left;">Representação interna física da CPU (registradores, barramentos, transistores).</td></tr><tr><td style="text-align:center;"><strong>16</strong></td><td style="text-align:center;"><strong>Hexadecimal</strong></td><td style="text-align:left;">0, 1, …, 9, A, B, C, D, E, F</td><td style="text-align:left;">Formato de depuração de baixo nível (dumps de memória, registradores de status, cores).</td></tr></tbody></table></div>
+<blockquote class="callout note" data-callout="note">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>💼 Pergunta de Entrevista </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p><strong>Por que desenvolvedores de baixo nível e arquitetos de computadores utilizam a base Hexadecimal em depuradores (debuggers) em vez de Binário ou Decimal?</strong></p>
+<p><strong>Resposta Esperada:</strong> A base Hexadecimal simplifica radicalmente a leitura humana e a depuração. Como 16 = 2⁴ (2 elevado a 4), exatamente 4 bits (um <em>nibble</em>) podem ser compactados em um único caractere hexadecimal (ex: <code>1111</code> em base 2 = <code>F</code> em base 16). Um byte completo de 8 bits é representado de forma exata por apenas dois caracteres (ex: <code>11111111</code> em base 2 = <code>FF</code> em base 16), facilitando a identificação imediata de alinhamento de bytes físicos e de palavras de memória (Word de 32 bits = 8 caracteres hexa) sem o overhead de leitura de longas strings binárias ou conversões decimais complexas.</p>
+</div>
+</blockquote>
+<hr/>
+<h2 id="-2-algoritmos-de-conversão-a-matemática-de-mudança-de-bases-teoria--prática--20-min">📌 2. Algoritmos de Conversão: A Matemática de Mudança de Bases [Teoria &amp; Prática ⏳ 20 min]<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-2-algoritmos-de-conversão-a-matemática-de-mudança-de-bases-teoria--prática--20-min" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Para transferir dados entre a CPU, a memória e a visualização final do usuário, precisamos executar conversões matemáticas de bases.</p>
+<h3 id="21--conversão-de-decimal-base-10-para-qualquer-base-divisões-sucessivas">2.1 — Conversão de Decimal (Base 10) para Qualquer Base: Divisões Sucessivas<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#21--conversão-de-decimal-base-10-para-qualquer-base-divisões-sucessivas" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Para converter um valor inteiro da base 10 para outra base B (onde B pode ser 2 ou 16), aplicamos o <strong>Algoritmo de Divisões Sucessivas</strong>:</p>
+<ol>
+<li>Divide-se o número decimal por B.</li>
+<li>O resto da divisão constitui o dígito menos significativo (mais à direita).</li>
+<li>Divide-se o quociente obtido por B novamente, e o novo resto constituirá o próximo dígito à esquerda.</li>
+<li>Repete-se o processo até que o quociente da divisão seja zero.</li>
+<li>O resultado final é lido <strong>de baixo para cima</strong> (do último resto obtido ao primeiro).</li>
+</ol>
+<h4 id="exemplo-prático-1-converter-o-decimal-45-para-binário-base-2">Exemplo Prático 1: Converter o decimal 45 para Binário (Base 2):<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#exemplo-prático-1-converter-o-decimal-45-para-binário-base-2" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Aplicamos o método das divisões sucessivas por 2 até que o quociente seja zero. O número binário correspondente é obtido pela leitura dos restos da divisão <strong>de baixo para cima</strong> (do último resto ao primeiro).</p>
+<p><img src="./assets/aula12_conversao_decimal_binario.png" width="auto" height="auto" alt/></p>
+<p><em>Passo a passo matemático:</em></p>
+<ul>
+<li><code>45 ÷ 2 = 22</code> (Resto <strong>1</strong> - Dígito menos significativo, LSB)</li>
+<li><code>22 ÷ 2 = 11</code> (Resto <strong>0</strong>)</li>
+<li><code>11 ÷ 2 = 5</code> (Resto <strong>1</strong>)</li>
+<li><code>5 ÷ 2 = 2</code> (Resto <strong>1</strong>)</li>
+<li><code>2 ÷ 2 = 1</code> (Resto <strong>0</strong>)</li>
+<li><code>1 ÷ 2 = 0</code> (Resto <strong>1</strong> - Dígito mais significativo, MSB)</li>
+<li>Lendo de baixo para cima, temos: 45 (base 10) = 101101 (base 2), ou seja, 45₁₀ = 101101₂</li>
+</ul>
+<h4 id="exemplo-prático-2-converter-o-decimal-12412-para-hexadecimal-base-16">Exemplo Prático 2: Converter o decimal 12412 para Hexadecimal (Base 16):<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#exemplo-prático-2-converter-o-decimal-12412-para-hexadecimal-base-16" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Para a base 16, dividimos o valor decimal sucessivamente por 16 até que o quociente seja zero. Os restos que resultam em valores entre 10 e 15 são mapeados para suas respectivas letras correspondentes (A a F).</p>
+<p><img src="./assets/aula12_conversao_decimal_hexadecimal.png" width="auto" height="auto" alt/></p>
+<p><em>Passo a passo matemático:</em></p>
+<ul>
+<li><code>12412 ÷ 16 = 775</code> (Resto <strong>12</strong> ➔ Equivalente a <strong>C</strong> em hexadecimal)</li>
+<li><code>775 ÷ 16 = 48</code> (Resto <strong>7</strong>)</li>
+<li><code>48 ÷ 16 = 3</code> (Resto <strong>0</strong>)</li>
+<li><code>3 ÷ 16 = 0</code> (Resto <strong>3</strong> - Dígito mais significativo)</li>
+<li>Lendo de baixo para cima, temos: 12412 (base 10) = 307C (base 16), ou seja, 12412₁₀ = 307C₁₆</li>
+</ul>
+<h3 id="22--conversão-de-qualquer-base-para-decimal-base-10-polinômio-posicional">2.2 — Conversão de Qualquer Base para Decimal (Base 10): Polinômio Posicional<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#22--conversão-de-qualquer-base-para-decimal-base-10-polinômio-posicional" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Para converter um valor de qualquer base B de volta para decimal, utiliza-se a <strong>Expansão Polinomial</strong>. Multiplica-se cada dígito pela base B elevada à potência de sua posição (iniciando em 0, da direita para a esquerda) e somam-se os resultados.</p>
+<p><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">Valor Decimal</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.9028em;vertical-align:-0.2083em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2083em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.9028em;vertical-align:-0.2083em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2083em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">2</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="minner">⋯</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span></span></span></span></span></span></span></span></p>
+<h4 id="exemplo-prático-1-converter-110101-base-2-para-decimal-base-10">Exemplo Prático 1: Converter 110101 (base 2) para Decimal (Base 10):<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#exemplo-prático-1-converter-110101-base-2-para-decimal-base-10" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Multiplicamos cada bit pelo peso correspondente de sua posição (potência de base 2), iniciando da direita (posição 0) para a esquerda (posição 5).</p>
+<p><img src="./assets/aula12_conversao_binario_decimal.png" width="auto" height="auto" alt/></p>
+<p><em>Passo a passo matemático:</em></p>
+<ul>
+<li>Posições (direita para esquerda): 5, 4, 3, 2, 1, 0</li>
+<li><code>1 · 2⁵ + 1 · 2⁴ + 0 · 2³ + 1 · 2² + 0 · 2¹ + 1 · 2⁰</code></li>
+<li><code>1 · 32 + 1 · 16 + 0 · 8 + 1 · 4 + 0 · 2 + 1 · 1</code></li>
+<li><code>32 + 16 + 0 + 4 + 0 + 1 = 53</code></li>
+<li>Logo, 110101 (base 2) = 53 (base 10).</li>
+</ul>
+<h4 id="exemplo-prático-2-converter-2a5-base-16-para-decimal-base-10">Exemplo Prático 2: Converter 2A5 (base 16) para Decimal (Base 10):<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#exemplo-prático-2-converter-2a5-base-16-para-decimal-base-10" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>A lógica é a mesma, mas a base de cálculo é 16. Lembre-se de substituir a letra pelo seu valor decimal equivalente (neste caso, A = 10).</p>
+<p><img src="./assets/aula12_conversao_hexadecimal_decimal.png" width="auto" height="auto" alt/></p>
+<p><em>Passo a passo matemático:</em></p>
+<ul>
+<li>Posições (direita para esquerda): 2, 1, 0 (Lembrando que A = 10)</li>
+<li><code>2 · 16² + 10 · 16¹ + 5 · 16⁰</code></li>
+<li><code>2 · 256 + 10 · 16 + 5 · 1</code></li>
+<li><code>512 + 160 + 5 = 677</code></li>
+<li>Logo, 2A5 (base 16) = 677 (base 10).</li>
+</ul>
+<h3 id="-checkpoint-teste-seu-conhecimento">🧠 Checkpoint: Teste seu Conhecimento!<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-checkpoint-teste-seu-conhecimento" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<details>
+<summary><b>🔍 Exercício Rápido: Qual é a representação em Hexadecimal e Binário do número decimal 254?</b></summary>
+<blockquote>
+<p><strong>Resposta Correta:</strong></p>
+<ul>
+<li><strong>Hexadecimal:</strong> <code>254 ÷ 16 = 15</code> (Resto <strong>14</strong> ➔ <strong>E</strong>); <code>15 ÷ 16 = 0</code> (Resto <strong>15</strong> ➔ <strong>F</strong>). Lendo de baixo para cima: <strong><code>FE (base 16)</code></strong>.</li>
+<li><strong>Binário:</strong> Convertendo de forma direta a partir do hexadecimal <code>FE</code>, temos: <code>F</code> = <code>1111</code> e <code>E</code> = <code>1110</code>. Logo: <strong><code>11111110 (base 2)</code></strong>.</li>
+</ul>
+</blockquote>
+</details>
+<blockquote class="callout warning" data-callout="warning">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>⚠️ Gotcha de Infraestrutura: Estouro de Inteiros (Integer Overflow) </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>Na arquitetura física de computadores, os registradores têm tamanhos rígidos (ex: 8 bits, 16 bits, 32 bits, 64 bits). Um registrador de 8 bits consegue representar valores binários de <code>00000000_2</code> a <code>11111111_2</code> (em decimal: 0 a 255).
+Se o processador tentar armazenar o valor decimal <strong>256</strong> em um registrador de 8 bits, ocorre o fenômeno elétrico do <strong>Integer Overflow</strong>. O número 256 exige 9 bits (<code>100000000_2</code>). Como o registrador físico só armazena os 8 bits menos significativos, o 9º bit (o bit extra à esquerda) é simplesmente descartado pelo processador. O valor final armazenado no registrador será <code>00000000_2</code> (0 em decimal). Ignorar os limites físicos de conversão de tipos de dados nos códigos de software gera falhas críticas de corrupção de memória e segurança.</p>
+</div>
+</blockquote>
+<hr/>
+<h2 id="-3-conversão-direta-e-unidades-de-armazenamento-prática-guiada--20-min">📌 3. Conversão Direta e Unidades de Armazenamento [Prática Guiada ⏳ 20 min]<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-3-conversão-direta-e-unidades-de-armazenamento-prática-guiada--20-min" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Para acelerar o trabalho técnico e otimizar o dimensionamento de recursos de infraestrutura, os engenheiros de computação utilizam métodos rápidos de agrupamento de bits e dominam as escalas de armazenamento físico.</p>
+<h3 id="31--conversão-direta-binário-hexadecimal-por-nibbles-4-bits">3.1 — Conversão Direta Binário-Hexadecimal por Nibbles (4 bits)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#31--conversão-direta-binário-hexadecimal-por-nibbles-4-bits" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Como 16 = 2⁴, existe um mapeamento direto e exato entre 4 bits (um <em>nibble</em>) e 1 caractere hexadecimal. Isso nos permite converter qualquer número binário para hexadecimal instantaneamente de forma visual:</p>
+<ol>
+<li>Agrupe o número binário em blocos de 4 bits, começando <strong>da direita para a esquerda</strong>.</li>
+<li>Se o bloco mais à esquerda não tiver 4 bits, adicione zeros à esquerda para completar.</li>
+<li>Converta cada bloco de 4 bits individualmente para seu caractere hexadecimal correspondente.</li>
+</ol>
+<h4 id="exemplo-prático-converter-10111100101-base-2-para-hexadecimal">Exemplo Prático: Converter <code>10111100101</code> (base 2) para Hexadecimal:<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#exemplo-prático-converter-10111100101-base-2-para-hexadecimal" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Agrupando da direita para a esquerda: <code>101</code> <code>1110</code> <code>0101</code></li>
+<li>Adicionando zero à esquerda no primeiro grupo: <code>0101</code> | <code>1110</code> | <code>0101</code></li>
+<li>Convertendo os grupos individualmente:
+<ul>
+<li><code>0101 (base 2)</code> = <code>5 (base 16)</code></li>
+<li><code>1110 (base 2)</code> = 14 (base 10) = <code>E (base 16)</code></li>
+<li><code>0101 (base 2)</code> = <code>5 (base 16)</code></li>
+</ul>
+</li>
+<li>Resultado final: <strong><code>5E5 (base 16)</code></strong></li>
+</ul>
+<h3 id="32--unidades-de-armazenamento-de-dados">3.2 — Unidades de Armazenamento de Dados<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#32--unidades-de-armazenamento-de-dados" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Os bits processados pelo hardware são organizados e agrupados em estruturas padronizadas para dimensionamento físico de capacidade de memória e disco:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">Unidade</th><th style="text-align:center;">Símbolo</th><th style="text-align:center;">Equivalente Matemático</th><th style="text-align:left;">Observação Técnica / Arquitetura</th></tr></thead><tbody><tr><td style="text-align:left;"><strong>Bit</strong></td><td style="text-align:center;">b</td><td style="text-align:center;">0 ou 1</td><td style="text-align:left;">Menor unidade lógica de dados em circuitos digitais.</td></tr><tr><td style="text-align:left;"><strong>Byte</strong></td><td style="text-align:center;">B</td><td style="text-align:center;">8 bits</td><td style="text-align:left;">Unidade básica de endereçamento de memória RAM.</td></tr><tr><td style="text-align:left;"><strong>Kilobyte</strong></td><td style="text-align:center;">KB</td><td style="text-align:center;">2¹⁰ Bytes (1024 B)</td><td style="text-align:left;">Tamanho típico de arquivos de configuração compactos e scripts.</td></tr><tr><td style="text-align:left;"><strong>Megabyte</strong></td><td style="text-align:center;">MB</td><td style="text-align:center;">2²⁰ Bytes (1024 KB)</td><td style="text-align:left;">Unidade de medida para arquivos de mídia, PDFs e pequenos binários.</td></tr><tr><td style="text-align:left;"><strong>Gigabyte</strong></td><td style="text-align:center;">GB</td><td style="text-align:center;">2³⁰ Bytes (1024 MB)</td><td style="text-align:left;">Métrica padrão para capacidade de memória RAM e partições de sistemas operacionais.</td></tr><tr><td style="text-align:left;"><strong>Terabyte</strong></td><td style="text-align:center;">TB</td><td style="text-align:center;">2⁴⁰ Bytes (1024 GB)</td><td style="text-align:left;">Métrica para grandes discos de armazenamento (HDDs, SSDs NVMe) e volumes em nuvem.</td></tr></tbody></table></div>
+<h4 id="-exemplos-de-conversão-de-unidades-de-medida-cálculo-binário-real">📐 Exemplos de Conversão de Unidades de Medida (Cálculo Binário Real):<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-exemplos-de-conversão-de-unidades-de-medida-cálculo-binário-real" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Sempre que realizamos conversões em nível de sistema operacional (binário real), dividimos por 1024 para subir de escala (ex: MB → GB) ou multiplicamos por 1024 para descer de escala (ex: GB → MB):</p>
+<ol>
+<li>
+<p><strong>Conversão de Megabytes para Gigabytes:</strong></p>
+<ul>
+<li><em>Exemplo:</em> Converter 500 MB em GB.</li>
+<li><em>Solução:</em> Como estamos subindo de escala, dividimos o valor por 1024:
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Capacidade em GB</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.2173em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8723em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1024</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">500</span><span class="mord text mtight"><span class="mord mtight"> MB</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">0.488</span><span class="mord text"><span class="mord"> GB</span></span></span></span></span></li>
+</ul>
+</li>
+<li>
+<p><strong>Conversão de Gigabytes para Terabytes:</strong></p>
+<ul>
+<li><em>Exemplo:</em> Converter 2.5 GB em TB.</li>
+<li><em>Solução:</em> Dividimos por 1024:
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Capacidade em TB</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.2173em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8723em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1024</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2.5</span><span class="mord text mtight"><span class="mord mtight"> GB</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">0.00244</span><span class="mord text"><span class="mord"> TB</span></span></span></span></span></li>
+</ul>
+</li>
+<li>
+<p><strong>Conversão de Kilobytes para Megabytes:</strong></p>
+<ul>
+<li><em>Exemplo:</em> Converter 2048 KB em MB.</li>
+<li><em>Solução:</em> Dividimos por 1024:
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Capacidade em MB</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.2173em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8723em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1024</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2048</span><span class="mord text mtight"><span class="mord mtight"> KB</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">2</span><span class="mord text"><span class="mord"> MB</span></span></span></span></span></li>
+</ul>
+</li>
+<li>
+<p><strong>Desafio — Conversão de Petabytes (PB) para Gigabytes (GB):</strong></p>
+<ul>
+<li><em>Exemplo:</em> Converter 50 PB para GB.</li>
+<li><em>Solução:</em> Para descer de Petabytes para Gigabytes, precisamos passar primeiro por Terabytes e depois por Gigabytes, multiplicando sucessivamente por 1024:
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">Passo 1 (PB </span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord"> TB): </span></span><span class="mord">50</span><span class="mord text"><span class="mord"> PB</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1024</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">51.200</span><span class="mord text"><span class="mord"> TB</span></span></span></span></span>
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">Passo 2 (TB </span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord"> GB): </span></span><span class="mord">51.200</span><span class="mord text"><span class="mord"> TB</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1024</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">52.428.800</span><span class="mord text"><span class="mord"> GB</span></span></span></span></span>
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">F</span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord">o</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.25em;"><span class="mord">ˊ</span></span></span></span></span></span></span><span class="mord">rmula Direta: </span></span><span class="mord">50</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1024</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1024</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">52.428.800</span><span class="mord text"><span class="mord"> GB</span></span></span></span></span></li>
+</ul>
+</li>
+</ol>
+<blockquote class="callout tip" data-callout="tip">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>💡 Dica de Produção (Pro-Tip): FinOps e a Diferença Comercial vs. Binária </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>Fabricantes de discos rígidos e sistemas operacionais interpretam as unidades de armazenamento de formas diferentes:</p>
+</div>
+</blockquote>
+<blockquote>
+<ul>
+<li><strong>Fabricantes de Hardware (Comercial):</strong> Utilizam a base decimal (10³). Para eles, 1 KB = 1000 Bytes, 1 MB = 10⁶ Bytes e 1 GB = 10⁹ Bytes.</li>
+<li><strong>Sistemas Operacionais (Real Binário):</strong> Utilizam a base binária (2¹⁰). Para o sistema, 1 GiB = 1024 MiB = 1.073.741.824 Bytes.</li>
+</ul>
+<p><em>Impacto Prático:</em> Ao comprar um disco físico ou provisionar um disco em nuvem na AWS ou GCP de <strong>1 TB</strong> comercial (1.000.000.000.000 Bytes), o sistema operacional lerá o disco como aproximadamente <strong>931 GB</strong> reais binários. Em arquiteturas em nuvem de escala empresarial, ignorar essa diferença de 7% pode resultar em provisionamento incorreto de volumes persistentes de dados e incidentes de discos cheios (<em>Out of Space</em>), além de surpresas financeiras nos relatórios de custos de <strong>FinOps</strong>.</p>
+</blockquote>
+<h3 id="️-exercícios-recomendados-de-fixação-prática-individual">✍️ Exercícios Recomendados de Fixação (Prática Individual)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-exercícios-recomendados-de-fixação-prática-individual" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Para consolidar o conhecimento, resolva os exercícios abaixo e valide as suas respostas nos blocos colapsáveis:</p>
+<h4 id="grupo-1-conversão-de-bases-numéricas">Grupo 1: Conversão de Bases Numéricas<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#grupo-1-conversão-de-bases-numéricas" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>Qual é o equivalente decimal do número binário <code>101001</code>?</li>
+<li>Converta o número decimal <code>78</code> para binário.</li>
+<li>Converta o número decimal <code>153</code> para hexadecimal.</li>
+<li>Converta o número hexadecimal <code>3F</code> para binário.</li>
+</ol>
+<details>
+<summary><b>🔍 Ver Gabarito e Resolução do Grupo 1</b></summary>
+<blockquote>
+<ol>
+<li><strong><code>101001</code> (base 2) para Decimal:</strong>
+<ul>
+<li>Polinômio: <code>1 · 2⁵ + 0 · 2⁴ + 1 · 2³ + 0 · 2² + 0 · 2¹ + 1 · 2⁰</code></li>
+<li>Cálculo: <code>32 + 0 + 8 + 0 + 0 + 1 = 41 (base 10)</code></li>
+<li><em>Resposta:</em> <strong>41</strong></li>
+</ul>
+</li>
+<li><strong><code>78</code> (base 10) para Binário:</strong>
+<ul>
+<li>Divisões por 2: <code>78 / 2 = 39</code> (R: <strong>0</strong>); <code>39 / 2 = 19</code> (R: <strong>1</strong>); <code>19 / 2 = 9</code> (R: <strong>1</strong>); <code>9 / 2 = 4</code> (R: <strong>1</strong>); <code>4 / 2 = 2</code> (R: <strong>0</strong>); <code>2 / 2 = 1</code> (R: <strong>0</strong>); <code>1 / 2 = 0</code> (R: <strong>1</strong>).</li>
+<li>Lendo os restos de baixo para cima: <code>1001110</code> (base 2).</li>
+<li><em>Resposta:</em> <strong><code>1001110 (base 2)</code></strong></li>
+</ul>
+</li>
+<li><strong><code>153</code> (base 10) para Hexadecimal:</strong>
+<ul>
+<li>Divisões por 16: <code>153 ÷ 16 = 9</code> (Resto <strong>9</strong>). Quociente 9 dividido por 16 dá 0 (Resto <strong>9</strong>).</li>
+<li>Lendo os restos de baixo para cima: <code>99</code> (base 16).</li>
+<li><em>Resposta:</em> <strong><code>99 (base 16)</code></strong></li>
+</ul>
+</li>
+<li><strong><code>3F</code> (base 16) para Binário:</strong>
+<ul>
+<li>Conversão direta por nibbles: <code>3</code> = <code>0011</code> e <code>F</code> = <code>1111</code>.</li>
+<li>Unificando os bits: <code>00111111 (base 2)</code>.</li>
+<li><em>Resposta:</em> <strong><code>00111111 (base 2)</code></strong> (ou <code>111111 (base 2)</code>)</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+</details>
+<h4 id="grupo-2-unidades-de-armazenamento-e-métricas">Grupo 2: Unidades de Armazenamento e Métricas<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#grupo-2-unidades-de-armazenamento-e-métricas" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol start="5">
+<li>Converta <code>3 GB</code> para Megabytes (MB).</li>
+<li>Converta <code>8192 Bytes</code> para Kilobytes (KB).</li>
+<li>Se um arquivo tem <code>6.5 MB</code> de tamanho no sistema operacional, quantos Bytes reais ele possui?</li>
+<li>Se um servidor tem uma latência de rede de <code>5 milissegundos</code>, quantos segundos isso representa?</li>
+</ol>
+<details>
+<summary><b>🔍 Ver Gabarito e Resolução do Grupo 2</b></summary>
+<blockquote>
+<ol start="5">
+<li><strong><code>3 GB</code> para MB:</strong>
+<ul>
+<li><code>3 × 1024 = 3072 MB</code>.</li>
+<li><em>Resposta:</em> <strong><code>3072 MB</code></strong></li>
+</ul>
+</li>
+<li><strong><code>8192 B</code> para KB:</strong>
+<ul>
+<li><code>8192 ÷ 1024 = 8 KB</code>.</li>
+<li><em>Resposta:</em> <strong><code>8 KB</code></strong></li>
+</ul>
+</li>
+<li><strong><code>6.5 MB</code> para Bytes:</strong>
+<ul>
+<li><code>6.5 × 1024 KB × 1024 Bytes = 6.815.744 Bytes</code>.</li>
+<li><em>Resposta:</em> <strong><code>6.815.744 Bytes</code></strong></li>
+</ul>
+</li>
+<li><strong><code>5 milissegundos</code> para segundos:</strong>
+<ul>
+<li><code>5 ms ÷ 1000 = 0.005 s</code>.</li>
+<li><em>Resposta:</em> <strong><code>0.005 s</code></strong></li>
+</ul>
+</li>
+</ol>
+</blockquote>
+</details>
+<h4 id="grupo-3-desempenho-transferência-e-engenharia">Grupo 3: Desempenho, Transferência e Engenharia<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#grupo-3-desempenho-transferência-e-engenharia" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol start="9">
+<li>Um processador moderno opera com clock de <code>3.2 GHz</code>. Quantos ciclos de clock ele executa em exatamente um segundo?</li>
+<li>Se um SSD de servidor de banco de dados tem uma taxa de transferência contínua de <code>150 MB/s</code>, quanto tempo real levará para transferir um volume persistente de <code>10 GB</code> de dados?</li>
+<li>Um software leva <code>10 segundos</code> para executar na Máquina A e <code>15 segundos</code> para rodar na Máquina B. Qual é o ganho de desempenho (em porcentagem) ao executar esse software na Máquina A em comparação com a Máquina B?</li>
+</ol>
+<details>
+<summary><b>🔍 Ver Gabarito e Resolução do Grupo 3</b></summary>
+<blockquote>
+<ol start="9">
+<li><strong>Ciclos de clock em 1 segundo (3.2 GHz):</strong>
+<ul>
+<li>1 Hz = 1 ciclo/segundo. 1 GHz = 10⁹ Hz (1 bilhão de ciclos).</li>
+<li>3.2 GHz = 3.2 × 10⁹ Hz = 3.200.000.000 ciclos.</li>
+<li><em>Resposta:</em> <strong>3,2 bilhões de ciclos por segundo</strong></li>
+</ul>
+</li>
+<li><strong>Tempo de transferência de <code>10 GB</code> a <code>150 MB/s</code>:</strong>
+<ul>
+<li>Primeiro, convertemos a capacidade para a escala da velocidade: <code>10 GB × 1024 = 10.240 MB</code>.</li>
+<li>Dividimos o tamanho pela taxa: <code>Tempo = 10.240 MB ÷ 150 MB/s ≈ 68.26 s</code>.</li>
+<li><em>Resposta:</em> <strong>68,26 segundos</strong> (ou 1 minuto e 8,26 segundos)</li>
+</ul>
+</li>
+<li><strong>Ganho de desempenho de A em relação a B:</strong>
+<ul>
+<li>Desempenho é o inverso do tempo de execução: <code>Desempenho = 1 / Tempo</code>.</li>
+<li><code>Desempenho_A = 1 / 10 = 0.1</code> e <code>Desempenho_B = 1 / 15 ≈ 0.0667</code>.</li>
+<li>Relação: <code>Desempenho_A / Desempenho_B = 15 / 10 = 1.5</code>.</li>
+<li>Ganho: <code>(1.5 - 1) × 100% = 50%</code>.</li>
+<li><em>Resposta:</em> <strong>50% de ganho de desempenho</strong> (a Máquina A é 1.5 vezes mais rápida ou 50% superior em desempenho que a Máquina B).</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+</details>
+<hr/>
+<h2 id="-resumo-estrutural">📋 Resumo Estrutural<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-resumo-estrutural" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;"><strong>Conceito / Comando</strong></th><th style="text-align:left;"><strong>Definição e Aplicação Prática em Uma Frase</strong></th></tr></thead><tbody><tr><td style="text-align:left;"><strong>Sistema Posicional</strong></td><td style="text-align:left;">Sistema numérico onde o valor real de cada dígito é determinado pelo peso de sua posição em relação à base matemática.</td></tr><tr><td style="text-align:left;"><strong>Bit (Binary Digit)</strong></td><td style="text-align:left;">Estado elétrico discreto (0 ou 1) processado fisicamente nos canais de silício da CPU.</td></tr><tr><td style="text-align:left;"><strong>Byte</strong></td><td style="text-align:left;">Conjunto de 8 bits agrupados que constituem a menor unidade de endereçamento físico da memória RAM.</td></tr><tr><td style="text-align:left;"><strong>Divisões Sucessivas</strong></td><td style="text-align:left;">Algoritmo que divide o número decimal pela base de destino sucessivamente, obtendo o valor convertido a partir da leitura dos restos obtidos de baixo para cima.</td></tr><tr><td style="text-align:left;"><strong>Polinômio Posicional</strong></td><td style="text-align:left;">Algoritmo que converte valores de bases não decimais para base 10 pela soma de seus dígitos multiplicados pelo peso correspondente da base.</td></tr><tr><td style="text-align:left;"><strong>Nibble</strong></td><td style="text-align:left;">Bloco de 4 bits binários cuja correspondência direta permite conversões visuais instantâneas de e para caracteres hexadecimais.</td></tr><tr><td style="text-align:left;"><strong>Integer Overflow</strong></td><td style="text-align:left;">Falha de hardware onde o valor binário excede o limite físico de bits de um registrador, resultando no descarte de bits significativos e corrupção de dados.</td></tr></tbody></table></div>
+<hr/>
+<h2 id="-artigo-de-aprofundamento">📄 Artigo de Aprofundamento<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-artigo-de-aprofundamento" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><a href="https://www.cs.umd.edu/class/sum2003/cmsc311/Notes/Data/binary.html" class="external">Binary Numbers and Conversions — University of Maryland<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ul>
+<blockquote>
+<p><em>Resumo prático: Artigo acadêmico detalhando os conceitos e o formalismo matemático por trás das conversões de bases (binário, octal, decimal, hexadecimal), aritmética de baixo nível e a lógica dos sistemas posicionais em computadores.</em></p>
+</blockquote>
+<ul>
+<li><a href="https://datatracker.ietf.org/doc/html/rfc8428" class="external">RFC 8428 — Sensor Measurement Lists (SenML)<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ul>
+<blockquote>
+<p><em>Resumo prático: Documentação oficial com os padrões recomendados para transmissão de leituras de sensores que convertem dados físicos em representações digitais para evitar erros de leitura e truncamentos lógicos de hardware.</em></p>
+</blockquote>
+<hr/>
+<h2 id="-referências-bibliográficas">📚 Referências Bibliográficas<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-referências-bibliográficas" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><strong>PATTERSON, David A.; HENNESSY, John L.</strong> <em>Organização e Projeto de Computadores: A Interface Hardware/Software</em>. 5. ed. Rio de Janeiro: Elsevier, 2014. <strong>(Capítulo 2: Instruções: Linguagem do Computador — pp. 78–89)</strong>. Apresenta o papel prático da numeração hexadecimal e binária na linguagem de máquina e operandos do processador.</li>
+<li><strong>STALLINGS, William.</strong> <em>Arquitetura e Organização de Computadores: projetando com foco em desempenho</em>. 11. ed. São Paulo: Pearson, 2024. <strong>(Capítulo 9: Sistemas de Numeração — pp. 290–305)</strong>. Detalha de forma canônica os algoritmos de conversão decimal, hexadecimal e binária, com exercícios matemáticos.</li>
+<li><strong>TANENBAUM, Andrew S.; FEAMSTER, Nicholas; WETHERALL, David J.</strong> <em>Organização Estruturada de Computadores</em>. 6. ed. Rio de Janeiro: LTC, 2013. <strong>(Apêndice A: Sistemas de Numeração — pp. 505–515)</strong>. Análise matemática aprofundada dos polinômios posicionais, bases numéricas e divisões sucessivas.</li>
+</ul>
+<hr/>
+<p><em>Última atualização: 2026-06-08 | Status: publicado</em></p></article><hr/><div class="page-footer"></div></div><div class="right sidebar"></div><footer class="footer "><div class="footer__brand"><img src="https://uniube.br/img/landing/logo_azul.svg" alt="Universidade de Uberaba" class="footer__logo footer__logo--light"/><img src="https://uniube.br/img/landing/logo_branca.svg" alt="Universidade de Uberaba" class="footer__logo footer__logo--dark"/><div class="footer__info"><span class="footer__name">Prof. Romualdo Filho</span><a class="footer__email" href="mailto:romualdo.filho@uniube.br">romualdo.filho@uniube.br</a></div></div><ul class="footer__links"><li><a href="https://uniube.br" target="_blank" rel="noopener noreferrer">Mural Uniube</a></li></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="./postscript.js" type="module" data-persist="true"></script></html>
