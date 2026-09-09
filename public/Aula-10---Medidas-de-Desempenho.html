@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="pt" dir="ltr"><head><title>Aula 10 - Medidas de Desempenho | Prof. Romualdo</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space Grotesk:wght@400;700&amp;family=Inter:ital,wght@0,400;0,600;1,400;1,600&amp;family=JetBrains Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="💻 Arquitetura de Computadores"/><meta property="og:title" content="Aula 10 - Medidas de Desempenho | Prof. Romualdo"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Aula 10 - Medidas de Desempenho | Prof. Romualdo"/><meta name="twitter:description" content="🟢 Aula 10: Medidas de Desempenho: Latência, Vazão e Lei de Amdahl Disciplina: Arquitetura de Computadores (Cód."/><meta property="og:description" content="🟢 Aula 10: Medidas de Desempenho: Latência, Vazão e Lei de Amdahl Disciplina: Arquitetura de Computadores (Cód."/><meta property="og:image:alt" content="🟢 Aula 10: Medidas de Desempenho: Latência, Vazão e Lei de Amdahl Disciplina: Arquitetura de Computadores (Cód."/><meta property="twitter:domain" content="rofilho.github.io/arquitetura"/><meta property="og:url" content="https://rofilho.github.io/arquitetura/Aula-10---Medidas-de-Desempenho"/><meta property="twitter:url" content="https://rofilho.github.io/arquitetura/Aula-10---Medidas-de-Desempenho"/><link rel="icon" href="./static/icon.png"/><meta name="description" content="🟢 Aula 10: Medidas de Desempenho: Latência, Vazão e Lei de Amdahl Disciplina: Arquitetura de Computadores (Cód."/><meta name="generator" content="Quartz"/><link href="./index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiQzpcXFF1YXJ0el9Qb3J0YWlzXFxhcnF1aXRldHVyYVxccXVhcnR6XFxjb21wb25lbnRzXFxzdHlsZXMiLCJzb3VyY2VzIjpbIm1lcm1haWQuaW5saW5lLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTtFQUNBOztBQUdGO0VBQ0U7OztBQUtGO0VBQ0U7RUFDQTs7O0FBSUo7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTtFQUNBOztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTs7QUFHRjtFQUNFOztBQUlGO0VBQ0U7RUFDQTtFQUNBIiwic291cmNlc0NvbnRlbnQiOlsiLmV4cGFuZC1idXR0b24ge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsb2F0OiByaWdodDtcbiAgcGFkZGluZzogMC40cmVtO1xuICBtYXJnaW46IDAuM3JlbTtcbiAgcmlnaHQ6IDA7IC8vIE5PVEU6IHJpZ2h0IHdpbGwgYmUgc2V0IGluIG1lcm1haWQuaW5saW5lLnRzXG4gIGNvbG9yOiB2YXIoLS1ncmF5KTtcbiAgYm9yZGVyLWNvbG9yOiB2YXIoLS1kYXJrKTtcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbGlnaHQpO1xuICBib3JkZXI6IDFweCBzb2xpZDtcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xuICBvcGFjaXR5OiAwO1xuICB0cmFuc2l0aW9uOiAwLjJzO1xuXG4gICYgPiBzdmcge1xuICAgIGZpbGw6IHZhcigtLWxpZ2h0KTtcbiAgICBmaWx0ZXI6IGNvbnRyYXN0KDAuMyk7XG4gIH1cblxuICAmOmhvdmVyIHtcbiAgICBjdXJzb3I6IHBvaW50ZXI7XG4gICAgYm9yZGVyLWNvbG9yOiB2YXIoLS1zZWNvbmRhcnkpO1xuICB9XG5cbiAgJjpmb2N1cyB7XG4gICAgb3V0bGluZTogMDtcbiAgfVxufVxuXG5wcmUge1xuICAmOmhvdmVyID4gLmV4cGFuZC1idXR0b24ge1xuICAgIG9wYWNpdHk6IDE7XG4gICAgdHJhbnNpdGlvbjogMC4ycztcbiAgfVxufVxuXG4jbWVybWFpZC1jb250YWluZXIge1xuICBwb3NpdGlvbjogZml4ZWQ7XG4gIGNvbnRhaW46IGxheW91dDtcbiAgei1pbmRleDogOTk5O1xuICBsZWZ0OiAwO1xuICB0b3A6IDA7XG4gIHdpZHRoOiAxMDB2dztcbiAgaGVpZ2h0OiAxMDB2aDtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgZGlzcGxheTogbm9uZTtcbiAgYmFja2Ryb3AtZmlsdGVyOiBibHVyKDRweCk7XG4gIGJhY2tncm91bmQ6IHJnYmEoMCwgMCwgMCwgMC41KTtcblxuICAmLmFjdGl2ZSB7XG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICB9XG5cbiAgJiA+ICNtZXJtYWlkLXNwYWNlIHtcbiAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgICBib3JkZXItcmFkaXVzOiA1cHg7XG4gICAgcG9zaXRpb246IGZpeGVkO1xuICAgIHRvcDogNTAlO1xuICAgIGxlZnQ6IDUwJTtcbiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlLCAtNTAlKTtcbiAgICBoZWlnaHQ6IDgwdmg7XG4gICAgd2lkdGg6IDgwdnc7XG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcblxuICAgICYgPiAubWVybWFpZC1jb250ZW50IHtcbiAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICAgIHRyYW5zZm9ybS1vcmlnaW46IDAgMDtcbiAgICAgIHRyYW5zaXRpb246IHRyYW5zZm9ybSAwLjFzIGVhc2U7XG4gICAgICBvdmVyZmxvdzogdmlzaWJsZTtcbiAgICAgIG1pbi1oZWlnaHQ6IDIwMHB4O1xuICAgICAgbWluLXdpZHRoOiAyMDBweDtcblxuICAgICAgcHJlIHtcbiAgICAgICAgbWFyZ2luOiAwO1xuICAgICAgICBib3JkZXI6IG5vbmU7XG4gICAgICB9XG5cbiAgICAgIHN2ZyB7XG4gICAgICAgIG1heC13aWR0aDogbm9uZTtcbiAgICAgICAgaGVpZ2h0OiBhdXRvO1xuICAgICAgfVxuICAgIH1cblxuICAgICYgPiAubWVybWFpZC1jb250cm9scyB7XG4gICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICBib3R0b206IDIwcHg7XG4gICAgICByaWdodDogMjBweDtcbiAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICBnYXA6IDhweDtcbiAgICAgIHBhZGRpbmc6IDhweDtcbiAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICBib3JkZXItcmFkaXVzOiA2cHg7XG4gICAgICBib3gtc2hhZG93OiAwIDJweCA0cHggcmdiYSgwLCAwLCAwLCAwLjEpO1xuICAgICAgei1pbmRleDogMjtcblxuICAgICAgLm1lcm1haWQtY29udHJvbC1idXR0b24ge1xuICAgICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICAgICAgd2lkdGg6IDMycHg7XG4gICAgICAgIGhlaWdodDogMzJweDtcbiAgICAgICAgcGFkZGluZzogMDtcbiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xuICAgICAgICBjb2xvcjogdmFyKC0tZGFyayk7XG4gICAgICAgIGJvcmRlci1yYWRpdXM6IDRweDtcbiAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xuICAgICAgICBmb250LXNpemU6IDE2cHg7XG4gICAgICAgIGZvbnQtZmFtaWx5OiB2YXIoLS1ib2R5Rm9udCk7XG4gICAgICAgIHRyYW5zaXRpb246IGFsbCAwLjJzIGVhc2U7XG5cbiAgICAgICAgJjpob3ZlciB7XG4gICAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgfVxuXG4gICAgICAgICY6YWN0aXZlIHtcbiAgICAgICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMXB4KTtcbiAgICAgICAgfVxuXG4gICAgICAgIC8vIFN0eWxlIHRoZSByZXNldCBidXR0b24gZGlmZmVyZW50bHlcbiAgICAgICAgJjpudGgtY2hpbGQoMikge1xuICAgICAgICAgIHdpZHRoOiBhdXRvO1xuICAgICAgICAgIHBhZGRpbmc6IDAgMTJweDtcbiAgICAgICAgICBmb250LXNpemU6IDE0cHg7XG4gICAgICAgIH1cbiAgICAgIH1cbiAgICB9XG4gIH1cbn1cbiJdfQ== */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="./prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("./static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://rofilho.github.io/arquitetura/index.xml"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://rofilho.github.io/arquitetura/Aula-10---Medidas-de-Desempenho-og-image.webp"/><meta property="og:image:url" content="https://rofilho.github.io/arquitetura/Aula-10---Medidas-de-Desempenho-og-image.webp"/><meta name="twitter:image" content="https://rofilho.github.io/arquitetura/Aula-10---Medidas-de-Desempenho-og-image.webp"/><meta property="og:image:type" content="image/.webp"/></head><body data-slug="Aula-10---Medidas-de-Desempenho"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"></div><div class="center"><div class="page-header"><header><h2 class="page-title"><a href="." class="page-title__link"><img src="https://uniube.br/img/landing/logo_azul.svg" alt="Uniube" class="page-title__logo page-title__logo--light"/><img src="https://uniube.br/img/landing/logo_branca.svg" alt="Uniube" class="page-title__logo page-title__logo--dark"/><span class="page-title__text">💻 Arquitetura de Computadores</span></a></h2><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Pesquisar</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Pesquisar por algo" placeholder="Pesquisar por algo"/><div class="search-layout" data-preview="true"></div></div></div></div><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Tema escuro"><title>Tema escuro</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Tema claro"><title>Tema claro</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></header><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="./">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>Aula 10   Medidas de Desempenho</a></div></nav><nav class="lesson-nav" aria-label="Navegação entre aulas"><div class="lesson-nav__slot"><a href="./Aula-09---Mecanismos-de-Entrada-e-Saida" class="nav-pill nav-pill--prev" data-spa="true"><div class="nav-pill__icon">📖</div><div class="nav-pill__body"><span class="nav-pill__label">← Anterior</span><span class="nav-pill__num">Aula 09</span><span class="nav-pill__title">Mecanismos de Entrada e Saida</span></div></a></div><div class="lesson-nav__slot lesson-nav__slot--right"><a href="./Aula-11---Arquitetura-de-Virtualizacao-e-Hipervisores" class="nav-pill nav-pill--next" data-spa="true"><div class="nav-pill__icon">📖</div><div class="nav-pill__body"><span class="nav-pill__label">Próxima →</span><span class="nav-pill__num">Aula 11</span><span class="nav-pill__title">Arquitetura de Virtualizacao e Hipervisores</span></div></a></div></nav><h1 class="article-title">Aula 10 - Medidas de Desempenho</h1><p show-comma="true" class="content-meta"><time datetime="2026-05-25T03:00:00.000Z">25 de mai. de 2026</time><span>Leitura de 13 min</span></p><ul class="tags"><li><a href="./tags/arquitetura" class="internal tag-link">arquitetura</a></li><li><a href="./tags/desempenho" class="internal tag-link">desempenho</a></li><li><a href="./tags/latencia" class="internal tag-link">latencia</a></li><li><a href="./tags/vazao" class="internal tag-link">vazao</a></li><li><a href="./tags/lei-amdahl" class="internal tag-link">lei-amdahl</a></li></ul></div></div><article class="popover-hint"><h1 id="-aula-10-medidas-de-desempenho-latência-vazão-e-lei-de-amdahl">🟢 Aula 10: Medidas de Desempenho: Latência, Vazão e Lei de Amdahl<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-aula-10-medidas-de-desempenho-latência-vazão-e-lei-de-amdahl" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p><strong>Disciplina:</strong> Arquitetura de Computadores (Cód. ARQ-01)
+<strong>Curso:</strong> Inteligência Artificial e Ciência de Dados, Uniube
+<strong>Semana:</strong> 10 | 20/04/2026
+<strong>Professor:</strong> Romualdo Mathias Filho
+<strong>Tipo:</strong> 📘 Teórica
+<strong>Tópicos:</strong> O Dilema da Pizzaria (Latência vs. Vazão), A Receita de Escrever um Livro (Equação da CPU), e O Bolo no Forno (A Lei de Amdahl).</p>
+<hr/>
+<blockquote class="callout info" data-callout="info">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>🎯 Visão Geral da Aula &amp; Recursos </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p><strong>Seja muito bem-vindo! Hoje faremos uma viagem tranquila e cheia de analogias simples para desmistificar o que torna um computador rápido de verdade. Esqueça termos técnicos áridos! Vamos usar exemplos divertidos do nosso cotidiano para entender como medimos o tempo das máquinas e por que colocar mais processadores nem sempre resolve todos os nossos problemas.</strong></p>
+<ul>
+<li><strong>O que você vai dominar:</strong>
+<ul>
+<li>Diferenciar velocidade individual de capacidade coletiva de processamento com analogias práticas.</li>
+<li>Compreender as três engrenagens que definem o tempo de execução de um programa no computador.</li>
+<li>Entender de forma leve a matemática por trás da Lei de Amdahl e por que existem gargalos impossíveis de acelerar.</li>
+</ul>
+</li>
+<li><strong>📂 Recursos Adicionais para Download:</strong>
+<ul>
+<li><a href="https://www.omnicalculator.com/other/amdahls-law" class="external">Amdahl’s Law Calculator (Simulador Interativo Omni)<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> — Uma ferramenta interativa fantástica para você arrastar barras e simular os limites de ganho de velocidade de forma imediata e visual.</li>
+</ul>
+</li>
+</ul>
+</div>
+</blockquote>
+<hr/>
+<h2 id="-objetivo-da-aula">🎯 Objetivo da Aula<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-objetivo-da-aula" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Ao final desta aula, você será capaz de:</p>
+<ul>
+<li><strong>Explicar</strong> a diferença entre a velocidade de uma tarefa única e a capacidade de um sistema usando o exemplo de uma pizzaria.</li>
+<li><strong>Identificar</strong> as três variáveis que controlam o tempo que o processador gasta para rodar um programa.</li>
+<li><strong>Discutir</strong> por que métricas comerciais simples nem sempre dizem a verdade sobre a velocidade real de um chip.</li>
+<li><strong>Usar</strong> a lógica da Lei de Amdahl para prever o limite de ganho de tempo ao otimizar apenas uma parte de um trabalho cotidiano.</li>
+</ul>
+<hr/>
+<h2 id="-revisão-rápida-5-min">🔄 Revisão Rápida (5 min)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-revisão-rápida-5-min" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Para começarmos nossa jornada com o pé direito e a mente tranquila, vamos relembrar rapidamente como o que já estudamos se conecta perfeitamente com a nossa aula de hoje:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;"><strong>Conceito Simples (Aulas Passadas)</strong></th><th style="text-align:left;"><strong>Como se Conecta com Hoje?</strong></th></tr></thead><tbody><tr><td style="text-align:left;"><strong><a href="./Aula-09---Mecanismos-de-Entrada-e-Saida" class="internal alias" data-slug="Aula-09---Mecanismos-de-Entrada-e-Saida">Saída)</a></strong></td><td style="text-align:left;">Vimos como periféricos transferem dados (com ou sem DMA). Hoje entenderemos que o tempo de espera do processador por essas transferências (I/O) é um componente crítico da latência total do sistema.</td></tr><tr><td style="text-align:left;"><strong><a href="./Aula-08---Processamento-Paralelo-e-Multicore" class="internal alias" data-slug="Aula-08---Processamento-Paralelo-e-Multicore">Aula 08 (Processamento Paralelo)</a></strong></td><td style="text-align:left;">Aprendemos sobre múltiplos núcleos cooperativos. Hoje, com a Lei de Amdahl, calcularemos exatamente o limite de ganho de desempenho obtido ao paralelizar um programa nessas CPUs multicore.</td></tr><tr><td style="text-align:left;"><strong><a href="./Aula-07---Conjunto-de-Instrucoes-e-Ciclo-da-Instrucao" class="internal alias" data-slug="Aula-07---Conjunto-de-Instrucoes-e-Ciclo-da-Instrucao">Aula 07 (Ciclo da Instrução)</a></strong></td><td style="text-align:left;">Entendemos o ciclo básico de busca, decodificação e execução. Esse ciclo representa os passos físicos de silício; hoje veremos que a média de ciclos de clock gastos por instrução (CPI) é a chave da Equação da CPU.</td></tr></tbody></table></div>
+<hr/>
+<h2 id="-1-a-equação-do-desempenho-o-dilema-da-pizzaria-teoria--15-min">📌 1. A Equação do Desempenho: O Dilema da Pizzaria [Teoria ⏳ 15 min]<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-1-a-equação-do-desempenho-o-dilema-da-pizzaria-teoria--15-min" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Para entender a velocidade de um computador de maneira leve, o melhor caminho é sair do laboratório de informática e visitar uma <strong>pizzaria</strong>. Imagine que você acabou de realizar o sonho de abrir a <em>Pizzaria do Romualdo</em>. O forno está aquecido, o queijo derretendo e os pedidos começam a chegar.</p>
+<p>Você logo percebe que “desempenho” e “rapidez” podem significar duas coisas completamente diferentes, dependendo de quem está perguntando!</p>
+<h3 id="11--latência-o-tempo-de-entrega">1.1 — Latência (O Tempo de Entrega)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#11--latência-o-tempo-de-entrega" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>A <strong>Latência</strong> é o tempo que leva para um único trabalho começar e terminar. É a velocidade sob a perspectiva de <strong>um cliente individual</strong> que está com fome.</p>
+<ul>
+<li><strong>Foco:</strong> Rapidez de ponta a ponta.</li>
+<li><strong>O exemplo da pizza:</strong> O tempo de espera desde o momento em que você clica em “Confirmar Pedido” no aplicativo do <em>iFood</em> até o motoboy tocar a campainha do seu portão com a pizza quentinha. Se levou <strong>30 minutos</strong>, essa é a latência da sua entrega.</li>
+<li><strong>No computador:</strong> O tempo que leva para a tela do aplicativo do banco abrir após você digitar a sua senha (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">100</span><span class="mspace"> </span><span class="mord mathnormal">m</span><span class="mord mathnormal">s</span></span></span></span>).</li>
+</ul>
+<h3 id="12--vazão-ou-throughput-a-capacidade-da-cozinha">1.2 — Vazão ou Throughput (A Capacidade da Cozinha)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#12--vazão-ou-throughput-a-capacidade-da-cozinha" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>A <strong>Vazão</strong> é a quantidade total de trabalho concluída em um determinado período de tempo. É a produtividade sob a perspectiva <strong>da pizzaria inteira</strong>.</p>
+<ul>
+<li><strong>Foco:</strong> Volume e capacidade de atendimento coletivo.</li>
+<li><strong>O exemplo da pizza:</strong> Quantas pizzas a cozinha da sua pizzaria consegue assar e despachar por hora durante o pico de um sábado à noite. Se a cozinha produz <strong>120 pizzas por hora</strong>, essa é a sua vazão.</li>
+<li><strong>No computador:</strong> Quantos pagamentos Pix os servidores centrais conseguem processar por segundo durante a Black Friday (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">15.000</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.05764em;">TPS</span></span></span></span>).</li>
+</ul>
+<pre><button class="expand-button" aria-label="Expand mermaid diagram" data-view-component="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 1.06L2.56 7h10.88l-2.22-2.22a.75.75 0 011.06-1.06l3.5 3.5a.75.75 0 010 1.06l-3.5 3.5a.75.75 0 11-1.06-1.06l2.22-2.22H2.56l2.22 2.22a.75.75 0 11-1.06 1.06l-3.5-3.5a.75.75 0 010-1.06l3.5-3.5z"></path></svg></button><code class="mermaid" data-clipboard="&quot;graph LR\n    subgraph Latência [\&quot;🏍️ Foco na Latência — 1 Cliente Feliz\&quot;]\n        P1[\&quot;🍕 Pizzaria\&quot;] -->|\&quot;Moto veloz em 15 min\&quot;| C1[\&quot;😊 Cliente A\&quot;]\n    end\n\n    subgraph Vazão [\&quot;🚚 Foco na Vazão — 100 Clientes Atendidos\&quot;]\n        P2[\&quot;🍕 Pizzaria\&quot;] -->|\&quot;Frota de 10 motos\&quot;| B1[\&quot;🏘️ Bairro Inteiro\&quot;]\n    end&quot;">graph LR
+    subgraph Latência [&quot;🏍️ Foco na Latência — 1 Cliente Feliz&quot;]
+        P1[&quot;🍕 Pizzaria&quot;] -->|&quot;Moto veloz em 15 min&quot;| C1[&quot;😊 Cliente A&quot;]
+    end
+
+    subgraph Vazão [&quot;🚚 Foco na Vazão — 100 Clientes Atendidos&quot;]
+        P2[&quot;🍕 Pizzaria&quot;] -->|&quot;Frota de 10 motos&quot;| B1[&quot;🏘️ Bairro Inteiro&quot;]
+    end
+</code><div id="mermaid-container" role="dialog"><div id="mermaid-space"><div class="mermaid-content"></div></div></div></pre>
+<blockquote class="callout warning" data-callout="warning">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>⚠️ Gotcha de Infraestrutura </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p><strong>Contratar mais motoboys não acelera a sua própria pizza:</strong> Um erro clássico de desenvolvedores e gerentes de TI é achar que colocar “mais processadores” (escala horizontal) torna um programa sequencial individual mais rápido. Adicionar 5 processadores extras é como contratar 5 novos motoboys para a pizzaria: você conseguirá atender mais clientes no bairro ao mesmo tempo (aumenta a <strong>vazão</strong>), mas a sua pizza individual não sairá do forno mais rápido, pois o tempo de preparo físico da massa e o limite de velocidade da moto continuam exatamente os mesmos (a <strong>latência</strong> permanece idêntica).</p>
+</div>
+</blockquote>
+<hr/>
+<h2 id="-2-métricas-de-performance-e-a-receita-de-escrever-um-livro-teoria--prática--20-min">📌 2. Métricas de Performance e a Receita de Escrever um Livro [Teoria &amp; Prática ⏳ 20 min]<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-2-métricas-de-performance-e-a-receita-de-escrever-um-livro-teoria--prática--20-min" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>No mercado de tecnologia, as fabricantes costumam usar siglas como <strong>MIPS</strong> (Milhões de Instruções por Segundo) para tentar mostrar que seus processadores são os mais rápidos do planeta. Porém, medir a velocidade de uma CPU apenas por “quantidade de instruções” é uma armadilha clássica.</p>
+<h3 id="21--o-dilema-do-mips-por-que-números-grandes-enganam">2.1 — O Dilema do MIPS: Por que números grandes enganam?<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#21--o-dilema-do-mips-por-que-números-grandes-enganam" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Imagine que duas pessoas, a <strong>Ana</strong> e o <strong>Bruno</strong>, receberam a tarefa de escrever a mesma redação:</p>
+<ul>
+<li>A <strong>Ana</strong> escreve de forma muito detalhada, usando palavras simples, curtas e repetitivas. Ela escreve <strong>100 palavras por minuto</strong>.</li>
+<li>O <strong>Bruno</strong> é muito conciso, escreve usando vocabulário rico, direto e termos densos. Ele escreve apenas <strong>30 palavras por minuto</strong>.</li>
+</ul>
+<p>Se avaliarmos apenas a “taxa de escrita” (equivalente ao MIPS), a Ana parece ser mais de 3 vezes melhor. No entanto, se para passar a mesma ideia a Ana precisa escrever 300 palavras e o Bruno resolve a redação com apenas 90 palavras, <strong>ambos terminarão exatamente no mesmo minuto!</strong></p>
+<p>O MIPS é enganoso porque processadores diferentes (como os chips da Intel do seu computador e os chips ARM do seu celular) precisam de quantidades diferentes de instruções para realizar a mesma tarefa real do dia a dia.</p>
+<h3 id="22--as-três-engrenagens-do-tempo-de-cpu">2.2 — As Três Engrenagens do Tempo de CPU<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#22--as-três-engrenagens-do-tempo-de-cpu" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Para calcular de forma científica e suave o tempo de um computador, nós decompomos o tempo em uma receita simples de três ingredientes chamada de <strong>Equação Clássica da CPU</strong>:</p>
+<p><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Tempo de CPU</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">CP</span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">c</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mathnormal mtight">oc</span><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.3534em;vertical-align:-0.4811em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8723em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">Frequ</span><span class="mord accent mtight"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-2.7em;"><span class="pstrut" style="height:2.7em;"></span><span class="mord mtight">e</span></span><span style="top:-2.7em;"><span class="pstrut" style="height:2.7em;"></span><span class="accent-body" style="left:-0.25em;"><span class="mord mtight">ˆ</span></span></span></span></span></span></span><span class="mord mtight">ncia</span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.07847em;">I</span><span class="mord mathnormal mtight" style="margin-right:0.07153em;">C</span><span class="mbin mtight">×</span><span class="mord mathnormal mtight" style="margin-right:0.13889em;">CP</span><span class="mord mathnormal mtight" style="margin-right:0.07847em;">I</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4811em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
+<p>Não se assuste com as siglas matemáticas! Elas são apenas uma forma elegante de registrar três segredos muito simples:</p>
+<ul>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span> = Quantidade total de <strong>Instruções</strong> executadas pelo programa (o tamanho do trabalho).</li>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">CP</span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span></span></span></span> = <strong>Ciclos por Instrução</strong> (a média de batimentos do clock gastos por instrução).</li>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">c</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mathnormal mtight">oc</span><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> = Período do Clock (a duração de um único ciclo, o inverso da <strong>Frequência</strong> de GHz).</li>
+</ul>
+<p>Para entender isso sem nenhuma complicação, pense na analogia de <strong>escrever um livro à mão</strong>:</p>
+<pre><button class="expand-button" aria-label="Expand mermaid diagram" data-view-component="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 1.06L2.56 7h10.88l-2.22-2.22a.75.75 0 011.06-1.06l3.5 3.5a.75.75 0 010 1.06l-3.5 3.5a.75.75 0 11-1.06-1.06l2.22-2.22H2.56l2.22 2.22a.75.75 0 11-1.06 1.06l-3.5-3.5a.75.75 0 010-1.06l3.5-3.5z"></path></svg></button><code class="mermaid" data-clipboard="&quot;graph LR\n    IC[\&quot;📖 Palavras do Livro&lt;br/>(IC — Instruções)\&quot;] --> TEMPO[\&quot;⏱️ Tempo Total&lt;br/>de Escrita\&quot;]\n    CPI[\&quot;✍️ Batidas de Caneta&lt;br/>por Palavra&lt;br/>(CPI — Ciclos por Instrução)\&quot;] --> TEMPO\n    CLK[\&quot;💓 Velocidade da Mão&lt;br/>(T_clock — Período do Clock)\&quot;] --> TEMPO&quot;">graph LR
+    IC[&quot;📖 Palavras do Livro&lt;br/>(IC — Instruções)&quot;] --> TEMPO[&quot;⏱️ Tempo Total&lt;br/>de Escrita&quot;]
+    CPI[&quot;✍️ Batidas de Caneta&lt;br/>por Palavra&lt;br/>(CPI — Ciclos por Instrução)&quot;] --> TEMPO
+    CLK[&quot;💓 Velocidade da Mão&lt;br/>(T_clock — Período do Clock)&quot;] --> TEMPO
+</code><div id="mermaid-container" role="dialog"><div id="mermaid-space"><div class="mermaid-content"></div></div></div></pre>
+<p>Para diminuir o tempo de escrita del livro (tornar o computador mais rápido), você tem apenas três caminhos possíveis:</p>
+<ol>
+<li><strong>Reduzir as palavras (Otimizar o Código):</strong> Usar um vocabulário que diga a mesma coisa com menos texto (trabalho do programador e do compilador).</li>
+<li><strong>Diminuir as batidas por palavra (Melhorar a Micro-arquitetura):</strong> Desenhar letras mais simples que exijam menos traços físicos da caneta no papel (trabalho dos engenheiros de hardware).</li>
+<li><strong>Mover a mão mais rápido (Aumentar a Frequência):</strong> Acelerar o ritmo físico da caneta (trabalho físico do silício e do clock).</li>
+</ol>
+<blockquote class="callout note" data-callout="note">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>💼 Pergunta de Entrevista </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p><strong>Por que a frequência de clock sozinha não define o desempenho de um processador?</strong></p>
+<ul>
+<li><strong>Resposta ideal:</strong> Porque o tempo de execução de um programa depende de uma combinação de três fatores: o número de instruções (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span>), a média de ciclos por instrução (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">CP</span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span></span></span></span>) e a frequência do clock. Um processador com menor frequência pode ser mais rápido se executar menos instruções ou tiver um <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">CP</span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span></span></span></span> muito menor devido a otimizações de arquitetura (como pipelines eficientes ou caches maiores).</li>
+</ul>
+</div>
+</blockquote>
+<h3 id="-checkpoint-teste-seu-conhecimento">🧠 Checkpoint: Teste seu Conhecimento!<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-checkpoint-teste-seu-conhecimento" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<details>
+<summary><b>🔍 Exercício Rápido: Se um programador conseguiu encurtar o código de um aplicativo de 100 instruções para apenas 50 instruções, mas as novas instruções são tão complexas que agora o processador gasta 4 ciclos por instrução em vez dos 2 ciclos originais, o aplicativo ficou mais rápido?</b></summary>
+<blockquote>
+<p><strong>Resposta Correta:</strong> O tempo final ficou <strong>exatamente o mesmo</strong>!</p>
+<ul>
+<li><strong>Antes:</strong> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.838em;vertical-align:-0.1701em;"></span><span class="mord">100</span><span class="mord text"><span class="mord"> instru</span><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.4306em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord">c</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.2222em;"><span class="mord">¸</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1701em;"><span></span></span></span></span></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6679em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord">o</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.25em;"><span class="mord">˜</span></span></span></span></span></span></span><span class="mord">es</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">2</span><span class="mord text"><span class="mord"> ciclos</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord">200</span><span class="mord text"><span class="mord"> ciclos de tempo</span></span></span></span></span></li>
+<li><strong>Depois:</strong> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.838em;vertical-align:-0.1701em;"></span><span class="mord">50</span><span class="mord text"><span class="mord"> instru</span><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.4306em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord">c</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.2222em;"><span class="mord">¸</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1701em;"><span></span></span></span></span></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6679em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord">o</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.25em;"><span class="mord">˜</span></span></span></span></span></span></span><span class="mord">es</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">4</span><span class="mord text"><span class="mord"> ciclos</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord">200</span><span class="mord text"><span class="mord"> ciclos de tempo</span></span></span></span></span></li>
+<li><strong>Conclusão didática:</strong> Esse equilíbrio mostra por que não adianta otimizar apenas um lado da receita. O desempenho real é uma dança harmônica entre a quantidade de tarefas e o esforço exigido de cada uma delas.</li>
+</ul>
+</blockquote>
+</details>
+<hr/>
+<h2 id="-3-limites-de-aceleração-e-a-analogia-do-bolo-no-forno-prática-guiada--15-min">📌 3. Limites de Aceleração e a Analogia do Bolo no Forno [Prática Guiada ⏳ 15 min]<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-3-limites-de-aceleração-e-a-analogia-do-bolo-no-forno-prática-guiada--15-min" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Muitas vezes, tentamos melhorar o nosso dia a dia ou o nosso computador otimizando apenas uma etapa do trabalho. Por exemplo, compramos um aspirador de pó super veloz para limpar a casa. Mas até onde essa melhoria local acelera o seu dia inteiro? A resposta para isso é dada por uma regra lógica muito elegante chamada <strong>Lei de Amdahl</strong>.</p>
+<p>A Lei de Amdahl diz que o ganho real de velocidade em qualquer tarefa é limitado pela parte do trabalho que <strong>não pode ser acelerada</strong>.</p>
+<h3 id="31--a-lógica-do-bolo-no-forno">3.1 — A Lógica do Bolo no Forno<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#31--a-lógica-do-bolo-no-forno" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Fazer um bolo é uma das atividades mais tranquilas e terapêuticas que existem. E, acredite ou não, a física de assar um bolo nos ensina uma lei fundamental dos supercomputadores!</p>
+<p>Imagine que você decidiu fazer um bolo de chocolate com seus amigos. O processo total leva <strong>50 minutos</strong>, divididos em duas etapas bem claras:</p>
+<ol>
+<li><strong>Preparar a massa (Bater os ingredientes):</strong> Leva <strong>10 minutos</strong>. (Esta etapa pode ser dividida: se você chamar 5 amigos, todos podem ajudar a bater a massa mais rápido).</li>
+<li><strong>Assar o bolo no forno:</strong> Leva <strong>40 minutos</strong>. (Esta etapa é puramente sequencial: o bolo precisa daquele tempo físico de calor para assar. Não adianta colocar 10 pessoas sentadas na frente do forno buzinando, o bolo continuará levando 40 minutos para assar).</li>
+</ol>
+<pre><button class="expand-button" aria-label="Expand mermaid diagram" data-view-component="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 1.06L2.56 7h10.88l-2.22-2.22a.75.75 0 011.06-1.06l3.5 3.5a.75.75 0 010 1.06l-3.5 3.5a.75.75 0 11-1.06-1.06l2.22-2.22H2.56l2.22 2.22a.75.75 0 11-1.06 1.06l-3.5-3.5a.75.75 0 010-1.06l3.5-3.5z"></path></svg></button><code class="mermaid" data-clipboard="&quot;graph LR\n    subgraph ANTES [\&quot;⏱️ Tempo Inicial: 50 Minutos\&quot;]\n        A1[\&quot;🥣 Bater Massa&lt;br/>10 min&lt;br/>(Paralelizável)\&quot;] --> A2[\&quot;🔥 Assar no Forno&lt;br/>40 min&lt;br/>(Sequencial)\&quot;]\n    end\n\n    subgraph DEPOIS [\&quot;🚀 Com Otimização Infinita na Preparação\&quot;]\n        B1[\&quot;🥣 Bater: 0s&lt;br/>(5 amigos ajudando)\&quot;] --> B2[\&quot;🔥 Assar no Forno&lt;br/>40 min&lt;br/>(Limite Máximo)\&quot;]\n    end&quot;">graph LR
+    subgraph ANTES [&quot;⏱️ Tempo Inicial: 50 Minutos&quot;]
+        A1[&quot;🥣 Bater Massa&lt;br/>10 min&lt;br/>(Paralelizável)&quot;] --> A2[&quot;🔥 Assar no Forno&lt;br/>40 min&lt;br/>(Sequencial)&quot;]
+    end
+
+    subgraph DEPOIS [&quot;🚀 Com Otimização Infinita na Preparação&quot;]
+        B1[&quot;🥣 Bater: 0s&lt;br/>(5 amigos ajudando)&quot;] --> B2[&quot;🔥 Assar no Forno&lt;br/>40 min&lt;br/>(Limite Máximo)&quot;]
+    end
+</code><div id="mermaid-container" role="dialog"><div id="mermaid-space"><div class="mermaid-content"></div></div></div></pre>
+<p>Mesmo que você consiga reunir os melhores chefs do mundo para bater a massa em <strong>zero segundos</strong> (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord">∞</span></span></span></span>), o tempo total para comer o bolo nunca será menor do que <strong>40 minutos</strong>.</p>
+<p>O seu ganho de velocidade máximo absoluto para fazer o bolo está “preso” pela porção sequencial do forno. Esse é o coração da Lei de Amdahl!</p>
+<h3 id="32--roteiro-de-prática-guiada-analisando-gargalos">3.2 — Roteiro de Prática Guiada: Analisando Gargalos<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#32--roteiro-de-prática-guiada-analisando-gargalos" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Vamos fazer um exercício mental simples de tomada de decisão, simulando o dia a dia de um engenheiro de performance no <strong>iFood</strong>:</p>
+<h4 id="o-desafio">O Desafio:<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#o-desafio" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Você foi contratado para acelerar o tempo de carregamento da tela inicial do aplicativo do iFood no celular dos usuários. Hoje, a tela leva <strong>10 segundos</strong> para abrir completamente, divididos em:</p>
+<ul>
+<li><strong>Etapa A (Baixar imagens do restaurante pela Internet):</strong> Gasta <strong>8 segundos</strong> (80% do tempo).</li>
+<li><strong>Etapa B (Desenhar os botões locais na tela do celular):</strong> Gasta <strong>2 segundos</strong> (20% do tempo).</li>
+</ul>
+<h4 id="onde-investir-o-seu-tempo-e-orçamento-de-engenharia">Onde investir o seu tempo e orçamento de engenharia?<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#onde-investir-o-seu-tempo-e-orçamento-de-engenharia" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li><strong>Opção A (Otimizar a renderização local):</strong> Você passa semanas escrevendo um código complexo de desenho de tela extremamente rápido, fazendo a Etapa B rodar de forma instantânea (tempo cai de <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mord text"><span class="mord">s</span></span></span></span></span> para <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span><span class="mord text"><span class="mord">s</span></span></span></span></span>).
+<ul>
+<li><strong>Resultado A:</strong> A tela inicial agora abre em <strong>8 segundos</strong> (uma melhoria global de apenas <strong>1.25x</strong>).</li>
+</ul>
+</li>
+<li><strong>Opção B (Otimizar o tamanho das imagens):</strong> Você implementa um sistema simples que diminui o tamanho das fotos dos pratos, fazendo a Etapa A baixar 4 vezes mais rápido (tempo cai de <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">8</span><span class="mord text"><span class="mord">s</span></span></span></span></span> para <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mord text"><span class="mord">s</span></span></span></span></span>).
+<ul>
+<li><strong>Resultado B:</strong> A tela inicial agora abre em <strong>4 segundos</strong> (uma melhoria global espetacular de <strong>2.5x</strong>!).</li>
+</ul>
+</li>
+</ol>
+<blockquote class="callout tip" data-callout="tip">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>💡 Dica de Produção (Pro-Tip) </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p><strong>FinOps e Escolhas Inteligentes de Vida:</strong> A Lei de Amdahl é um guia valioso para a tomada de decisões e economia de custos (FinOps). Antes de gastar dinheiro comprando um computador novo caro de última geração para o seu homelab ou para a sua empresa achando que tudo ficará mais rápido, analise onde está a verdadeira espera. Se você passa a maior parte do tempo esperando a internet lenta baixar seus arquivos, ter um processador 10x mais rápido gerará quase zero de ganho no seu dia a dia. Investir o dinheiro em uma conexão de internet melhor trará um ganho global incrivelmente superior!</p>
+</div>
+</blockquote>
+<hr/>
+<h2 id="-resumo-estrutural">📋 Resumo Estrutural<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-resumo-estrutural" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;"><strong>Conceito / Métrica</strong></th><th style="text-align:left;"><strong>Definição Suave em Uma Frase</strong></th></tr></thead><tbody><tr><td style="text-align:left;"><strong>Latência</strong></td><td style="text-align:left;">O tempo de espera individual que uma única tarefa leva do começo ao fim (velocidade de entrega).</td></tr><tr><td style="text-align:left;"><strong>Vazão (Throughput)</strong></td><td style="text-align:left;">A quantidade total de trabalho que o sistema inteiro consegue entregar por unidade de tempo (capacidade da cozinha).</td></tr><tr><td style="text-align:left;"><strong>Equação da CPU</strong></td><td style="text-align:left;">A receita que calcula o tempo do processador combinando quantidade de tarefas (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span>), o esforço médio (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">CP</span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span></span></span></span>) e o ritmo de clock.</td></tr><tr><td style="text-align:left;"><strong>CPI</strong></td><td style="text-align:left;">O esforço médio de ciclos de clock que a máquina gasta para resolver cada instrução del programa.</td></tr><tr><td style="text-align:left;"><strong>Lei de Amdahl</strong></td><td style="text-align:left;">A regra lógica que prova que a velocidade de qualquer trabalho em equipe é limitada pela etapa sequencial mais lenta.</td></tr><tr><td style="text-align:left;"><strong>Porção Sequencial</strong></td><td style="text-align:left;">A etapa teimosa que não pode ser dividida ou paralelizada (o bolo assando no forno).</td></tr></tbody></table></div>
+<hr/>
+<h2 id="-artigo-de-aprofundamento">📄 Artigo de Aprofundamento<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-artigo-de-aprofundamento" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><a href="https://www.geeksforgeeks.org/amdahls-law-in-computer-architecture/" class="external">Amdahl’s Law — GeeksforGeeks<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ul>
+<blockquote>
+<p><em>Resumo prático: Artigo visual de fácil compreensão, repleto de analogias e gráficos interativos coloridos para entender como o número de núcleos de um processador influencia a velocidade real de uso das suas aplicações cotidianas.</em></p>
+</blockquote>
+<hr/>
+<h2 id="-referências-bibliográficas">📚 Referências Bibliográficas<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-referências-bibliográficas" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><strong>PATTERSON, David A.; HENNESSY, John L.</strong> <em>Organização e Projeto de Computadores: A Interface Hardware/Software</em>. 5. ed. Rio de Janeiro: Elsevier, 2014. <strong>(Capítulo 1: Desempenho e Analogias Práticas — pp. 25–40)</strong>. Excelente e famosa introdução ao desempenho de computadores através de analogias de carros e aviões.</li>
+<li><strong>STALLINGS, William.</strong> <em>Arquitetura e Organização de Computadores</em>. 11. ed. São Paulo: Pearson, 2024. <strong>(Capítulo 2: Evolução do Desempenho e Lei de Amdahl — pp. 30–50)</strong>. Análise didática das métricas de performance e limitantes de velocidade.</li>
+<li><strong>TANENBAUM, Andrew S.</strong> <em>Organização Estruturada de Computadores</em>. 6. ed. Rio de Janeiro: LTC, 2013. <strong>(Capítulo 1: Visão Geral e Métricas de Desempenho — pp. 10–25)</strong>. Introdução conceitual e histórica muito suave de engenharia de computadores.</li>
+</ul>
+<hr/>
+<p><em>Última atualização: 2026-04-20 | Status: publicado</em></p></article><hr/><div class="page-footer"></div></div><div class="right sidebar"></div><footer class="footer "><div class="footer__brand"><img src="https://uniube.br/img/landing/logo_azul.svg" alt="Universidade de Uberaba" class="footer__logo footer__logo--light"/><img src="https://uniube.br/img/landing/logo_branca.svg" alt="Universidade de Uberaba" class="footer__logo footer__logo--dark"/><div class="footer__info"><span class="footer__name">Prof. Romualdo Filho</span><a class="footer__email" href="mailto:romualdo.filho@uniube.br">romualdo.filho@uniube.br</a></div></div><ul class="footer__links"><li><a href="https://uniube.br" target="_blank" rel="noopener noreferrer">Mural Uniube</a></li></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="./postscript.js" type="module" data-persist="true"></script></html>
