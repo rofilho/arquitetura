@@ -1,4 +1,4 @@
-﻿---
+---
 title: "🖥️ Aula - 01: Arquitetura e Organização de Computadores – Plano de Aulas"
 ---
 
@@ -32,11 +32,10 @@ A disciplina visa ao entendimento dos princípios básicos de funcionamento de u
 ⚖️ **Sistema de Avaliação**
 | Avaliação | Peso (pts) | Descrição |
 | :--- | :--- | :--- |
-| **N1** | 30 | Atividades (5) + Prova N1 (25) |
-| **Inst.** | 10 | Avaliação Institucional (17 de Junho) |
-| **N2** | 40 | Atividades (10) + Prova N2 (30) |
-| **Uniube+** | 20 | Atividades complementares online |
-| **Total** | **100** | **Pontuação Total** |
+| **N1** | 35 | Avaliação (25) + Atividade (5) + Uniube+ (5) |
+| **N2** | 50 | Avaliação (30) + Atividade (10) + Uniube+ (10) |
+| **Inst.** | 15 | Avaliação Institucional |
+| **Total** | **100** | Aprovação: 60 pontos e 75% de frequência mínima |
 
 🗓️ **Planejamento Semanal 2026/1 (Segundas e Terças)**
 
