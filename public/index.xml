@@ -6,6 +6,12 @@
       <description>Últimas 10 notas on 💻 Arquitetura de Computadores</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
+    <title>🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução</title>
+    <link>https://rofilho.github.io/arquitetura/Aula-05---Unidades-de-Processamento</link>
+    <guid>https://rofilho.github.io/arquitetura/Aula-05---Unidades-de-Processamento</guid>
+    <description><![CDATA[  🖥️ Aula 05 — Unidades de Processamento e Ciclo de Instrução Disciplina: 90388 — Arquitetura e Organização de Computadores · Sistemas de Informação (curso 160) — Uniube Professor: Romualdo Mathias Filho · romualdo.filho@uniube.br Semana: 05 · 2026-1 · [CONFIRMAR data] · 📘 Teórica (75 min) Tópicos ... ]]></description>
+    <pubDate>Wed, 07 Oct 2026 20:43:48 GMT</pubDate>
+  </item><item>
     <title>🖥️ Aula - 01: Arquitetura e Organização de Computadores – Plano de Aulas</title>
     <link>https://rofilho.github.io/arquitetura/Aula-01---Arquitetura-e-Organizacao</link>
     <guid>https://rofilho.github.io/arquitetura/Aula-01---Arquitetura-e-Organizacao</guid>
@@ -58,12 +64,6 @@
     <link>https://rofilho.github.io/arquitetura/Aula-10---Medidas-de-Desempenho</link>
     <guid>https://rofilho.github.io/arquitetura/Aula-10---Medidas-de-Desempenho</guid>
     <description><![CDATA[  🖥️ Aula 10 — Medidas de Desempenho: Latência, Vazão e Lei de Amdahl Disciplina: 90388 — Arquitetura e Organização de Computadores · Sistemas de Informação (curso 160) — Uniube Professor: Romualdo Mathias Filho · romualdo.filho@uniube.br Semana: 10 · 2026-1 · [CONFIRMAR data] · 📘 Teórica (75 min) ... ]]></description>
-    <pubDate>Wed, 07 Oct 2026 20:23:09 GMT</pubDate>
-  </item><item>
-    <title>🖥️ Aula - 11: Arquitetura de Virtualização e Hipervisores</title>
-    <link>https://rofilho.github.io/arquitetura/Aula-11---Arquitetura-de-Virtualizacao-e-Hipervisores</link>
-    <guid>https://rofilho.github.io/arquitetura/Aula-11---Arquitetura-de-Virtualizacao-e-Hipervisores</guid>
-    <description><![CDATA[  🖥️ Aula 11 — Arquitetura de Virtualização e Hipervisores Disciplina: 90388 — Arquitetura e Organização de Computadores · Sistemas de Informação (curso 160) — Uniube Professor: Romualdo Mathias Filho · romualdo.filho@uniube.br Semana: 11 · 2026-1 · [CONFIRMAR data] · 📘 Teórica (75 min) Tópicos: An... ]]></description>
     <pubDate>Wed, 07 Oct 2026 20:23:09 GMT</pubDate>
   </item>
     </channel>
