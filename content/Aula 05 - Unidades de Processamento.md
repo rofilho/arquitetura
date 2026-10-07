@@ -213,10 +213,12 @@ Abra **vevox.app** e entre com o ID da sessão no projetor. Duas perguntas de m�
 Selecione uma fase para isolar o que acontece nela, no mesmo caminho de dados (PC → MAR → Memória → MBR → IR). O que some da tela é o que não participa daquela fase.
 
 <figure class="au-fig au-switch" role="group" aria-label="Seletor das fases do Ciclo de Instrução">
-<input type="radio" name="a05fase" id="a05-busca" checked>
+<input type="radio" name="a05fase" id="a05-todas" checked>
+<input type="radio" name="a05fase" id="a05-busca">
 <input type="radio" name="a05fase" id="a05-decod">
 <input type="radio" name="a05fase" id="a05-exec">
 <div class="au-switch-lbl">
+<label for="a05-todas">TODAS</label>
 <label for="a05-busca">BUSCA</label>
 <label for="a05-decod">DECODIFICAÇÃO</label>
 <label for="a05-exec">EXECUÇÃO</label>
@@ -242,18 +244,18 @@ Selecione uma fase para isolar o que acontece nela, no mesmo caminho de dados (P
 <line x1="110" y1="107" x2="185" y2="75" stroke="#2778c4" stroke-width="2"></line>
 <line x1="230" y1="88" x2="230" y2="126" stroke="#2778c4" stroke-width="2"></line>
 <line x1="275" y1="143" x2="350" y2="110" stroke="#2778c4" stroke-width="2"></line>
-<text x="230" y="214" text-anchor="middle" font-size="12" style="fill:#2778c4" font-family="monospace">PC→MAR→Memória→MBR→IR, PC++</text>
+<text x="230" y="214" text-anchor="middle" font-size="11" style="fill:#2778c4" font-family="monospace">BUSCA · PC→MAR→Memória→MBR→IR, PC++</text>
 </g>
 <g class="c2">
 <line x1="395" y1="90" x2="395" y2="52" stroke="#00aa9f" stroke-width="2"></line>
-<text x="230" y="214" text-anchor="middle" font-size="12" style="fill:#00aa9f" font-family="monospace">IR→UC: a UC lê o opcode e decide</text>
+<text x="230" y="224" text-anchor="middle" font-size="11" style="fill:#00aa9f" font-family="monospace">DECODIFICAÇÃO · IR→UC: lê o opcode e decide</text>
 </g>
 <g class="c3">
 <line x1="395" y1="124" x2="395" y2="162" stroke="#b1541b" stroke-width="2"></line>
-<text x="230" y="214" text-anchor="middle" font-size="12" style="fill:#b1541b" font-family="monospace">UC comanda a ULA: a ação é realizada</text>
+<text x="230" y="204" text-anchor="middle" font-size="11" style="fill:#b1541b" font-family="monospace">EXECUÇÃO · UC comanda a ULA: a ação é realizada</text>
 </g>
 </svg>
-<figcaption class="au-legenda"><b>Busca</b>: o endereço sai do PC pelo MAR, a memória responde pelo MBR e a instrução chega ao IR (e o PC é incrementado). <b>Decodificação</b>: a UC lê o IR e interpreta o opcode. <b>Execução</b>: a UC comanda a ULA e a ação acontece. É o mesmo datapath — muda só a parte que está em uso.</figcaption>
+<figcaption class="au-legenda"><b>Busca</b>: o endereço sai do PC pelo MAR, a memória responde pelo MBR e a instrução chega ao IR (e o PC é incrementado). <b>Decodificação</b>: a UC lê o IR e interpreta o opcode. <b>Execução</b>: a UC comanda a ULA e a ação acontece. É o mesmo datapath — muda só a parte que está em uso. (Em <b>TODAS</b>, as três fases aparecem juntas; clique uma fase para destacá-la.)</figcaption>
 </figure>
 
 ---
