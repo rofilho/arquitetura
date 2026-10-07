@@ -1,34 +1,16 @@
 ---
-context: uniube
-type: aula
-status: publicado
-created: 2026-05-25
-semester: "2026-1"
-ai_tier: hot
-disciplina: Arquitetura de Computadores
-codigo: "ARQ-01"
-aula: 10
-titulo: "Medidas de Desempenho: Latência, Vazão e Lei de Amdahl"
-tipo: teorica
-semana: 10
-data: 2026-04-20
-tags:
-  - arquitetura
-  - desempenho
-  - latencia
-  - vazao
-  - lei-amdahl
-publicar: true
+title: "🖥️ Aula - 10: Medidas de Desempenho: Latência, Vazão e Lei de Amdahl"
 ---
 
-# 🟢 Aula 10: Medidas de Desempenho: Latência, Vazão e Lei de Amdahl
+<div class="au-leitura" data-aula="a10">
 
-**Disciplina:** Arquitetura de Computadores (Cód. ARQ-01)
-**Curso:** Inteligência Artificial e Ciência de Dados, Uniube
-**Semana:** 10 | 20/04/2026
-**Professor:** Romualdo Mathias Filho
-**Tipo:** 📘 Teórica
-**Tópicos:** O Dilema da Pizzaria (Latência vs. Vazão), A Receita de Escrever um Livro (Equação da CPU), e O Bolo no Forno (A Lei de Amdahl).
+# 🖥️ Aula 10 — Medidas de Desempenho: Latência, Vazão e Lei de Amdahl
+
+**Disciplina:** 90388 — Arquitetura e Organização de Computadores · Sistemas de Informação (curso 160) — Uniube<br>
+**Professor:** Romualdo Mathias Filho · **romualdo.filho@uniube.br**<br>
+**Semana:** 10 · 2026-1 · [CONFIRMAR data] · 📘 Teórica (75 min)<br>
+**Tópicos:** O Dilema da Pizzaria (Latência vs. Vazão), A Receita de Escrever um Livro (Equação da CPU), e O Bolo no Forno (A Lei de Amdahl).<br>
+**Página de referência:** [Plano de Ensino e Contrato](./Plano-de-Ensino-e-Contrato)
 
 ---
 
@@ -226,11 +208,15 @@ Você foi contratado para acelerar o tempo de carregamento da tela inicial do ap
 
 ---
 
-## 📚 Referências Bibliográficas
+<hr class="au-fim-aula">
 
-- **PATTERSON, David A.; HENNESSY, John L.** *Organização e Projeto de Computadores: A Interface Hardware/Software*. 5. ed. Rio de Janeiro: Elsevier, 2014. **(Capítulo 1: Desempenho e Analogias Práticas — pp. 25–40)**. Excelente e famosa introdução ao desempenho de computadores através de analogias de carros e aviões.
-- **STALLINGS, William.** *Arquitetura e Organização de Computadores*. 11. ed. São Paulo: Pearson, 2024. **(Capítulo 2: Evolução do Desempenho e Lei de Amdahl — pp. 30–50)**. Análise didática das métricas de performance e limitantes de velocidade.
-- **TANENBAUM, Andrew S.** *Organização Estruturada de Computadores*. 6. ed. Rio de Janeiro: LTC, 2013. **(Capítulo 1: Visão Geral e Métricas de Desempenho — pp. 10–25)**. Introdução conceitual e histórica muito suave de engenharia de computadores.
+<div class="au-refs">
+<b>Referências desta aula</b>
 
----
-*Última atualização: 2026-04-20 | Status: publicado*
+- **PATTERSON, David A.; HENNESSY, John L.** *Organização e Projeto de Computadores: A Interface Hardware/Software*. 5. ed. Rio de Janeiro: Elsevier, 2014. **(Capítulo 1: Desempenho e Analogias Práticas — [CONFIRMAR página])**. Excelente e famosa introdução ao desempenho de computadores através de analogias de carros e aviões.
+- **STALLINGS, William.** *Arquitetura e Organização de Computadores*. 11. ed. São Paulo: Pearson, 2024. **(Capítulo 2: Evolução do Desempenho e Lei de Amdahl — [CONFIRMAR página])**. Análise didática das métricas de performance e limitantes de velocidade.
+- **TANENBAUM, Andrew S.** *Organização Estruturada de Computadores*. 6. ed. Rio de Janeiro: LTC, 2013. **(Capítulo 1: Visão Geral e Métricas de Desempenho — [CONFIRMAR página])**. Introdução conceitual e histórica muito suave de engenharia de computadores.
+
+</div>
+
+</div>

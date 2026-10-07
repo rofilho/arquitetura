@@ -1,34 +1,16 @@
 ---
-context: uniube
-type: aula
-status: publicado
-created: 2026-06-08
-semester: "2026-1"
-ai_tier: hot
-disciplina: Arquitetura de Computadores
-codigo: "ARQ-01"
-aula: 12
-titulo: "Representação de Dados e Conversão de Bases"
-tipo: teorica
-semana: 12
-data: 2026-05-04
-tags:
-  - arquitetura
-  - conversao-bases
-  - binario
-  - hexadecimal
-  - armazenamento
-publicar: true
+title: "🖥️ Aula - 12: Representação de Dados e Conversão de Bases"
 ---
 
-# 🟢 Aula 12: Representação de Dados e Conversão de Bases
+<div class="au-leitura" data-aula="a12">
 
-**Disciplina:** Arquitetura de Computadores (Cód. ARQ-01)  
-**Curso:** Inteligência Artificial e Ciência de Dados, Uniube  
-**Semana:** 12 | 04/05/2026  
-**Professor:** Romualdo Mathias Filho  
-**Tipo:** 📘 Teórica  
-**Tópicos:** Sistemas Posicionais e Bases Numéricas (Decimal, Binário e Hexadecimal), Algoritmos de Conversão (Divisões Sucessivas e Polinômio Posicional), e Conversão Direta por Nibbles e Medidas de Armazenamento de Dados.
+# 🖥️ Aula 12 — Representação de Dados e Conversão de Bases
+
+**Disciplina:** 90388 — Arquitetura e Organização de Computadores · Sistemas de Informação (curso 160) — Uniube<br>
+**Professor:** Romualdo Mathias Filho · **romualdo.filho@uniube.br**<br>
+**Semana:** 12 · 2026-1 · [CONFIRMAR data] · 📘 Teórica (75 min)<br>
+**Tópicos:** Sistemas posicionais e bases numéricas (decimal, binário e hexadecimal), algoritmos de conversão (divisões sucessivas e polinômio posicional), conversão direta por nibbles e unidades de armazenamento<br>
+**Página de referência:** [Plano de Ensino e Contrato](./Plano-de-Ensino-e-Contrato)
 
 ---
 
@@ -355,11 +337,15 @@ Para consolidar o conhecimento, resolva os exercícios abaixo e valide as suas r
 
 ---
 
-## 📚 Referências Bibliográficas
+<hr class="au-fim-aula">
+
+<div class="au-refs">
+<b>Referências desta aula</b>
 
 - **PATTERSON, David A.; HENNESSY, John L.** *Organização e Projeto de Computadores: A Interface Hardware/Software*. 5. ed. Rio de Janeiro: Elsevier, 2014. **(Capítulo 2: Instruções: Linguagem do Computador — pp. 78–89)**. Apresenta o papel prático da numeração hexadecimal e binária na linguagem de máquina e operandos do processador.
 - **STALLINGS, William.** *Arquitetura e Organização de Computadores: projetando com foco em desempenho*. 11. ed. São Paulo: Pearson, 2024. **(Capítulo 9: Sistemas de Numeração — pp. 290–305)**. Detalha de forma canônica os algoritmos de conversão decimal, hexadecimal e binária, com exercícios matemáticos.
 - **TANENBAUM, Andrew S.; FEAMSTER, Nicholas; WETHERALL, David J.** *Organização Estruturada de Computadores*. 6. ed. Rio de Janeiro: LTC, 2013. **(Apêndice A: Sistemas de Numeração — pp. 505–515)**. Análise matemática aprofundada dos polinômios posicionais, bases numéricas e divisões sucessivas.
 
----
-*Última atualização: 2026-06-08 | Status: publicado*
+</div>
+
+</div>
