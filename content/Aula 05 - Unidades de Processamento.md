@@ -104,7 +104,7 @@ A **UCP** (Unidade Central de Processamento), ou **CPU** (Central Processing Uni
 
 ## 2. Cinco registradores de controle fazem o ciclo acontecer [Teoria ⏳ 13 min]
 
-Os registradores se dividem em duas categorias: os **visíveis ao usuário**, que o software (via Conjunto de Instruções, a ISA — Instruction Set Architecture) pode manipular diretamente, e os **de controle e estado**, que o hardware usa para conduzir o ciclo e que o software em geral não altera à mão. Os cinco abaixo são os de controle que fazem o ciclo mecânico da CPU funcionar.
+Os registradores se dividem em duas categorias. Os **visíveis ao usuário** são os que o software — via Conjunto de Instruções, a ISA (*Instruction Set Architecture*) — pode manipular diretamente. Os **de controle e estado** são os que o hardware usa para conduzir o ciclo, e que o software em geral não altera à mão. Os cinco abaixo são os de controle: os que fazem o ciclo mecânico da CPU funcionar.
 
 | Registrador | Nome completo | O que guarda |
 | :-- | :-- | :-- |
@@ -184,7 +184,7 @@ A sequência Busca → Execução pressupõe um fluxo perfeitamente linear. Na p
 <figcaption class="au-legenda">O ciclo estendido: depois de cada execução, o hardware pergunta "houve interrupção?". Em caso afirmativo, salva o contexto, atende a ISR e depois retoma.</figcaption>
 </figure>
 
-Esse contexto salvo (o PC e o PSW) não é guardado num lugar fixo: ele é **empilhado** numa pilha\*, a mesma estrutura LIFO (*Last In, First Out* — último a entrar, primeiro a sair). É por isso que uma interrupção pode acontecer **dentro** de outra: cada atendimento empilha o seu ponto de retorno, e o desempilhamento na ordem inversa devolve cada programa exatamente de onde parou.
+Esse contexto salvo (o PC e o PSW) não é guardado num lugar fixo: ele é **empilhado** numa pilha\*, a mesma estrutura LIFO (*Last In, First Out* — último a entrar, primeiro a sair). É por isso que uma interrupção pode acontecer **dentro** de outra. Cada atendimento empilha o seu ponto de retorno; o desempilhamento, na ordem inversa, devolve cada programa exatamente de onde parou.
 
 <p class="au-nota">*<b>pilha</b> (<i>stack</i>): estrutura de dados em que o último item inserido é o primeiro a sair (LIFO). O processador a usa para guardar pontos de retorno — de interrupções e também de chamadas de função.</p>
 
