@@ -1,28 +1,16 @@
 ---
-disciplina: Arquitetura de Computadores
-codigo: "14188"
-aula: 7
-titulo: "Conjunto de Instruções, Ciclo de Instrução e Pipeline"
-tipo: teorica
-semana: 7
-data: 2026-05-18
-status: publicado
-tags:
-  - arquitetura
-  - instrucoes
-  - ciclo
-  - pipeline
-publicar: true
+title: "🖥️ Aula - 07: Conjunto de Instruções, Ciclo de Instrução e Pipeline"
 ---
 
-# 🟢 Aula 07: Conjunto de Instruções, Ciclo de Instrução e Pipeline
+<div class="au-leitura" data-aula="a07">
 
-**Disciplina:** Arquitetura de Computadores
-**Curso:** Inteligência Artificial e Ciência de Dados — Uniube
-**Semana:** 7
-**Professor:** Romualdo Mathias Filho
-**Tipo:** 📘 Teórica
-**Tópicos:** Conjunto de Instruções, Ciclo da Instrução (Fetch, Decode, Execute), Tipos R, I, J, Pipeline de Processamento.
+# 🖥️ Aula 07 — Conjunto de Instruções, Ciclo de Instrução e Pipeline
+
+**Disciplina:** 90388 — Arquitetura e Organização de Computadores · Sistemas de Informação (curso 160) — Uniube<br>
+**Professor:** Romualdo Mathias Filho · **romualdo.filho@uniube.br**<br>
+**Semana:** 07 · 2026-1 · [CONFIRMAR data] · 📘 Teórica (75 min)<br>
+**Tópicos:** Conjunto de Instruções, Ciclo da Instrução (Fetch, Decode, Execute), Tipos R, I, J, Pipeline de Processamento<br>
+**Página de referência:** [Plano de Ensino e Contrato](./Plano-de-Ensino-e-Contrato)
 
 ---
 
@@ -109,6 +97,7 @@ Enquanto a instrução A está na fase de Decodificação, a instrução B já e
 | **Data Hazard** | Problema no pipeline quando uma instrução depende de um dado que uma instrução anterior ainda não terminou de calcular. |
 
 ---
+
 ## 📄 Artigo de Aprofundamento
 
 - [Computer Architecture Pipeline Performance (GeeksforGeeks)](https://www.geeksforgeeks.org/computer-organization-and-architecture-pipelining-set-1-execution-stages-and-throughput/)
@@ -116,10 +105,14 @@ Enquanto a instrução A está na fase de Decodificação, a instrução B já e
 
 ---
 
-## 📚 Referências Bibliográficas e Citações
+<hr class="au-fim-aula">
+
+<div class="au-refs">
+<b>Referências desta aula</b>
 
 - **STALLINGS, William**, *Arquitetura e Organização de Computadores: projetando com foco em desempenho*. 11ª ed. Pearson, 2024. **(Capítulo 16: Operação da Unidade de Controle — p. 544–581)**.
 - **PATTERSON, David A.; HENNESSY, John L.**, *Organização e Projeto de Computadores: A Interface Hardware/Software*. 5ª ed. Elsevier, 2014. **(Capítulo 4: O Processador — Pipeline — p. 235–294)**.
 
----
-*Última atualização: 2026-05-11 | Status: publicado*
+</div>
+
+</div>

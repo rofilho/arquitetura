@@ -1,19 +1,28 @@
-﻿---
+---
 title: "🖥️ Aula - 04: Arquiteturas CISC vs. RISC"
 ---
 
+<div class="au-leitura" data-aula="a04">
 
-# 🖥️ Aula - 04: Arquiteturas CISC vs. RISC
+# 🖥️ Aula 04 — Arquiteturas CISC vs. RISC
 
-# 🖥️ Aula - 04: Arquiteturas CISC vs. RISC
+**Disciplina:** 90388 — Arquitetura e Organização de Computadores · Sistemas de Informação (curso 160) — Uniube<br>
+**Professor:** Romualdo Mathias Filho · **romualdo.filho@uniube.br**<br>
+**Semana:** 04 · 2026-1 · [CONFIRMAR data] · 📘 Teórica (75 min)<br>
+**Tópicos:** Conjunto de Instruções (ISA), Filosofia CISC, Filosofia RISC, Pipeline, Convergência CISC/RISC, ARM, RISC-V<br>
+**Página de referência:** [Plano de Ensino e Contrato](./Plano-de-Ensino-e-Contrato)
+
+---
+
+## 🎯 Objetivo da Aula
 
 Ao final, o aluno deve:
 
-- **Definir** o que são conjuntos de instruções (ISA) e por que são fundamentais na arquitetura de um processador
-- **Diferenciar** as filosofias CISC e RISC com critérios técnicos objetivos
-- **Analisar** vantagens e desvantagens de cada abordagem em cenários reais
-- **Identificar** a convergência atual entre CISC e RISC nos processadores modernos
-- **Relacionar** a escolha de arquitetura com aplicações práticas (servidores, mobile, embarcados)
+- **Definir** o que são conjuntos de instruções (ISA) e por que são fundamentais na arquitetura de um processador
+- **Diferenciar** as filosofias CISC e RISC com critérios técnicos objetivos
+- **Analisar** vantagens e desvantagens de cada abordagem em cenários reais
+- **Identificar** a convergência atual entre CISC e RISC nos processadores modernos
+- **Relacionar** a escolha de arquitetura com aplicações práticas (servidores, mobile, embarcados)
 
 Base conceitual alinhada com:
 
@@ -22,29 +31,27 @@ Base conceitual alinhada com:
 
 ---
 
-# 🖥️ Aula - 04: Arquiteturas CISC vs. RISC
+## 🔄 Revisão Rápida (Aula 03)
 
 > Antes de avançar, vamos verificar os conceitos da Aula 03. Responda mentalmente ou anote:
 > 
 
 | **#** | **Pergunta** | **Conceito Avaliado** |
 | --- | --- | --- |
-| 1 | Qual a diferença fundamental entre um sistema **Hard Real-Time** e um **Soft Real-Time**? Dê um exemplo de cada. | Classificação de Sistemas de Tempo Real |
-| 2 | Um **microcontrolador** (como o Arduino) pode ser considerado um computador? Justifique com base nos três pilares do hardware (CPU, Memória, E/S). | Sistemas Embarcados + Pilares do Hardware |
-| 3 | O que significa **transparência** no contexto de sistemas distribuídos? Por que ela é importante? | Sistemas Distribuídos |
-| 4 | O sistema de freio **ABS** de um carro é apenas embarcado, apenas tempo real, ou ambos? Justifique. | Sobreposição de categorias |
-| 5 | Um **termostato inteligente** (como o Nest) combina quais tipos de sistema? Explique como ele se conecta a cada categoria. | Convergência: Embarcado + Soft RT + Distribuído |
+| 1 | Qual a diferença fundamental entre um sistema **Hard Real-Time** e um **Soft Real-Time**? Dê um exemplo de cada. | Classificação de Sistemas de Tempo Real |
+| 2 | Um **microcontrolador** (como o Arduino) pode ser considerado um computador? Justifique com base nos três pilares do hardware (CPU, Memória, E/S). | Sistemas Embarcados + Pilares do Hardware |
+| 3 | O que significa **transparência** no contexto de sistemas distribuídos? Por que ela é importante? | Sistemas Distribuídos |
+| 4 | O sistema de freio **ABS** de um carro é apenas embarcado, apenas tempo real, ou ambos? Justifique. | Sobreposição de categorias |
+| 5 | Um **termostato inteligente** (como o Nest) combina quais tipos de sistema? Explique como ele se conecta a cada categoria. | Convergência: Embarcado + Soft RT + Distribuído |
 
 > **Respostas rápidas para discussão em sala:**
 > 
 
 ---
 
-# 🖥️ Aula - 04: Arquiteturas CISC vs. RISC
+## 🔎 Recapitulando: as três categorias de sistemas
 
-# 🖥️ Aula - 04: Arquiteturas CISC vs. RISC
-
-Na aula anterior, classificamos os **sistemas de computação** em três grandes categorias:
+Na aula anterior, classificamos os **sistemas de computação** em três grandes categorias:
 
 | **Sistema** | **Foco Principal** | **Exemplo Síntese** |
 | --- | --- | --- |
@@ -60,24 +67,22 @@ Na aula anterior, classificamos os **sistemas de computação** em três grand
 
 ---
 
-# 🖥️ Aula - 04: Arquiteturas CISC vs. RISC
+## 📌 1. O que é o ISA (Instruction Set Architecture)?
 
-# 🖥️ Aula - 04: Arquiteturas CISC vs. RISC
+O **ISA (Instruction Set Architecture)** é a interface entre o software e o hardware. Define:
 
-O **ISA (Instruction Set Architecture)** é a interface entre o software e o hardware. Define:
+- **Quais instruções** o processador pode executar (somar, comparar, mover dados)
+- **Quantos registradores** estão disponíveis
+- **Como os dados** são acessados na memória (modos de endereçamento)
+- **O formato** das instruções (tamanho fixo ou variável)
 
-- **Quais instruções** o processador pode executar (somar, comparar, mover dados)
-- **Quantos registradores** estão disponíveis
-- **Como os dados** são acessados na memória (modos de endereçamento)
-- **O formato** das instruções (tamanho fixo ou variável)
+**Stallings (Cap. 15):** define ISA como "a especificação de todas as funções que o processador pode executar, incluindo tipos de dados, instruções, registradores e modos de endereçamento."
 
-**Stallings (Cap. 15):** define ISA como "a especificação de todas as funções que o processador pode executar, incluindo tipos de dados, instruções, registradores e modos de endereçamento."
-
-**Tanenbaum (Cap. 5):** trata o ISA como um "nível" na organização hierárquica do computador, situado entre a microprogramação (hardware) e o sistema operacional (software).
+**Tanenbaum (Cap. 5):** trata o ISA como um "nível" na organização hierárquica do computador, situado entre a microprogramação (hardware) e o sistema operacional (software).
 
 ---
 
-# 🖥️ Aula - 04: Arquiteturas CISC vs. RISC
+## 📌 2. Por que o ISA importa?
 
 | **Aspecto** | **Impacto** |
 | --- | --- |
@@ -87,28 +92,20 @@ O **ISA (Instruction Set Architecture)** é a interface entre o software e o h
 | **Consumo energético** | ISAs mais simples consomem menos energia (crucial para mobile e IoT) |
 | **Ecossistema** | O ISA define o ecossistema de compiladores, sistemas operacionais e ferramentas |
 
----
-
-# 🖥️ Aula - 04: Arquiteturas CISC vs. RISC
-
 > O ISA é como o **idioma**
 > 
 
 ---
 
-# 🖥️ Aula - 04: Arquiteturas CISC vs. RISC
+## 📌 3. A Filosofia CISC
 
-# 🖥️ Aula - 04: Arquiteturas CISC vs. RISC
+**CISC** é uma filosofia de projeto de processadores que oferece um **grande número de instruções**, muitas delas complexas, capazes de realizar operações de alto nível em uma única instrução.
 
-**CISC** é uma filosofia de projeto de processadores que oferece um **grande número de instruções**, muitas delas complexas, capazes de realizar operações de alto nível em uma única instrução.
+**Stallings (Cap. 13):** descreve a motivação original do CISC: aproximar a linguagem de máquina das linguagens de alto nível, reduzindo o "gap semântico" entre o que o programador escreve e o que o hardware executa.
 
-**Stallings (Cap. 13):** descreve a motivação original do CISC: aproximar a linguagem de máquina das linguagens de alto nível, reduzindo o "gap semântico" entre o que o programador escreve e o que o hardware executa.
+**Tanenbaum (Cap. 5):** explica que a abordagem CISC surgiu numa época em que compiladores eram primitivos e a memória era cara, então instruções complexas economizavam memória.
 
-**Tanenbaum (Cap. 5):** explica que a abordagem CISC surgiu numa época em que compiladores eram primitivos e a memória era cara, então instruções complexas economizavam memória.
-
----
-
-# 🖥️ Aula - 04: Arquiteturas CISC vs. RISC
+### Características do CISC
 
 | **Característica** | **Detalhe** |
 | --- | --- |
@@ -121,19 +118,15 @@ O **ISA (Instruction Set Architecture)** é a interface entre o software e o h
 | **Ciclos por instrução (CPI)** | Variável (1 a muitos ciclos por instrução) |
 | **Pipeline** | Difícil de otimizar devido à variabilidade das instruções |
 
----
+### Exemplos de arquiteturas CISC
 
-# 🖥️ Aula - 04: Arquiteturas CISC vs. RISC
+- **Intel x86/x64:** presente em PCs, notebooks e servidores desde 1978
+- **AMD x86-64:** extensão 64 bits da arquitetura x86
+- **VAX (DEC):** arquitetura clássica CISC dos anos 1970-80 com mais de 300 instruções
+- **IBM System/360:** uma das primeiras arquiteturas CISC, revolucionou a computação empresarial
+- **Motorola 68000:** usada no Macintosh original e Amiga
 
-- **Intel x86/x64:** presente em PCs, notebooks e servidores desde 1978
-- **AMD x86-64:** extensão 64 bits da arquitetura x86
-- **VAX (DEC):** arquitetura clássica CISC dos anos 1970-80 com mais de 300 instruções
-- **IBM System/360:** uma das primeiras arquiteturas CISC, revolucionou a computação empresarial
-- **Motorola 68000:** usada no Macintosh original e Amiga
-
----
-
-# 🖥️ Aula - 04: Arquiteturas CISC vs. RISC
+### Exemplo: uma instrução CISC
 
 Uma única instrução CISC pode fazer o trabalho de várias instruções simples:
 
@@ -142,28 +135,20 @@ Uma única instrução CISC pode fazer o trabalho de várias instruções simple
 > Essa única instrução envolve: cálculo de endereço complexo, leitura da memória, operação aritmética e escrita na memória.
 > 
 
----
-
-# 🖥️ Aula - 04: Arquiteturas CISC vs. RISC
-
 > O processador CISC é como um **canivete suíço**
 > 
 
 ---
 
-# 🖥️ Aula - 04: Arquiteturas CISC vs. RISC
+## 📌 4. A Filosofia RISC
 
-# 🖥️ Aula - 04: Arquiteturas CISC vs. RISC
+**RISC** é uma filosofia de projeto que utiliza um **conjunto reduzido de instruções simples**, cada uma executada em um único ciclo de clock, permitindo pipelines eficientes e alto desempenho.
 
-**RISC** é uma filosofia de projeto que utiliza um **conjunto reduzido de instruções simples**, cada uma executada em um único ciclo de clock, permitindo pipelines eficientes e alto desempenho.
+**Stallings (Cap. 13):** apresenta os princípios fundadores do RISC estabelecidos por Patterson (Berkeley) e Hennessy (Stanford) nos anos 1980: instruções simples, formato fixo, execução em um ciclo, muitos registradores.
 
-**Stallings (Cap. 13):** apresenta os princípios fundadores do RISC estabelecidos por Patterson (Berkeley) e Hennessy (Stanford) nos anos 1980: instruções simples, formato fixo, execução em um ciclo, muitos registradores.
+**Tanenbaum (Cap. 2):** explica que a filosofia RISC se baseia na observação de que, na prática, compiladores usam apenas um subconjunto pequeno das instruções CISC, então faz mais sentido otimizar esse subconjunto.
 
-**Tanenbaum (Cap. 2):** explica que a filosofia RISC se baseia na observação de que, na prática, compiladores usam apenas um subconjunto pequeno das instruções CISC, então faz mais sentido otimizar esse subconjunto.
-
----
-
-# 🖥️ Aula - 04: Arquiteturas CISC vs. RISC
+### Características do RISC
 
 | **Característica** | **Detalhe** |
 | --- | --- |
@@ -176,20 +161,16 @@ Uma única instrução CISC pode fazer o trabalho de várias instruções simple
 | **Ciclos por instrução (CPI)** | Idealmente 1 ciclo por instrução |
 | **Pipeline** | Altamente eficiente devido à uniformidade das instruções |
 
----
+### Exemplos de arquiteturas RISC
 
-# 🖥️ Aula - 04: Arquiteturas CISC vs. RISC
+- **ARM:** presente em 99% dos smartphones, tablets e relógios inteligentes do mundo
+- **Apple M1/M2/M3/M4:** processadores ARM que revolucionaram o mercado de notebooks e desktops
+- **MIPS:** usado em roteadores, consoles (PlayStation 1/2), e base do ensino de arquitetura
+- **RISC-V:** ISA aberto e livre, em crescimento acelerado para IoT e embarcados
+- **SPARC:** usado em servidores Sun/Oracle de alta performance
+- **AWS Graviton:** processadores ARM para servidores em nuvem da Amazon
 
-- **ARM:** presente em 99% dos smartphones, tablets e relógios inteligentes do mundo
-- **Apple M1/M2/M3/M4:** processadores ARM que revolucionaram o mercado de notebooks e desktops
-- **MIPS:** usado em roteadores, consoles (PlayStation 1/2), e base do ensino de arquitetura
-- **RISC-V:** ISA aberto e livre, em crescimento acelerado para IoT e embarcados
-- **SPARC:** usado em servidores Sun/Oracle de alta performance
-- **AWS Graviton:** processadores ARM para servidores em nuvem da Amazon
-
----
-
-# 🖥️ Aula - 04: Arquiteturas CISC vs. RISC
+### Exemplo: a mesma operação em RISC
 
 A mesma operação do exemplo CISC requer múltiplas instruções simples em RISC:
 
@@ -198,22 +179,16 @@ A mesma operação do exemplo CISC requer múltiplas instruções simples em RIS
 > São 6 instruções em vez de 1, mas cada uma é simples, tem formato fixo e passa pelo pipeline sem gargalos.
 > 
 
----
-
 ![[assets/01_cisc_vs_risc_comparacao.jpg]]
 
 *Infográfico comparativo CISC vs. RISC lado a lado, com características principais de cada filosofia em destaque.*
-
----
-
-# 🖥️ Aula - 04: Arquiteturas CISC vs. RISC
 
 > O processador RISC é como uma **linha de montagem industrial**
 > 
 
 ---
 
-# 🖥️ Aula - 04: Arquiteturas CISC vs. RISC
+## 📌 5. Comparação CISC vs. RISC
 
 | **Critério** | **CISC** | **RISC** |
 | --- | --- | --- |
@@ -233,25 +208,19 @@ A mesma operação do exemplo CISC requer múltiplas instruções simples em RIS
 > A diferença entre CISC e RISC **não é que um é melhor que o outro**
 > 
 
----
-
 ![[assets/02_pipeline_cisc_risc.jpg]]
 
 *Diagrama comparando pipeline CISC (estágios variáveis) vs. pipeline RISC (5 estágios uniformes: IF, ID, EX, MEM, WB).*
 
 ---
 
-# 🖥️ Aula - 04: Arquiteturas CISC vs. RISC
+## 📌 6. Pipeline
 
-# 🖥️ Aula - 04: Arquiteturas CISC vs. RISC
+Pipeline é a técnica de dividir a execução de uma instrução em **estágios**, permitindo que múltiplas instruções sejam processadas simultaneamente (como uma linha de montagem).
 
-Pipeline é a técnica de dividir a execução de uma instrução em **estágios**, permitindo que múltiplas instruções sejam processadas simultaneamente (como uma linha de montagem).
+**Stallings (Cap. 12):** dedica um capítulo inteiro ao pipeline, mostrando como ele multiplica o throughput do processador.
 
-**Stallings (Cap. 12):** dedica um capítulo inteiro ao pipeline, mostrando como ele multiplica o throughput do processador.
-
----
-
-# 🖥️ Aula - 04: Arquiteturas CISC vs. RISC
+### Os estágios do pipeline
 
 ```
 Instrução 1: | IF | ID | EX | MEM | WB |
@@ -271,10 +240,6 @@ Instrução 4:                | IF  | ID  | EX  | MEM | WB |
 > No RISC, como todas as instruções têm formato fixo e mesma duração, o pipeline flui sem interrupções. No CISC, instruções de tamanhos diferentes criam "bolhas" no pipeline, reduzindo a eficiência.
 > 
 
----
-
-# 🖥️ Aula - 04: Arquiteturas CISC vs. RISC
-
 > O pipeline é como uma **lavanderia com várias máquinas**
 > 
 
@@ -284,17 +249,13 @@ Instrução 4:                | IF  | ID  | EX  | MEM | WB |
 
 ---
 
-# 🖥️ Aula - 04: Arquiteturas CISC vs. RISC
+## 📌 7. Convergência CISC/RISC
 
-# 🖥️ Aula - 04: Arquiteturas CISC vs. RISC
+A partir dos anos 1990, a Intel adotou uma estratégia híbrida: processadores x86 mantêm a **interface CISC** externamente (compatibilidade com software), mas internamente traduzem as instruções complexas em **micro-operações (μops)** similares a RISC.
 
-A partir dos anos 1990, a Intel adotou uma estratégia híbrida: processadores x86 mantêm a **interface CISC** externamente (compatibilidade com software), mas internamente traduzem as instruções complexas em **micro-operações (μops)** similares a RISC.
+**Stallings (Cap. 13):** documenta a convergência: "processadores modernos x86 utilizam um front-end que decodifica instruções CISC em micro-operações RISC, alimentando um back-end superescalar."
 
-**Stallings (Cap. 13):** documenta a convergência: "processadores modernos x86 utilizam um front-end que decodifica instruções CISC em micro-operações RISC, alimentando um back-end superescalar."
-
----
-
-# 🖥️ Aula - 04: Arquiteturas CISC vs. RISC
+### Evidências da convergência
 
 | **Evidência** | **CISC → RISC** | **RISC → CISC** |
 | --- | --- | --- |
@@ -303,15 +264,13 @@ A partir dos anos 1990, a Intel adotou uma estratégia híbrida: processadores x
 | **Apple M-series** | — | ARM com decodificadores largos e execução fora de ordem (técnica originalmente CISC) |
 | **RISC-V** | — | Extensões opcionais adicionam complexidade quando necessário |
 
----
-
 ![[assets/03_evolucao_arquiteturas.jpg]]
 
 *Timeline da evolução dos processadores: era CISC (1970s), revolução RISC (1980s), convergência (2000s), era ARM moderna (2020s).*
 
 ---
 
-# 🖥️ Aula - 04: Arquiteturas CISC vs. RISC
+## 📌 8. O caso de sucesso ARM
 
 O ARM é o maior caso de sucesso da filosofia RISC:
 
@@ -330,19 +289,15 @@ O ARM é o maior caso de sucesso da filosofia RISC:
 > **280 bilhões**
 > 
 
----
-
 ![[assets/04_arm_aplicacoes_modernas.jpg]]
 
 *Infográfico mostrando ARM em smartphones, tablets, servidores, MacBooks (M-series), drones e IoT.*
 
 ---
 
-# 🖥️ Aula - 04: Arquiteturas CISC vs. RISC
+## 📌 9. RISC-V: o ISA aberto
 
-# 🖥️ Aula - 04: Arquiteturas CISC vs. RISC
-
-**RISC-V** (pronuncia-se "RISC five") é uma arquitetura de conjunto de instruções **aberta e livre** (open-source ISA), criada na UC Berkeley em 2010. Qualquer empresa pode projetar processadores RISC-V sem pagar royalties.
+**RISC-V** (pronuncia-se "RISC five") é uma arquitetura de conjunto de instruções **aberta e livre** (open-source ISA), criada na UC Berkeley em 2010. Qualquer empresa pode projetar processadores RISC-V sem pagar royalties.
 
 | **Característica** | **Detalhe** |
 | --- | --- |
@@ -358,7 +313,7 @@ O ARM é o maior caso de sucesso da filosofia RISC:
 
 ---
 
-# 🖥️ Aula - 04: Arquiteturas CISC vs. RISC
+## 📋 Resumo Estrutural
 
 | **Conceito** | **Definição em uma frase** |
 | --- | --- |
@@ -373,19 +328,17 @@ O ARM é o maior caso de sucesso da filosofia RISC:
 
 ---
 
-# 🖥️ Aula - 04: Arquiteturas CISC vs. RISC
+## 🧩 Atividade em Sala (PBL)
 
-# 🖥️ Aula - 04: Arquiteturas CISC vs. RISC
-
-**Formato:** Aprendizagem Baseada em Problemas (PBL)
+**Formato:** Aprendizagem Baseada em Problemas (PBL)
 
 **Instrução para os alunos:**
 
 Para cada cenário abaixo, determine:
 
 1. Qual filosofia de ISA é mais adequada (**CISC ou RISC**)?
-2. Justifique com base em pelo menos **dois critérios** da tabela comparativa
-3. Cite um **processador real** que atenderia ao cenário
+2. Justifique com base em pelo menos **dois critérios** da tabela comparativa
+3. Cite um **processador real** que atenderia ao cenário
 
 | **#** | **Cenário** | **Resposta Esperada** |
 | --- | --- | --- |
@@ -399,9 +352,9 @@ Para cada cenário abaixo, determine:
 
 ---
 
-# 🖥️ Aula - 04: Arquiteturas CISC vs. RISC
+## 🏠 Atividade para Casa
 
-**Para casa:** Pesquisar e trazer para a próxima aula uma análise comparativa entre **dois processadores reais**: um CISC e um RISC. O aluno deve:
+**Para casa:** Pesquisar e trazer para a próxima aula uma análise comparativa entre **dois processadores reais**: um CISC e um RISC. O aluno deve:
 
 - Identificar o processador e seu ISA
 - Listar: número de transistores, clock máximo, TDP (consumo), ano de lançamento
@@ -417,33 +370,7 @@ Para cada cenário abaixo, determine:
 
 ---
 
-# 🖥️ Aula - 04: Arquiteturas CISC vs. RISC
-
-# 🖥️ Aula - 04: Arquiteturas CISC vs. RISC
-
-- **STALLINGS, W.** *Arquitetura e Organização de Computadores: projetando com foco em desempenho.* 11ª ed. São Paulo: Pearson, 2024.
-    - **Capítulo 13:** Computadores com Conjunto Reduzido de Instruções (RISC), comparação CISC vs. RISC e princípios do projeto RISC.
-    - **Capítulo 15:** Conjuntos de Instruções: Características e Funções, definição de ISA, formatos, modos de endereçamento.
-    - **Capítulo 12:** Estrutura e Função do Processador, pipeline e execução de instruções.
-- **TANENBAUM, A. S.** *Organização Estruturada de Computadores.* 6ª ed. São Paulo: Pearson, 2013.
-    - **Capítulo 2:** Organização de Sistemas de Computadores, visão geral de CPU, registradores e ciclo de instrução.
-    - **Capítulo 5:** O Nível de Arquitetura do Conjunto de Instruções, formatos de instrução e filosofias de projeto.
-- **CORRÊA, A. G. D.** *Organização e Arquitetura de Computadores.* São Paulo: Pearson, 2016.
-
-# 🖥️ Aula - 04: Arquiteturas CISC vs. RISC
-
-- **PATTERSON, D. A.; HENNESSY, J. L.** *Computer Organization and Design: The Hardware/Software Interface.* 6th ed. Morgan Kaufmann, 2020.
-    - Referência clássica que apresenta a filosofia RISC pelos próprios criadores do conceito. Capítulo 2 cobre o ISA do MIPS em detalhes.
-- **PATTERSON, D. A.; DITZEL, D. R.** "The Case for the Reduced Instruction Set Computer." *ACM SIGARCH Computer Architecture News*, vol. 8, no. 6, 1980, pp. 25-33.
-    - Artigo seminal que inaugurou o debate CISC vs. RISC e formalizou os argumentos a favor do RISC.
-- **WATERMAN, A.; ASANOVIĆ, K. (Eds.)** "The RISC-V Instruction Set Manual." *RISC-V International*, 2019.
-    - Especificação oficial do ISA RISC-V, disponível gratuitamente. Documenta a arquitetura base e extensões.
-- **BLEM, E.; MENON, J.; SANKARALINGAM, K.** "Power Struggles: Revisiting the RISC vs. CISC Debate on Contemporary ARM and x86 Architectures." *Proceedings of HPCA*, 2013.
-    - Estudo comparativo moderno que analisa consumo energético real entre ARM e x86, confirmando a convergência.
-
----
-
-# 🖥️ Aula - 04: Arquiteturas CISC vs. RISC
+## 🔗 Recursos Online
 
 | **Recurso** | **Descrição** | **Link** |
 | --- | --- | --- |
@@ -453,5 +380,21 @@ Para cada cenário abaixo, determine:
 | MARS Simulator | Simulador MIPS para prática de assembly RISC | courses.missouristate.edu/MARS |
 | Godbolt Compiler Explorer | Visualizador online de assembly para diferentes ISAs | godbolt.org |
 
+---
 
+<hr class="au-fim-aula">
 
+<div class="au-refs">
+<b>Referências desta aula</b>
+
+- **STALLINGS, W.** *Arquitetura e Organização de Computadores: projetando com foco em desempenho.* 11ª ed. São Paulo: Pearson, 2024. **(Cap. 13: Computadores com Conjunto Reduzido de Instruções (RISC); Cap. 15: Conjuntos de Instruções — Características e Funções; Cap. 12: Estrutura e Função do Processador, pipeline).**
+- **TANENBAUM, A. S.** *Organização Estruturada de Computadores.* 6ª ed. São Paulo: Pearson, 2013. **(Cap. 2: Organização de Sistemas de Computadores; Cap. 5: O Nível de Arquitetura do Conjunto de Instruções).**
+- **CORRÊA, A. G. D.** *Organização e Arquitetura de Computadores.* São Paulo: Pearson, 2016.
+- **PATTERSON, D. A.; HENNESSY, J. L.** *Computer Organization and Design: The Hardware/Software Interface.* 6th ed. Morgan Kaufmann, 2020. **(Referência clássica da filosofia RISC pelos próprios criadores; Cap. 2 cobre o ISA do MIPS).**
+- **PATTERSON, D. A.; DITZEL, D. R.** "The Case for the Reduced Instruction Set Computer." *ACM SIGARCH Computer Architecture News*, vol. 8, no. 6, 1980, pp. 25-33. **(Artigo seminal que inaugurou o debate CISC vs. RISC).**
+- **WATERMAN, A.; ASANOVIĆ, K. (Eds.)** "The RISC-V Instruction Set Manual." *RISC-V International*, 2019. **(Especificação oficial do ISA RISC-V).**
+- **BLEM, E.; MENON, J.; SANKARALINGAM, K.** "Power Struggles: Revisiting the RISC vs. CISC Debate on Contemporary ARM and x86 Architectures." *Proceedings of HPCA*, 2013. **(Estudo comparativo moderno de consumo energético entre ARM e x86).**
+
+</div>
+
+</div>
