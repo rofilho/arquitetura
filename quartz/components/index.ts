@@ -25,6 +25,9 @@ import Flex from "./Flex"
 import ConditionalRender from "./ConditionalRender"
 import LessonNavigation from "./LessonNavigation"
 import ModoAula from "./ModoAula"
+import Flashcards from "./Flashcards"
+import Quiz from "./Quiz"
+import Podcast from "./Podcast"
 
 export {
   ArticleTitle,
@@ -54,4 +57,7 @@ export {
   ConditionalRender,
   LessonNavigation,
   ModoAula,
+  Flashcards,
+  Quiz,
+  Podcast,
 }
