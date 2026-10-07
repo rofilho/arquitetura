@@ -2,8 +2,15 @@
 title: "🖥️ Aula - 01: Arquitetura e Organização de Computadores – Plano de Aulas"
 ---
 
+<div class="au-leitura" data-aula="a01">
 
-# 🖥️ Aula - 01: Arquitetura e Organização de Computadores – Plano de Aulas
+# 🖥️ Aula 01 — Arquitetura e Organização de Computadores – Plano de Aulas
+
+**Disciplina:** 90388 — Arquitetura e Organização de Computadores · Sistemas de Informação (curso 160) — Uniube<br>
+**Professor:** Romualdo Mathias Filho · **romualdo.filho@uniube.br**<br>
+**Semana:** 01 · 2026-1 · 16/02 e 17/02 · 📘 Teórica (75 min)<br>
+**Tópicos:** Plano de ensino, ementa, objetivos, conteúdo programático, sistema de avaliação e planejamento semanal da disciplina.<br>
+**Página de referência:** [Plano de Ensino e Contrato](./Plano-de-Ensino-e-Contrato)
 
 📄 **Ementa**
 A disciplina visa ao entendimento dos princípios básicos de funcionamento de um computador, abordando seus componentes (CPU, memória, barramentos, dispositivos de E/S), bem como o conjunto de instruções, ciclos de execução, pipeline, hierarquia de memória e aspectos de desempenho. O estudante desenvolverá a capacidade de analisar e relacionar conceitos de hardware e software, contribuindo para decisões de projeto e otimização.
@@ -60,12 +67,15 @@ A disciplina visa ao entendimento dos princípios básicos de funcionamento de u
 - **📝 Semana 19 (22/06 e 23/06):** **Avaliação N2** (Período: 18 a 27/06).
 - **Semana 20 (29/06 e 30/06):** Vista N2 e Encerramento.
 
-📘 **Referências Bibliográficas**
+<hr class="au-fim-aula">
 
-- **STALLINGS, W.** Arquitetura e Organização de Computadores. 11. ed. 2024.
-- **TANENBAUM, A. S.** Organização Estruturada de Computadores. 6. ed. 2013.
-- **CORRÊA, A. G. D.** Organização e arquitetura de computadores. 2016.
+<div class="au-refs">
+<b>Referências desta aula</b>
 
+- **STALLINGS, W.** *Arquitetura e Organização de Computadores.* 11. ed. 2024.
+- **TANENBAUM, A. S.** *Organização Estruturada de Computadores.* 6. ed. 2013.
+- **CORRÊA, A. G. D.** *Organização e arquitetura de computadores.* 2016.
 
+</div>
 
-
+</div>

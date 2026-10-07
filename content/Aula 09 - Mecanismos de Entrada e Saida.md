@@ -1,29 +1,16 @@
 ---
-disciplina: Arquitetura de Computadores
-codigo: "14188"
-aula: 9
-titulo: "Mecanismos de Entrada e Saída (E/S)"
-tipo: teorica
-semana: 9
-data: 2026-06-02
-status: publicado
-tags:
-  - arquitetura
-  - entrada-saida
-  - dma
-  - interrupcoes
-  - barramentos
-publicar: true
+title: "🖥️ Aula - 09: Mecanismos de Entrada e Saída (E/S)"
 ---
 
-# 🟢 Aula 09: Mecanismos de Entrada e Saída (E/S)
+<div class="au-leitura" data-aula="a09">
 
-**Disciplina:** Arquitetura de Computadores (Cód. 14188)
-**Curso:** Inteligência Artificial e Ciência de Dados — Uniube
-**Semana:** 9
-**Professor:** Romualdo Mathias Filho
-**Tipo:** 📘 Teórica
-**Tópicos:** Módulos de E/S, E/S Programada (Polling), Interrupções, DMA, Barramentos, Controladores.
+# 🖥️ Aula 09 — Mecanismos de Entrada e Saída (E/S)
+
+**Disciplina:** 90388 — Arquitetura e Organização de Computadores · Sistemas de Informação (curso 160) — Uniube<br>
+**Professor:** Romualdo Mathias Filho · **romualdo.filho@uniube.br**<br>
+**Semana:** 09 · 2026-1 · [CONFIRMAR data] · 📘 Teórica (75 min)<br>
+**Tópicos:** Módulos de E/S, E/S Programada (Polling), Interrupções, DMA, Barramentos, Controladores.<br>
+**Página de referência:** [Plano de Ensino e Contrato](./Plano-de-Ensino-e-Contrato)
 
 ---
 
@@ -67,8 +54,10 @@ Existe uma diferença brutal de velocidade entre o processador e os dispositivos
 
 Por isso, surgiram três estratégias progressivamente mais eficientes para gerenciar essa comunicação.
 
-![[assets/aula09_comparacao_es.png]]
-> *Legenda: Comparação visual dos três métodos de E/S — Polling, Interrupção e DMA. Fonte: Gerado por IA para fins didáticos.*
+<figure class="au-fig">
+<img src="assets/aula09_comparacao_es.png" alt="Comparação visual dos três métodos de E/S — Polling, Interrupção e DMA.">
+<figcaption class="au-legenda">Comparação visual dos três métodos de E/S — Polling, Interrupção e DMA. Fonte: Gerado por IA para fins didáticos.</figcaption>
+</figure>
 
 ---
 
@@ -206,11 +195,15 @@ O **Controlador de E/S** (ou Módulo de E/S) é um chip intermediário que tradu
 
 ---
 
-## 📚 Referências Bibliográficas e Citações
+<hr class="au-fim-aula">
+
+<div class="au-refs">
+<b>Referências desta aula</b>
 
 - **STALLINGS, William.** *Arquitetura e Organização de Computadores: projetando com foco em desempenho*. 11ª ed. Pearson, 2024. **(Capítulo 7: Entrada/Saída — pp. 240–290)**. Abrange E/S Programada, E/S por Interrupção, DMA e Barramentos.
 - **TANENBAUM, Andrew S.** *Organização Estruturada de Computadores*. 6ª ed. Pearson, 2013. **(Capítulo 3: Nível de Lógica Digital — pp. 180–220)**. Apresenta a arquitetura dos barramentos e controladores de dispositivos.
 - **PATTERSON, David A.; HENNESSY, John L.** *Organização e Projeto de Computadores: A Interface Hardware/Software*. 5ª ed. Elsevier, 2014. **(Apêndice D: Armazenamento, Redes e Outros Tópicos de E/S — pp. D1–D50)**. Análise quantitativa do impacto de E/S no desempenho de sistemas.
 
----
-*Última atualização: 2026-05-18 | Status: publicado*
+</div>
+
+</div>

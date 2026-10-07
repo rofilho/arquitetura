@@ -1,11 +1,20 @@
-﻿---
+---
 title: "🖥️ Aula - 02: Fundamentos da Organização de Computadores"
 ---
 
+<div class="au-leitura" data-aula="a02">
 
-# 🖥️ Aula - 02: Fundamentos da Organização de Computadores
+# 🖥️ Aula 02 — Fundamentos da Organização de Computadores
 
-# 🖥️ Aula - 02: Fundamentos da Organização de Computadores
+**Disciplina:** 90388 — Arquitetura e Organização de Computadores · Sistemas de Informação (curso 160) — Uniube<br>
+**Professor:** Romualdo Mathias Filho · **romualdo.filho@uniube.br**<br>
+**Semana:** 02 · 2026-1 · [CONFIRMAR data] · 📘 Teórica (75 min)<br>
+**Tópicos:** CPU, Memória e E/S, Fluxo Entrada → Processamento → Saída, Armazenamento, Barramento, Visão Sistêmica<br>
+**Página de referência:** [Plano de Ensino e Contrato](./Plano-de-Ensino-e-Contrato)
+
+---
+
+## 🎯 Objetivo da Aula
 
 Ao final, o aluno deve:
 
@@ -20,9 +29,7 @@ Base conceitual alinhada com:
 
 ---
 
-# 🖥️ Aula - 02: Fundamentos da Organização de Computadores
-
-# 🖥️ Aula - 02: Fundamentos da Organização de Computadores
+## 🔄 Fluxo Fundamental
 
 Entrada → Processamento → Saída
 
@@ -30,7 +37,7 @@ Entrada → Processamento → Saída
 
 ---
 
-# 🖥️ Aula - 02: Fundamentos da Organização de Computadores
+## 📌 Ancoragem Visual
 
 [ Entrada ] → [ Processamento ] → [ Saída ]
 
@@ -39,9 +46,7 @@ Entrada → Processamento → Saída
 
 ---
 
-# 🖥️ Aula - 02: Fundamentos da Organização de Computadores
-
-# 🖥️ Aula - 02: Fundamentos da Organização de Computadores
+## 📌 CPU
 
 Função:
 
@@ -67,7 +72,7 @@ Cozinheiro executando uma receita.
 
 ---
 
-# 🖥️ Aula - 02: Fundamentos da Organização de Computadores
+## 📌 Memória RAM
 
 Função:
 
@@ -85,7 +90,7 @@ Bancada da cozinha.
 
 ---
 
-# 🖥️ Aula - 02: Fundamentos da Organização de Computadores
+## 📌 Formato Físico da Memória
 
 ![[assets/image 4.png]]
 
@@ -100,17 +105,17 @@ Objetivo:
 
 ---
 
-# 🖥️ Aula - 02: Fundamentos da Organização de Computadores
+## 📌 Entrada, Saída e Armazenamento
 
-# 🖥️ Aula - 02: Fundamentos da Organização de Computadores
+### Entrada
 
 Teclado, mouse, microfone.
 
-# 🖥️ Aula - 02: Fundamentos da Organização de Computadores
+### Saída
 
 Monitor, projetor, caixas de som.
 
-# 🖥️ Aula - 02: Fundamentos da Organização de Computadores
+### Armazenamento
 
 HD ou SSD.
 
@@ -120,12 +125,14 @@ Guardar dados permanentemente.
 
 ---
 
-# 🖥️ Aula - 02: Fundamentos da Organização de Computadores
+## 📌 Exemplos Reais
 
 - Pente de RAM
 - SSD NVMe
 
 ---
+
+## 📌 Barramento
 
 Definição:
 
@@ -137,7 +144,7 @@ Rodovia de dados.
 
 ---
 
-# 🖥️ Aula - 02: Fundamentos da Organização de Computadores
+## 📌 Diagrama de Interconexão
 
 ![[assets/image 7.png]]
 
@@ -172,7 +179,7 @@ Ainda não é o momento.
 
 ---
 
-# 🖥️ Aula - 02: Fundamentos da Organização de Computadores
+## 📋 Resumo Estrutural
 
 | Componente | Função | Exemplo Real |
 | --- | --- | --- |
@@ -184,20 +191,29 @@ Ainda não é o momento.
 
 ---
 
-# 🖥️ Aula - 02: Fundamentos da Organização de Computadores
-
-# 🖥️ Aula - 02: Fundamentos da Organização de Computadores
+## 📌 Identificação na Placa-Mãe
 
 - Memória RAM
 - Conectores de E/S
 
 ![[assets/image 8.png]]
 
-# 🖥️ Aula - 02: Fundamentos da Organização de Computadores
+### Referência de Base
 
 - **Obra:** *Arquitetura e organização de computadores: projetando com foco em desempenho* (11ª Edição, 2024).
 - **Capítulo 1 (Introdução):** A seção de "Estrutura e Função" define exatamente a visão de alto nível apresentada no diagrama, separando o computador em CPU, Memória Principal e Entrada/Saída.
 - **Capítulo 2 (Evolução e Desempenho do Computador):** Apresenta o projeto arquitetônico da Máquina de Von Neumann, consolidando o conceito de programa armazenado e o fluxo de busca e execução.
 
+---
 
+<hr class="au-fim-aula">
 
+<div class="au-refs">
+<b>Referências desta aula</b>
+
+- **STALLINGS, William**, *Arquitetura e Organização de Computadores: projetando com foco em desempenho*. 11ª ed. Pearson, 2024. **(Capítulo 1: Introdução — Estrutura e Função; Capítulo 2: Evolução e Desempenho do Computador)**.
+- **TANENBAUM, Andrew S.**, *Organização Estruturada de Computadores*. Pearson. **(Fundamentos: CPU, Memória e Entrada/Saída)**.
+
+</div>
+
+</div>
