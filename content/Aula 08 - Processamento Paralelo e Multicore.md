@@ -1,28 +1,16 @@
 ---
-disciplina: Arquitetura de Computadores
-codigo: "14188"
-aula: 8
-titulo: "Processamento Paralelo, Multicore e Distribuído"
-tipo: teorica
-semana: 8
-data: 2026-05-25
-status: publicado
-tags:
-  - arquitetura
-  - multicore
-  - paralelo
-  - distribuido
-publicar: true
+title: "🖥️ Aula - 08: Processamento Paralelo, Multicore e Distribuído"
 ---
 
-# 🟢 Aula 08: Processamento Paralelo, Multicore e Distribuído
+<div class="au-leitura" data-aula="a08">
 
-**Disciplina:** Arquitetura de Computadores
-**Curso:** Inteligência Artificial e Ciência de Dados — Uniube
-**Semana:** 8
-**Professor:** Romualdo Mathias Filho
-**Tipo:** 📘 Teórica
-**Tópicos:** Processamento Paralelo, Processamento Multicore, Diferenças para Pipeline, Processamento Distribuído.
+# 🖥️ Aula 08 — Processamento Paralelo, Multicore e Distribuído
+
+**Disciplina:** 90388 — Arquitetura e Organização de Computadores · Sistemas de Informação (curso 160) — Uniube<br>
+**Professor:** Romualdo Mathias Filho · **romualdo.filho@uniube.br**<br>
+**Semana:** 08 · 2026-1 · [CONFIRMAR data] · 📘 Teórica (75 min)<br>
+**Tópicos:** Processamento Paralelo, Processamento Multicore, Diferenças para Pipeline, Processamento Distribuído<br>
+**Página de referência:** [Plano de Ensino e Contrato](./Plano-de-Ensino-e-Contrato)
 
 ---
 
@@ -106,6 +94,7 @@ A computação encontrou várias maneiras de fazer as coisas ao mesmo tempo. É 
 | **Sincronização** | O desafio de coordenar múltiplos núcleos para que não acessem e corrompam o mesmo dado na memória ao mesmo tempo. |
 
 ---
+
 ## 📄 Artigo de Aprofundamento
 
 - [What is Multicore Processor? (GeeksforGeeks)](https://www.geeksforgeeks.org/multicore-processors/)
@@ -113,10 +102,14 @@ A computação encontrou várias maneiras de fazer as coisas ao mesmo tempo. É 
 
 ---
 
-## 📚 Referências Bibliográficas e Citações
+<hr class="au-fim-aula">
+
+<div class="au-refs">
+<b>Referências desta aula</b>
 
 - **STALLINGS, William**, *Arquitetura e Organização de Computadores: projetando com foco em desempenho*. 11ª ed. Pearson, 2024. **(Capítulo 18: Processamento Paralelo e Computadores Multicore — p. 608–645)**.
 - **PATTERSON, David A.; HENNESSY, John L.**, *Organização e Projeto de Computadores: A Interface Hardware/Software*. 5ª ed. Elsevier, 2014. **(Capítulo 6: Processadores Paralelos de Dados em Nível de Thread — p. 500–550)**.
 
----
-*Última atualização: 2026-05-18 | Status: publicado*
+</div>
+
+</div>

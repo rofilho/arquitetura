@@ -1,29 +1,16 @@
 ---
-disciplina: Arquitetura de Computadores
-codigo: "ARQ-01"
-aula: 6
-titulo: "Hierarquia de Memória e Memória Virtual"
-tipo: teorica
-semana: 6
-data: 2026-03-23
-status: publicado
-tags:
-  - arquitetura
-  - memoria
-  - cache
-  - ram
-  - paginacao
-publicar: true
+title: "🖥️ Aula - 06: Hierarquia de Memória e Memória Virtual"
 ---
 
-# 🟢 Aula 06: Hierarquia de Memória e Memória Virtual
+<div class="au-leitura" data-aula="a06">
 
-**Disciplina:** Arquitetura de Computadores (Cód. ARQ-01)
-**Curso:** Inteligência Artificial e Ciência de Dados, Uniube
-**Semana:** 6 | 23/03/2026
-**Professor:** Romualdo Mathias Filho
-**Tipo:** 📘 Teórica
-**Tópicos:** Registradores, Cache L1/L2/L3, RAM, Memória Secundária, Memória Virtual, Paginação.
+# 🖥️ Aula 06 — Hierarquia de Memória e Memória Virtual
+
+**Disciplina:** 90388 — Arquitetura e Organização de Computadores · Sistemas de Informação (curso 160) — Uniube<br>
+**Professor:** Romualdo Mathias Filho · **romualdo.filho@uniube.br**<br>
+**Semana:** 06 · 2026-1 · [CONFIRMAR data] · 📘 Teórica (75 min)<br>
+**Tópicos:** Registradores, Cache L1/L2/L3, RAM, Memória Secundária, Memória Virtual, Paginação<br>
+**Página de referência:** [Plano de Ensino e Contrato](./Plano-de-Ensino-e-Contrato)
 
 ---
 
@@ -227,6 +214,7 @@ sequenceDiagram
 | **Thrashing** | Degradação extrema de desempenho causada por excesso de Page Faults e Swapping contínuo. |
 
 ---
+
 ## 📄 Artigo de Aprofundamento
 
 - [What is Virtual Memory? (Red Hat — En)](https://www.redhat.com/en/blog/what-virtual-memory)
@@ -234,10 +222,14 @@ sequenceDiagram
 
 ---
 
-## 📚 Referências Bibliográficas
+<hr class="au-fim-aula">
+
+<div class="au-refs">
+<b>Referências desta aula</b>
 
 - **STALLINGS, William**, *Arquitetura e Organização de Computadores: projetando com foco em desempenho*. 11ª ed. Pearson, 2024. **(Capítulo 4: Memória Cache — p. 132–170; Capítulo 8: Memória Principal — p. 250–285)**.
 - **TANENBAUM, Andrew S.**, *Sistemas Operacionais Modernos*. 4ª ed. Pearson, 2015. **(Capítulo 3: Gerenciamento de Memória — Páginas e Memória Virtual — p. 193–267)**.
 
----
-*Última atualização: 2026-05-20 | Status: publicado*
+</div>
+
+</div>

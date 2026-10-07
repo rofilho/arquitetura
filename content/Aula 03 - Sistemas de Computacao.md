@@ -1,18 +1,27 @@
-﻿---
+---
 title: "🖥️ Aula - 03: Sistemas de Computação"
 ---
 
+<div class="au-leitura" data-aula="a03">
 
-# 🖥️ Aula - 03: Sistemas de Computação
+# 🖥️ Aula 03 — Sistemas de Computação
 
-# 🖥️ Aula - 03: Sistemas de Computação
+**Disciplina:** 90388 — Arquitetura e Organização de Computadores · Sistemas de Informação (curso 160) — Uniube<br>
+**Professor:** Romualdo Mathias Filho · **romualdo.filho@uniube.br**<br>
+**Semana:** 03 · 2026-1 · [CONFIRMAR data] · 📘 Teórica (75 min)<br>
+**Tópicos:** Tipos de Sistemas de Computação, Sistemas Embarcados, Sistemas de Tempo Real, Sistemas Distribuídos<br>
+**Página de referência:** [Plano de Ensino e Contrato](./Plano-de-Ensino-e-Contrato)
+
+---
+
+## 🎯 Objetivo da Aula
 
 Ao final, o aluno deve:
 
-- **Classificar** os principais tipos de sistemas de computação
-- **Diferenciar** sistemas embarcados, de tempo real e distribuídos
-- **Identificar** exemplos reais de cada categoria no cotidiano
-- **Relacionar** a arquitetura de hardware com o propósito de cada sistema
+- **Classificar** os principais tipos de sistemas de computação
+- **Diferenciar** sistemas embarcados, de tempo real e distribuídos
+- **Identificar** exemplos reais de cada categoria no cotidiano
+- **Relacionar** a arquitetura de hardware com o propósito de cada sistema
 
 Base conceitual alinhada com:
 
@@ -21,11 +30,9 @@ Base conceitual alinhada com:
 
 ---
 
-# 🖥️ Aula - 03: Sistemas de Computação
+## 🔄 Revisão Rápida
 
-# 🖥️ Aula - 03: Sistemas de Computação
-
-Na aula anterior, identificamos os **três pilares do hardware**:
+Na aula anterior, identificamos os **três pilares do hardware**:
 
 | **Componente** | **Função** |
 | --- | --- |
@@ -33,16 +40,14 @@ Na aula anterior, identificamos os **três pilares do hardware**:
 | **Memória (RAM)** | Armazenamento temporário de programas e dados |
 | **E/S** | Interface com o mundo externo |
 
-> **Mensagem-chave:** esses três blocos estão presentes em **todo** sistema computacional, do menor microcontrolador ao maior data center. O que muda é a **escala**, o **propósito** e a **organização** desses componentes.
+> **Mensagem-chave:** esses três blocos estão presentes em **todo** sistema computacional, do menor microcontrolador ao maior data center. O que muda é a **escala**, o **propósito** e a **organização** desses componentes.
 > 
 
 ---
 
-# 🖥️ Aula - 03: Sistemas de Computação
+## 📌 1. Classificação dos Sistemas de Computação
 
-# 🖥️ Aula - 03: Sistemas de Computação
-
-Tanenbaum organiza os computadores em categorias com base em **porte**, **custo** e **finalidade**:
+Tanenbaum organiza os computadores em categorias com base em **porte**, **custo** e **finalidade**:
 
 | **Categoria** | **Descrição** | **Exemplo** |
 | --- | --- | --- |
@@ -52,7 +57,7 @@ Tanenbaum organiza os computadores em categorias com base em **porte**, **cust
 | **Mainframes** | Processamento massivo de transações empresariais | IBM zSeries |
 | **Supercomputadores** | Alto desempenho para cálculos científicos extremos | Fugaku, Frontier |
 
-> A diferença entre essas categorias **não é apenas potência**. É uma combinação de **requisitos de confiabilidade** (um mainframe bancário não pode parar), **throughput vs. latência** (supercomputadores priorizam throughput, embarcados priorizam latência) e **custo por operação** (microcontroladores custam centavos, supercomputadores custam milhões).
+> A diferença entre essas categorias **não é apenas potência**. É uma combinação de **requisitos de confiabilidade** (um mainframe bancário não pode parar), **throughput vs. latência** (supercomputadores priorizam throughput, embarcados priorizam latência) e **custo por operação** (microcontroladores custam centavos, supercomputadores custam milhões).
 > 
 
 ---
@@ -63,19 +68,17 @@ Tanenbaum organiza os computadores em categorias com base em **porte**, **cust
 
 ---
 
-# 🖥️ Aula - 03: Sistemas de Computação
+## 📌 2. Sistemas Embarcados
 
-# 🖥️ Aula - 03: Sistemas de Computação
+Um **sistema embarcado** é um computador projetado para executar uma **função dedicada** dentro de um sistema maior. Possui hardware e software otimizados para uma tarefa específica.
 
-Um **sistema embarcado** é um computador projetado para executar uma **função dedicada** dentro de um sistema maior. Possui hardware e software otimizados para uma tarefa específica.
+**Stallings (Cap. 2):** referencia a evolução dos microprocessadores que tornaram os sistemas embarcados viáveis, passando de circuitos dedicados para microcontroladores programáveis com arquitetura Von Neumann miniaturizada.
 
-**Stallings (Cap. 2):** referencia a evolução dos microprocessadores que tornaram os sistemas embarcados viáveis, passando de circuitos dedicados para microcontroladores programáveis com arquitetura Von Neumann miniaturizada.
-
-**Tanenbaum (Cap. 1.3):** classifica microcontroladores como a faixa mais baixa do "zoológico", mas enfatiza que são os computadores **mais numerosos do planeta**: bilhões de unidades em circulação.
+**Tanenbaum (Cap. 1.3):** classifica microcontroladores como a faixa mais baixa do "zoológico", mas enfatiza que são os computadores **mais numerosos do planeta**: bilhões de unidades em circulação.
 
 ---
 
-# 🖥️ Aula - 03: Sistemas de Computação
+### Características dos Sistemas Embarcados
 
 | **Característica** | **Detalhe** |
 | --- | --- |
@@ -88,13 +91,13 @@ Um **sistema embarcado** é um computador projetado para executar uma **funç
 
 ---
 
-# 🖥️ Aula - 03: Sistemas de Computação
+### Exemplos de Sistemas Embarcados
 
-- **Automotivo:** controle do motor (ECU), ABS, airbag
-- **Eletrodomésticos:** micro-ondas, máquina de lavar, ar-condicionado
-- **Saúde:** marca-passo, bomba de insulina, medidor de glicose
-- **Infraestrutura:** semáforos, catracas de metrô, leitores de cartão
-- **IoT (Internet das Coisas):** sensores de temperatura, fechaduras inteligentes, lâmpadas smart
+- **Automotivo:** controle do motor (ECU), ABS, airbag
+- **Eletrodomésticos:** micro-ondas, máquina de lavar, ar-condicionado
+- **Saúde:** marca-passo, bomba de insulina, medidor de glicose
+- **Infraestrutura:** semáforos, catracas de metrô, leitores de cartão
+- **IoT (Internet das Coisas):** sensores de temperatura, fechaduras inteligentes, lâmpadas smart
 
 ![[assets/microcontrolador_legendas_1773619396550.png]]
 
@@ -102,36 +105,32 @@ Um **sistema embarcado** é um computador projetado para executar uma **funç
 
 ---
 
-# 🖥️ Aula - 03: Sistemas de Computação
-
-> O sistema embarcado é como um **especialista**: faz uma coisa só, mas faz com excelência, usando o mínimo de recursos. Não navega na internet, não abre planilhas, mas controla o motor do seu carro a 6.000 RPM sem falhar.
+> O sistema embarcado é como um **especialista**: faz uma coisa só, mas faz com excelência, usando o mínimo de recursos. Não navega na internet, não abre planilhas, mas controla o motor do seu carro a 6.000 RPM sem falhar.
 > 
 
 ---
 
-# 🖥️ Aula - 03: Sistemas de Computação
+## 📌 3. Sistemas de Tempo Real
 
-# 🖥️ Aula - 03: Sistemas de Computação
+Um **sistema de tempo real** é aquele no qual a **correção da resposta** depende não apenas do resultado lógico, mas também do **tempo** em que o resultado é produzido.
 
-Um **sistema de tempo real** é aquele no qual a **correção da resposta** depende não apenas do resultado lógico, mas também do **tempo** em que o resultado é produzido.
-
-**Stallings (Cap. 1):** aborda sistemas de tempo real no contexto de sistemas operacionais de tempo real (RTOS), onde o escalonamento de tarefas deve respeitar prazos rígidos.
+**Stallings (Cap. 1):** aborda sistemas de tempo real no contexto de sistemas operacionais de tempo real (RTOS), onde o escalonamento de tarefas deve respeitar prazos rígidos.
 
 ---
 
-# 🖥️ Aula - 03: Sistemas de Computação
+### Hard vs Soft Real-Time
 
 | **Tipo** | **Consequência do Atraso** | **Exemplo** |
 | --- | --- | --- |
 | **Hard Real-Time** | Falha catastrófica (perda de vida, destruição de equipamento) | Airbag, sistema de pouso de aeronave, marca-passo |
 | **Soft Real-Time** | Degradação de qualidade (aceitável em certos limites) | Streaming de vídeo, videochamada, jogos online |
 
-> A diferença entre Hard e Soft **não é velocidade**. É a **consequência do descumprimento do prazo**: **Hard** significa que prazo perdido = sistema falhou. **Soft** significa que prazo perdido = qualidade degradada, mas o sistema continua.
+> A diferença entre Hard e Soft **não é velocidade**. É a **consequência do descumprimento do prazo**: **Hard** significa que prazo perdido = sistema falhou. **Soft** significa que prazo perdido = qualidade degradada, mas o sistema continua.
 > 
 
 ---
 
-# 🖥️ Aula - 03: Sistemas de Computação
+### Arquitetura de Malha Fechada
 
 ```
 
@@ -140,10 +139,10 @@ Um **sistema de tempo real** é aquele no qual a **correção da resposta** 
       └────────── Feedback (malha fechada) ─────────┘
 ```
 
-- **Sensores:** captam dados do ambiente (temperatura, velocidade, pressão)
-- **Controlador:** processa dados dentro do prazo (deadline)
-- **Atuadores:** executam a ação física (abrir válvula, acionar freio)
-- **RTOS:** sistema operacional que garante escalonamento com prazos (ex: FreeRTOS, VxWorks)
+- **Sensores:** captam dados do ambiente (temperatura, velocidade, pressão)
+- **Controlador:** processa dados dentro do prazo (deadline)
+- **Atuadores:** executam a ação física (abrir válvula, acionar freio)
+- **RTOS:** sistema operacional que garante escalonamento com prazos (ex: FreeRTOS, VxWorks)
 
 ---
 
@@ -153,7 +152,7 @@ Um **sistema de tempo real** é aquele no qual a **correção da resposta** 
 
 ---
 
-# 🖥️ Aula - 03: Sistemas de Computação
+### Exemplos de Sistemas de Tempo Real
 
 | **Setor** | **Sistema** | **Tipo** |
 | --- | --- | --- |
@@ -166,26 +165,22 @@ Um **sistema de tempo real** é aquele no qual a **correção da resposta** 
 
 ---
 
-# 🖥️ Aula - 03: Sistemas de Computação
-
-> Imagine um **goleiro defendendo um pênalti**: ele precisa dar a resposta certa (direção correta) **no tempo certo** (antes da bola chegar). Se acertar a direção mas reagir 1 segundo atrasado, a resposta correta é inútil. Isso é tempo real.
+> Imagine um **goleiro defendendo um pênalti**: ele precisa dar a resposta certa (direção correta) **no tempo certo** (antes da bola chegar). Se acertar a direção mas reagir 1 segundo atrasado, a resposta correta é inútil. Isso é tempo real.
 > 
 
 ---
 
-# 🖥️ Aula - 03: Sistemas de Computação
+## 📌 4. Sistemas Distribuídos
 
-# 🖥️ Aula - 03: Sistemas de Computação
+Um **sistema distribuído** é um conjunto de computadores independentes que se comunicam por rede e se apresentam ao usuário como um **sistema único e coerente**.
 
-Um **sistema distribuído** é um conjunto de computadores independentes que se comunicam por rede e se apresentam ao usuário como um **sistema único e coerente**.
+**Tanenbaum (Sistemas Distribuídos, Princípios e Paradigmas):** define que a transparência é o objetivo central: o usuário não percebe que está interagindo com múltiplas máquinas.
 
-**Tanenbaum (Sistemas Distribuídos, Princípios e Paradigmas):** define que a transparência é o objetivo central: o usuário não percebe que está interagindo com múltiplas máquinas.
-
-**Stallings (Cap. 2):** contextualiza os sistemas distribuídos dentro da evolução das arquiteturas, onde o desempenho escala horizontalmente (mais máquinas) ao invés de verticalmente (máquina mais potente).
+**Stallings (Cap. 2):** contextualiza os sistemas distribuídos dentro da evolução das arquiteturas, onde o desempenho escala horizontalmente (mais máquinas) ao invés de verticalmente (máquina mais potente).
 
 ---
 
-# 🖥️ Aula - 03: Sistemas de Computação
+### Características dos Sistemas Distribuídos
 
 | **Característica** | **Descrição** |
 | --- | --- |
@@ -197,7 +192,7 @@ Um **sistema distribuído** é um conjunto de computadores independentes que s
 
 ---
 
-# 🖥️ Aula - 03: Sistemas de Computação
+### Topologia de um Sistema Distribuído
 
 ```
 
@@ -220,7 +215,7 @@ Um **sistema distribuído** é um conjunto de computadores independentes que s
 
 ---
 
-# 🖥️ Aula - 03: Sistemas de Computação
+### Exemplos de Sistemas Distribuídos
 
 | **Sistema** | **Como funciona** | **O que o usuário vê** |
 | --- | --- | --- |
@@ -238,14 +233,12 @@ Um **sistema distribuído** é um conjunto de computadores independentes que s
 
 ---
 
-# 🖥️ Aula - 03: Sistemas de Computação
-
-> Um sistema distribuído é como uma **rede de restaurantes franqueados**: cada unidade opera de forma independente, com seus próprios funcionários e cozinha, mas o cliente percebe uma experiência unificada (cardápio, identidade visual, padrão de atendimento). Se uma unidade fecha, as outras continuam funcionando.
+> Um sistema distribuído é como uma **rede de restaurantes franqueados**: cada unidade opera de forma independente, com seus próprios funcionários e cozinha, mas o cliente percebe uma experiência unificada (cardápio, identidade visual, padrão de atendimento). Se uma unidade fecha, as outras continuam funcionando.
 > 
 
 ---
 
-# 🖥️ Aula - 03: Sistemas de Computação
+## 📊 Quadro Comparativo
 
 | **Critério** | **Embarcado** | **Tempo Real** | **Distribuído** |
 | --- | --- | --- | --- |
@@ -257,14 +250,12 @@ Um **sistema distribuído** é um conjunto de computadores independentes que s
 | **Exemplo síntese** | Controle de micro-ondas | ABS de um carro | Google Search |
 | **Sobreposição** | Pode ser tempo real | Pode ser embarcado | Pode conter embarcados e RT |
 
-> Essas categorias **não são mutuamente exclusivas**. Um sistema pode ser **embarcado E de tempo real** (ex: ECU do motor). Um sistema distribuído pode conter nós que são embarcados e de tempo real (ex: frota de drones autônomos coordenados).
+> Essas categorias **não são mutuamente exclusivas**. Um sistema pode ser **embarcado E de tempo real** (ex: ECU do motor). Um sistema distribuído pode conter nós que são embarcados e de tempo real (ex: frota de drones autônomos coordenados).
 > 
 
 ---
 
-# 🖥️ Aula - 03: Sistemas de Computação
-
-# 🖥️ Aula - 03: Sistemas de Computação
+## 📌 5. Tendências Atuais
 
 | **Tendência** | **Descrição** | **Relação com a Aula** |
 | --- | --- | --- |
@@ -280,7 +271,7 @@ Um **sistema distribuído** é um conjunto de computadores independentes que s
 
 ---
 
-# 🖥️ Aula - 03: Sistemas de Computação
+## 📋 Resumo Estrutural
 
 | **Conceito** | **Definição em uma frase** |
 | --- | --- |
@@ -293,18 +284,16 @@ Um **sistema distribuído** é um conjunto de computadores independentes que s
 
 ---
 
-# 🖥️ Aula - 03: Sistemas de Computação
+## 🧩 Atividade em Sala
 
-# 🖥️ Aula - 03: Sistemas de Computação
-
-**Formato:** Aprendizagem Baseada em Problemas (PBL)
+**Formato:** Aprendizagem Baseada em Problemas (PBL)
 
 **Instrução para os alunos:**
 
 Para cada cenário abaixo, identifique:
 
-1. O **tipo de sistema** (Embarcado, Tempo Real, Distribuído, ou combinação)
-2. Se tempo real, classifique como **Hard ou Soft**
+1. O **tipo de sistema** (Embarcado, Tempo Real, Distribuído, ou combinação)
+2. Se tempo real, classifique como **Hard ou Soft**
 3. Justifique com base nos conceitos da aula
 
 | **#** | **Cenário** | **Resposta Esperada** |
@@ -319,9 +308,9 @@ Para cada cenário abaixo, identifique:
 
 ---
 
-# 🖥️ Aula - 03: Sistemas de Computação
+## 🏠 Tarefa para Casa
 
-**Para casa:** Pesquisar e trazer para a próxima aula **um exemplo real do cotidiano** que combine os três tipos (embarcado + tempo real + distribuído). O aluno deve:
+**Para casa:** Pesquisar e trazer para a próxima aula **um exemplo real do cotidiano** que combine os três tipos (embarcado + tempo real + distribuído). O aluno deve:
 
 - Descrever o sistema
 - Identificar os componentes de hardware (CPU, Memória, E/S)
@@ -330,33 +319,7 @@ Para cada cenário abaixo, identifique:
 
 ---
 
-# 🖥️ Aula - 03: Sistemas de Computação
-
-# 🖥️ Aula - 03: Sistemas de Computação
-
-- **STALLINGS, W.** *Arquitetura e Organização de Computadores: projetando com foco em desempenho.* 11ª ed. São Paulo: Pearson, 2024.
-    - **Capítulo 2:** Evolução e Desempenho do Computador, seção sobre evolução dos microprocessadores e tipos de sistemas.
-    - **Capítulo 1:** Introdução, seção sobre Estrutura e Função.
-- **TANENBAUM, A. S.** *Organização Estruturada de Computadores.* 6ª ed. São Paulo: Pearson, 2013.
-    - **Capítulo 1, Seção 1.3:** "O Zoológico dos Computadores", com classificação: microcontroladores, PCs, servidores, mainframes.
-- **CORRÊA, A. G. D.** *Organização e Arquitetura de Computadores.* São Paulo: Pearson, 2016.
-
-# 🖥️ Aula - 03: Sistemas de Computação
-
-- **TANENBAUM, A. S.; VAN STEEN, M.** *Sistemas Distribuídos: Princípios e Paradigmas.* 2ª ed. São Paulo: Pearson, 2007.
-    - Definição formal de sistema distribuído e propriedades de transparência.
-- **MARWEDEL, P.** *Embedded System Design: Embedded Systems Foundations of Cyber-Physical Systems and the Internet of Things.* 4th ed. Springer, 2021.
-    - Referência avançada sobre projeto de sistemas embarcados e sua relação com IoT.
-- **KOPETZ, H.** *Real-Time Systems: Design Principles for Distributed Embedded Applications.* 2nd ed. Springer, 2011.
-    - Referência clássica sobre sistemas de tempo real, incluindo a distinção Hard/Soft e o conceito de malha fechada.
-- **BONOMI, F. et al.** "Fog Computing and Its Role in the Internet of Things." *Proceedings of the First Edition of the MCC Workshop on Mobile Cloud Computing (MCC '12)*, ACM, 2012, pp. 13-16.
-    - Artigo seminal que introduziu o conceito de Fog Computing.
-- **SHI, W.; DUSTDAR, S.** "The Promise of Edge Computing." *IEEE Computer*, vol. 49, no. 5, 2016, pp. 78-81.
-    - Artigo introdutório sobre Edge Computing e suas aplicações em IoT.
-
----
-
-# 🖥️ Aula - 03: Sistemas de Computação
+## 🔗 Recursos Complementares
 
 | **Recurso** | **Descrição** | **Link** |
 | --- | --- | --- |
@@ -365,5 +328,22 @@ Para cada cenário abaixo, identifique:
 | AWS IoT | Plataforma de IoT na nuvem | aws.amazon.com/iot |
 | RISC-V Foundation | Arquitetura aberta de instruções | riscv.org |
 
+---
 
+<hr class="au-fim-aula">
 
+<div class="au-refs">
+<b>Referências desta aula</b>
+
+- **STALLINGS, W.** *Arquitetura e Organização de Computadores: projetando com foco em desempenho.* 11ª ed. São Paulo: Pearson, 2024. **(Capítulo 2:** Evolução e Desempenho do Computador, seção sobre evolução dos microprocessadores e tipos de sistemas; **Capítulo 1:** Introdução, seção sobre Estrutura e Função).
+- **TANENBAUM, A. S.** *Organização Estruturada de Computadores.* 6ª ed. São Paulo: Pearson, 2013. **(Capítulo 1, Seção 1.3:** "O Zoológico dos Computadores", com classificação: microcontroladores, PCs, servidores, mainframes).
+- **CORRÊA, A. G. D.** *Organização e Arquitetura de Computadores.* São Paulo: Pearson, 2016.
+- **TANENBAUM, A. S.; VAN STEEN, M.** *Sistemas Distribuídos: Princípios e Paradigmas.* 2ª ed. São Paulo: Pearson, 2007. (Definição formal de sistema distribuído e propriedades de transparência).
+- **MARWEDEL, P.** *Embedded System Design: Embedded Systems Foundations of Cyber-Physical Systems and the Internet of Things.* 4th ed. Springer, 2021. (Referência avançada sobre projeto de sistemas embarcados e sua relação com IoT).
+- **KOPETZ, H.** *Real-Time Systems: Design Principles for Distributed Embedded Applications.* 2nd ed. Springer, 2011. (Referência clássica sobre sistemas de tempo real, incluindo a distinção Hard/Soft e o conceito de malha fechada).
+- **BONOMI, F. et al.** "Fog Computing and Its Role in the Internet of Things." *Proceedings of the First Edition of the MCC Workshop on Mobile Cloud Computing (MCC '12)*, ACM, 2012, pp. 13-16. (Artigo seminal que introduziu o conceito de Fog Computing).
+- **SHI, W.; DUSTDAR, S.** "The Promise of Edge Computing." *IEEE Computer*, vol. 49, no. 5, 2016, pp. 78-81. (Artigo introdutório sobre Edge Computing e suas aplicações em IoT).
+
+</div>
+
+</div>

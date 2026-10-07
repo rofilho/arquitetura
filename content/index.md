@@ -1,263 +1,141 @@
 ---
 title: "💻 Arquitetura de Computadores"
-cssclasses:
-  - dashboard-layout
 ---
 
 <style>
-/* ── Oculta elementos padrão do Quartz nesta página ── */
-.sidebar, .page-header, .article-title, .content-meta, footer,
-.lesson-nav { display: none !important; }
-
-/* ── Reset total de largura ── */
-html, body, #quartz-root, #quartz-body, .page, .center, .center-content, article {
-  display: block !important;
-  max-width: 100% !important;
-  width: 100% !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  overflow-x: hidden;
+/* Índice em modo vitrine: o hero JÁ é o título, então o .article-title do
+   Quartz duplicaria; e "modificado em" não diz nada numa capa de disciplina.
+   O <style> mora dentro do <article>, que o Quartz troca inteiro ao navegar
+   (enableSPA) — por isso a regra não escapa para as páginas de aula. */
+.article-title,
+.content-meta {
+  display: none;
 }
-
-/* ── Container principal ── */
-.dashboard-container {
-  font-family: 'Outfit', sans-serif;
-  background-color: #0f172a;
-  color: #f1f5f9;
-  padding: 2rem 5%;
-  min-height: 100vh;
-  box-sizing: border-box;
-  width: 100%;
-}
-:root[saved-theme="light"] .dashboard-container {
-  background-color: #f8fafc;
-  color: #1e293b;
-}
-
-/* ── Hero banner ── */
-.hero {
-  position: relative;
-  height: 350px;
-  display: flex;
-  align-items: center;
-  padding: 2rem 3rem;
-  background-image:
-    linear-gradient(to right, rgba(15,23,42,0.95) 0%, rgba(15,23,42,0.6) 40%, transparent 100%),
-    url('assets/hero.png');
-  background-size: cover;
-  background-position: center;
-  border-radius: 16px;
-  margin-bottom: 3rem;
-  color: white;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-  overflow: hidden;
-}
-
-.tag {
-  display: inline-block;
-  padding: 4px 12px;
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 600;
-  color: white;
-  margin-bottom: 12px;
-}
-.hero h1 { font-size: 38px; margin: 0 0 10px; line-height: 1.1; color: white !important; -webkit-text-fill-color: white !important; }
-.hero p  { font-size: 15px; color: #cbd5e1; max-width: 500px; margin-bottom: 20px; }
-.btn {
-  padding: 10px 24px;
-  font-size: 15px;
-  font-weight: 600;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  transition: all 0.2s ease;
-  background: white;
-  color: #0f172a;
-}
-.btn:hover { background: #f1f5f9; transform: scale(1.05); }
-
-/* ── Linhas de cards (módulos) ── */
-.row-wrapper { margin-bottom: 2.5rem; }
-.row-title   { font-size: 20px; font-weight: 700; margin-bottom: 15px; margin-left: 5px; opacity: 0.9; }
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  padding: 10px 5px;
-}
-
-/* ── Cards de aulas ── */
-.card {
-  flex: 0 0 calc(25% - 12px);
-  min-width: 200px;
-  background: #1e293b;
-  border-radius: 12px;
-  overflow: hidden;
-  cursor: pointer;
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid rgba(255,255,255,0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-:root[saved-theme="light"] .card { background: #f1f5f9; border-color: #e2e8f0; }
-.card:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 15px 30px rgba(0,0,0,0.15); border-color: #10b981; }
-
-.card-thumb {
-  height: 120px;
-  background: #0f172a;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 40px;
-  position: relative;
-  overflow: hidden;
-}
-:root[saved-theme="light"] .card-thumb { background: #e2e8f0; }
-.card-thumb::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, #10b98140 0%, transparent 100%);
-}
-.card-progress-bar { position: absolute; bottom: 0; left: 0; height: 4px; background: rgba(0,0,0,0.2); width: 100%; }
-.card-progress      { height: 100%; background: #10b981; }
-
-.card-content { padding: 15px; flex: 1; display: flex; flex-direction: column; }
-.card-title {
-  font-size: 14px;
-  font-weight: 600;
-  margin: 0 0 8px;
-  line-height: 1.3;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  color: #f1f5f9;
-}
-:root[saved-theme="light"] .card-title { color: #1e293b; }
-.card-meta { font-size: 11px; color: #64748b; margin-top: auto; display: flex; justify-content: space-between; }
-
-/* ── Responsivo ── */
-@media (max-width: 768px) {
-  .card { flex: 0 0 calc(50% - 8px); }
-  .hero { padding: 1.5rem; height: 300px; }
-  .hero h1 { font-size: 28px; }
-}
-@media (max-width: 480px) { .card { flex: 0 0 100%; } }
 </style>
 
-<div class="dashboard-container">
+<div class="au-vitrine">
 
-<div class="hero">
-  <div style="position: relative; z-index: 10;">
-    <span class="tag">▶ Continue Estudando</span>
-    <h1>💻 Arquitetura de Computadores</h1>
-    <p>Fundamentos, hardware, processadores e memória.</p>
-    <a href="./Aula-12---Representacao-de-Dados-e-Conversao-de-Bases" class="btn" data-spa>Retomar: 💻 🟢 Aula 12: Representação de Dados e Conversão de Bases</a>
-  </div>
+<div class="au-hero">
+  <span class="au-badge">90388 · 2026-1</span>
+  <h1>Arquitetura de Computadores</h1>
+  <p>Arquitetura e Organização de Computadores — Sistemas de Informação, Uniube. A máquina por dentro: como o processador busca e executa, onde a memória guarda, como se mede desempenho, e como virtualização e representação de dados fecham o quadro. Teoria com os pés no hardware real.</p>
 </div>
 
-<div class="row-wrapper">
-  <div class="row-title">Conteúdo da Disciplina</div>
-  <div class="row">
-    <a href="./Aula-01---Arquitetura-e-Organizacao" class="card" data-spa>
-      <div class="card-thumb" style="background-image: url('assets/capa_aula01.png'); background-size: cover; background-position: center;"><div class="card-progress-bar"><div class="card-progress" style="width: 100%"></div></div></div>
-      <div class="card-content">
-        <div class="card-title">💻 Aula 01 – Arquitetura e Organização de Computadores</div>
-        <div class="card-meta"><span>Acessar Aula</span><span></span></div>
-      </div>
-    </a>
-    <a href="./Aula-02---Fundamentos-da-Organizacao" class="card" data-spa>
-      <div class="card-thumb" style="background-image: url('assets/capa_aula02.png'); background-size: cover; background-position: center;"><div class="card-progress-bar"><div class="card-progress" style="width: 100%"></div></div></div>
-      <div class="card-content">
-        <div class="card-title">💻 Aula 02 – Fundamentos da Organização de Computadores</div>
-        <div class="card-meta"><span>Acessar Aula</span><span></span></div>
-      </div>
-    </a>
-    <a href="./Aula-03---Sistemas-de-Computacao" class="card" data-spa>
-      <div class="card-thumb" style="background-image: url('assets/capa_aula03.png'); background-size: cover; background-position: center;"><div class="card-progress-bar"><div class="card-progress" style="width: 100%"></div></div></div>
-      <div class="card-content">
-        <div class="card-title">💻 Aula 03 – Sistemas de Computação</div>
-        <div class="card-meta"><span>Acessar Aula</span><span></span></div>
-      </div>
-    </a>
-    <a href="./Aula-04---Arquiteturas-CISC-vs-RISC" class="card" data-spa>
-      <div class="card-thumb" style="background-image: url('assets/capa_aula04.png'); background-size: cover; background-position: center;"><div class="card-progress-bar"><div class="card-progress" style="width: 100%"></div></div></div>
-      <div class="card-content">
-        <div class="card-title">💻 Aula 04 – Arquiteturas CISC vs. RISC</div>
-        <div class="card-meta"><span>Acessar Aula</span><span></span></div>
-      </div>
-    </a>
-    <a href="./Aula-05---Unidades-de-Processamento" class="card" data-spa>
-      <div class="card-thumb" style="background-image: url('assets/capa_aula05.png'); background-size: cover; background-position: center;"><div class="card-progress-bar"><div class="card-progress" style="width: 100%"></div></div></div>
-      <div class="card-content">
-        <div class="card-title">💻 Aula 05 – Unidades de Processamento e Ciclo de Instrução</div>
-        <div class="card-meta"><span>Acessar Aula</span><span></span></div>
-      </div>
-    </a>
-    <a href="./Aula-06---Hierarquia-de-Memoria-e-Memoria-Virtual" class="card" data-spa>
-      <div class="card-thumb" style="background-image: url('assets/capa_aula06.png'); background-size: cover; background-position: center;"><div class="card-progress-bar"><div class="card-progress" style="width: 100%"></div></div></div>
-      <div class="card-content">
-        <div class="card-title">💻 Aula 06 – Hierarquia de Memória e Memória Virtual</div>
-        <div class="card-meta"><span>Acessar Aula</span><span></span></div>
-      </div>
-    </a>
-    <a href="./Aula-07---Conjunto-de-Instrucoes-e-Ciclo-da-Instrucao" class="card" data-spa>
-      <div class="card-thumb" style="background-image: url('assets/capa_aula07.png'); background-size: cover; background-position: center;"><div class="card-progress-bar"><div class="card-progress" style="width: 100%"></div></div></div>
-      <div class="card-content">
-        <div class="card-title">💻 Aula 07 – Conjunto de Instruções e Ciclo da Instrução</div>
-        <div class="card-meta"><span>Acessar Aula</span><span></span></div>
-      </div>
-    </a>
-    <a href="./Aula-08---Processamento-Paralelo-e-Multicore" class="card" data-spa>
-      <div class="card-thumb" style="background-image: url('assets/capa_aula08.png'); background-size: cover; background-position: center;"><div class="card-progress-bar"><div class="card-progress" style="width: 100%"></div></div></div>
-      <div class="card-content">
-        <div class="card-title">💻 Aula 08 – Processamento Paralelo, Multicore e Distribuído</div>
-        <div class="card-meta"><span>Acessar Aula</span><span></span></div>
-      </div>
-    </a>
-    <a href="./Aula-09---Mecanismos-de-Entrada-e-Saida" class="card" data-spa>
-      <div class="card-thumb" style="background-image: url('assets/capa_aula09.png'); background-size: cover; background-position: center;"><div class="card-progress-bar"><div class="card-progress" style="width: 100%"></div></div></div>
-      <div class="card-content">
-        <div class="card-title">💻 Aula 09 – Mecanismos de Entrada e Saída (E/S)</div>
-        <div class="card-meta"><span>Acessar Aula</span><span></span></div>
-      </div>
-    </a>
-    <a href="./Aula-10---Medidas-de-Desempenho" class="card" data-spa>
-      <div class="card-thumb" style="background-image: url('assets/capa_aula10.png'); background-size: cover; background-position: center;"><div class="card-progress-bar"><div class="card-progress" style="width: 100%"></div></div></div>
-      <div class="card-content">
-        <div class="card-title">💻 Aula 10 – Medidas de Desempenho: Latência, Vazão e Lei de Amdahl</div>
-        <div class="card-meta"><span>Acessar Aula</span><span></span></div>
-      </div>
-    </a>
-    <a href="./Aula-11---Arquitetura-de-Virtualizacao-e-Hipervisores" class="card" data-spa>
-      <div class="card-thumb" style="background-image: url('assets/capa_aula11.png'); background-size: cover; background-position: center;"><div class="card-progress-bar"><div class="card-progress" style="width: 100%"></div></div></div>
-      <div class="card-content">
-        <div class="card-title">💻 Aula 11 – Arquitetura de Virtualização e Hipervisores</div>
-        <div class="card-meta"><span>Acessar Aula</span><span></span></div>
-      </div>
-    </a>
-    <a href="./Aula-12---Representacao-de-Dados-e-Conversao-de-Bases" class="card" data-spa>
-      <div class="card-thumb" style="background-image: url('assets/capa_aula11.png'); background-size: cover; background-position: center;"><div class="card-progress-bar"><div class="card-progress" style="width: 100%"></div></div></div>
-      <div class="card-content">
-        <div class="card-title">💻 Aula 12 – Representação de Dados e Conversão de Bases</div>
-        <div class="card-meta"><span>Acessar Aula</span><span></span></div>
-      </div>
-    </a>
+<div style="display:flex;flex-wrap:wrap;gap:.5rem;padding:1rem 1.5rem 0">
+  <span class="au-chip on">Prova N1 · [CONFIRMAR]</span>
+  <span class="au-chip on">Prova N2 · [CONFIRMAR]</span>
+</div>
 
+<h2 style="font-family:var(--au-display);font-size:var(--au-t-2);font-weight:700;letter-spacing:-.02em;margin:1.5rem 1.5rem .25rem;border:none;padding:0;color:var(--au-tx)">Bloco 1 — A máquina por dentro <span style="color:var(--au-tx3);font-weight:400">· S02–S08</span></h2>
 
+<ul class="au-cards au-vb1">
 
-  </div>
+<li class="au-card">
+  <a href="./Aula-01---Arquitetura-e-Organizacao" data-spa>
+    <div class="au-thumb">A01</div>
+    <div class="au-pbar"><i style="width:100%"></i></div>
+    <div class="au-cap"><b>💻 Aula 01 – Arquitetura e Organização de Computadores</b><span>Acessar Aula</span></div>
+  </a>
+</li>
+
+<li class="au-card">
+  <a href="./Aula-02---Fundamentos-da-Organizacao" data-spa>
+    <div class="au-thumb">A02</div>
+    <div class="au-pbar"><i style="width:100%"></i></div>
+    <div class="au-cap"><b>💻 Aula 02 – Fundamentos da Organização de Computadores</b><span>Acessar Aula</span></div>
+  </a>
+</li>
+
+<li class="au-card">
+  <a href="./Aula-03---Sistemas-de-Computacao" data-spa>
+    <div class="au-thumb">A03</div>
+    <div class="au-pbar"><i style="width:100%"></i></div>
+    <div class="au-cap"><b>💻 Aula 03 – Sistemas de Computação</b><span>Acessar Aula</span></div>
+  </a>
+</li>
+
+<li class="au-card">
+  <a href="./Aula-04---Arquiteturas-CISC-vs-RISC" data-spa>
+    <div class="au-thumb">A04</div>
+    <div class="au-pbar"><i style="width:100%"></i></div>
+    <div class="au-cap"><b>💻 Aula 04 – Arquiteturas CISC vs. RISC</b><span>Acessar Aula</span></div>
+  </a>
+</li>
+
+<li class="au-card">
+  <a href="./Aula-05---Unidades-de-Processamento" data-spa>
+    <div class="au-thumb">A05</div>
+    <div class="au-pbar"><i style="width:100%"></i></div>
+    <div class="au-cap"><b>💻 Aula 05 – Unidades de Processamento e Ciclo de Instrução</b><span>Acessar Aula</span></div>
+  </a>
+</li>
+
+<li class="au-card">
+  <a href="./Aula-06---Hierarquia-de-Memoria-e-Memoria-Virtual" data-spa>
+    <div class="au-thumb">A06</div>
+    <div class="au-pbar"><i style="width:100%"></i></div>
+    <div class="au-cap"><b>💻 Aula 06 – Hierarquia de Memória e Memória Virtual</b><span>Acessar Aula</span></div>
+  </a>
+</li>
+
+<li class="au-card">
+  <a href="./Aula-07---Conjunto-de-Instrucoes-e-Ciclo-da-Instrucao" data-spa>
+    <div class="au-thumb">A07</div>
+    <div class="au-pbar"><i style="width:100%"></i></div>
+    <div class="au-cap"><b>💻 Aula 07 – Conjunto de Instruções e Ciclo da Instrução</b><span>Acessar Aula</span></div>
+  </a>
+</li>
+
+<li class="au-card">
+  <a href="./Aula-08---Processamento-Paralelo-e-Multicore" data-spa>
+    <div class="au-thumb">A08</div>
+    <div class="au-pbar"><i style="width:100%"></i></div>
+    <div class="au-cap"><b>💻 Aula 08 – Processamento Paralelo, Multicore e Distribuído</b><span>Acessar Aula</span></div>
+  </a>
+</li>
+
+</ul>
+
+<h2 style="font-family:var(--au-display);font-size:var(--au-t-2);font-weight:700;letter-spacing:-.02em;margin:1.5rem 1.5rem .25rem;border:none;padding:0;color:var(--au-tx)">Bloco 2 — Medir, virtualizar e representar <span style="color:var(--au-tx3);font-weight:400">· S10–S17</span></h2>
+
+<ul class="au-cards au-vb2">
+
+<li class="au-card">
+  <a href="./Aula-09---Mecanismos-de-Entrada-e-Saida" data-spa>
+    <div class="au-thumb">A09</div>
+    <div class="au-pbar"><i style="width:100%"></i></div>
+    <div class="au-cap"><b>💻 Aula 09 – Mecanismos de Entrada e Saída (E/S)</b><span>Acessar Aula</span></div>
+  </a>
+</li>
+
+<li class="au-card">
+  <a href="./Aula-10---Medidas-de-Desempenho" data-spa>
+    <div class="au-thumb">A10</div>
+    <div class="au-pbar"><i style="width:100%"></i></div>
+    <div class="au-cap"><b>💻 Aula 10 – Medidas de Desempenho: Latência, Vazão e Lei de Amdahl</b><span>Acessar Aula</span></div>
+  </a>
+</li>
+
+<li class="au-card">
+  <a href="./Aula-11---Arquitetura-de-Virtualizacao-e-Hipervisores" data-spa>
+    <div class="au-thumb">A11</div>
+    <div class="au-pbar"><i style="width:100%"></i></div>
+    <div class="au-cap"><b>💻 Aula 11 – Arquitetura de Virtualização e Hipervisores</b><span>Acessar Aula</span></div>
+  </a>
+</li>
+
+<li class="au-card">
+  <a href="./Aula-12---Representacao-de-Dados-e-Conversao-de-Bases" data-spa>
+    <div class="au-thumb">A12</div>
+    <div class="au-pbar"><i style="width:100%"></i></div>
+    <div class="au-cap"><b>💻 Aula 12 – Representação de Dados e Conversão de Bases</b><span>Acessar Aula</span></div>
+  </a>
+</li>
+
+</ul>
+
+<div style="padding:0 1.5rem 1.5rem;font-family:var(--au-mono);font-size:var(--au-t--2);color:var(--au-tx3)">
+  Prof. Romualdo Mathias Filho · Uniube · Sistemas de Informação
 </div>
 
 </div>
-
-

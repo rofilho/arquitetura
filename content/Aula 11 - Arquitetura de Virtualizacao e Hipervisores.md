@@ -1,35 +1,16 @@
 ---
-context: uniube
-type: aula
-status: publicado
-created: 2026-06-01
-semester: "2026-1"
-ai_tier: hot
-disciplina: Arquitetura de Computadores
-codigo: "ARQ-01"
-aula: 11
-titulo: "Arquitetura de Virtualização e Hipervisores"
-tipo: teorica
-semana: 11
-data: 2026-04-27
-tags:
-  - arquitetura
-  - virtualizacao
-  - hypervisor
-  - hyper-v
-  - docker
-  - bare-metal
-publicar: true
+title: "🖥️ Aula - 11: Arquitetura de Virtualização e Hipervisores"
 ---
 
-# 🟢 Aula 11: Arquitetura de Virtualização e Hipervisores
+<div class="au-leitura" data-aula="a11">
 
-**Disciplina:** Arquitetura de Computadores (Cód. ARQ-01)  
-**Curso:** Inteligência Artificial e Ciência de Dados, Uniube  
-**Semana:** 11 | 27/04/2026  
-**Professor:** Romualdo Mathias Filho  
-**Tipo:** 📘 Teórica / 🔬 Prática  
-**Tópicos:** Anéis de Proteção da CPU e o Teorema de Popek-Goldberg, Hipervisores Tipo 1 vs. Tipo 2 e Aceleração por Hardware (Intel VT-x/AMD-V e SLAT/EPT), e Laboratório Prático de Provisionamento com Hyper-V, Nginx e Docker.
+# 🖥️ Aula 11 — Arquitetura de Virtualização e Hipervisores
+
+**Disciplina:** 90388 — Arquitetura e Organização de Computadores · Sistemas de Informação (curso 160) — Uniube<br>
+**Professor:** Romualdo Mathias Filho · **romualdo.filho@uniube.br**<br>
+**Semana:** 11 · 2026-1 · [CONFIRMAR data] · 📘 Teórica (75 min)<br>
+**Tópicos:** Anéis de proteção da CPU e o Teorema de Popek-Goldberg; hipervisores Tipo 1 vs. Tipo 2 e aceleração por hardware (Intel VT-x/AMD-V, SLAT/EPT); laboratório de provisionamento com Hyper-V, Nginx e Docker<br>
+**Página de referência:** [Plano de Ensino e Contrato](./Plano-de-Ensino-e-Contrato)
 
 ---
 
@@ -410,20 +391,25 @@ sudo docker cp /var/www/html/index.html nginx-aoc:/usr/share/nginx/html/index.ht
 | `docker cp [arquivo] [container]:[destino]` | Comando utilitário para injetar arquivos ou páginas web do sistema de arquivos host para dentro de uma imagem rodando em container. |
 
 ---
-## 📄 Artigo de Aprofundamento
+
+<hr class="au-fim-aula">
+
+<div class="au-refs">
+<b>Referências desta aula</b>
+
+**Artigo de Aprofundamento**
 
 - [KVM (Kernel-based Virtual Machine) Documentation — Linux Kernel](https://www.kernel.org/doc/html/latest/virt/kvm/index.html)
 > *Resumo prático: Documentação oficial de engenharia do Linux KVM descrevendo a arquitetura interna que transforma o Kernel do Linux em um hipervisor do Tipo 1, integrando-se diretamente aos recursos de hardware Intel VT-x e AMD-V.*
 - [Proxmox VE Architecture and Virtualization Guides](https://pve.proxmox.com/wiki/Main_Page)
 > *Resumo prático: Wiki e documentação técnica da arquitetura do Proxmox VE apresentando boas práticas de implementação e gerenciamento de hipervisores KVM e contêineres LXC a nível empresarial.*
 
----
+**Referências Bibliográficas**
 
-## 📚 Referências Bibliográficas
+- **TANENBAUM, Andrew S.; FEAMSTER, Nicholas; WETHERALL, David J.** *Organização Estruturada de Computadores*. 6. ed. Rio de Janeiro: LTC, 2013. **(Capítulo 8: Arquiteturas de Computadores Paralelas - Seção 8.4: Virtualização — [CONFIRMAR página])**. Análise didática das shadow page tables, hipervisores e anéis de execução.
+- **STALLINGS, William.** *Arquitetura e Organização de Computadores: projetando com foco em desempenho*. 11. ed. São Paulo: Pearson, 2024. **(Capítulo 17: Processamento Multinúcleo e Suporte a Máquinas Virtuais — [CONFIRMAR página])**. Detalha extensões lógicas Intel/AMD, suporte de silício para hypervisors e virtualização de E/S.
+- **PATTERSON, David A.; HENNESSY, John L.** *Organização e Projeto de Computadores: A Interface Hardware/Software*. 5. ed. Rio de Janeiro: Elsevier, 2014. **(Capítulo 5: Grande e Rápida: Explorando a Hierarquia de Memória - Seção 5.6: Máquinas Virtuais — [CONFIRMAR página])**. Aborda formalmente o Teorema de Popek-Goldberg, tradução de páginas em dois níveis (EPT/SLAT) e VMCS.
 
-- **TANENBAUM, Andrew S.; FEAMSTER, Nicholas; WETHERALL, David J.** *Organização Estruturada de Computadores*. 6. ed. Rio de Janeiro: LTC, 2013. **(Capítulo 8: Arquiteturas de Computadores Paralelas - Seção 8.4: Virtualização — pp. 450–475)**. Análise didática das shadow page tables, hipervisores e anéis de execução.
-- **STALLINGS, William.** *Arquitetura e Organização de Computadores: projetando com foco em desempenho*. 11. ed. São Paulo: Pearson, 2024. **(Capítulo 17: Processamento Multinúcleo e Suporte a Máquinas Virtuais — pp. 580–615)**. Detalha extensões lógicas Intel/AMD, suporte de silício para hypervisors e virtualização de E/S.
-- **PATTERSON, David A.; HENNESSY, John L.** *Organização e Projeto de Computadores: A Interface Hardware/Software*. 5. ed. Rio de Janeiro: Elsevier, 2014. **(Capítulo 5: Grande e Rápida: Explorando a Hierarquia de Memória - Seção 5.6: Máquinas Virtuais — pp. 310–335)**. Aborda formalmente o Teorema de Popek-Goldberg, tradução de páginas em dois níveis (EPT/SLAT) e VMCS.
+</div>
 
----
-*Última atualização: 2026-06-01 | Status: publicado*
+</div>
