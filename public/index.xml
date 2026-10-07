@@ -6,6 +6,18 @@
       <description>Últimas 10 notas on 💻 Arquitetura de Computadores</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
+    <title>🖥️ Aula - 01: Arquitetura e Organização de Computadores – Plano de Aulas</title>
+    <link>https://rofilho.github.io/arquitetura/Aula-01---Arquitetura-e-Organizacao</link>
+    <guid>https://rofilho.github.io/arquitetura/Aula-01---Arquitetura-e-Organizacao</guid>
+    <description><![CDATA[ 🖥️ Aula - 01: Arquitetura e Organização de Computadores – Plano de Aulas 📄 Ementa A disciplina visa ao entendimento dos princípios básicos de funcionamento de um computador, abordando seus componentes (CPU, memória, barramentos, dispositivos de E/S), bem como o conjunto de instruções, ciclos de ex... ]]></description>
+    <pubDate>Thu, 10 Sep 2026 10:48:11 GMT</pubDate>
+  </item><item>
+    <title>🖥️ Aula - 03: Sistemas de Computação</title>
+    <link>https://rofilho.github.io/arquitetura/Aula-03---Sistemas-de-Computacao</link>
+    <guid>https://rofilho.github.io/arquitetura/Aula-03---Sistemas-de-Computacao</guid>
+    <description><![CDATA[ 🖥️ Aula - 03: Sistemas de Computação 🖥️ Aula - 03: Sistemas de Computação Ao final, o aluno deve: Classificar os principais tipos de sistemas de computação Diferenciar sistemas embarcados, de tempo real e distribuídos Identificar exemplos reais de cada categoria no cotidiano Relacionar a arquitetu... ]]></description>
+    <pubDate>Thu, 10 Sep 2026 10:42:27 GMT</pubDate>
+  </item><item>
     <title>Aula 06 - Hierarquia de Memoria e Memoria Virtual</title>
     <link>https://rofilho.github.io/arquitetura/Aula-06---Hierarquia-de-Memoria-e-Memoria-Virtual</link>
     <guid>https://rofilho.github.io/arquitetura/Aula-06---Hierarquia-de-Memoria-e-Memoria-Virtual</guid>
@@ -53,18 +65,6 @@
     <guid>https://rofilho.github.io/arquitetura/Aula-10---Medidas-de-Desempenho</guid>
     <description><![CDATA[ 🟢 Aula 10: Medidas de Desempenho: Latência, Vazão e Lei de Amdahl Disciplina: Arquitetura de Computadores (Cód. ]]></description>
     <pubDate>Mon, 25 May 2026 03:00:00 GMT</pubDate>
-  </item><item>
-    <title>🖥️ Aula - 01: Arquitetura e Organização de Computadores – Plano de Aulas</title>
-    <link>https://rofilho.github.io/arquitetura/Aula-01---Arquitetura-e-Organizacao</link>
-    <guid>https://rofilho.github.io/arquitetura/Aula-01---Arquitetura-e-Organizacao</guid>
-    <description><![CDATA[ 🖥️ Aula - 01: Arquitetura e Organização de Computadores – Plano de Aulas 📄 Ementa A disciplina visa ao entendimento dos princípios básicos de funcionamento de um computador, abordando seus componentes (CPU, memória, barramentos, dispositivos de E/S), bem como o conjunto de instruções, ciclos de ex... ]]></description>
-    <pubDate>Sun, 10 May 2026 14:01:01 GMT</pubDate>
-  </item><item>
-    <title>🖥️ Aula - 02: Fundamentos da Organização de Computadores</title>
-    <link>https://rofilho.github.io/arquitetura/Aula-02---Fundamentos-da-Organizacao</link>
-    <guid>https://rofilho.github.io/arquitetura/Aula-02---Fundamentos-da-Organizacao</guid>
-    <description><![CDATA[ 🖥️ Aula - 02: Fundamentos da Organização de Computadores 🖥️ Aula - 02: Fundamentos da Organização de Computadores Ao final, o aluno deve: Identificar CPU, Memória e E/S Explicar o fluxo básico Entrada → Processamento → Saída Reconhecer esses blocos em qualquer dispositivo computacional Base concei... ]]></description>
-    <pubDate>Sun, 10 May 2026 14:01:01 GMT</pubDate>
   </item>
     </channel>
   </rss>

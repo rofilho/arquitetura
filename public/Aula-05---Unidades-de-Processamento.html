@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt" dir="ltr"><head><title>🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução | Prof. Romualdo</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space Grotesk:wght@400;700&amp;family=Inter:ital,wght@0,400;0,600;1,400;1,600&amp;family=JetBrains Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="💻 Arquitetura de Computadores"/><meta property="og:title" content="🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução | Prof. Romualdo"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução | Prof. Romualdo"/><meta name="twitter:description" content="🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução 🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução Ao final, o aluno deve: Identificar os componentes internos da Unidade Central de Processamento (UCP) Diferenciar registradores visíveis ao usuário de registradores de controle..."/><meta property="og:description" content="🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução 🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução Ao final, o aluno deve: Identificar os componentes internos da Unidade Central de Processamento (UCP) Diferenciar registradores visíveis ao usuário de registradores de controle..."/><meta property="og:image:alt" content="🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução 🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução Ao final, o aluno deve: Identificar os componentes internos da Unidade Central de Processamento (UCP) Diferenciar registradores visíveis ao usuário de registradores de controle..."/><meta property="twitter:domain" content="rofilho.github.io/arquitetura"/><meta property="og:url" content="https://rofilho.github.io/arquitetura/Aula-05---Unidades-de-Processamento"/><meta property="twitter:url" content="https://rofilho.github.io/arquitetura/Aula-05---Unidades-de-Processamento"/><link rel="icon" href="./static/icon.png"/><meta name="description" content="🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução 🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução Ao final, o aluno deve: Identificar os componentes internos da Unidade Central de Processamento (UCP) Diferenciar registradores visíveis ao usuário de registradores de controle..."/><meta name="generator" content="Quartz"/><link href="./index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+<html lang="pt" dir="ltr"><head><title>🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução | Prof. Romualdo</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space Grotesk:wght@400;700&amp;family=Inter:ital,wght@0,400;0,600;1,400;1,600&amp;family=JetBrains Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="💻 Arquitetura de Computadores"/><meta property="og:title" content="🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução | Prof. Romualdo"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução | Prof. Romualdo"/><meta name="twitter:description" content="🖥️ Aula 05 — Unidades de Processamento e Ciclo de Instrução Disciplina: 90388 — Arquitetura e Organização de Computadores · Sistemas de Informação (curso 160) — Uniube Professor: Romualdo Mathias Filho · romualdo.filho@uniube.br Semana: 05 · 2026-1 · [CONFIRMAR data] · 📘 Teórica (75 min) Tópicos ..."/><meta property="og:description" content="🖥️ Aula 05 — Unidades de Processamento e Ciclo de Instrução Disciplina: 90388 — Arquitetura e Organização de Computadores · Sistemas de Informação (curso 160) — Uniube Professor: Romualdo Mathias Filho · romualdo.filho@uniube.br Semana: 05 · 2026-1 · [CONFIRMAR data] · 📘 Teórica (75 min) Tópicos ..."/><meta property="og:image:alt" content="🖥️ Aula 05 — Unidades de Processamento e Ciclo de Instrução Disciplina: 90388 — Arquitetura e Organização de Computadores · Sistemas de Informação (curso 160) — Uniube Professor: Romualdo Mathias Filho · romualdo.filho@uniube.br Semana: 05 · 2026-1 · [CONFIRMAR data] · 📘 Teórica (75 min) Tópicos ..."/><meta property="twitter:domain" content="rofilho.github.io/arquitetura"/><meta property="og:url" content="https://rofilho.github.io/arquitetura/Aula-05---Unidades-de-Processamento"/><meta property="twitter:url" content="https://rofilho.github.io/arquitetura/Aula-05---Unidades-de-Processamento"/><link rel="icon" href="./static/icon.png"/><meta name="description" content="🖥️ Aula 05 — Unidades de Processamento e Ciclo de Instrução Disciplina: 90388 — Arquitetura e Organização de Computadores · Sistemas de Informação (curso 160) — Uniube Professor: Romualdo Mathias Filho · romualdo.filho@uniube.br Semana: 05 · 2026-1 · [CONFIRMAR data] · 📘 Teórica (75 min) Tópicos ..."/><meta name="generator" content="Quartz"/><link href="./index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
   position: absolute;
   display: flex;
   float: right;
@@ -115,208 +115,125 @@ pre:hover > .expand-button {
   padding: 0 12px;
   font-size: 14px;
 }
-/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiQzpcXFF1YXJ0el9Qb3J0YWlzXFxhcnF1aXRldHVyYVxccXVhcnR6XFxjb21wb25lbnRzXFxzdHlsZXMiLCJzb3VyY2VzIjpbIm1lcm1haWQuaW5saW5lLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTtFQUNBOztBQUdGO0VBQ0U7OztBQUtGO0VBQ0U7RUFDQTs7O0FBSUo7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTtFQUNBOztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTs7QUFHRjtFQUNFOztBQUlGO0VBQ0U7RUFDQTtFQUNBIiwic291cmNlc0NvbnRlbnQiOlsiLmV4cGFuZC1idXR0b24ge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsb2F0OiByaWdodDtcbiAgcGFkZGluZzogMC40cmVtO1xuICBtYXJnaW46IDAuM3JlbTtcbiAgcmlnaHQ6IDA7IC8vIE5PVEU6IHJpZ2h0IHdpbGwgYmUgc2V0IGluIG1lcm1haWQuaW5saW5lLnRzXG4gIGNvbG9yOiB2YXIoLS1ncmF5KTtcbiAgYm9yZGVyLWNvbG9yOiB2YXIoLS1kYXJrKTtcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbGlnaHQpO1xuICBib3JkZXI6IDFweCBzb2xpZDtcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xuICBvcGFjaXR5OiAwO1xuICB0cmFuc2l0aW9uOiAwLjJzO1xuXG4gICYgPiBzdmcge1xuICAgIGZpbGw6IHZhcigtLWxpZ2h0KTtcbiAgICBmaWx0ZXI6IGNvbnRyYXN0KDAuMyk7XG4gIH1cblxuICAmOmhvdmVyIHtcbiAgICBjdXJzb3I6IHBvaW50ZXI7XG4gICAgYm9yZGVyLWNvbG9yOiB2YXIoLS1zZWNvbmRhcnkpO1xuICB9XG5cbiAgJjpmb2N1cyB7XG4gICAgb3V0bGluZTogMDtcbiAgfVxufVxuXG5wcmUge1xuICAmOmhvdmVyID4gLmV4cGFuZC1idXR0b24ge1xuICAgIG9wYWNpdHk6IDE7XG4gICAgdHJhbnNpdGlvbjogMC4ycztcbiAgfVxufVxuXG4jbWVybWFpZC1jb250YWluZXIge1xuICBwb3NpdGlvbjogZml4ZWQ7XG4gIGNvbnRhaW46IGxheW91dDtcbiAgei1pbmRleDogOTk5O1xuICBsZWZ0OiAwO1xuICB0b3A6IDA7XG4gIHdpZHRoOiAxMDB2dztcbiAgaGVpZ2h0OiAxMDB2aDtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgZGlzcGxheTogbm9uZTtcbiAgYmFja2Ryb3AtZmlsdGVyOiBibHVyKDRweCk7XG4gIGJhY2tncm91bmQ6IHJnYmEoMCwgMCwgMCwgMC41KTtcblxuICAmLmFjdGl2ZSB7XG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICB9XG5cbiAgJiA+ICNtZXJtYWlkLXNwYWNlIHtcbiAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgICBib3JkZXItcmFkaXVzOiA1cHg7XG4gICAgcG9zaXRpb246IGZpeGVkO1xuICAgIHRvcDogNTAlO1xuICAgIGxlZnQ6IDUwJTtcbiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlLCAtNTAlKTtcbiAgICBoZWlnaHQ6IDgwdmg7XG4gICAgd2lkdGg6IDgwdnc7XG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcblxuICAgICYgPiAubWVybWFpZC1jb250ZW50IHtcbiAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICAgIHRyYW5zZm9ybS1vcmlnaW46IDAgMDtcbiAgICAgIHRyYW5zaXRpb246IHRyYW5zZm9ybSAwLjFzIGVhc2U7XG4gICAgICBvdmVyZmxvdzogdmlzaWJsZTtcbiAgICAgIG1pbi1oZWlnaHQ6IDIwMHB4O1xuICAgICAgbWluLXdpZHRoOiAyMDBweDtcblxuICAgICAgcHJlIHtcbiAgICAgICAgbWFyZ2luOiAwO1xuICAgICAgICBib3JkZXI6IG5vbmU7XG4gICAgICB9XG5cbiAgICAgIHN2ZyB7XG4gICAgICAgIG1heC13aWR0aDogbm9uZTtcbiAgICAgICAgaGVpZ2h0OiBhdXRvO1xuICAgICAgfVxuICAgIH1cblxuICAgICYgPiAubWVybWFpZC1jb250cm9scyB7XG4gICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICBib3R0b206IDIwcHg7XG4gICAgICByaWdodDogMjBweDtcbiAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICBnYXA6IDhweDtcbiAgICAgIHBhZGRpbmc6IDhweDtcbiAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICBib3JkZXItcmFkaXVzOiA2cHg7XG4gICAgICBib3gtc2hhZG93OiAwIDJweCA0cHggcmdiYSgwLCAwLCAwLCAwLjEpO1xuICAgICAgei1pbmRleDogMjtcblxuICAgICAgLm1lcm1haWQtY29udHJvbC1idXR0b24ge1xuICAgICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICAgICAgd2lkdGg6IDMycHg7XG4gICAgICAgIGhlaWdodDogMzJweDtcbiAgICAgICAgcGFkZGluZzogMDtcbiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xuICAgICAgICBjb2xvcjogdmFyKC0tZGFyayk7XG4gICAgICAgIGJvcmRlci1yYWRpdXM6IDRweDtcbiAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xuICAgICAgICBmb250LXNpemU6IDE2cHg7XG4gICAgICAgIGZvbnQtZmFtaWx5OiB2YXIoLS1ib2R5Rm9udCk7XG4gICAgICAgIHRyYW5zaXRpb246IGFsbCAwLjJzIGVhc2U7XG5cbiAgICAgICAgJjpob3ZlciB7XG4gICAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgfVxuXG4gICAgICAgICY6YWN0aXZlIHtcbiAgICAgICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMXB4KTtcbiAgICAgICAgfVxuXG4gICAgICAgIC8vIFN0eWxlIHRoZSByZXNldCBidXR0b24gZGlmZmVyZW50bHlcbiAgICAgICAgJjpudGgtY2hpbGQoMikge1xuICAgICAgICAgIHdpZHRoOiBhdXRvO1xuICAgICAgICAgIHBhZGRpbmc6IDAgMTJweDtcbiAgICAgICAgICBmb250LXNpemU6IDE0cHg7XG4gICAgICAgIH1cbiAgICAgIH1cbiAgICB9XG4gIH1cbn1cbiJdfQ== */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="./prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("./static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://rofilho.github.io/arquitetura/index.xml"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://rofilho.github.io/arquitetura/Aula-05---Unidades-de-Processamento-og-image.webp"/><meta property="og:image:url" content="https://rofilho.github.io/arquitetura/Aula-05---Unidades-de-Processamento-og-image.webp"/><meta name="twitter:image" content="https://rofilho.github.io/arquitetura/Aula-05---Unidades-de-Processamento-og-image.webp"/><meta property="og:image:type" content="image/.webp"/></head><body data-slug="Aula-05---Unidades-de-Processamento"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"></div><div class="center"><div class="page-header"><header><h2 class="page-title"><a href="." class="page-title__link"><img src="https://uniube.br/img/landing/logo_azul.svg" alt="Uniube" class="page-title__logo page-title__logo--light"/><img src="https://uniube.br/img/landing/logo_branca.svg" alt="Uniube" class="page-title__logo page-title__logo--dark"/><span class="page-title__text">💻 Arquitetura de Computadores</span></a></h2><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Pesquisar</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Pesquisar por algo" placeholder="Pesquisar por algo"/><div class="search-layout" data-preview="true"></div></div></div></div><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Tema escuro"><title>Tema escuro</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Tema claro"><title>Tema claro</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></header><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="./">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>🖥️ Aula   05: Unidades de Processamento e Ciclo de Instrução</a></div></nav><nav class="lesson-nav" aria-label="Navegação entre aulas"><div class="lesson-nav__slot"><a href="./Aula-04---Arquiteturas-CISC-vs-RISC" class="nav-pill nav-pill--prev" data-spa="true"><div class="nav-pill__icon">📖</div><div class="nav-pill__body"><span class="nav-pill__label">← Anterior</span><span class="nav-pill__title">🖥️ Aula - 04: Arquiteturas CISC vs. RISC</span></div></a></div><div class="lesson-nav__slot lesson-nav__slot--right"></div></nav><h1 class="article-title">🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução</h1><p show-comma="true" class="content-meta"><time datetime="2026-05-10T14:01:01.000Z">10 de mai. de 2026</time><span>Leitura de 10 min</span></p></div></div><article class="popover-hint"><h1 id="️-aula---05-unidades-de-processamento-e-ciclo-de-instrução">🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-aula---05-unidades-de-processamento-e-ciclo-de-instrução" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
-<h1 id="️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-1">🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
-<p>Ao final, o aluno deve:</p>
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiQzpcXFF1YXJ0el9Qb3J0YWlzXFxhcnF1aXRldHVyYVxccXVhcnR6XFxjb21wb25lbnRzXFxzdHlsZXMiLCJzb3VyY2VzIjpbIm1lcm1haWQuaW5saW5lLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTtFQUNBOztBQUdGO0VBQ0U7OztBQUtGO0VBQ0U7RUFDQTs7O0FBSUo7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTtFQUNBOztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTs7QUFHRjtFQUNFOztBQUlGO0VBQ0U7RUFDQTtFQUNBIiwic291cmNlc0NvbnRlbnQiOlsiLmV4cGFuZC1idXR0b24ge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsb2F0OiByaWdodDtcbiAgcGFkZGluZzogMC40cmVtO1xuICBtYXJnaW46IDAuM3JlbTtcbiAgcmlnaHQ6IDA7IC8vIE5PVEU6IHJpZ2h0IHdpbGwgYmUgc2V0IGluIG1lcm1haWQuaW5saW5lLnRzXG4gIGNvbG9yOiB2YXIoLS1ncmF5KTtcbiAgYm9yZGVyLWNvbG9yOiB2YXIoLS1kYXJrKTtcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbGlnaHQpO1xuICBib3JkZXI6IDFweCBzb2xpZDtcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xuICBvcGFjaXR5OiAwO1xuICB0cmFuc2l0aW9uOiAwLjJzO1xuXG4gICYgPiBzdmcge1xuICAgIGZpbGw6IHZhcigtLWxpZ2h0KTtcbiAgICBmaWx0ZXI6IGNvbnRyYXN0KDAuMyk7XG4gIH1cblxuICAmOmhvdmVyIHtcbiAgICBjdXJzb3I6IHBvaW50ZXI7XG4gICAgYm9yZGVyLWNvbG9yOiB2YXIoLS1zZWNvbmRhcnkpO1xuICB9XG5cbiAgJjpmb2N1cyB7XG4gICAgb3V0bGluZTogMDtcbiAgfVxufVxuXG5wcmUge1xuICAmOmhvdmVyID4gLmV4cGFuZC1idXR0b24ge1xuICAgIG9wYWNpdHk6IDE7XG4gICAgdHJhbnNpdGlvbjogMC4ycztcbiAgfVxufVxuXG4jbWVybWFpZC1jb250YWluZXIge1xuICBwb3NpdGlvbjogZml4ZWQ7XG4gIGNvbnRhaW46IGxheW91dDtcbiAgei1pbmRleDogOTk5O1xuICBsZWZ0OiAwO1xuICB0b3A6IDA7XG4gIHdpZHRoOiAxMDB2dztcbiAgaGVpZ2h0OiAxMDB2aDtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgZGlzcGxheTogbm9uZTtcbiAgYmFja2Ryb3AtZmlsdGVyOiBibHVyKDRweCk7XG4gIGJhY2tncm91bmQ6IHJnYmEoMCwgMCwgMCwgMC41KTtcblxuICAmLmFjdGl2ZSB7XG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICB9XG5cbiAgJiA+ICNtZXJtYWlkLXNwYWNlIHtcbiAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgICBib3JkZXItcmFkaXVzOiA1cHg7XG4gICAgcG9zaXRpb246IGZpeGVkO1xuICAgIHRvcDogNTAlO1xuICAgIGxlZnQ6IDUwJTtcbiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlLCAtNTAlKTtcbiAgICBoZWlnaHQ6IDgwdmg7XG4gICAgd2lkdGg6IDgwdnc7XG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcblxuICAgICYgPiAubWVybWFpZC1jb250ZW50IHtcbiAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICAgIHRyYW5zZm9ybS1vcmlnaW46IDAgMDtcbiAgICAgIHRyYW5zaXRpb246IHRyYW5zZm9ybSAwLjFzIGVhc2U7XG4gICAgICBvdmVyZmxvdzogdmlzaWJsZTtcbiAgICAgIG1pbi1oZWlnaHQ6IDIwMHB4O1xuICAgICAgbWluLXdpZHRoOiAyMDBweDtcblxuICAgICAgcHJlIHtcbiAgICAgICAgbWFyZ2luOiAwO1xuICAgICAgICBib3JkZXI6IG5vbmU7XG4gICAgICB9XG5cbiAgICAgIHN2ZyB7XG4gICAgICAgIG1heC13aWR0aDogbm9uZTtcbiAgICAgICAgaGVpZ2h0OiBhdXRvO1xuICAgICAgfVxuICAgIH1cblxuICAgICYgPiAubWVybWFpZC1jb250cm9scyB7XG4gICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICBib3R0b206IDIwcHg7XG4gICAgICByaWdodDogMjBweDtcbiAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICBnYXA6IDhweDtcbiAgICAgIHBhZGRpbmc6IDhweDtcbiAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICBib3JkZXItcmFkaXVzOiA2cHg7XG4gICAgICBib3gtc2hhZG93OiAwIDJweCA0cHggcmdiYSgwLCAwLCAwLCAwLjEpO1xuICAgICAgei1pbmRleDogMjtcblxuICAgICAgLm1lcm1haWQtY29udHJvbC1idXR0b24ge1xuICAgICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICAgICAgd2lkdGg6IDMycHg7XG4gICAgICAgIGhlaWdodDogMzJweDtcbiAgICAgICAgcGFkZGluZzogMDtcbiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xuICAgICAgICBjb2xvcjogdmFyKC0tZGFyayk7XG4gICAgICAgIGJvcmRlci1yYWRpdXM6IDRweDtcbiAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xuICAgICAgICBmb250LXNpemU6IDE2cHg7XG4gICAgICAgIGZvbnQtZmFtaWx5OiB2YXIoLS1ib2R5Rm9udCk7XG4gICAgICAgIHRyYW5zaXRpb246IGFsbCAwLjJzIGVhc2U7XG5cbiAgICAgICAgJjpob3ZlciB7XG4gICAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgfVxuXG4gICAgICAgICY6YWN0aXZlIHtcbiAgICAgICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMXB4KTtcbiAgICAgICAgfVxuXG4gICAgICAgIC8vIFN0eWxlIHRoZSByZXNldCBidXR0b24gZGlmZmVyZW50bHlcbiAgICAgICAgJjpudGgtY2hpbGQoMikge1xuICAgICAgICAgIHdpZHRoOiBhdXRvO1xuICAgICAgICAgIHBhZGRpbmc6IDAgMTJweDtcbiAgICAgICAgICBmb250LXNpemU6IDE0cHg7XG4gICAgICAgIH1cbiAgICAgIH1cbiAgICB9XG4gIH1cbn1cbiJdfQ== */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="./prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("./static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://rofilho.github.io/arquitetura/index.xml"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://rofilho.github.io/arquitetura/Aula-05---Unidades-de-Processamento-og-image.webp"/><meta property="og:image:url" content="https://rofilho.github.io/arquitetura/Aula-05---Unidades-de-Processamento-og-image.webp"/><meta name="twitter:image" content="https://rofilho.github.io/arquitetura/Aula-05---Unidades-de-Processamento-og-image.webp"/><meta property="og:image:type" content="image/.webp"/></head><body data-slug="Aula-05---Unidades-de-Processamento"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"></div><div class="center"><div class="page-header"><header><h2 class="page-title"><a href="." class="page-title__link"><img src="https://uniube.br/img/landing/logo_azul.svg" alt="Uniube" class="page-title__logo page-title__logo--light"/><img src="https://uniube.br/img/landing/logo_branca.svg" alt="Uniube" class="page-title__logo page-title__logo--dark"/><span class="page-title__text">💻 Arquitetura de Computadores</span></a></h2><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Pesquisar</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Pesquisar por algo" placeholder="Pesquisar por algo"/><div class="search-layout" data-preview="true"></div></div></div></div><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Tema escuro"><title>Tema escuro</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Tema claro"><title>Tema claro</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></header><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="./">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>🖥️ Aula   05: Unidades de Processamento e Ciclo de Instrução</a></div></nav><nav class="lesson-nav" aria-label="Navegação entre aulas"><div class="lesson-nav__slot"><a href="./Aula-04---Arquiteturas-CISC-vs-RISC" class="nav-pill nav-pill--prev" data-spa="true"><div class="nav-pill__icon">📖</div><div class="nav-pill__body"><span class="nav-pill__label">← Anterior</span><span class="nav-pill__title">🖥️ Aula - 04: Arquiteturas CISC vs. RISC</span></div></a></div><div class="lesson-nav__slot lesson-nav__slot--right"></div></nav><h1 class="article-title">🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução</h1><p show-comma="true" class="content-meta"><time datetime="2026-05-10T14:01:01.000Z">10 de mai. de 2026</time><span>Leitura de 18 min</span></p></div></div><article class="popover-hint"><div class="au-leitura" data-aula="a05">
+<h1 id="️-aula-05--unidades-de-processamento-e-ciclo-de-instrução">🖥️ Aula 05 — Unidades de Processamento e Ciclo de Instrução<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-aula-05--unidades-de-processamento-e-ciclo-de-instrução" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p><strong>Disciplina:</strong> 90388 — Arquitetura e Organização de Computadores · Sistemas de Informação (curso 160) — Uniube<br/>
+<strong>Professor:</strong> Romualdo Mathias Filho · <strong><a href="mailto:romualdo.filho@uniube.br" class="external">romualdo.filho@uniube.br<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></strong><br/>
+<strong>Semana:</strong> 05 · 2026-1 · [CONFIRMAR data] · 📘 Teórica (75 min)<br/>
+<strong>Tópicos do programa:</strong> item 4 (Unidades de processamento / Registradores) + item 6 (Ciclo de instrução e suas ações)<br/>
+<strong>Página de referência:</strong> <a href="./Plano-de-Ensino-e-Contrato" class="internal alias" data-slug="Plano-de-Ensino-e-Contrato">Plano de Ensino e Contrato</a></p>
+<hr/>
+<blockquote class="callout info" data-callout="info">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>🎯 Visão Geral </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p><strong>O que você vai dominar:</strong></p>
 <ul>
-<li><strong>Identificar</strong> os componentes internos da Unidade Central de Processamento (UCP)</li>
-<li><strong>Diferenciar</strong> registradores visíveis ao usuário de registradores de controle e estado</li>
-<li><strong>Descrever</strong> o fluxo de dados durante o Ciclo de Busca (Fetch) e Execução (Execute)</li>
-<li><strong>Compreender</strong> o papel das interrupções na quebra do fluxo normal de execução</li>
-<li><strong>Relacionar</strong> a arquitetura de registradores com o desempenho do processador</li>
+<li>Abrir a “caixa preta” da Unidade Central de Processamento (UCP) e nomear seus três componentes internos — Unidade Lógica e Aritmética (ULA), Unidade de Controle (UC) e Registradores.</li>
+<li>Os cinco registradores de controle — Program Counter (PC), Instruction Register (IR), Memory Address Register (MAR), Memory Buffer Register (MBR) e Program Status Word (PSW) — e o que cada um guarda.</li>
+<li>O Ciclo de Instrução (Busca → Decodificação → Execução), a sequência passo a passo da busca e como uma interrupção quebra esse fluxo.</li>
 </ul>
-<p>Base conceitual alinhada com:</p>
+<p><strong>Objetivos de aprendizagem — ao final, o aluno deve:</strong></p>
 <ul>
-<li><strong>William Stallings</strong>, Arquitetura e Organização de Computadores, 11ª ed., Cap. 12 (“Estrutura e Função do Processador”) e Cap. 3 (“Visão de Alto Nível: Função e Interconexão do Computador”).</li>
+<li><strong>Identificar</strong> os componentes internos da UCP.</li>
+<li><strong>Diferenciar</strong> registradores visíveis ao usuário de registradores de controle e estado.</li>
+<li><strong>Descrever</strong> o fluxo de dados durante o Ciclo de Busca (Fetch) e o de Execução (Execute).</li>
+<li><strong>Compreender</strong> o papel das interrupções na quebra do fluxo normal de execução.</li>
+<li><strong>Relacionar</strong> a arquitetura de registradores com o desempenho do processador.</li>
 </ul>
-<hr/>
-<h1 id="️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-2">🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-2" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
-<blockquote>
-<p>Antes de avançar para o interior do processador, vamos revisar os conceitos da Aula 04:</p>
-</blockquote>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="table-container"><table><thead><tr><th><strong>#</strong></th><th><strong>Pergunta</strong></th><th><strong>Conceito Avaliado</strong></th></tr></thead><tbody><tr><td>1</td><td>Qual a diferença fundamental entre as filosofias CISC e RISC em relação ao número e tamanho das instruções?</td><td>Características Estruturais</td></tr><tr><td>2</td><td>O que é a técnica de <strong>Pipeline</strong> e qual a sua maior vantagem?</td><td>Desempenho / Pipeline</td></tr><tr><td>3</td><td>Por que os processadores RISC (como o ARM) dominam o mercado de dispositivos móveis (smartphones) e IoT?</td><td>Eficiência Energética</td></tr><tr><td>4</td><td>Como a Intel/AMD aplicaram o conceito de convergência arquitetural nos processadores modernos (ex: Core i7)?</td><td>Convergência (CISC por fora, RISC por dentro)</td></tr><tr><td>5</td><td>O que significa CPI (Ciclos por Instrução) e qual arquitetura (CISC ou RISC) busca aproximar esse valor de 1?</td><td>Medidas de Desempenho</td></tr></tbody></table></div>
-<blockquote>
-<p><strong>Respostas rápidas para discussão em sala:</strong></p>
+<p><strong>📂 Recursos</strong></p>
+<ul>
+<li><a href="./Plano-de-Ensino-e-Contrato" class="internal alias" data-slug="Plano-de-Ensino-e-Contrato">Plano de Ensino e Contrato</a> — calendário, notas, prazos e regras.</li>
+</ul>
+</div>
 </blockquote>
 <hr/>
-<h1 id="️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-3">🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-3" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
-<h1 id="️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-4">🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-4" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
-<p>Na aula anterior, entendemos o <strong>Conjunto de Instruções (ISA)</strong> como o “idioma” do processador, onde discutimos as duas filosofias principais (CISC e RISC) e como as instruções fluem através do <strong>Pipeline</strong>.</p>
-<blockquote>
-<p><strong>Mensagem-chave:</strong> Já sabemos o que o processador pode fazer (suas instruções). Hoje vamos abrir a “caixa preta” da CPU para entender <strong>como</strong> ele faz. Vamos analisar as engrenagens internas e o ritmo contínuo que mantém o computador funcionando: o Ciclo de Instrução.</p>
-</blockquote>
+<div class="au-caminho">
+<b>Nosso caminho até aqui</b>
+<p>Na Aula 04 estudamos o Conjunto de Instruções — o “idioma” do processador — e as duas filosofias que o organizam. Hoje abrimos a máquina para ver <strong>como</strong> ela executa esse idioma. Responda <strong>antes</strong> de avançar; se errar, acabou de descobrir o que revisar.</p>
+<details>
+<summary>Qual é a diferença fundamental entre as filosofias CISC e RISC quanto ao número e ao tamanho das instruções?</summary>
+<p>CISC (Complex Instruction Set Computer) tem muitas instruções, de tamanhos variados, algumas fazendo bastante coisa por instrução. RISC (Reduced Instruction Set Computer) tem poucas instruções, de tamanho fixo e simples, pensadas para executar em um ciclo. A troca é complexidade do hardware contra regularidade: menos trabalho por instrução, mas mais fácil de encadear.</p>
+</details>
+<details>
+<summary>O que é a técnica de <b>pipeline</b> e qual é a sua maior vantagem?</summary>
+<p>É executar as etapas de várias instruções em paralelo, como uma linha de montagem: enquanto uma instrução é executada, a próxima já é decodificada e a seguinte, buscada. A vantagem é o aumento de vazão — o processador conclui mais instruções por unidade de tempo sem precisar de um clock mais rápido.</p>
+</details>
+<details>
+<summary>O que significa CPI (Ciclos por Instrução) e qual filosofia busca aproximá-lo de 1?</summary>
+<p>CPI (Cycles Per Instruction) é a média de ciclos de clock gastos por instrução. RISC busca aproximá-lo de 1: instruções simples e regulares, idealmente uma concluída por ciclo com o pipeline cheio.</p>
+</details>
+</div>
 <hr/>
-<h1 id="️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-5">🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-5" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
-<h1 id="️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-6">🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-6" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
-<p>A <strong>UCP</strong> (ou CPU) é o componente lógico central encarregado de buscar, decodificar e executar as instruções armazenadas na memória principal.</p>
-<p><strong>Stallings (Cap. 12):</strong> descreve que para executar instruções, o processador deve ter memória de curto prazo acoplada a ele, os registradores, além de sistemas para cálculos lógicos e tomada de decisão eletrônica.</p>
-<h1 id="️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-7">🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-7" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="table-container"><table><thead><tr><th><strong>Componente</strong></th><th><strong>Detalhe Funcional</strong></th></tr></thead><tbody><tr><td><strong>Unidade Lógica e Aritmética (ULA)</strong></td><td>Realiza cálculos (somas, subtrações) e operações booleanas (AND, OR, NOT).</td></tr><tr><td><strong>Unidade de Controle (UC)</strong></td><td>Interpreta a instrução e envia os sinais elétricos necessários para ativar a ULA e caminhos de dados.</td></tr><tr><td><strong>Registradores</strong></td><td>Memória ultra-rápida interna (nível zero na hierarquia). Armazenam dados imediatos e estados da CPU.</td></tr><tr><td><strong>Barramentos Internos</strong></td><td>Caminhos elétricos que conectam a ULA, UC e Registradores dentro do próprio chip.</td></tr></tbody></table></div>
-<p><img src="./assets/01_ucp_componentes.png" width="auto" height="auto" alt/></p>
-<p><em>Diagrama bloco ULA, Unidade de Controle, Registradores conectando-se internamente em uma UCP genérica.</em></p>
-<h1 id="️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-8">🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-8" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
-<blockquote>
-<p>A CPU é como um <strong>chef de cozinha em ação</strong>. A <strong>ULA</strong> é a faca e as panelas (quem faz efetivamente o trabalho de transformação). A <strong>Unidade de Controle</strong> é a mente do chef, lendo um livro de receitas e comandando os movimentos do corpo. Os <strong>Registradores</strong> são os pratos e as tigelas mantidas na bancada imediata onde os ingredientes (dados) ficam temporariamente guardados durante o choque térmico ou corte.</p>
-</blockquote>
-<hr/>
-<h1 id="️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-9">🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-9" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
-<h1 id="️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-10">🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-10" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
-<p>Os processadores dividem os registradores em categorias lógicas. Nem todo registrador pode ser alterado deliberadamente pelo software. Eles se dividem em <strong>Visíveis ao Usuário</strong> e <strong>Registradores de Controle e Estado</strong>.</p>
-<h1 id="️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-11">🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-11" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
-<p>Estes são essenciais para o ciclo mecânico repetitivo da CPU:</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="table-container"><table><thead><tr><th><strong>Registrador</strong></th><th><strong>Nome Completo</strong></th><th><strong>Função Crítica</strong></th></tr></thead><tbody><tr><td><strong>PC</strong></td><td><em>Program Counter</em></td><td>Armazena o <strong>endereço</strong> da <em>próxima</em> instrução a ser buscada na memória.</td></tr><tr><td><strong>IR</strong></td><td><em>Instruction Register</em></td><td>Armazena a instrução <em>atual</em> que acabou de ser buscada e está sendo decodificada/executada.</td></tr><tr><td><strong>MAR</strong></td><td><em>Memory Address Register</em></td><td>Especifica o <strong>endereço</strong> na memória principal onde será feita uma leitura ou escrita.</td></tr><tr><td><strong>MBR</strong></td><td><em>Memory Buffer Register</em></td><td>Contém o genérico <strong>dado lógico</strong> (ou instrução lida) que veio da memória ou que irá para lá.</td></tr><tr><td><strong>PSW</strong></td><td><em>Program Status Word</em></td><td>Guarda flags de estado de sistema (ex: se a última soma deu zero, deu overflow, foi negativa).</td></tr></tbody></table></div>
-<p><img src="./assets/image-13.png" width="auto" height="auto" alt/></p>
-<p><em>Sequência de Busca usando registradores. A ilustração exibe o PC apontando para o MAR, depois comunicando com a Memória e retornando o resultado pelo MBR até chegar no IR.</em></p>
-<hr/>
-<h1 id="️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-12">🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-12" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
-<h1 id="️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-13">🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-13" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
-<p>A função básica do computador é executar programas, e um programa consiste em uma sequência sequencial de instruções contidas em endereços na memória. O processo ordenado para engolir e processar uma única instrução é nomeado <strong>Ciclo de Instrução</strong>.</p>
-<p><strong>Stallings (Cap. 3):</strong> define que na forma arquitetônica mais simples imaginável, o processamento de uma instrução possui dois subciclos primordiais intercalados: <strong>Ciclo de Busca</strong> (Fetch) e <strong>Ciclo de Execução</strong> (Execute).</p>
-<h1 id="️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-14">🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-14" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="table-container"><table><thead><tr><th><strong>Estado</strong></th><th><strong>O que Ocorre em Hardware</strong></th></tr></thead><tbody><tr><td><strong>Busca (Fetch)</strong></td><td>O processador lê a próxima estrutura codificada da memória e manda para o IR, avançando o PC.</td></tr><tr><td><strong>Decodificação</strong></td><td>A UC descobre o que a instrução faz (identificando seu Opcode interno).</td></tr><tr><td><strong>Execução (Execute)</strong></td><td>O hardware realiza a ação: soma de componentes, movimento mestre de dados ou salto.</td></tr><tr><td><strong>Múltiplos Ciclos</strong></td><td>Este macro-ciclo é contínuo e obedece ao ritmo biológico do relógio do sistema (Frequência do Clock).</td></tr></tbody></table></div>
-<p><img src="./assets/03_ciclo_instrucao_basico.png" width="auto" height="auto" alt/></p>
-<p><em>Flowchart cíclico (Início <span>→</span> Ciclo de Busca (Fetch) <span>→</span> Ciclo de Execução (Execute) <span>→</span> loop infinito).</em></p>
-<aside>
-💡
-<p>Avaliação.</p>
+<aside class="au-antes">
+<b class="au-nota-t">Antes de começar</b>
+<p><strong>ULA</strong> — a parte do processador que faz as contas: somas, subtrações e operações lógicas (AND, OR, NOT).</p>
+<p><strong>UC</strong> — a parte que lê a instrução e comanda o resto: decide o que fazer e envia os sinais que ativam a ULA e os caminhos de dados.</p>
+<p><strong>Registrador</strong> — uma célula de memória minúscula e muito rápida <em>dentro</em> do processador, usada para guardar um dado ou um endereço durante uma fração de instrução.</p>
+<p><strong>Clock</strong> — o pulso periódico que marca o ritmo do processador; cada instrução avança em passos sincronizados por ele.</p>
 </aside>
-<h1 id="️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-15">🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-15" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
-<p>Quando o micro-estágio de Busca começa, ocorre um “balé” coordenado de pulsos elétricos:</p>
-<ol>
-<li>O Hardware envia o endereço do <strong>PC</strong> para o <strong>MAR</strong> e sinaliza pelo barramento que solicita uma leitura.</li>
-<li>A memória principal decodifica a requisição e devolve o valor de bits, abrigando-o no <strong>MBR</strong>.</li>
-<li>Como a unidade central sabe que está num momento de busca da instrução ativa, ela copia o conteúdo ilhado no <strong>MBR</strong> para o <strong>IR</strong>.</li>
-<li>O valor do <strong>PC</strong> é incrementado localmente para apontar para a instrução vizinha e sucessora no espaço da memória.</li>
-</ol>
-<h1 id="️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-16">🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-16" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<hr/>
+<h2 id="1-a-unidade-central-de-processamento-tem-três-peças-por-dentro-teoria--12-min">1. A Unidade Central de Processamento tem três peças por dentro [Teoria ⏳ 12 min]<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-a-unidade-central-de-processamento-tem-três-peças-por-dentro-teoria--12-min" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>A <strong>UCP</strong> (Unidade Central de Processamento), ou <strong>CPU</strong> (Central Processing Unit), é o componente que busca, decodifica e executa as instruções guardadas na memória principal. Para fazer isso, ela precisa de três coisas: uma parte que calcula, uma parte que comanda e um lugar imediato para guardar os dados do momento.</p>
 <blockquote>
-<p>O funcionamento contínuo assemelha-se a <strong>seguir um longo roteiro teatral</strong>. O <strong>PC</strong> é o dedo apontador do diretor marcando duramente qual linha exata de texto (endereço) será lida a seguir. O <strong>IR</strong> é o cérebro interpretativo do ator. Após ler e meditar (Busca/Fetch), o ator exibe a ação no palco material (Execução). E o dedo impiedoso (PC) logo move para a próxima frase após a verificação.</p>
+<p><strong>Stallings (Cap. 12):</strong> para executar instruções, o processador precisa de uma memória de curto prazo acoplada a ele — os registradores — além de circuitos para cálculo e para decisão lógica.</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">Componente</th><th style="text-align:left;">Função</th></tr></thead><tbody><tr><td style="text-align:left;"><strong>Unidade Lógica e Aritmética (ULA)</strong></td><td style="text-align:left;">Realiza os cálculos: somas, subtrações e operações booleanas (AND, OR, NOT).</td></tr><tr><td style="text-align:left;"><strong>Unidade de Controle (UC)</strong></td><td style="text-align:left;">Interpreta a instrução e emite os sinais que ativam a ULA e abrem os caminhos de dados.</td></tr><tr><td style="text-align:left;"><strong>Registradores</strong></td><td style="text-align:left;">Memória interna de altíssima velocidade (nível zero da hierarquia). Guardam dados imediatos e o estado da CPU.</td></tr><tr><td style="text-align:left;"><strong>Barramentos internos</strong></td><td style="text-align:left;">Os caminhos elétricos que ligam ULA, UC e registradores dentro do próprio chip.</td></tr></tbody></table></div>
+<figure class="au-fig">
+<img src="./assets/01_ucp_componentes.png" alt="Diagrama em blocos da UCP: ULA, Unidade de Controle e Registradores conectados por barramentos internos."/>
+<figcaption class="au-legenda">A UCP por dentro: a ULA calcula, a UC comanda, os registradores guardam o dado do instante — tudo ligado por barramentos internos ao chip.</figcaption>
+</figure>
+<blockquote class="callout tip" data-callout="tip">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>💡 Dica de Produção (Pro-Tip) </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>A analogia útil é a de um <strong>chef de cozinha</strong>: a ULA é a faca e a panela, que de fato transformam o ingrediente; a UC é o chef lendo a receita e comandando os movimentos; os registradores são as tigelas na bancada, onde os ingredientes ficam à mão durante o preparo. É uma imagem para fixar o papel de cada peça, não uma descrição do hardware.</p>
+</div>
+</blockquote>
+<blockquote class="callout note" data-callout="note">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>💼 Pergunta de Entrevista </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p><em>“Onde ficam os registradores na hierarquia de memória, e por que são tão rápidos?”</em> — No <strong>nível zero</strong>, acima de qualquer cache. São rápidos porque ficam dentro do núcleo do processador, pertíssimo da ULA, e são poucos — não há custo de endereçamento de memória externa nem latência de barramento para alcançá-los.</p>
+</div>
 </blockquote>
 <hr/>
-<h1 id="️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-17">🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-17" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
-<h1 id="️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-18">🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-18" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
-<p>A sequência normal infalível iterando Busca <span>→</span> Execução assume um pressuposto estático perigoso: as coisas vivem no vácuo e são perfeitamente lineares. Quase todos os computadores viáveis suportam <strong>Interrupções</strong>: mecanismos arquitetados onde módulos autônomos adjacentes (como HD, placa de rede, ou falhas na memória) tem passe-livre para <strong>interromper a sequência de processamento e roubar a atenção para eles</strong>.</p>
-<h1 id="️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-19">🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-19" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="2-cinco-registradores-de-controle-fazem-o-ciclo-acontecer-teoria--13-min">2. Cinco registradores de controle fazem o ciclo acontecer [Teoria ⏳ 13 min]<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-cinco-registradores-de-controle-fazem-o-ciclo-acontecer-teoria--13-min" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Os registradores se dividem em duas categorias: os <strong>visíveis ao usuário</strong>, que o software (via Conjunto de Instruções, a ISA — Instruction Set Architecture) pode manipular diretamente, e os <strong>de controle e estado</strong>, que o hardware usa para conduzir o ciclo e que o software em geral não altera à mão. Os cinco abaixo são os de controle que fazem o ciclo mecânico da CPU funcionar.</p>
 
 
 
@@ -342,16 +259,6 @@ pre:hover > .expand-button {
 
 
 
-<div class="table-container"><table><thead><tr><th><strong>Etapa</strong></th><th><strong>Detalhe Relevante</strong></th></tr></thead><tbody><tr><td><strong>Janela Fim-de-Execução</strong></td><td>Exatamente logo após completar uma execução, o hardware inspeciona um fio sinalizador sensível verificando se alguém pede atenção de emergência.</td></tr><tr><td><strong>Preservação de Contexto</strong></td><td>Havendo interrupção atestada, a CPU freia a busca seguinte. O registrador PC vigente e PSW crítico são fisicamente guardados na memória para não os perder.</td></tr><tr><td><strong>Rotina de Tratamento (ISR)</strong></td><td>O ponteiro PC agora adquire o novíssimo endereço da Rotina de Tratamento de Interrupção específica do sistema operacional hospedado.</td></tr><tr><td><strong>Retorno Conclusivo</strong></td><td>Encerrada a emergência do driver ou software corretor, os valores exatos de PC e PSW são repostos pela ordem inversa e tudo parece um lapso sutil da perspectiva do software original que foi interrompido.</td></tr></tbody></table></div>
-<p><img src="./assets/04_ciclo_com_interrupcao.png" width="auto" height="auto" alt/></p>
-<p><em>Flowchart do Ciclo estendido com o estágio obrigatório de checagem. Apresenta o losango “Houve interrupção?“.</em></p>
-<hr/>
-<h1 id="️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-20">🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-20" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
-<h1 id="️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-21">🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-21" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
-<p>O conceito basilar e histórico é o sequenciamento fixo do PC. Contudo, em hardwares moderníssimos baseados em processamento temporal esticado, quando um ciclo desagua em um salto variável (como estruturas “IF-ELSE”), o fluxo se confunde, paralisando etapas superescalares.</p>
-<p>Atrelado às buscas do PC, arquiteturas com o sufixo “Core” intel ou “M” Apple portam hardware preditor incrustado altamente complexo calcado em tabelas de histórico lógico que tenta proativamente deduzir se um desvio no programa se realizará ou não muito antes dele fluir efetivamente pelas ULA, agilizando fluxos em milhões de microssegundos em massa.</p>
-<hr/>
-<h1 id="️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-22">🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-22" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
 
 
 
@@ -362,155 +269,387 @@ pre:hover > .expand-button {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="table-container"><table><thead><tr><th><strong>Conceito Crítico</strong></th><th><strong>Definição Básica em uma só sentença</strong></th></tr></thead><tbody><tr><td><strong>UCP / CPU Funcional</strong></td><td>Estrato composto fundamental de ULA, UC e Registradores.</td></tr><tr><td><strong>ULA Processual</strong></td><td>O operário elétrico braçal e direto focado nos malabarismos matemáticos.</td></tr><tr><td><strong>PC (Program Counter)</strong></td><td>O passaporte com carimbo da <em>próxima</em> parada temporal na memória principal.</td></tr><tr><td><strong>IR Constante</strong></td><td>A urna sacrossanta portando fielmente a instrução codificada <em>em imediata</em> elaboração ou execução.</td></tr><tr><td><strong>Fetch</strong></td><td>(Busca) Subciclo metódico e temporal de abdução de bits válidos até a CPU.</td></tr><tr><td><strong>Execute</strong></td><td>(Execução) Translado final do dado na decodificação explícita do material lido.</td></tr><tr><td><strong>Interrupção de Hardware</strong></td><td>Solução estrutural inteligente da quebra rítmica linear para tratamento exógeno de eventos.</td></tr></tbody></table></div>
-<hr/>
-<h1 id="️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-23">🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-23" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
-<h1 id="️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-24">🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-24" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
-<p><strong>Formato Metodológico:</strong> Aprendizagem Baseada em Problemas (PBL) - Desafio grupal para consolidar as funções temporais.</p>
-<p><strong>Instrução para a reflexão:</strong></p>
-<p>Imagine um processador miniatura didático operando em uma máquina. A memória indica que a instrução base no endereço principal 100 é textualmente LOAD R1, Endereço 500 (ou seja, carregar no registrador de dados R1 contido internamente, aquilo que reside na gaveta 500 na memória).</p>
-<p>No princípio original, PC = 100 . Complete as passagens mentais:</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="table-container"><table><thead><tr><th><strong>Etapa Global</strong></th><th><strong>PC Registrado</strong></th><th><strong>MAR Registrado</strong></th><th><strong>MBR Variável</strong></th><th><strong>IR Estático</strong></th><th><strong>Oração do Fato e Ação Causal</strong></th></tr></thead><tbody><tr><td><strong>Instante Zero de Fetch</strong></td><td>100</td><td>Vazio</td><td>Vazio</td><td>Vazio</td><td>Estagnação pré-ciclo biológico absoluto.</td></tr><tr><td><strong>Fim do Macro-Caminho (Metade do Fetch)</strong></td><td>100</td><td><strong>[?]</strong></td><td><strong>[?]</strong></td><td>Vazio</td><td>MAR espelha o PC. A memória lê e expõe valores no MBR após ciclo elétrico natural.</td></tr><tr><td><strong>Encerramento da Busca</strong></td><td><strong>[?]</strong></td><td>100</td><td><code>LOAD R1, 500</code></td><td><strong>[?]</strong></td><td>Conclusão arquitetônica por cópias inter-registradores e o PC dá um salto de avanço preparatório inevitável.</td></tr><tr><td><strong>Processo de Execução</strong></td><td>101</td><td><strong>[?]</strong></td><td><strong>[?]</strong></td><td><code>LOAD R1, 500</code></td><td>A UC envia feixes decodificados para acessar memória secundariamente em razão do dado estipulado lá longe.</td></tr></tbody></table></div>
-<blockquote>
-<p><strong>Chave Mestra de Correção Rápida:</strong></p>
-<ul>
-<li></li>
-<li>[RESP_2]: LOAD R1, 500</li>
-<li></li>
-<li>[RESP_4]: LOAD R1, 500</li>
-<li></li>
-<li>[RESP_6]: [Conteúdo final alocado em 500 na RAM]</li>
-</ul>
+<div class="table-container"><table><thead><tr><th style="text-align:left;">Registrador</th><th style="text-align:left;">Nome completo</th><th style="text-align:left;">O que guarda</th></tr></thead><tbody><tr><td style="text-align:left;"><strong>PC</strong></td><td style="text-align:left;"><em>Program Counter</em></td><td style="text-align:left;">O <strong>endereço</strong> da <em>próxima</em> instrução a ser buscada na memória.</td></tr><tr><td style="text-align:left;"><strong>IR</strong></td><td style="text-align:left;"><em>Instruction Register</em></td><td style="text-align:left;">A instrução <em>atual</em>, recém-buscada, que está sendo decodificada e executada.</td></tr><tr><td style="text-align:left;"><strong>MAR</strong></td><td style="text-align:left;"><em>Memory Address Register</em></td><td style="text-align:left;">O <strong>endereço</strong> da memória principal onde será feita uma leitura ou escrita.</td></tr><tr><td style="text-align:left;"><strong>MBR</strong></td><td style="text-align:left;"><em>Memory Buffer Register</em></td><td style="text-align:left;">O <strong>dado</strong> (ou a instrução) que veio da memória, ou que será escrito nela.</td></tr><tr><td style="text-align:left;"><strong>PSW</strong></td><td style="text-align:left;"><em>Program Status Word</em></td><td style="text-align:left;">As <em>flags</em>* de estado — por exemplo, se a última operação deu zero, teve estouro (<em>overflow</em>) ou resultou em valor negativo.</td></tr></tbody></table></div>
+<figure class="au-fig">
+<img src="./assets/image-13.png" alt="Sequência de busca: o PC aponta o endereço para o MAR, a memória responde pelo MBR, e o conteúdo chega ao IR."/>
+<figcaption class="au-legenda">O caminho da busca entre os registradores: o PC fornece o endereço ao MAR, a memória devolve o conteúdo pelo MBR, e o valor segue até o IR.</figcaption>
+</figure>
+<p class="au-nota">*<b>flag</b>: um bit de sinalização que registra uma condição resultante de uma operação (zero, negativo, estouro aritmético). O conjunto dessas flags é o que o PSW guarda.</p>
+<blockquote class="callout tip" data-callout="tip">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>💡 Dica de Produção (Pro-Tip) </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p><strong>MAR e MBR trabalham em par e é fácil trocá-los:</strong> o MAR carrega o <em>endereço</em> (para onde ir na memória); o MBR carrega o <em>dado</em> (o que foi lido de lá ou será escrito). Endereço no MAR, conteúdo no MBR — essa é a distinção que mais cai em prova.</p>
+</div>
+</blockquote>
+<blockquote class="callout warning" data-callout="warning">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>⚠️ Gotcha </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>Nem todo registrador é alterável pelo software. Os cinco acima são <strong>de controle</strong>: o PC, por exemplo, é atualizado pelo hardware a cada busca (e por saltos/interrupções), não escrito diretamente por uma instrução comum. Confundir “registrador” com “variável do programa” leva a erro — os registradores visíveis ao usuário (como os de dados, R0, R1…) são outra categoria.</p>
+</div>
 </blockquote>
 <hr/>
-<h1 id="️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-25">🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-25" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
-<p><strong>Missão Autônoma:</strong> No Ciclo da Interrupção verificado no fluxograma, as literaturas confirmam piamente que a máquina tem de salvaguardar o abençoado “Estado Original Intocado” do processo moribundo. Investigue os dois parâmetros essenciais:</p>
+<h2 id="3-o-ciclo-de-instrução-é-um-laço-contínuo-que-as-interrupções-sabem-quebrar-teoria--15-min">3. O Ciclo de Instrução é um laço contínuo que as interrupções sabem quebrar [Teoria ⏳ 15 min]<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3-o-ciclo-de-instrução-é-um-laço-contínuo-que-as-interrupções-sabem-quebrar-teoria--15-min" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>A função básica do computador é executar um programa, que é uma sequência de instruções em endereços da memória. O processo ordenado de tratar <strong>uma</strong> instrução é o <strong>Ciclo de Instrução</strong>.</p>
+<blockquote>
+<p><strong>Stallings (Cap. 3):</strong> na forma mais simples, o processamento de uma instrução tem dois subciclos encadeados — o <strong>Ciclo de Busca</strong> (Fetch) e o <strong>Ciclo de Execução</strong> (Execute).</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">Estado</th><th style="text-align:left;">O que ocorre no hardware</th></tr></thead><tbody><tr><td style="text-align:left;"><strong>Busca (Fetch)</strong></td><td style="text-align:left;">O processador lê da memória a próxima instrução e a leva ao IR, avançando o PC.</td></tr><tr><td style="text-align:left;"><strong>Decodificação</strong></td><td style="text-align:left;">A UC interpreta a instrução, identificando a operação a realizar (o <em>opcode</em>*).</td></tr><tr><td style="text-align:left;"><strong>Execução (Execute)</strong></td><td style="text-align:left;">O hardware realiza a ação: uma operação na ULA, uma transferência de dados ou um salto.</td></tr><tr><td style="text-align:left;"><strong>Repetição</strong></td><td style="text-align:left;">O macrociclo é contínuo e avança sincronizado pelo clock (a frequência do sistema).</td></tr></tbody></table></div>
+<figure class="au-fig">
+<img src="./assets/03_ciclo_instrucao_basico.png" alt="Fluxograma cíclico: Início, Ciclo de Busca (Fetch), Ciclo de Execução (Execute), de volta ao início."/>
+<figcaption class="au-legenda">O ciclo básico: buscar, executar e recomeçar, indefinidamente, enquanto houver instruções.</figcaption>
+</figure>
+<p class="au-nota">*<b>opcode</b> (<i>operation code</i>): o campo da instrução que diz qual operação executar (somar, carregar, saltar). A decodificação é justamente ler o opcode e preparar o hardware para ele.</p>
+<details class="au-aposta">
+<summary>Antes de rolar: no primeiro passo da busca, qual registrador recebe o endereço que está no PC — o MAR ou o MBR?</summary>
+<p>O <strong>MAR</strong> (Memory Address Register). Ele guarda <strong>endereços</strong>; o MBR guarda <strong>dados/instruções</strong>. O PC manda o endereço para o MAR, a memória responde, e o que volta (a instrução) é que entra no MBR. Trocar os dois é o erro clássico — a regra é: <strong>MAR = endereço, MBR = conteúdo</strong>.</p>
+</details>
+<h3 id="31-a-busca-segue-sempre-a-mesma-sequência-de-quatro-passos">3.1 A busca segue sempre a mesma sequência de quatro passos<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#31-a-busca-segue-sempre-a-mesma-sequência-de-quatro-passos" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Quando o subciclo de busca começa, os registradores atuam nesta ordem:</p>
 <ol>
-<li>Como um hardware eletrônico sabe, invariavelmente, que dois e somente dois dados bastam no geral? Cite quais os nomes primários desses dois blocos que descrevem onde se estava correndo o fluxo e qual o temperamento elétrico.</li>
-<li>Em que estrutura de dados exata a arquitetura costuma lançar esse estado salvo para uso pelo SO, obedecendo ao LIFO elementar? Referencie Stallings Cap 12.</li>
+<li>A UC envia o endereço contido no <strong>PC</strong> para o <strong>MAR</strong> e sinaliza, pelo barramento, um pedido de leitura.</li>
+<li>A memória principal atende o pedido e devolve o conteúdo daquele endereço, que é depositado no <strong>MBR</strong>.</li>
+<li>Como o processador está no subciclo de busca, ele copia o conteúdo do <strong>MBR</strong> para o <strong>IR</strong> (é uma instrução que acaba de chegar).</li>
+<li>O <strong>PC</strong> é incrementado para apontar a instrução seguinte na memória.</li>
 </ol>
+<blockquote class="callout tip" data-callout="tip">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>💡 Dica de Produção (Pro-Tip) </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>A analogia do <strong>roteiro teatral</strong> ajuda: o PC é a marcação que indica qual linha do texto (qual endereço) vem a seguir; o IR é o ator lendo e interpretando a fala atual. Primeiro lê (Busca), depois representa (Execução), e a marcação avança para a próxima linha. Use como apoio de memória — o mecanismo real são os quatro passos acima.</p>
+</div>
+</blockquote>
+<h3 id="32-as-interrupções-permitem-reagir-a-eventos-sem-parar-de-executar">3.2 As interrupções permitem reagir a eventos sem parar de executar<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#32-as-interrupções-permitem-reagir-a-eventos-sem-parar-de-executar" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>A sequência Busca → Execução pressupõe um fluxo perfeitamente linear. Na prática, quase todo computador oferece <strong>interrupções</strong>: um mecanismo pelo qual módulos externos (disco, placa de rede, temporizador, ou uma falha de hardware) sinalizam que precisam de atenção, fazendo o processador desviar temporariamente do fluxo normal.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">Etapa</th><th style="text-align:left;">O que ocorre</th></tr></thead><tbody><tr><td style="text-align:left;"><strong>Verificação ao fim da execução</strong></td><td style="text-align:left;">Logo após concluir uma instrução, o hardware checa uma linha de sinalização para ver se há interrupção pendente.</td></tr><tr><td style="text-align:left;"><strong>Preservação de contexto</strong></td><td style="text-align:left;">Havendo interrupção, a CPU salva na memória o valor atual do <strong>PC</strong> e do <strong>PSW</strong>, para poder voltar exatamente ao ponto em que estava.</td></tr><tr><td style="text-align:left;"><strong>Rotina de tratamento (ISR)</strong></td><td style="text-align:left;">O <strong>PC</strong> recebe o endereço da <strong>ISR</strong> (Interrupt Service Routine), a rotina do sistema operacional que trata aquele evento.</td></tr><tr><td style="text-align:left;"><strong>Retorno</strong></td><td style="text-align:left;">Concluída a ISR, o <strong>PC</strong> e o <strong>PSW</strong> salvos são restaurados, e o programa interrompido retoma como se nada tivesse ocorrido.</td></tr></tbody></table></div>
+<figure class="au-fig">
+<img src="./assets/04_ciclo_com_interrupcao.png" alt="Fluxograma do ciclo estendido com a verificação 'Houve interrupção?' após a execução."/>
+<figcaption class="au-legenda">O ciclo estendido: depois de cada execução, o hardware pergunta &quot;houve interrupção?&quot;. Em caso afirmativo, salva o contexto, atende a ISR e depois retoma.</figcaption>
+</figure>
+<p>Esse contexto salvo (o PC e o PSW) não é guardado num lugar fixo: ele é <strong>empilhado</strong> numa pilha*, a mesma estrutura LIFO (<em>Last In, First Out</em> — último a entrar, primeiro a sair). É por isso que uma interrupção pode acontecer <strong>dentro</strong> de outra: cada atendimento empilha o seu ponto de retorno, e o desempilhamento na ordem inversa devolve cada programa exatamente de onde parou.</p>
+<p class="au-nota">*<b>pilha</b> (<i>stack</i>): estrutura de dados em que o último item inserido é o primeiro a sair (LIFO). O processador a usa para guardar pontos de retorno — de interrupções e também de chamadas de função.</p>
+<blockquote class="callout note" data-callout="note">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>💼 Pergunta de Entrevista </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p><em>“Numa interrupção, por que basta salvar PC e PSW para retomar o programa depois?”</em> — Porque o PC diz <strong>onde</strong> o programa parou (a próxima instrução) e o PSW diz <strong>em que estado</strong> ele estava (as flags da última operação). Com esses dois, o processador reconstitui o ponto exato de retorno. Os registradores de dados, quando a ISR for usá-los, são salvos e restaurados por ela — tipicamente numa <strong>pilha</strong> (estrutura LIFO).</p>
+</div>
+</blockquote>
+<blockquote class="callout tip" data-callout="tip">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>💡 Dica de Produção (Pro-Tip) — o preditor de desvio, com o número certo </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>Quando o fluxo encontra um <strong>desvio condicional</strong> (um <code>if</code>), o processador em pipeline ainda não sabe qual caminho seguir — e esperar essa decisão deixaria o pipeline ocioso. Processadores modernos (famílias <strong>Intel Core</strong>, <strong>Apple M</strong>, núcleos <strong>ARM</strong>) usam um <strong>preditor de desvio</strong>: um circuito que, a partir de tabelas de histórico, aposta no caminho mais provável e já começa a buscar por ele. O ganho <strong>não</strong> se mede em “milhões de microssegundos” — mede-se em <strong>ciclos de clock economizados</strong> (ordem de <strong>nanossegundos</strong>). Ao acertar o palpite, o preditor evita a penalidade de <strong>esvaziar o pipeline</strong> (um <em>flush</em> custa alguns ciclos por desvio mal previsto); ao errar, paga-se exatamente essa penalidade. É economia de ciclos, não de milissegundos.</p>
+</div>
+</blockquote>
 <hr/>
-<h1 id="️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-26">🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-26" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
-<h1 id="️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-27">🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-27" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<div class="au-slot">
+<div class="au-slot-h"><b>Interativo</b> · Vevox · 3 min</div>
+<div class="au-slot-c">
+<p>Abra <strong>vevox.app</strong> e entre com o ID da sessão no projetor. Duas perguntas de múltipla escolha, anônimas, sobre o Ciclo de Instrução: (1) em que registrador fica a instrução recém-buscada? (2) o que o processador salva ao atender uma interrupção?</p>
+</div>
+<p class="au-slot-b"><b>Plano B:</b> se a rede do campus cair, as mesmas duas perguntas vão na mão com os cartões Plickers. Mesmo conteúdo, mesmo tempo.</p>
+</div>
+<hr/>
+<h2 id="seletor-de-camadas--as-três-fases-do-ciclo-sobre-o-datapath">Seletor de camadas — as três fases do ciclo sobre o datapath<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#seletor-de-camadas--as-três-fases-do-ciclo-sobre-o-datapath" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Selecione uma fase para isolar o que acontece nela, no mesmo caminho de dados (PC → MAR → Memória → MBR → IR). O que some da tela é o que não participa daquela fase.</p>
+<figure class="au-fig au-switch" role="group" aria-label="Seletor das fases do Ciclo de Instrução">
+<input type="radio" name="a05fase" id="a05-busca" checked/>
+<input type="radio" name="a05fase" id="a05-decod"/>
+<input type="radio" name="a05fase" id="a05-exec"/>
+<div class="au-switch-lbl">
+<label for="a05-busca">BUSCA</label>
+<label for="a05-decod">DECODIFICAÇÃO</label>
+<label for="a05-exec">EXECUÇÃO</label>
+</div>
+<svg class="au-camadas" viewBox="0 0 460 230" role="img" aria-label="Datapath com PC, MAR, Memória, MBR, IR, UC e ULA ao longo das três fases do ciclo">
+<rect x="20" y="18" width="90" height="34" rx="6" fill="none" stroke="#2778c4" stroke-width="2"></rect>
+<text x="65" y="40" text-anchor="middle" font-size="13" style="fill:#2778c4;" font-family="monospace">PC</text>
+<rect x="20" y="90" width="90" height="34" rx="6" fill="none" stroke="#2778c4" stroke-width="2"></rect>
+<text x="65" y="112" text-anchor="middle" font-size="13" style="fill:#2778c4;" font-family="monospace">MAR</text>
+<rect x="185" y="54" width="90" height="34" rx="6" fill="none" stroke="#8a8f98" stroke-width="2"></rect>
+<text x="230" y="76" text-anchor="middle" font-size="12" style="fill:#8a8f98;" font-family="monospace">MEMÓRIA</text>
+<rect x="185" y="126" width="90" height="34" rx="6" fill="none" stroke="#2778c4" stroke-width="2"></rect>
+<text x="230" y="148" text-anchor="middle" font-size="13" style="fill:#2778c4;" font-family="monospace">MBR</text>
+<rect x="350" y="90" width="90" height="34" rx="6" fill="none" stroke="#2778c4" stroke-width="2"></rect>
+<text x="395" y="112" text-anchor="middle" font-size="13" style="fill:#2778c4;" font-family="monospace">IR</text>
+<rect x="350" y="18" width="90" height="34" rx="6" fill="none" stroke="#00aa9f" stroke-width="2"></rect>
+<text x="395" y="40" text-anchor="middle" font-size="13" style="fill:#00aa9f;" font-family="monospace">UC</text>
+<rect x="350" y="162" width="90" height="34" rx="6" fill="none" stroke="#b1541b" stroke-width="2"></rect>
+<text x="395" y="184" text-anchor="middle" font-size="13" style="fill:#b1541b;" font-family="monospace">ULA</text>
+<g class="c1">
+<line x1="65" y1="52" x2="65" y2="90" stroke="#2778c4" stroke-width="2"></line>
+<line x1="110" y1="107" x2="185" y2="75" stroke="#2778c4" stroke-width="2"></line>
+<line x1="230" y1="88" x2="230" y2="126" stroke="#2778c4" stroke-width="2"></line>
+<line x1="275" y1="143" x2="350" y2="110" stroke="#2778c4" stroke-width="2"></line>
+<text x="230" y="214" text-anchor="middle" font-size="12" style="fill:#2778c4;" font-family="monospace">PC→MAR→Memória→MBR→IR, PC++</text>
+</g>
+<g class="c2">
+<line x1="395" y1="90" x2="395" y2="52" stroke="#00aa9f" stroke-width="2"></line>
+<text x="230" y="214" text-anchor="middle" font-size="12" style="fill:#00aa9f;" font-family="monospace">IR→UC: a UC lê o opcode e decide</text>
+</g>
+<g class="c3">
+<line x1="395" y1="124" x2="395" y2="162" stroke="#b1541b" stroke-width="2"></line>
+<text x="230" y="214" text-anchor="middle" font-size="12" style="fill:#b1541b;" font-family="monospace">UC comanda a ULA: a ação é realizada</text>
+</g>
+</svg>
+<figcaption class="au-legenda"><b>Busca</b>: o endereço sai do PC pelo MAR, a memória responde pelo MBR e a instrução chega ao IR (e o PC é incrementado). <b>Decodificação</b>: a UC lê o IR e interpreta o opcode. <b>Execução</b>: a UC comanda a ULA e a ação acontece. É o mesmo datapath — muda só a parte que está em uso.</figcaption>
+</figure>
+<hr/>
+<div class="au-pratica">
+<b>Prática — 15 min, em duplas</b>
+<p>Um processador didático tem no endereço 100 a instrução <code>LOAD R1, 500</code> (carregar em R1 o conteúdo que está no endereço 500 da memória). No início, <strong>PC = 100</strong>. Preencha a tabela acompanhando os registradores ao longo da busca e do começo da execução.</p>
+<ol>
+<li>Abra o simulador <strong>LMC</strong> em <a href="https://peterhigginson.co.uk/lmc" class="external">peterhigginson.co.uk/lmc<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> e carregue um programa simples com um <code>LOAD</code>.</li>
+<li>Execute em modo passo a passo (<em>step</em>) e observe PC, MAR, MBR e IR mudando a cada etapa.</li>
+<li>Preencha a tabela abaixo e confira com o simulador.</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">Etapa</th><th style="text-align:left;">PC</th><th style="text-align:left;">MAR</th><th style="text-align:left;">MBR</th><th style="text-align:left;">IR</th><th style="text-align:left;">O que acontece</th></tr></thead><tbody><tr><td style="text-align:left;"><strong>Antes do fetch</strong></td><td style="text-align:left;">100</td><td style="text-align:left;">—</td><td style="text-align:left;">—</td><td style="text-align:left;">—</td><td style="text-align:left;">Estado inicial: o PC aponta a instrução, nada mais foi lido.</td></tr><tr><td style="text-align:left;"><strong>Meio do fetch</strong></td><td style="text-align:left;">100</td><td style="text-align:left;"><strong>[?]</strong></td><td style="text-align:left;"><strong>[?]</strong></td><td style="text-align:left;">—</td><td style="text-align:left;">O MAR recebe o endereço do PC; a memória responde e o valor cai no MBR.</td></tr><tr><td style="text-align:left;"><strong>Fim da busca</strong></td><td style="text-align:left;"><strong>[?]</strong></td><td style="text-align:left;">100</td><td style="text-align:left;"><code>LOAD R1, 500</code></td><td style="text-align:left;"><strong>[?]</strong></td><td style="text-align:left;">O MBR é copiado para o IR e o PC é incrementado.</td></tr><tr><td style="text-align:left;"><strong>Início da execução</strong></td><td style="text-align:left;">101</td><td style="text-align:left;"><strong>[?]</strong></td><td style="text-align:left;"><strong>[?]</strong></td><td style="text-align:left;"><code>LOAD R1, 500</code></td><td style="text-align:left;">A UC decodifica e, para buscar o dado, aponta o MAR para o endereço do operando.</td></tr></tbody></table></div>
+<p class="au-pronto"><b>Critério de pronto:</b> a tabela preenchida bate com o passo a passo do simulador. Gabarito — meio do fetch: MAR = 100, MBR = <code>LOAD R1, 500</code>; fim da busca: PC = 101 (incrementado pelo hardware), IR = <code>LOAD R1, 500</code>; início da execução: MAR = 500 (agora buscando o operando), MBR = o conteúdo do endereço 500.</p>
+<p class="au-slot-b"><b>Plano B:</b> se o simulador não abrir, a mesma tabela é resolvida no quadro, com a turma ditando os valores etapa por etapa.</p>
+</div>
+<hr/>
+<div class="au-resumo">
+<b>Resumo da aula</b>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">Conceito</th><th style="text-align:left;">Definição em uma frase</th></tr></thead><tbody><tr><td style="text-align:left;"><strong>UCP / CPU</strong></td><td style="text-align:left;">O componente que busca, decodifica e executa instruções; é feito de ULA, UC e registradores.</td></tr><tr><td style="text-align:left;"><strong>ULA</strong></td><td style="text-align:left;">A unidade que faz os cálculos aritméticos e lógicos.</td></tr><tr><td style="text-align:left;"><strong>UC</strong></td><td style="text-align:left;">A unidade que interpreta a instrução e comanda o resto do processador.</td></tr><tr><td style="text-align:left;"><strong>PC</strong></td><td style="text-align:left;">Guarda o endereço da <em>próxima</em> instrução.</td></tr><tr><td style="text-align:left;"><strong>IR</strong></td><td style="text-align:left;">Guarda a instrução <em>atual</em>, em decodificação/execução.</td></tr><tr><td style="text-align:left;"><strong>MAR / MBR</strong></td><td style="text-align:left;">MAR leva o <em>endereço</em>; MBR leva o <em>dado</em>.</td></tr><tr><td style="text-align:left;"><strong>PSW</strong></td><td style="text-align:left;">Guarda as flags de estado (zero, negativo, estouro).</td></tr><tr><td style="text-align:left;"><strong>Fetch</strong></td><td style="text-align:left;">Subciclo que traz a próxima instrução até o IR.</td></tr><tr><td style="text-align:left;"><strong>Execute</strong></td><td style="text-align:left;">Subciclo que realiza a ação da instrução.</td></tr><tr><td style="text-align:left;"><strong>Interrupção</strong></td><td style="text-align:left;">Mecanismo que desvia o fluxo para atender um evento, salvando PC e PSW.</td></tr><tr><td style="text-align:left;"><strong>Preditor de desvio</strong></td><td style="text-align:left;">Circuito que aposta no caminho de um desvio para não esvaziar o pipeline; economiza ciclos de clock.</td></tr></tbody></table></div>
+</div>
+<hr/>
+<div class="au-flashcards" data-fc="a05">
+<script type="application/json" class="au-fc-data">
+[
+  {&quot;q&quot;: &quot;O que o PC (Program Counter) guarda?&quot;, &quot;a&quot;: &quot;O &lt;b>endereço da próxima instrução&lt;/b> a ser buscada na memória. É atualizado pelo hardware a cada busca (e por saltos e interrupções).&quot;},
+  {&quot;q&quot;: &quot;Qual a diferença entre MAR e MBR?&quot;, &quot;a&quot;: &quot;O &lt;b>MAR&lt;/b> (Memory Address Register) carrega o &lt;b>endereço&lt;/b> — para onde ir na memória. O &lt;b>MBR&lt;/b> (Memory Buffer Register) carrega o &lt;b>dado&lt;/b> — o que foi lido de lá ou será escrito. Endereço no MAR, conteúdo no MBR.&quot;},
+  {&quot;q&quot;: &quot;O que o IR (Instruction Register) guarda?&quot;, &quot;a&quot;: &quot;A &lt;b>instrução atual&lt;/b>, recém-buscada da memória, que está sendo decodificada e executada.&quot;},
+  {&quot;q&quot;: &quot;Quais são os dois subciclos do Ciclo de Instrução?&quot;, &quot;a&quot;: &quot;O &lt;b>Ciclo de Busca&lt;/b> (Fetch), que traz a próxima instrução até o IR, e o &lt;b>Ciclo de Execução&lt;/b> (Execute), que realiza a ação da instrução.&quot;},
+  {&quot;q&quot;: &quot;O que acontece quando ocorre uma interrupção?&quot;, &quot;a&quot;: &quot;Ao fim da execução, o hardware detecta a interrupção, &lt;b>salva o PC e o PSW&lt;/b>, carrega no PC o endereço da ISR (Interrupt Service Routine), executa a rotina e depois &lt;b>restaura PC e PSW&lt;/b> para retomar o programa.&quot;},
+  {&quot;q&quot;: &quot;O que o PSW (Program Status Word) guarda?&quot;, &quot;a&quot;: &quot;As &lt;b>flags de estado&lt;/b> da última operação — por exemplo, se o resultado foi zero, negativo ou teve estouro (overflow). É salvo junto com o PC numa interrupção.&quot;}
+]
+</script>
+<div class="au-fc-stage" tabindex="0" role="button" aria-live="polite">
+  <div class="au-fc-face au-fc-q"></div>
+  <div class="au-fc-hint">clique para virar</div>
+</div>
+<div class="au-fc-nav">
+  <button class="au-fc-prev" type="button" aria-label="Card anterior">←</button>
+  <span class="au-fc-count"></span>
+  <button class="au-fc-next" type="button" aria-label="Próximo card">→</button>
+</div>
+</div>
+<hr/>
+<div class="au-quiz" data-quiz="a05">
+<script type="application/json" class="au-quiz-data">
+[
+  {&quot;q&quot;: &quot;Qual registrador guarda o endereço da PRÓXIMA instrução a ser buscada?&quot;, &quot;opcoes&quot;: [&quot;IR (Instruction Register)&quot;, &quot;PC (Program Counter)&quot;, &quot;MBR (Memory Buffer Register)&quot;], &quot;correta&quot;: 1, &quot;explica&quot;: &quot;O &lt;b>PC&lt;/b> aponta sempre a próxima instrução. O IR guarda a instrução atual; o MBR, o dado lido da memória.&quot;},
+  {&quot;q&quot;: &quot;Durante a busca, qual par de registradores conversa com a memória, e com que papel cada um?&quot;, &quot;opcoes&quot;: [&quot;MAR leva o endereço, MBR recebe o dado&quot;, &quot;MBR leva o endereço, MAR recebe o dado&quot;, &quot;PC leva o endereço, IR recebe o dado&quot;], &quot;correta&quot;: 0, &quot;explica&quot;: &quot;O &lt;b>MAR&lt;/b> carrega o endereço a ler; a memória responde e o conteúdo cai no &lt;b>MBR&lt;/b>. Endereço no MAR, dado no MBR — é a distinção que mais confunde.&quot;},
+  {&quot;q&quot;: &quot;Numa interrupção, o que o processador salva para poder retomar o programa depois?&quot;, &quot;opcoes&quot;: [&quot;Todos os registradores de dados&quot;, &quot;O PC e o PSW&quot;, &quot;Apenas o conteúdo do IR&quot;], &quot;correta&quot;: 1, &quot;explica&quot;: &quot;Salvam-se &lt;b>PC&lt;/b> (onde parou) e &lt;b>PSW&lt;/b> (em que estado estava). Com os dois, o retorno é exato; os registradores de dados, se usados, são salvos pela própria ISR, tipicamente numa pilha.&quot;},
+  {&quot;q&quot;: &quot;O que faz um preditor de desvio e qual é a ordem de grandeza do que ele economiza?&quot;, &quot;opcoes&quot;: [&quot;Agiliza o fluxo em milhões de microssegundos&quot;, &quot;Aposta no caminho de um desvio e economiza ciclos de clock (nanossegundos), evitando esvaziar o pipeline&quot;, &quot;Aumenta a frequência do clock do processador&quot;], &quot;correta&quot;: 1, &quot;explica&quot;: &quot;O preditor aposta no caminho mais provável de um desvio e já busca por ele. Ao acertar, evita &lt;b>esvaziar o pipeline&lt;/b> (um flush custa alguns ciclos); a economia é de &lt;b>ciclos de clock&lt;/b> — ordem de nanossegundos —, não de milissegundos.&quot;},
+  {&quot;q&quot;: &quot;A qual categoria pertencem PC, IR, MAR, MBR e PSW?&quot;, &quot;opcoes&quot;: [&quot;Registradores visíveis ao usuário&quot;, &quot;Registradores de controle e estado&quot;, &quot;Posições da memória cache&quot;], &quot;correta&quot;: 1, &quot;explica&quot;: &quot;São &lt;b>registradores de controle e estado&lt;/b>: o hardware os usa para conduzir o ciclo. Os visíveis ao usuário (como R0, R1) são outra categoria, manipulada diretamente pelo software.&quot;}
+]
+</script>
+<div class="au-quiz-stage" tabindex="0" role="group" aria-live="polite">
+  <div class="au-quiz-q"></div>
+  <div class="au-quiz-opcoes" role="radiogroup"></div>
+  <div class="au-quiz-feedback" aria-live="polite"></div>
+  <div class="au-quiz-foot">
+    <span class="au-quiz-score"></span>
+    <div class="au-quiz-nav">
+      <button class="au-quiz-prev" type="button" aria-label="Questão anterior">←</button>
+      <span class="au-quiz-count"></span>
+      <button class="au-quiz-next" type="button" aria-label="Próxima questão">→</button>
+    </div>
+  </div>
+</div>
+</div>
+<hr/>
+<div class="au-reflexao">
+<b>Para pensar até a próxima aula</b>
+<p>Numa interrupção, salvar o PC e o PSW basta para o processador voltar ao ponto exato. Mas e se, enquanto a rotina de tratamento (ISR) estiver rodando, chegar <i>outra</i> interrupção? O que precisaria acontecer para que o processador conseguisse tratar uma interrupção dentro da outra sem perder o caminho de volta? Pense em quantos &quot;pontos de retorno&quot; ele teria de guardar — e onde.</p>
+<p><i>Não há resposta nesta página de propósito.</i></p>
+</div>
+<hr/>
+<div class="au-proxima">
+<b>Na próxima aula</b>
+<p>Hoje vimos que os registradores são a memória mais rápida da máquina — mas são pouquíssimos. Na Aula 06 descemos um degrau: a <b>Hierarquia de Memória</b>, por que ela existe em camadas e como o processador decide o que manter perto e o que deixar longe.</p>
+</div>
+<hr/>
+<hr class="au-fim-aula"/>
+<div class="au-refs">
+<b>Referências desta aula</b>
 <ul>
-<li><strong>STALLINGS, W.</strong> <em>Arquitetura e Organização de Computadores: projetando com foco em desempenho.</em> 11ª ed. São Paulo: Pearson, 2024.
+<li><strong>STALLINGS, W.</strong> <em>Arquitetura e Organização de Computadores.</em> 11. ed. São Paulo: Pearson, 2024. <span class="au-pag">cap. 3 (Visão de Alto Nível: Função e Interconexão do Computador) e cap. 12 (Estrutura e Função do Processador) · [CONFIRMAR página]</span></li>
+<li><strong>TANENBAUM, A. S.</strong> <em>Organização Estruturada de Computadores.</em> 6. ed. São Paulo: Pearson, 2013. <span class="au-pag">cap. 2 (Organização de Sistemas de Computadores) · [CONFIRMAR página]</span></li>
+<li><strong>NULL, L.; LOBUR, J.</strong> <em>The Essentials of Computer Organization and Architecture.</em> 5th ed. Burlington: Jones &amp; Bartlett, 2018. <span class="au-pag">[CONFIRMAR capítulo e página]</span></li>
+</ul>
+<p><strong>Ferramentas de apoio</strong></p>
 <ul>
-<li><strong>Capítulo 3 Exato:</strong> Visão de Alto Nível: Função e Interconexão do Computador. Construto do ciclo formalizado e quebras interpostas com interrupções base.</li>
-<li><strong>Capítulo 12 Primário:</strong> Estrutura e Função do Processador. Dinâmica intrínseca macro da ULA com base registral exposta a alto nível e ciclo pormenorizado em estágios simples.</li>
+<li>Simulador <strong>LMC</strong> (Little Man Computer): <a href="https://peterhigginson.co.uk/lmc" class="external">peterhigginson.co.uk/lmc<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> — modelo didático para ver o ciclo buscar-executar passo a passo.</li>
+<li><strong>CPUlator</strong>: <a href="https://cpulator.01xz.net/" class="external">cpulator.01xz.net<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> — simulador de datapath em tempo real.</li>
 </ul>
-</li>
-<li><strong>TANENBAUM, A. S.</strong> <em>Organização Estruturada de Computadores.</em> 6ª ed. São Paulo: Pearson, 2013.
-<ul>
-<li><strong>Capítulo 2 Indutivo:</strong> Organização de Sistemas de Computadores enraizando os fluxos contidos e ciclos macro da instrução primária nas seções basilares de funcionamento de CPU.</li>
-</ul>
-</li>
-</ul>
-<h1 id="️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-28">🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-28" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
-<ul>
-<li><strong>NULL, L.; LOBUR, J.</strong> <em>The Essentials of Computer Organization and Architecture.</em> 5th ed. Jones &amp; Bartlett, 2018.
-<ul>
-<li>Uma visão macro do modelo matemático original descritivo sob a máquina imaculada típica estrita com fluxos e datapaths altamente intuitivos do ciclo fundamental de processamento de informações.</li>
-</ul>
-</li>
-</ul>
-<h1 id="️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-29">🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-aula---05-unidades-de-processamento-e-ciclo-de-instrução-29" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="table-container"><table><thead><tr><th><strong>Recurso Extendido</strong></th><th><strong>Enfoque Conceitual</strong></th><th><strong>Domínio Atuante</strong></th></tr></thead><tbody><tr><td>Visualizador CPU Global Gráfico</td><td>Prata da casa dos <em>applets</em> de navegação em tempo-real para compreensão e vivência de fluídos simulados do datapath.</td><td><a href="https://cpulator.01xz.net/" class="external">cpulator.01xz.net<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></td></tr><tr><td>Simulador Interativo Clássico (LMC)</td><td>Um modelo prático simplista massivo derivado de experiências da academia em lógica fundamental usado para decifrar buscar-executar.</td><td><a href="https://peterhigginson.co.uk/lmc" class="external">peterhigginson.co.uk/lmc<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></td></tr><tr><td>Exploração Conceitual</td><td>Materiais complementares didáticos abordando de maneira engajante as interrupções de hardware.</td><td><a href="https://csfieldguide.org.nz/" class="external">csfieldguide.org.nz<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></td></tr></tbody></table></div></article><hr/><div class="page-footer"></div></div><div class="right sidebar"></div><footer class="footer "><div class="footer__brand"><img src="https://uniube.br/img/landing/logo_azul.svg" alt="Universidade de Uberaba" class="footer__logo footer__logo--light"/><img src="https://uniube.br/img/landing/logo_branca.svg" alt="Universidade de Uberaba" class="footer__logo footer__logo--dark"/><div class="footer__info"><span class="footer__name">Prof. Romualdo Filho</span><a class="footer__email" href="mailto:romualdo.filho@uniube.br">romualdo.filho@uniube.br</a></div></div><ul class="footer__links"><li><a href="https://uniube.br" target="_blank" rel="noopener noreferrer">Mural Uniube</a></li></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</div>
+</div></article><hr/><div class="page-footer"></div></div><div class="right sidebar"></div><footer class="footer "><div class="footer__brand"><img src="https://uniube.br/img/landing/logo_azul.svg" alt="Universidade de Uberaba" class="footer__logo footer__logo--light"/><img src="https://uniube.br/img/landing/logo_branca.svg" alt="Universidade de Uberaba" class="footer__logo footer__logo--dark"/><div class="footer__info"><span class="footer__name">Prof. Romualdo Filho</span><a class="footer__email" href="mailto:romualdo.filho@uniube.br">romualdo.filho@uniube.br</a></div></div><ul class="footer__links"><li><a href="https://uniube.br" target="_blank" rel="noopener noreferrer">Mural Uniube</a></li></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
 </script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
 </script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="./postscript.js" type="module" data-persist="true"></script></html>
