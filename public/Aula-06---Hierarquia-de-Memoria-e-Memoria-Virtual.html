@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt" dir="ltr"><head><title>🖥️ Aula - 06: Hierarquia de Memória e Memória Virtual | Prof. Romualdo</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space Grotesk:wght@400;700&amp;family=Inter:ital,wght@0,400;0,600;1,400;1,600&amp;family=JetBrains Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="💻 Arquitetura de Computadores"/><meta property="og:title" content="🖥️ Aula - 06: Hierarquia de Memória e Memória Virtual | Prof. Romualdo"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="🖥️ Aula - 06: Hierarquia de Memória e Memória Virtual | Prof. Romualdo"/><meta name="twitter:description" content="🖥️ Aula 06 — Hierarquia de Memória e Memória Virtual Disciplina: 90388 — Arquitetura e Organização de Computadores · Sistemas de Informação (curso 160) — Uniube Professor: Romualdo Mathias Filho · romualdo.filho@uniube.br Semana: 06 · 2026-1 · [CONFIRMAR data] · 📘 Teórica (75 min) Tópicos: Regist..."/><meta property="og:description" content="🖥️ Aula 06 — Hierarquia de Memória e Memória Virtual Disciplina: 90388 — Arquitetura e Organização de Computadores · Sistemas de Informação (curso 160) — Uniube Professor: Romualdo Mathias Filho · romualdo.filho@uniube.br Semana: 06 · 2026-1 · [CONFIRMAR data] · 📘 Teórica (75 min) Tópicos: Regist..."/><meta property="og:image:alt" content="🖥️ Aula 06 — Hierarquia de Memória e Memória Virtual Disciplina: 90388 — Arquitetura e Organização de Computadores · Sistemas de Informação (curso 160) — Uniube Professor: Romualdo Mathias Filho · romualdo.filho@uniube.br Semana: 06 · 2026-1 · [CONFIRMAR data] · 📘 Teórica (75 min) Tópicos: Regist..."/><meta property="twitter:domain" content="rofilho.github.io/arquitetura"/><meta property="og:url" content="https://rofilho.github.io/arquitetura/Aula-06---Hierarquia-de-Memoria-e-Memoria-Virtual"/><meta property="twitter:url" content="https://rofilho.github.io/arquitetura/Aula-06---Hierarquia-de-Memoria-e-Memoria-Virtual"/><link rel="icon" href="./static/icon.png"/><meta name="description" content="🖥️ Aula 06 — Hierarquia de Memória e Memória Virtual Disciplina: 90388 — Arquitetura e Organização de Computadores · Sistemas de Informação (curso 160) — Uniube Professor: Romualdo Mathias Filho · romualdo.filho@uniube.br Semana: 06 · 2026-1 · [CONFIRMAR data] · 📘 Teórica (75 min) Tópicos: Regist..."/><meta name="generator" content="Quartz"/><link href="./index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+<html lang="pt" dir="ltr"><head><title>🖥️ Aula - 06: Hierarquia de Memória e Memória Virtual | Prof. Romualdo</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space Grotesk:wght@400;700&amp;family=Inter:ital,wght@0,400;0,600;1,400;1,600&amp;family=JetBrains Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="💻 Arquitetura de Computadores"/><meta property="og:title" content="🖥️ Aula - 06: Hierarquia de Memória e Memória Virtual | Prof. Romualdo"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="🖥️ Aula - 06: Hierarquia de Memória e Memória Virtual | Prof. Romualdo"/><meta name="twitter:description" content="🟢 Aula 06 — Hierarquia de Memória e Memória Virtual Disciplina: 90388 — Arquitetura e Organização de Computadores · Sistemas de Informação — Uniube Professor: Romualdo Mathias Filho Semana: 6 · [CONFIRMAR data] · sala [CONFIRMAR] · 📘 Teórica (75 min) Tópicos: Revisão de MAR e MBR · Hierarquia de ..."/><meta property="og:description" content="🟢 Aula 06 — Hierarquia de Memória e Memória Virtual Disciplina: 90388 — Arquitetura e Organização de Computadores · Sistemas de Informação — Uniube Professor: Romualdo Mathias Filho Semana: 6 · [CONFIRMAR data] · sala [CONFIRMAR] · 📘 Teórica (75 min) Tópicos: Revisão de MAR e MBR · Hierarquia de ..."/><meta property="og:image:alt" content="🟢 Aula 06 — Hierarquia de Memória e Memória Virtual Disciplina: 90388 — Arquitetura e Organização de Computadores · Sistemas de Informação — Uniube Professor: Romualdo Mathias Filho Semana: 6 · [CONFIRMAR data] · sala [CONFIRMAR] · 📘 Teórica (75 min) Tópicos: Revisão de MAR e MBR · Hierarquia de ..."/><meta property="twitter:domain" content="rofilho.github.io/arquitetura"/><meta property="og:url" content="https://rofilho.github.io/arquitetura/Aula-06---Hierarquia-de-Memoria-e-Memoria-Virtual"/><meta property="twitter:url" content="https://rofilho.github.io/arquitetura/Aula-06---Hierarquia-de-Memoria-e-Memoria-Virtual"/><link rel="icon" href="./static/icon.png"/><meta name="description" content="🟢 Aula 06 — Hierarquia de Memória e Memória Virtual Disciplina: 90388 — Arquitetura e Organização de Computadores · Sistemas de Informação — Uniube Professor: Romualdo Mathias Filho Semana: 6 · [CONFIRMAR data] · sala [CONFIRMAR] · 📘 Teórica (75 min) Tópicos: Revisão de MAR e MBR · Hierarquia de ..."/><meta name="generator" content="Quartz"/><link href="./index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
   position: absolute;
   display: flex;
   float: right;
@@ -115,126 +115,213 @@ pre:hover > .expand-button {
   padding: 0 12px;
   font-size: 14px;
 }
-/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiQzpcXFF1YXJ0el9Qb3J0YWlzXFxhcnF1aXRldHVyYVxccXVhcnR6XFxjb21wb25lbnRzXFxzdHlsZXMiLCJzb3VyY2VzIjpbIm1lcm1haWQuaW5saW5lLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTtFQUNBOztBQUdGO0VBQ0U7OztBQUtGO0VBQ0U7RUFDQTs7O0FBSUo7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTtFQUNBOztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTs7QUFHRjtFQUNFOztBQUlGO0VBQ0U7RUFDQTtFQUNBIiwic291cmNlc0NvbnRlbnQiOlsiLmV4cGFuZC1idXR0b24ge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsb2F0OiByaWdodDtcbiAgcGFkZGluZzogMC40cmVtO1xuICBtYXJnaW46IDAuM3JlbTtcbiAgcmlnaHQ6IDA7IC8vIE5PVEU6IHJpZ2h0IHdpbGwgYmUgc2V0IGluIG1lcm1haWQuaW5saW5lLnRzXG4gIGNvbG9yOiB2YXIoLS1ncmF5KTtcbiAgYm9yZGVyLWNvbG9yOiB2YXIoLS1kYXJrKTtcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbGlnaHQpO1xuICBib3JkZXI6IDFweCBzb2xpZDtcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xuICBvcGFjaXR5OiAwO1xuICB0cmFuc2l0aW9uOiAwLjJzO1xuXG4gICYgPiBzdmcge1xuICAgIGZpbGw6IHZhcigtLWxpZ2h0KTtcbiAgICBmaWx0ZXI6IGNvbnRyYXN0KDAuMyk7XG4gIH1cblxuICAmOmhvdmVyIHtcbiAgICBjdXJzb3I6IHBvaW50ZXI7XG4gICAgYm9yZGVyLWNvbG9yOiB2YXIoLS1zZWNvbmRhcnkpO1xuICB9XG5cbiAgJjpmb2N1cyB7XG4gICAgb3V0bGluZTogMDtcbiAgfVxufVxuXG5wcmUge1xuICAmOmhvdmVyID4gLmV4cGFuZC1idXR0b24ge1xuICAgIG9wYWNpdHk6IDE7XG4gICAgdHJhbnNpdGlvbjogMC4ycztcbiAgfVxufVxuXG4jbWVybWFpZC1jb250YWluZXIge1xuICBwb3NpdGlvbjogZml4ZWQ7XG4gIGNvbnRhaW46IGxheW91dDtcbiAgei1pbmRleDogOTk5O1xuICBsZWZ0OiAwO1xuICB0b3A6IDA7XG4gIHdpZHRoOiAxMDB2dztcbiAgaGVpZ2h0OiAxMDB2aDtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgZGlzcGxheTogbm9uZTtcbiAgYmFja2Ryb3AtZmlsdGVyOiBibHVyKDRweCk7XG4gIGJhY2tncm91bmQ6IHJnYmEoMCwgMCwgMCwgMC41KTtcblxuICAmLmFjdGl2ZSB7XG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICB9XG5cbiAgJiA+ICNtZXJtYWlkLXNwYWNlIHtcbiAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgICBib3JkZXItcmFkaXVzOiA1cHg7XG4gICAgcG9zaXRpb246IGZpeGVkO1xuICAgIHRvcDogNTAlO1xuICAgIGxlZnQ6IDUwJTtcbiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlLCAtNTAlKTtcbiAgICBoZWlnaHQ6IDgwdmg7XG4gICAgd2lkdGg6IDgwdnc7XG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcblxuICAgICYgPiAubWVybWFpZC1jb250ZW50IHtcbiAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICAgIHRyYW5zZm9ybS1vcmlnaW46IDAgMDtcbiAgICAgIHRyYW5zaXRpb246IHRyYW5zZm9ybSAwLjFzIGVhc2U7XG4gICAgICBvdmVyZmxvdzogdmlzaWJsZTtcbiAgICAgIG1pbi1oZWlnaHQ6IDIwMHB4O1xuICAgICAgbWluLXdpZHRoOiAyMDBweDtcblxuICAgICAgcHJlIHtcbiAgICAgICAgbWFyZ2luOiAwO1xuICAgICAgICBib3JkZXI6IG5vbmU7XG4gICAgICB9XG5cbiAgICAgIHN2ZyB7XG4gICAgICAgIG1heC13aWR0aDogbm9uZTtcbiAgICAgICAgaGVpZ2h0OiBhdXRvO1xuICAgICAgfVxuICAgIH1cblxuICAgICYgPiAubWVybWFpZC1jb250cm9scyB7XG4gICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICBib3R0b206IDIwcHg7XG4gICAgICByaWdodDogMjBweDtcbiAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICBnYXA6IDhweDtcbiAgICAgIHBhZGRpbmc6IDhweDtcbiAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICBib3JkZXItcmFkaXVzOiA2cHg7XG4gICAgICBib3gtc2hhZG93OiAwIDJweCA0cHggcmdiYSgwLCAwLCAwLCAwLjEpO1xuICAgICAgei1pbmRleDogMjtcblxuICAgICAgLm1lcm1haWQtY29udHJvbC1idXR0b24ge1xuICAgICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICAgICAgd2lkdGg6IDMycHg7XG4gICAgICAgIGhlaWdodDogMzJweDtcbiAgICAgICAgcGFkZGluZzogMDtcbiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xuICAgICAgICBjb2xvcjogdmFyKC0tZGFyayk7XG4gICAgICAgIGJvcmRlci1yYWRpdXM6IDRweDtcbiAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xuICAgICAgICBmb250LXNpemU6IDE2cHg7XG4gICAgICAgIGZvbnQtZmFtaWx5OiB2YXIoLS1ib2R5Rm9udCk7XG4gICAgICAgIHRyYW5zaXRpb246IGFsbCAwLjJzIGVhc2U7XG5cbiAgICAgICAgJjpob3ZlciB7XG4gICAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgfVxuXG4gICAgICAgICY6YWN0aXZlIHtcbiAgICAgICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMXB4KTtcbiAgICAgICAgfVxuXG4gICAgICAgIC8vIFN0eWxlIHRoZSByZXNldCBidXR0b24gZGlmZmVyZW50bHlcbiAgICAgICAgJjpudGgtY2hpbGQoMikge1xuICAgICAgICAgIHdpZHRoOiBhdXRvO1xuICAgICAgICAgIHBhZGRpbmc6IDAgMTJweDtcbiAgICAgICAgICBmb250LXNpemU6IDE0cHg7XG4gICAgICAgIH1cbiAgICAgIH1cbiAgICB9XG4gIH1cbn1cbiJdfQ== */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="./prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("./static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://rofilho.github.io/arquitetura/index.xml"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://rofilho.github.io/arquitetura/Aula-06---Hierarquia-de-Memoria-e-Memoria-Virtual-og-image.webp"/><meta property="og:image:url" content="https://rofilho.github.io/arquitetura/Aula-06---Hierarquia-de-Memoria-e-Memoria-Virtual-og-image.webp"/><meta name="twitter:image" content="https://rofilho.github.io/arquitetura/Aula-06---Hierarquia-de-Memoria-e-Memoria-Virtual-og-image.webp"/><meta property="og:image:type" content="image/.webp"/></head><body data-slug="Aula-06---Hierarquia-de-Memoria-e-Memoria-Virtual"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"></div><div class="center"><div class="page-header"><header><h2 class="page-title"><a href="." class="page-title__link"><img src="https://uniube.br/img/landing/logo_azul.svg" alt="Uniube" class="page-title__logo page-title__logo--light"/><img src="https://uniube.br/img/landing/logo_branca.svg" alt="Uniube" class="page-title__logo page-title__logo--dark"/><span class="page-title__text">💻 Arquitetura de Computadores</span></a></h2><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Pesquisar</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Pesquisar por algo" placeholder="Pesquisar por algo"/><div class="search-layout" data-preview="true"></div></div></div></div><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Tema escuro"><title>Tema escuro</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Tema claro"><title>Tema claro</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></header><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="./">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>🖥️ Aula   06: Hierarquia de Memória e Memória Virtual</a></div></nav><nav class="lesson-nav" aria-label="Navegação entre aulas"><div class="lesson-nav__slot"><a href="./Aula-05---Unidades-de-Processamento" class="nav-pill nav-pill--prev" data-spa="true"><div class="nav-pill__icon">📖</div><div class="nav-pill__body"><span class="nav-pill__label">← Anterior</span><span class="nav-pill__title">🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução</span></div></a></div><div class="lesson-nav__slot lesson-nav__slot--right"><a href="./Aula-07---Conjunto-de-Instrucoes-e-Ciclo-da-Instrucao" class="nav-pill nav-pill--next" data-spa="true"><div class="nav-pill__icon">📖</div><div class="nav-pill__body"><span class="nav-pill__label">Próxima →</span><span class="nav-pill__title">🖥️ Aula - 07: Conjunto de Instruções, Ciclo de Instrução e Pipeline</span></div></a></div></nav><h1 class="article-title">🖥️ Aula - 06: Hierarquia de Memória e Memória Virtual</h1><p show-comma="true" class="content-meta"><time datetime="2026-10-07T20:23:09.000Z">07 de out. de 2026</time><span>Leitura de 10 min</span></p></div></div><article class="popover-hint"><div class="au-leitura" data-aula="a06">
-<h1 id="️-aula-06--hierarquia-de-memória-e-memória-virtual">🖥️ Aula 06 — Hierarquia de Memória e Memória Virtual<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-aula-06--hierarquia-de-memória-e-memória-virtual" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
-<p><strong>Disciplina:</strong> 90388 — Arquitetura e Organização de Computadores · Sistemas de Informação (curso 160) — Uniube<br/>
-<strong>Professor:</strong> Romualdo Mathias Filho · <strong><a href="mailto:romualdo.filho@uniube.br" class="external">romualdo.filho@uniube.br<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></strong><br/>
-<strong>Semana:</strong> 06 · 2026-1 · [CONFIRMAR data] · 📘 Teórica (75 min)<br/>
-<strong>Tópicos:</strong> Registradores, Cache L1/L2/L3, RAM, Memória Secundária, Memória Virtual, Paginação<br/>
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiQzpcXFF1YXJ0el9Qb3J0YWlzXFxhcnF1aXRldHVyYVxccXVhcnR6XFxjb21wb25lbnRzXFxzdHlsZXMiLCJzb3VyY2VzIjpbIm1lcm1haWQuaW5saW5lLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTtFQUNBOztBQUdGO0VBQ0U7OztBQUtGO0VBQ0U7RUFDQTs7O0FBSUo7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTtFQUNBOztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTs7QUFHRjtFQUNFOztBQUlGO0VBQ0U7RUFDQTtFQUNBIiwic291cmNlc0NvbnRlbnQiOlsiLmV4cGFuZC1idXR0b24ge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsb2F0OiByaWdodDtcbiAgcGFkZGluZzogMC40cmVtO1xuICBtYXJnaW46IDAuM3JlbTtcbiAgcmlnaHQ6IDA7IC8vIE5PVEU6IHJpZ2h0IHdpbGwgYmUgc2V0IGluIG1lcm1haWQuaW5saW5lLnRzXG4gIGNvbG9yOiB2YXIoLS1ncmF5KTtcbiAgYm9yZGVyLWNvbG9yOiB2YXIoLS1kYXJrKTtcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbGlnaHQpO1xuICBib3JkZXI6IDFweCBzb2xpZDtcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xuICBvcGFjaXR5OiAwO1xuICB0cmFuc2l0aW9uOiAwLjJzO1xuXG4gICYgPiBzdmcge1xuICAgIGZpbGw6IHZhcigtLWxpZ2h0KTtcbiAgICBmaWx0ZXI6IGNvbnRyYXN0KDAuMyk7XG4gIH1cblxuICAmOmhvdmVyIHtcbiAgICBjdXJzb3I6IHBvaW50ZXI7XG4gICAgYm9yZGVyLWNvbG9yOiB2YXIoLS1zZWNvbmRhcnkpO1xuICB9XG5cbiAgJjpmb2N1cyB7XG4gICAgb3V0bGluZTogMDtcbiAgfVxufVxuXG5wcmUge1xuICAmOmhvdmVyID4gLmV4cGFuZC1idXR0b24ge1xuICAgIG9wYWNpdHk6IDE7XG4gICAgdHJhbnNpdGlvbjogMC4ycztcbiAgfVxufVxuXG4jbWVybWFpZC1jb250YWluZXIge1xuICBwb3NpdGlvbjogZml4ZWQ7XG4gIGNvbnRhaW46IGxheW91dDtcbiAgei1pbmRleDogOTk5O1xuICBsZWZ0OiAwO1xuICB0b3A6IDA7XG4gIHdpZHRoOiAxMDB2dztcbiAgaGVpZ2h0OiAxMDB2aDtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgZGlzcGxheTogbm9uZTtcbiAgYmFja2Ryb3AtZmlsdGVyOiBibHVyKDRweCk7XG4gIGJhY2tncm91bmQ6IHJnYmEoMCwgMCwgMCwgMC41KTtcblxuICAmLmFjdGl2ZSB7XG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICB9XG5cbiAgJiA+ICNtZXJtYWlkLXNwYWNlIHtcbiAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgICBib3JkZXItcmFkaXVzOiA1cHg7XG4gICAgcG9zaXRpb246IGZpeGVkO1xuICAgIHRvcDogNTAlO1xuICAgIGxlZnQ6IDUwJTtcbiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlLCAtNTAlKTtcbiAgICBoZWlnaHQ6IDgwdmg7XG4gICAgd2lkdGg6IDgwdnc7XG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcblxuICAgICYgPiAubWVybWFpZC1jb250ZW50IHtcbiAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICAgIHRyYW5zZm9ybS1vcmlnaW46IDAgMDtcbiAgICAgIHRyYW5zaXRpb246IHRyYW5zZm9ybSAwLjFzIGVhc2U7XG4gICAgICBvdmVyZmxvdzogdmlzaWJsZTtcbiAgICAgIG1pbi1oZWlnaHQ6IDIwMHB4O1xuICAgICAgbWluLXdpZHRoOiAyMDBweDtcblxuICAgICAgcHJlIHtcbiAgICAgICAgbWFyZ2luOiAwO1xuICAgICAgICBib3JkZXI6IG5vbmU7XG4gICAgICB9XG5cbiAgICAgIHN2ZyB7XG4gICAgICAgIG1heC13aWR0aDogbm9uZTtcbiAgICAgICAgaGVpZ2h0OiBhdXRvO1xuICAgICAgfVxuICAgIH1cblxuICAgICYgPiAubWVybWFpZC1jb250cm9scyB7XG4gICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICBib3R0b206IDIwcHg7XG4gICAgICByaWdodDogMjBweDtcbiAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICBnYXA6IDhweDtcbiAgICAgIHBhZGRpbmc6IDhweDtcbiAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICBib3JkZXItcmFkaXVzOiA2cHg7XG4gICAgICBib3gtc2hhZG93OiAwIDJweCA0cHggcmdiYSgwLCAwLCAwLCAwLjEpO1xuICAgICAgei1pbmRleDogMjtcblxuICAgICAgLm1lcm1haWQtY29udHJvbC1idXR0b24ge1xuICAgICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICAgICAgd2lkdGg6IDMycHg7XG4gICAgICAgIGhlaWdodDogMzJweDtcbiAgICAgICAgcGFkZGluZzogMDtcbiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xuICAgICAgICBjb2xvcjogdmFyKC0tZGFyayk7XG4gICAgICAgIGJvcmRlci1yYWRpdXM6IDRweDtcbiAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xuICAgICAgICBmb250LXNpemU6IDE2cHg7XG4gICAgICAgIGZvbnQtZmFtaWx5OiB2YXIoLS1ib2R5Rm9udCk7XG4gICAgICAgIHRyYW5zaXRpb246IGFsbCAwLjJzIGVhc2U7XG5cbiAgICAgICAgJjpob3ZlciB7XG4gICAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgfVxuXG4gICAgICAgICY6YWN0aXZlIHtcbiAgICAgICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMXB4KTtcbiAgICAgICAgfVxuXG4gICAgICAgIC8vIFN0eWxlIHRoZSByZXNldCBidXR0b24gZGlmZmVyZW50bHlcbiAgICAgICAgJjpudGgtY2hpbGQoMikge1xuICAgICAgICAgIHdpZHRoOiBhdXRvO1xuICAgICAgICAgIHBhZGRpbmc6IDAgMTJweDtcbiAgICAgICAgICBmb250LXNpemU6IDE0cHg7XG4gICAgICAgIH1cbiAgICAgIH1cbiAgICB9XG4gIH1cbn1cbiJdfQ== */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="./prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("./static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://rofilho.github.io/arquitetura/index.xml"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://rofilho.github.io/arquitetura/Aula-06---Hierarquia-de-Memoria-e-Memoria-Virtual-og-image.webp"/><meta property="og:image:url" content="https://rofilho.github.io/arquitetura/Aula-06---Hierarquia-de-Memoria-e-Memoria-Virtual-og-image.webp"/><meta name="twitter:image" content="https://rofilho.github.io/arquitetura/Aula-06---Hierarquia-de-Memoria-e-Memoria-Virtual-og-image.webp"/><meta property="og:image:type" content="image/.webp"/></head><body data-slug="Aula-06---Hierarquia-de-Memoria-e-Memoria-Virtual"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"></div><div class="center"><div class="page-header"><header><h2 class="page-title"><a href="." class="page-title__link"><img src="https://uniube.br/img/landing/logo_azul.svg" alt="Uniube" class="page-title__logo page-title__logo--light"/><img src="https://uniube.br/img/landing/logo_branca.svg" alt="Uniube" class="page-title__logo page-title__logo--dark"/><span class="page-title__text">💻 Arquitetura de Computadores</span></a></h2><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Pesquisar</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Pesquisar por algo" placeholder="Pesquisar por algo"/><div class="search-layout" data-preview="true"></div></div></div></div><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Tema escuro"><title>Tema escuro</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Tema claro"><title>Tema claro</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></header><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="./">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>🖥️ Aula   06: Hierarquia de Memória e Memória Virtual</a></div></nav><nav class="lesson-nav" aria-label="Navegação entre aulas"><div class="lesson-nav__slot"><a href="./Aula-05---Unidades-de-Processamento" class="nav-pill nav-pill--prev" data-spa="true"><div class="nav-pill__icon">📖</div><div class="nav-pill__body"><span class="nav-pill__label">← Anterior</span><span class="nav-pill__title">🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução</span></div></a></div><div class="lesson-nav__slot lesson-nav__slot--right"><a href="./Aula-07---Conjunto-de-Instrucoes-e-Ciclo-da-Instrucao" class="nav-pill nav-pill--next" data-spa="true"><div class="nav-pill__icon">📖</div><div class="nav-pill__body"><span class="nav-pill__label">Próxima →</span><span class="nav-pill__title">🖥️ Aula - 07: Conjunto de Instruções, Ciclo de Instrução e Pipeline</span></div></a></div></nav><h1 class="article-title">🖥️ Aula - 06: Hierarquia de Memória e Memória Virtual</h1><p show-comma="true" class="content-meta"><time datetime="2026-10-07T20:23:09.000Z">07 de out. de 2026</time><span>Leitura de 26 min</span></p></div></div><article class="popover-hint"><div class="au-leitura" data-aula="s06">
+<h1 id="-aula-06--hierarquia-de-memória-e-memória-virtual">🟢 Aula 06 — Hierarquia de Memória e Memória Virtual<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-aula-06--hierarquia-de-memória-e-memória-virtual" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p><strong>Disciplina:</strong> 90388 — Arquitetura e Organização de Computadores · Sistemas de Informação — Uniube<br/>
+<strong>Professor:</strong> Romualdo Mathias Filho<br/>
+<strong>Semana:</strong> 6 · <code>[CONFIRMAR data]</code> · sala <code>[CONFIRMAR]</code> · 📘 Teórica (75 min)<br/>
+<strong>Tópicos:</strong> Revisão de MAR e MBR · Hierarquia de memória · Cache L1/L2/L3 · Memória virtual e paginação<br/>
 <strong>Página de referência:</strong> <a href="./Plano-de-Ensino-e-Contrato" class="internal alias" data-slug="Plano-de-Ensino-e-Contrato">Plano de Ensino e Contrato</a></p>
 <hr/>
+<h3 id="como-os-75-minutos-se-dividem-hoje">Como os 75 minutos se dividem hoje<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#como-os-75-minutos-se-dividem-hoje" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Momento</th><th>Minutos</th></tr></thead><tbody><tr><td>Entrada e caminho até aqui</td><td>0–8</td></tr><tr><td>Revisão: MAR e MBR, leitura e escrita</td><td>8–21</td></tr><tr><td>A pirâmide: registrador, cache, RAM, SSD</td><td>21–29</td></tr><tr><td>A cache e o custo de um miss</td><td>29–40</td></tr><tr><td>Memória virtual, paginação e thrashing</td><td>40–53</td></tr><tr><td>Slot: diagnóstico em duplas</td><td>53–65</td></tr><tr><td>Resumo, reflexão e próxima aula</td><td>65–70</td></tr><tr><td>Folga</td><td>70–75</td></tr></tbody></table></div>
+<hr/>
+<div class="au-caminho">
+<b>Nosso caminho até aqui</b>
+<p>Responda <strong>antes</strong> de abrir. Se errar, você acabou de descobrir o que revisar hoje.</p>
+<details>
+<summary>Na prática da Aula 05, depois do primeiro passo da execução de <code>LOAD R1, 500</code>, o que estava no MAR: 101, 500, ou o conteúdo da posição 500?</summary>
+<p><strong>500.</strong> O MAR guarda sempre um <strong>endereço</strong>, nunca um dado. Na busca ele recebeu o endereço do PC (100); na execução recebeu o endereço que veio <strong>dentro da instrução</strong> (500). Se você hesitou aqui, o bloco 1 de hoje é para você.</p>
+</details>
+<details>
+<summary>No subciclo de busca, o endereço do PC vai para o MAR e a RAM devolve a instrução pelo MBR. Quem fica esperando enquanto a RAM responde?</summary>
+<p><strong>A CPU inteira.</strong> Nada avança até o MBR receber a instrução. Quanto tempo dura essa espera é a pergunta de hoje.</p>
+</details>
+<details>
+<summary>Na Aula 04, quais dos 5 estágios do pipeline tocam a memória?</summary>
+<p><strong>IF</strong> (busca da instrução) e <strong>MEM</strong> (leitura ou gravação de dados, só em <code>LOAD</code>/<code>STORE</code>). Toda instrução passa pelo IF, então toda instrução depende da memória pelo menos uma vez. Se a memória demora, o pipeline inteiro para. É o problema que a aula de hoje ataca.</p>
+</details>
+</div>
 <blockquote class="callout info" data-callout="info">
 <div class="callout-title">
                   <div class="callout-icon"></div>
-                  <div class="callout-title-inner"><p>🎯 Visão Geral da Aula &amp; Recursos </p></div>
+                  <div class="callout-title-inner"><p>🎯 O que você leva desta aula </p></div>
                   
                 </div>
 <div class="callout-content">
-<p><strong>Nesta aula, desceremos ao nível de silício para compreender como o processador e o sistema operacional cooperam para equilibrar velocidade extrema e capacidade massiva de armazenamento por meio da Hierarquia de Memória e da Memória Virtual.</strong></p>
 <ul>
-<li><strong>O que você vai dominar:</strong>
-<ul>
-<li>A estrutura em pirâmide e a matemática de latência que rege a busca de dados na CPU.</li>
-<li>O funcionamento dos níveis de cache L1/L2/L3 e o impacto de algoritmos cache-friendly.</li>
-<li>O mecanismo de paginação, MMU e a prevenção da degradação crítica por thrashing.</li>
+<li>Dizer o que o <strong>MAR</strong> e o <strong>MBR</strong> guardam em cada momento, numa leitura e numa escrita, sem trocar os dois.</li>
+<li>Por que a memória é uma <strong>pirâmide</strong> de tecnologias, e o que muda em velocidade, capacidade e custo a cada degrau.</li>
+<li>O que a <strong>cache</strong> faz entre a CPU e a RAM, quanto custa um <strong>cache miss</strong> e por que existem três níveis em vez de um.</li>
+<li>Como a <strong>memória virtual</strong> e a <strong>paginação</strong> deixam um programa usar mais memória do que a RAM tem.</li>
+<li>Como reconhecer <strong>thrashing</strong> numa máquina lenta com CPU ociosa e disco em 100 %.</li>
 </ul>
-</li>
-<li><strong>Pré-requisitos:</strong> Noções sobre o Ciclo de Instrução (Busca-Decodificação-Execução).</li>
-</ul>
-</div>
-</blockquote>
-<hr/>
-<h2 id="-objetivo-da-aula">🎯 Objetivo da Aula<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-objetivo-da-aula" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
-<p>Ao final desta aula, os alunos serão capazes de:</p>
+<p><strong>📂 Recursos</strong></p>
 <ul>
-<li><strong>Compreender</strong> o conceito e a necessidade da hierarquia de memória nos sistemas computacionais.</li>
-<li><strong>Diferenciar</strong> os níveis de memória (Registradores, Cache, RAM, HDD/SSD) quanto à velocidade, capacidade e custo.</li>
-<li><strong>Entender</strong> o funcionamento da Memória Virtual e o processo de paginação (Swap) gerenciado pelo Sistema Operacional.</li>
-<li><strong>Analisar</strong> o impacto da arquitetura de memória no desempenho geral do processador.</li>
-</ul>
-<hr/>
-<h2 id="-revisão-rápida-5-min">🔄 Revisão Rápida (5 min)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-revisão-rápida-5-min" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="table-container"><table><thead><tr><th><strong>Conceito (Aula Anterior)</strong></th><th><strong>Conexão com hoje</strong></th></tr></thead><tbody><tr><td><strong>Registradores (PC, IR)</strong></td><td>Vimos que eles armazenam a instrução e o dado exato do momento. Hoje veremos que eles são o “topo” da pirâmide de memória.</td></tr><tr><td><strong>Unidade de Controle (UC)</strong></td><td>A UC gerencia a busca (Fetch) na memória. Hoje entenderemos <em>onde</em> essa busca acontece primeiro: Cache antes da RAM.</td></tr><tr><td><strong>Gargalo de Processamento</strong></td><td>Processadores são extremamente rápidos; se a memória não acompanhar, a CPU fica ociosa. A hierarquia resolve esse problema.</td></tr></tbody></table></div>
-<hr/>
-<h2 id="-1-a-pirâmide-hierarquia-de-memória-teoria--15-min">📌 1. A Pirâmide: Hierarquia de Memória [Teoria ⏳ 15 min]<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-1-a-pirâmide-hierarquia-de-memória-teoria--15-min" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
-<p>A <strong>hierarquia de memória</strong> é uma organização estruturada das tecnologias de armazenamento. O objetivo é criar a ilusão para o processador de que existe uma memória com a <strong>velocidade dos registradores</strong> e a <strong>capacidade e custo do armazenamento em massa</strong>.</p>
-<p><img src="./assets/aula06_piramide_memoria.png" width="auto" height="auto" alt/></p>
-<blockquote>
-<p><em>Legenda: Pirâmide da hierarquia de memória. No topo: memórias menores, mais rápidas e caras (Registradores, Cache). Na base: memórias maiores, mais lentas e baratas (HDD/SSD, Nuvem). Fonte: Elaborado pelo Prof. Romualdo com base em Stallings (2024, Cap. 4).</em></p>
-</blockquote>
-<h3 id="regras-de-ouro-da-hierarquia">Regras de Ouro da Hierarquia<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#regras-de-ouro-da-hierarquia" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="table-container"><table><thead><tr><th><strong>Característica</strong></th><th><strong>Do topo ao fundo da pirâmide</strong></th></tr></thead><tbody><tr><td><strong>Velocidade</strong></td><td>↓ Diminui (registradores são os mais rápidos)</td></tr><tr><td><strong>Capacidade</strong></td><td>↑ Aumenta (do KB ao TB)</td></tr><tr><td><strong>Custo por byte</strong></td><td>↓ Diminui (SRAM é cara, NAND Flash é barata)</td></tr><tr><td><strong>Distância da CPU</strong></td><td>↑ Aumenta (registradores são físicamente integrados)</td></tr></tbody></table></div>
-<blockquote class="callout tip" data-callout="tip">
-<div class="callout-title">
-                  <div class="callout-icon"></div>
-                  <div class="callout-title-inner"><p>💡 Dica de Produção (Pro-Tip) </p></div>
-                  
-                </div>
-<div class="callout-content">
-<p><strong>Analogia de Produtividade</strong>: Pense na hierarquia de memória como a organização física do seu escritório de engenharia:</p>
-<ul>
-<li><strong>Registradores</strong> → O que você está lendo ou segurando nas mãos neste exato segundo (está na sua mente).</li>
-<li><strong>Cache L1/L2/L3</strong> → Os documentos e anotações abertos na sua mesa de trabalho (acesso imediato, sem sair da cadeira).</li>
-<li><strong>RAM (Memória Principal)</strong> → O armário organizador no canto da sua sala (bastante espaço, mas exige levantar e caminhar).</li>
-<li><strong>SSD/HDD (Secundária)</strong> → O arquivo morto localizado no porão do prédio (cabe tudo, mas o acesso demora minutos ou horas).</li>
-<li><strong>Nuvem</strong> → O galpão terceirizado de outra empresa em outra cidade: capacidade virtualmente infinita, mas exige transporte rodoviário (latência de rede).</li>
+<li><a href="./Plano-de-Ensino-e-Contrato" class="internal alias" data-slug="Plano-de-Ensino-e-Contrato">Plano de Ensino e Contrato</a> — calendário, notas, prazos e regras</li>
+<li><strong>Gerenciador de Tarefas</strong> (Windows, aba Desempenho → Memória) ou <code>free -h</code> (Linux) — para ver a RAM e o swap da sua própria máquina durante a aula</li>
 </ul>
 </div>
 </blockquote>
+<aside class="au-antes">
+<b class="au-nota-t">Antes de começar</b>
+<p><strong>Barramento</strong> — o conjunto de fios que liga a CPU à memória. O <strong>barramento de endereço</strong> leva o “onde”; o <strong>barramento de dados</strong> leva o “o quê”; o <strong>barramento de controle</strong> leva a ordem (ler ou gravar). São fios diferentes.</p>
+<p><strong>Latência</strong> — o tempo entre pedir um dado e recebê-lo. Aqui medida em <strong>ciclos de clock</strong>, o “tique” do relógio da CPU.</p>
+<p><strong>SRAM e DRAM</strong> — duas formas de construir memória. A <strong>SRAM</strong> (estática) usa 6 transistores por bit e é rápida; a <strong>DRAM</strong> (dinâmica) usa 1 transistor e 1 capacitor por bit e é barata. A cache é SRAM; a RAM é DRAM.</p>
+<p><strong>Cache hit / cache miss</strong> — hit: o dado estava na cache. Miss: não estava, e a CPU vai buscá-lo num nível mais lento.</p>
+<p><strong>Localidade</strong> — a tendência de um programa reusar o mesmo dado (temporal) e dados vizinhos (espacial). É o que faz a cache valer a pena.</p>
+<p><strong>Volátil</strong> — memória que perde tudo quando a energia acaba. RAM e cache são voláteis; SSD e HD não.</p>
+<p><strong>MMU</strong> — <em>Memory Management Unit</em>, o circuito da CPU que traduz endereço lógico (o que o programa usa) em endereço físico (onde o dado está na RAM).</p>
+<p><strong>TLB</strong> — <em>Translation Lookaside Buffer</em>, a pequena cache de traduções dentro da MMU. Guarda os últimos pares lógico → físico para não consultar a tabela de páginas na RAM a cada acesso.</p>
+<p><strong>Página</strong> — bloco de tamanho fixo (tipicamente 4 KB) em que a memória virtual é dividida. <strong>Page fault</strong> é o acesso a uma página que não está na RAM.</p>
+<p><strong>Frame</strong> — o espaço de uma página na RAM física. A tabela de páginas diz qual página ocupa qual frame.</p>
+<p><strong>Conjunto de trabalho</strong> — as páginas que um processo está usando de fato num dado momento. Se não cabe na RAM, o processo vive de page fault.</p>
+<p><strong>Swap</strong> — mover páginas entre RAM e disco: <em>swap-out</em> tira da RAM, <em>swap-in</em> traz de volta. No Windows, o swap fica no arquivo de paginação, o <code>pagefile.sys</code>.</p>
+<p><strong>Processo bloqueado</strong> — programa parado esperando algo, como o disco. Enquanto ele espera, o SO põe outro programa para rodar na CPU (isso é <strong>escalonar</strong>).</p>
+<p><strong>Thrashing</strong> — o estado em que o sistema só faz swap e não avança. É o diagnóstico do fim da aula.</p>
+</aside>
 <hr/>
-<h2 id="-2-memória-cache-o-amortecedor-da-cpu-teoria--20-min">📌 2. Memória Cache: O Amortecedor da CPU [Teoria ⏳ 20 min]<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-2-memória-cache-o-amortecedor-da-cpu-teoria--20-min" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
-<p>A <strong>Cache</strong> é o segredo de desempenho dos processadores modernos. Ela fica entre a CPU ultrarrápida e a RAM relativamente lenta, armazenando cópias dos dados que a CPU usa com maior frequência.</p>
-<p><img src="./assets/aula06_cache_L1_L2_L3.png" width="auto" height="auto" alt/></p>
-<blockquote>
-<p><em>Legenda: Organização interna dos níveis de cache em um processador multi-core moderno. L1 e L2 são privadas por núcleo; L3 é compartilhada. Fonte: Elaborado pelo Prof. Romualdo com base em Stallings (2024, p. 154).</em></p>
-</blockquote>
-<h3 id="níveis-de-cache-e-suas-latências-reais">Níveis de Cache e suas Latências Reais<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#níveis-de-cache-e-suas-latências-reais" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h2 id="1-mar-guarda-onde-mbr-guarda-o-quê-e-na-leitura-um-espera-o-outro-revisão--13-min">1. MAR guarda ONDE, MBR guarda O QUÊ, e na leitura um espera o outro [Revisão ⏳ 13 min]<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-mar-guarda-onde-mbr-guarda-o-quê-e-na-leitura-um-espera-o-outro-revisão--13-min" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Na Aula 05 os dois apareceram juntos, no meio do ciclo, e é fácil trocá-los. Hoje eles vêm primeiro e separados, porque a aula inteira de hoje é sobre <strong>quanto a CPU espera</strong> depois que o MAR faz um pedido.</p>
+<details class="au-aposta">
+<summary>Antes de abrir: a instrução <code>STORE R1, 600</code> grava na posição 600 o valor que está em R1, que é 42. No instante da gravação, o que está no MAR e o que está no MBR?</summary>
+<p><strong>MAR = 600 e MBR = 42.</strong> O MAR recebe o <strong>endereço</strong> (para onde o dado vai); o MBR recebe o <strong>dado</strong> (o que vai ser gravado), copiado de R1. Repare que o MBR não serve só para <em>receber</em> da memória: na escrita é ele que <strong>entrega</strong> o dado a ela.</p>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th></th><th><strong>MAR</strong> · <em>Memory <strong>Address</strong> Register</em></th><th><strong>MBR</strong> · <em>Memory <strong>Buffer</strong> Register</em></th></tr></thead><tbody><tr><td><strong>Guarda</strong></td><td>um <strong>endereço</strong>: <em>onde</em> na memória</td><td>um <strong>dado</strong> ou uma instrução: <em>o quê</em></td></tr><tr><td><strong>Por que esse nome</strong></td><td><em>address</em> = endereço</td><td><em>buffer</em> = área de espera: é onde o dado fica parado entre a CPU e a memória</td></tr><tr><td><strong>Fio que usa</strong></td><td>barramento de <strong>endereço</strong>, só de ida (CPU → memória)</td><td>barramento de <strong>dados</strong>, nos dois sentidos</td></tr><tr><td><strong>Na leitura</strong></td><td>recebe o endereço a ler</td><td>recebe o conteúdo que a memória devolve</td></tr><tr><td><strong>Na escrita</strong></td><td>recebe o endereço a gravar</td><td>recebe o dado a gravar e o entrega à memória</td></tr><tr><td><strong>Analogia</strong></td><td>o endereço escrito no envelope</td><td>a carta dentro do envelope</td></tr></tbody></table></div>
+<p>E como a memória sabe se é para ler ou para gravar? Pelo terceiro fio: a UC manda o sinal de <strong>leitura</strong> ou de <strong>escrita</strong> pelo <strong>barramento de controle</strong>.</p>
+<p>Selecione <strong>LEITURA</strong> ou <strong>ESCRITA</strong> para isolar o caminho de cada uma. O MAR faz sempre o mesmo trabalho; quem muda de sentido é o MBR.</p>
+<figure class="au-fig au-switch" role="group" aria-label="Seletor de leitura e escrita na memória">
+<input type="radio" name="a06rw" id="a06-ambas" checked/>
+<input type="radio" name="a06rw" id="a06-ler"/>
+<input type="radio" name="a06rw" id="a06-escr"/>
+<div class="au-switch-lbl">
+<label for="a06-ambas">AS DUAS</label>
+<label for="a06-ler">LEITURA</label>
+<label for="a06-escr">ESCRITA</label>
+</div>
+<svg class="au-camadas" viewBox="0 0 520 270" role="img" aria-label="CPU com MAR e MBR ligada à memória. O MAR envia o endereço pelo barramento de endereço, só de ida. Na leitura, o MAR aponta a posição 500 e o dado 42 volta da memória para o MBR. Na escrita, o MAR aponta a posição 600 e o dado 42 sai do MBR para ser gravado ali.">
+<defs>
+<marker id="a06-seta-az" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2778c4"></path></marker>
+<marker id="a06-seta-vd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#00aa9f"></path></marker>
+<marker id="a06-seta-lj" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#b1541b"></path></marker>
+</defs>
+<rect x="20" y="20" width="190" height="190" rx="8" fill="none" stroke="#8a8f98" stroke-width="2"></rect>
+<text x="115" y="14" text-anchor="middle" font-size="13" style="fill:#8a8f98;" font-family="sans-serif" font-weight="bold">CPU</text>
+<rect x="50" y="50" width="130" height="44" rx="6" fill="none" stroke="#2778c4" stroke-width="2"></rect>
+<text x="115" y="70" text-anchor="middle" font-size="14" style="fill:#2778c4;" font-family="monospace" font-weight="bold">MAR</text>
+<text x="115" y="86" text-anchor="middle" font-size="11" style="fill:#2778c4;" font-family="sans-serif">endereço (onde)</text>
+<rect x="50" y="140" width="130" height="44" rx="6" fill="none" stroke="#2778c4" stroke-width="2"></rect>
+<text x="115" y="160" text-anchor="middle" font-size="14" style="fill:#2778c4;" font-family="monospace" font-weight="bold">MBR</text>
+<text x="115" y="176" text-anchor="middle" font-size="11" style="fill:#2778c4;" font-family="sans-serif">dado (o quê)</text>
+<rect x="360" y="20" width="140" height="190" rx="8" fill="none" stroke="#8a8f98" stroke-width="2"></rect>
+<text x="430" y="14" text-anchor="middle" font-size="13" style="fill:#8a8f98;" font-family="sans-serif" font-weight="bold">MEMÓRIA</text>
+<rect x="375" y="60" width="110" height="30" rx="4" fill="none" stroke="#8a8f98" stroke-width="1.5"></rect>
+<text x="430" y="80" text-anchor="middle" font-size="12" style="fill:#8a8f98;" font-family="monospace">[500] = 42</text>
+<rect x="375" y="140" width="110" height="30" rx="4" fill="none" stroke="#8a8f98" stroke-width="1.5"></rect>
+<text x="430" y="160" text-anchor="middle" font-size="12" style="fill:#8a8f98;" font-family="monospace">[600] = ?</text>
+<text x="270" y="40" text-anchor="middle" font-size="11" style="fill:#2778c4;" font-family="sans-serif">barramento de endereço (só ida)</text>
+<g class="c1">
+<line x1="180" y1="66" x2="373" y2="72" stroke="#2778c4" stroke-width="2" marker-end="url(#a06-seta-az)"></line>
+<text x="250" y="58" text-anchor="middle" font-size="11" style="fill:#2778c4;" font-family="monospace">500</text>
+<line x1="373" y1="85" x2="182" y2="150" stroke="#00aa9f" stroke-width="2.5" marker-end="url(#a06-seta-vd)"></line>
+<text x="260" y="234" text-anchor="middle" font-size="12" style="fill:#00aa9f;" font-family="monospace">LEITURA, o dado VEM: LOAD R1,500 → MBR=42 → R1</text>
+</g>
+<g class="c2">
+<line x1="180" y1="80" x2="373" y2="150" stroke="#2778c4" stroke-width="2" stroke-dasharray="5 3" marker-end="url(#a06-seta-az)"></line>
+<text x="240" y="120" text-anchor="middle" font-size="11" style="fill:#2778c4;" font-family="monospace">600</text>
+<line x1="182" y1="174" x2="373" y2="162" stroke="#b1541b" stroke-width="2.5" marker-end="url(#a06-seta-lj)"></line>
+<text x="260" y="258" text-anchor="middle" font-size="12" style="fill:#b1541b;" font-family="monospace">ESCRITA, o dado VAI: STORE R1,600 → [600]=42</text>
+</g>
+</svg>
+<figcaption class="au-legenda">O MAR (azul) faz sempre o mesmo trabalho: manda um endereço, só de ida. Quem muda de sentido é o MBR. Na <b>leitura</b> (verde) o MAR aponta a posição 500 e o dado vem da memória para o MBR; na <b>escrita</b> (laranja) o MAR aponta a posição 600 e o dado sai do MBR para a memória. Fonte: elaborado pelo professor com base em STALLINGS (2024, cap. 3, página [CONFIRMAR]).</figcaption>
+</figure>
+<h3 id="11-o-que-faltava-era-o-quando-na-leitura-o-mbr-só-muda-depois-que-a-memória-responde">1.1 O que faltava era o QUANDO: na leitura, o MBR só muda depois que a memória responde<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#11-o-que-faltava-era-o-quando-na-leitura-o-mbr-só-muda-depois-que-a-memória-responde" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>“Onde” e “o quê” são a regra. O que faz errar é o <strong>momento</strong>. A CPU faz o ciclo em passos, as <strong>micro-operações</strong> (t1, t2, t3): cada tN é um tique do clock, e em cada um só um ou dois registradores mudam. A seta <code>←</code> lê-se “recebe”, e a contagem t1, t2, t3 <strong>recomeça em cada fase</strong>.</p>
+<details class="au-aposta">
+<summary>Antes de abrir: no passo t1 da execução de <code>LOAD R1, 500</code>, o MAR acaba de receber 500. O que está no MBR nesse instante?</summary>
+<p><strong>Ainda <code>LOAD R1, 500</code>, a instrução que sobrou da busca.</strong> Em t1 o pedido acabou de sair pelo MAR. O conteúdo de <code>[500]</code> só chega ao MBR ao fim de t2. Se você respondeu “42”, juntou dois passos num só, e é exatamente esse atalho que embaralha MAR e MBR.</p>
+</details>
 
 
 
@@ -282,105 +369,349 @@ pre:hover > .expand-button {
 
 
 
-<div class="table-container"><table><thead><tr><th><strong>Nível</strong></th><th><strong>Tamanho Típico</strong></th><th><strong>Latência</strong></th><th><strong>Quem compartilha</strong></th></tr></thead><tbody><tr><td><strong>Registradores</strong></td><td>Bytes (dezenas)</td><td>~1 ciclo de clock</td><td>Apenas o núcleo em uso</td></tr><tr><td><strong>Cache L1</strong></td><td>32–64 KB</td><td>1–4 ciclos</td><td>Privada por núcleo (I-Cache + D-Cache)</td></tr><tr><td><strong>Cache L2</strong></td><td>256 KB – 1 MB</td><td>10–20 ciclos</td><td>Privada por núcleo</td></tr><tr><td><strong>Cache L3</strong></td><td>8 – 64 MB</td><td>30–50 ciclos</td><td><strong>Compartilhada</strong> entre todos os núcleos</td></tr><tr><td><strong>RAM (DRAM)</strong></td><td>8 – 128 GB</td><td>~100 ciclos</td><td>Todos os processos do sistema</td></tr><tr><td><strong>SSD NVMe</strong></td><td>500 GB – 4 TB</td><td>~100.000 ciclos</td><td>Todos os usuários e o SO</td></tr></tbody></table></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Fase</th><th>Passo</th><th>Micro-operação</th><th>MAR</th><th>MBR</th><th>O que mudou</th></tr></thead><tbody><tr><td><strong>Busca</strong> (PC = 100)</td><td>t1</td><td><code>MAR ← PC</code></td><td><strong>100</strong></td><td>(anterior)</td><td>o endereço sai do <strong>PC</strong></td></tr><tr><td></td><td>t2</td><td><code>MBR ← memória</code> · <code>PC ← PC + 1</code></td><td>100</td><td><strong><code>LOAD R1, 500</code></strong></td><td>a memória respondeu</td></tr><tr><td></td><td>t3</td><td><code>IR ← MBR</code></td><td>100</td><td><code>LOAD R1, 500</code></td><td>a instrução vai para o IR</td></tr><tr><td><strong>Execução</strong> do <code>LOAD R1, 500</code></td><td>t1</td><td><code>MAR ← IR(endereço)</code></td><td><strong>500</strong></td><td><code>LOAD R1, 500</code></td><td>o endereço sai <strong>de dentro da instrução</strong></td></tr><tr><td></td><td>t2</td><td><code>MBR ← memória</code></td><td>500</td><td><strong>42</strong></td><td>a memória respondeu</td></tr><tr><td></td><td>t3</td><td><code>R1 ← MBR</code></td><td>500</td><td>42</td><td>o dado vai para R1</td></tr><tr><td><strong>Execução</strong> do <code>STORE R1, 600</code></td><td>t1</td><td><code>MAR ← IR(endereço)</code></td><td><strong>600</strong></td><td><code>STORE R1, 600</code></td><td>o endereço sai de dentro da instrução</td></tr><tr><td></td><td>t2</td><td><code>MBR ← R1</code></td><td>600</td><td><strong>42</strong></td><td>o dado sai de R1</td></tr><tr><td></td><td>t3</td><td><code>memória ← MBR</code></td><td>600</td><td>42</td><td>a memória grava 42 em <code>[600]</code></td></tr></tbody></table></div>
 <blockquote class="callout warning" data-callout="warning">
 <div class="callout-title">
                   <div class="callout-icon"></div>
-                  <div class="callout-title-inner"><p>⚠️ Gotcha de Infraestrutura </p></div>
+                  <div class="callout-title-inner"><p>⚠️ Correção da Aula 05 </p></div>
                   
                 </div>
 <div class="callout-content">
-<p><strong>Penalidade de Cache Miss</strong>: Quando a CPU busca um dado e ele não está na cache L1/L2/L3, ocorre um <strong>Cache Miss</strong>. O processador é obrigado a suspender a execução das instruções (stall) e ir buscar o dado na RAM física, o que é estruturalmente <strong>100x mais lento</strong> (cerca de 100 a 200 ciclos de CPU desperdiçados em espera).</p>
-<p><strong>Boas Práticas de Código:</strong> Desenvolvedores experientes otimizam seus loops de dados para garantir <strong>localidade espacial e temporal</strong> (arrays contíguos na memória em vez de estruturas de dados dinâmicas dispersas como listas encadeadas), maximizando os <strong>Cache Hits</strong>.</p>
+<p>Os valores do gabarito da prática da Aula 05 estavam certos; os rótulos das linhas, não. A linha “meio do fetch” juntou dois passos (t1 e t2 da busca). A linha “início da execução” mostrava o MBR já com o conteúdo de <code>[500]</code>, que é o estado do <strong>fim de t2</strong>, não do início. A tabela acima separa passo a passo, e é ela que vale. O PC também: aqui ele soma 1 já em t2, junto com a leitura, como no STALLINGS; na Aula 05 ele só somava no fim da busca. Nas duas ordens o PC aponta a próxima instrução antes de a execução começar.</p>
 </div>
 </blockquote>
-<h3 id="-checkpoint-teste-seu-conhecimento">🧠 Checkpoint: Teste seu Conhecimento!<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-checkpoint-teste-seu-conhecimento" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
-<details>
-<summary><b>🔍 Exercício Rápido: Por que os caches multi-core são divididos em L1, L2 e L3 em vez de termos um único cache L1 gigantesco de 32MB?</b></summary>
-<blockquote>
-<p><strong>Resposta Correta:</strong> Devido às limitações físicas da velocidade de propagação elétrica e decodificação de endereços no silício. Caches maiores exigem circuitos mais complexos e distâncias físicas maiores dentro do die, o que aumenta a latência de acesso. Ao criar níveis menores e super-rápidos integrados ao núcleo (L1/L2) e um nível compartilhado maior (L3), a arquitetura atinge o balanço perfeito de velocidade ultrarrápida para instruções imediatas e capacidade compartilhada para comunicação inter-núcleos.</p>
-</blockquote>
+<p>Leia a coluna do MAR de cima para baixo: ele recebe do <strong>PC</strong> só na busca; na execução recebe do <strong>campo de endereço da instrução</strong>.</p>
+<p>Agora leia a do MBR na leitura: ele só muda no passo <strong>seguinte</strong> ao do MAR, porque primeiro vai o pedido, depois vem a resposta. Na escrita, entre t1 e t2 não há resposta a esperar (o <code>MBR ← R1</code> é interno), e os dois poderiam ser um passo só; a espera pela memória fica no t3.</p>
+<details class="au-aposta">
+<summary>Sua vez, no caderno: <code>STORE R2, 700</code>, com R2 = 9. Escreva t1, t2 e t3 da execução, com o valor do MAR e do MBR em cada passo.</summary>
+<p>t1: <code>MAR ← IR(endereço)</code> → MAR = <strong>700</strong>, MBR = <code>STORE R2, 700</code> (sobrou da busca). t2: <code>MBR ← R2</code> → MAR = 700, MBR = <strong>9</strong>. t3: <code>memória ← MBR</code> → a posição <code>[700]</code> passa a valer 9. O 9 nunca passa pelo MAR.</p>
 </details>
-<h3 id="fluxo-de-busca-de-dado-na-hierarquia-de-cache">Fluxo de Busca de Dado na Hierarquia de Cache<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#fluxo-de-busca-de-dado-na-hierarquia-de-cache" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
-<pre><button class="expand-button" aria-label="Expand mermaid diagram" data-view-component="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 1.06L2.56 7h10.88l-2.22-2.22a.75.75 0 011.06-1.06l3.5 3.5a.75.75 0 010 1.06l-3.5 3.5a.75.75 0 11-1.06-1.06l2.22-2.22H2.56l2.22 2.22a.75.75 0 11-1.06 1.06l-3.5-3.5a.75.75 0 010-1.06l3.5-3.5z"></path></svg></button><code class="mermaid" data-clipboard="&quot;flowchart TD\n    A[🖥️ CPU solicita dado] --> B{Dado está na Cache L1?}\n    B -- ✅ Cache HIT --> C[Retorna em 1-4 ciclos]\n    B -- ❌ Cache MISS --> D{Dado está na Cache L2?}\n    D -- ✅ Cache HIT --> E[Retorna em 10-20 ciclos]\n    D -- ❌ Cache MISS --> F{Dado está na Cache L3?}\n    F -- ✅ Cache HIT --> G[Retorna em 30-50 ciclos]\n    F -- ❌ Cache MISS --> H[Busca na RAM Principal]\n    H --> I[Retorna em ~100 ciclos]\n    I --> J[Copia dado para as Caches L3, L2, L1]\n    J --> C&quot;">flowchart TD
-    A[🖥️ CPU solicita dado] --> B{Dado está na Cache L1?}
-    B -- ✅ Cache HIT --> C[Retorna em 1-4 ciclos]
-    B -- ❌ Cache MISS --> D{Dado está na Cache L2?}
-    D -- ✅ Cache HIT --> E[Retorna em 10-20 ciclos]
-    D -- ❌ Cache MISS --> F{Dado está na Cache L3?}
-    F -- ✅ Cache HIT --> G[Retorna em 30-50 ciclos]
-    F -- ❌ Cache MISS --> H[Busca na RAM Principal]
-    H --> I[Retorna em ~100 ciclos]
-    I --> J[Copia dado para as Caches L3, L2, L1]
-    J --> C
-</code><div id="mermaid-container" role="dialog"><div id="mermaid-space"><div class="mermaid-content"></div></div></div></pre>
-<blockquote>
-<p><em>Legenda: Fluxo de decisão da CPU ao buscar um dado. A prioridade é sempre a memória mais rápida. Quando ocorre um Cache Miss encadeado, a CPU fica em estado de espera (stall), consumindo ciclos sem executar instruções úteis.</em></p>
-</blockquote>
-<hr/>
-<h2 id="-3-memória-principal-ram-e-secundária-teoria--10-min">📌 3. Memória Principal (RAM) e Secundária [Teoria ⏳ 10 min]<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-3-memória-principal-ram-e-secundária-teoria--10-min" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
 <blockquote class="callout note" data-callout="note">
 <div class="callout-title">
                   <div class="callout-icon"></div>
-                  <div class="callout-title-inner"><p>💼 Pergunta de Entrevista </p></div>
+                  <div class="callout-title-inner"><p>💬 Outros nomes para os mesmos dois </p></div>
                   
                 </div>
 <div class="callout-content">
-<p><strong>DRAM vs. SRAM (Processo Seletivo SRE/Hardware)</strong>: Em uma entrevista para Engenharia de Performance, o recrutador pergunta: <em>“Por que a memória RAM do nosso servidor de produção usa tecnologia DRAM (Dynamic RAM) enquanto as caches da CPU usam SRAM (Static RAM)?”</em></p>
-<p><strong>Resposta Esperada:</strong> A SRAM (Static RAM) usa circuitos estáveis de flip-flops (tipicamente 6 transistores por bit), o que a torna extremamente rápida e isenta de refresh elétrico, porém possui baixa densidade física e altíssimo custo de fabricação. Já a DRAM (Dynamic RAM) utiliza apenas 1 transistor e 1 capacitor por bit, permitindo altíssima densidade física e custo reduzido (viabilizando gigabytes de RAM), contudo ela exige ciclos de <strong>Refresh</strong> elétrico contínuos porque os capacitores perdem carga naturalmente, tornando-a substancialmente mais lenta que a SRAM.</p>
+<p>Em material em português o MAR também aparece como <strong>REM</strong> (Registrador de Endereço de Memória) e o MBR como <strong>RDM</strong> (Registrador de Dados da Memória); no PATTERSON e HENNESSY, o MBR aparece como <strong>MDR</strong> (<em>Memory Data Register</em>). <code>[CONFIRMAR: página de cada nomenclatura]</code> Mudou o nome, não mudou o papel: um guarda onde, o outro guarda o quê.</p>
 </div>
 </blockquote>
-<h3 id="ram--a-área-de-trabalho-ativa">RAM — A Área de Trabalho Ativa<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ram--a-área-de-trabalho-ativa" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
-<p>A <strong>RAM (Random Access Memory)</strong> é feita de tecnologia <strong>DRAM (Dynamic RAM)</strong> — mais lenta que a SRAM da Cache, mas viável em grandes quantidades. É <strong>volátil</strong>: desligou, perdeu tudo.</p>
-<p>Tudo que está “aberto e em execução” no seu computador vive na RAM: o navegador com 50 abas, o Spotify, o VSCode, o jogo, o Discord. Quando a RAM esgota, o sistema operacional precisa de um plano B.</p>
-<h3 id="ssdhdd--armazenamento-persistente">SSD/HDD — Armazenamento Persistente<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ssdhdd--armazenamento-persistente" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
-<p>A memória secundária é <strong>não volátil</strong> (dados sobrevivem ao desligamento). Os SSDs NVMe revolucionaram essa camada com latências em microssegundos, mas continuam sendo <strong>estruturalmente 1000x mais lentos</strong> que a RAM no acesso aleatório.</p>
+<p><strong>A pergunta que fica para o resto da aula:</strong> o <code>LOAD</code> que você acabou de traçar em t1, t2 e t3 leva 3 ciclos?</p>
 <hr/>
-<h2 id="-4-memória-virtual-a-mágica-do-sistema-operacional-teoria--prática--15-min">📌 4. Memória Virtual: A Mágica do Sistema Operacional [Teoria &amp; Prática ⏳ 15 min]<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-4-memória-virtual-a-mágica-do-sistema-operacional-teoria--prática--15-min" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
-<h3 id="o-problema">O Problema<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#o-problema" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
-<p>Você abre o Chrome com 50 abas, o Photoshop, o VS Code e um jogo. A RAM de 8GB esgota. O que acontece?</p>
-<h3 id="a-solução-paginação-paging">A Solução: Paginação (Paging)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#a-solução-paginação-paging" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
-<p>A <strong>Memória Virtual</strong> é uma técnica gerenciada em conjunto pela <strong>MMU (Memory Management Unit)</strong> do processador e pelo <strong>Sistema Operacional</strong>. Ela “engana” os aplicativos fazendo cada processo acreditar que possui toda a memória do sistema para si, enquanto na prática os dados são distribuídos entre RAM e disco.</p>
-<p><img src="./assets/aula06_memoria_virtual_paginacao.png" width="auto" height="auto" alt/></p>
-<blockquote>
-<p><em>Legenda: Mecanismo de Paginação (Swap). Quando a RAM enche, páginas inativas são movidas para o disco (Swap-Out). Quando necessárias novamente, retornam para a RAM (Swap-In). A Tabela de Páginas traduz endereços lógicos em físicos. Fonte: Elaborado pelo Prof. Romualdo com base em Tanenbaum (2015, Cap. 3).</em></p>
+<h2 id="2-a-hierarquia-de-memória-finge-que-existe-uma-memória-rápida-como-o-registrador-e-grande-como-o-disco-teoria--8-min">2. A hierarquia de memória finge que existe uma memória rápida como o registrador e grande como o disco [Teoria ⏳ 8 min]<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-a-hierarquia-de-memória-finge-que-existe-uma-memória-rápida-como-o-registrador-e-grande-como-o-disco-teoria--8-min" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>O processador da Aula 05 lê registrador a cada ciclo. Se toda leitura fosse na RAM, ele passaria a maior parte do tempo esperando.</p>
+<details class="au-aposta">
+<summary>Antes de abrir: trocaram o SSD SATA por um NVMe. O boot ficou bem mais rápido, mas a planilha gigante já aberta no Excel continua igual de lenta. Por quê?</summary>
+<p><strong>Porque a planilha aberta não está no disco.</strong> O disco só participou na abertura; depois disso ela vive na RAM e na cache, e o disco não participa mais. Trocar o degrau errado da pirâmide não muda nada. É essa pirâmide que vem a seguir.</p>
+</details>
+<p>A <strong>hierarquia de memória</strong> resolve isso empilhando tecnologias diferentes: cada nível é menor, mais rápido e mais caro por byte que o de baixo. O objetivo é criar, para a CPU, a ilusão de uma memória com a <strong>velocidade dos registradores</strong> e a capacidade e o custo do armazenamento em massa.</p>
+<figure class="au-fig">
+<img src="./assets/aula06_piramide_memoria.png" alt="Pirâmide com cinco níveis: nível 0 registradores no topo, nível 1 cache L1/L2/L3, nível 2 memória RAM, nível 3 armazenamento secundário SSD e HDD, nível 4 armazenamento em nuvem na base. Duas setas laterais: velocidade e custo por bit crescem para cima, capacidade cresce para baixo"/>
+<figcaption class="au-legenda">No topo, memórias menores, mais rápidas e mais caras (registradores, cache). Na base, maiores, mais lentas e mais baratas (SSD/HD, nuvem). Fonte: elaborado pelo professor com base em STALLINGS (2024, cap. 4, página [CONFIRMAR]), adaptado: o nível da nuvem não está no livro.</figcaption>
+</figure>
+<blockquote class="callout tip" data-callout="tip">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>💡 Dica de produção — a pirâmide é o seu escritório </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>Pense na hierarquia como a organização física de uma sala de engenharia:</p>
+<ul>
+<li><strong>Registradores</strong> → o que você está lendo ou segurando nas mãos neste exato segundo.</li>
+<li><strong>Cache L1/L2/L3</strong> → os documentos abertos na sua mesa: acesso imediato, sem sair da cadeira.</li>
+<li><strong>RAM</strong> → o armário no canto da sala: bastante espaço, mas exige levantar e caminhar.</li>
+<li><strong>SSD/HD</strong> → o arquivo morto no porão do prédio: cabe tudo, e o acesso demora.</li>
+<li><strong>Nuvem</strong> → o galpão terceirizado em outra cidade: capacidade quase infinita, mas exige transporte (latência de rede).</li>
+</ul>
+</div>
 </blockquote>
-<h3 id="o-fluxo-completo-da-paginação">O Fluxo Completo da Paginação<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#o-fluxo-completo-da-paginação" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
-<pre><button class="expand-button" aria-label="Expand mermaid diagram" data-view-component="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 1.06L2.56 7h10.88l-2.22-2.22a.75.75 0 011.06-1.06l3.5 3.5a.75.75 0 010 1.06l-3.5 3.5a.75.75 0 11-1.06-1.06l2.22-2.22H2.56l2.22 2.22a.75.75 0 11-1.06 1.06l-3.5-3.5a.75.75 0 010-1.06l3.5-3.5z"></path></svg></button><code class="mermaid" data-clipboard="&quot;sequenceDiagram\n    participant Processo as 🧩 Processo (App)\n    participant SO as 🖥️ Sistema Operacional\n    participant MMU as ⚙️ MMU (Hardware)\n    participant RAM as 🟦 RAM\n    participant Disco as 💾 Disco (pagefile.sys)\n\n    Processo->>MMU: Solicita acesso ao endereço lógico X\n    MMU->>SO: Consulta Tabela de Páginas\n    alt Página está na RAM (Page HIT)\n        SO-->>MMU: Retorna endereço físico na RAM\n        MMU->>RAM: Lê dado diretamente\n        RAM-->>Processo: ✅ Dado entregue (rápido)\n    else Página não está na RAM (Page FAULT)\n        SO->>RAM: Encontra frame livre ou elege página para remover (algoritmo LRU)\n        SO->>Disco: SWAP-OUT: Move página substituída para o disco\n        SO->>Disco: SWAP-IN: Carrega a página solicitada do disco para a RAM\n        SO-->>MMU: Atualiza Tabela de Páginas com novo endereço físico\n        MMU->>RAM: Lê dado agora disponível\n        RAM-->>Processo: ✅ Dado entregue (lento — houve I/O de disco)\n    end&quot;">sequenceDiagram
+<p>A <strong>RAM</strong> (<em>Random Access Memory</em>, memória de acesso aleatório) é feita de <strong>DRAM</strong>: mais lenta que a SRAM da cache, mas viável em gigabytes. É <strong>volátil</strong>: desligou, perdeu tudo.</p>
+<p>Tudo que está “aberto e em execução” no seu computador vive na RAM: o navegador com 50 abas, o Spotify, o VS Code, o jogo, o Discord. Quando a RAM esgota, o sistema operacional precisa de um plano B, e ele é o tópico 4.</p>
+<p>A memória secundária é <strong>não volátil</strong>: os dados sobrevivem ao desligamento. Os SSDs NVMe revolucionaram essa camada com latências em microssegundos, mas continuam <strong>estruturalmente 1000x mais lentos</strong> que a RAM no acesso aleatório.</p>
+<hr/>
+<h2 id="3-a-cache-existe-porque-a-cpu-não-pode-esperar-100-ciclos-a-cada-acesso-à-ram-teoria--11-min">3. A cache existe porque a CPU não pode esperar 100 ciclos a cada acesso à RAM [Teoria ⏳ 11 min]<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3-a-cache-existe-porque-a-cpu-não-pode-esperar-100-ciclos-a-cada-acesso-à-ram-teoria--11-min" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<details class="au-aposta">
+<summary>Antes de abrir: o <code>LOAD R1, 500</code> do bloco 1 executa em t1, t2 e t3, e cada tN é um tique do clock. Então a execução leva 3 ciclos?</summary>
+<p><strong>Só se a memória responder num tique, e isso quase nunca acontece. Mas quase sempre são poucos ciclos, porque a L1 acerta a maioria dos acessos.</strong> Em t2 a UC pede <code>MBR ← memória</code> e fica parada, em <strong>estados de espera</strong>, até o dado chegar ao MBR. Quanto tempo depende de <strong>quem</strong> responde ao MAR:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Onde está <code>[500]</code></th><th>Ciclos parados em t2 (ordem de grandeza)</th></tr></thead><tbody><tr><td>L1</td><td>~4</td></tr><tr><td>L3</td><td>~40</td></tr><tr><td>só na RAM</td><td>~100</td></tr></tbody></table></div>
+<p>A tabela de latências, logo depois da figura do chip, é a resposta inteira.</p>
+</details>
+<p>Quando o MAR pede um endereço, quem responde primeiro não é a RAM: é a <strong>cache</strong>. Ela é o segredo de desempenho dos processadores modernos. Fica entre a CPU ultrarrápida e a RAM relativamente lenta, guardando cópias dos dados que a CPU usa com mais frequência. É feita de SRAM, por isso é rápida; é pequena, por isso é viável.</p>
+<figure class="au-fig">
+<svg viewBox="0 0 700 300" role="img" aria-label="Chip com quatro núcleos. Cada núcleo tem L1 de instruções, L1 de dados e L2 privadas. Abaixo, dentro do mesmo chip, a L3 compartilhada por todos os núcleos. Fora do chip, a RAM, ligada à L3." font-family="sans-serif" font-size="13">
+<rect x="20" y="30" width="520" height="250" rx="10" fill="none" stroke="#8a8f98" stroke-width="2"></rect>
+<text x="280" y="22" text-anchor="middle" fill="#8a8f98" font-weight="bold">Chip do processador</text>
+<rect x="35" y="52" width="115" height="128" rx="6" fill="none" stroke="#2778c4" stroke-width="2"></rect>
+<text x="92" y="72" text-anchor="middle" fill="#2778c4" font-weight="bold">Núcleo 0</text>
+<rect x="43" y="84" width="47" height="30" rx="4" fill="none" stroke="#2778c4" stroke-width="1.5"></rect><text x="66" y="104" text-anchor="middle" fill="#2778c4" font-size="11">L1-I</text>
+<rect x="95" y="84" width="47" height="30" rx="4" fill="none" stroke="#2778c4" stroke-width="1.5"></rect><text x="118" y="104" text-anchor="middle" fill="#2778c4" font-size="11">L1-D</text>
+<rect x="43" y="124" width="99" height="40" rx="4" fill="none" stroke="#2778c4" stroke-width="1.5"></rect><text x="92" y="149" text-anchor="middle" fill="#2778c4" font-size="12">L2</text>
+<line x1="92" y1="180" x2="92" y2="198" stroke="#8a8f98" stroke-width="1.5"></line>
+<rect x="162" y="52" width="115" height="128" rx="6" fill="none" stroke="#2778c4" stroke-width="2"></rect>
+<text x="219" y="72" text-anchor="middle" fill="#2778c4" font-weight="bold">Núcleo 1</text>
+<rect x="170" y="84" width="47" height="30" rx="4" fill="none" stroke="#2778c4" stroke-width="1.5"></rect><text x="193" y="104" text-anchor="middle" fill="#2778c4" font-size="11">L1-I</text>
+<rect x="222" y="84" width="47" height="30" rx="4" fill="none" stroke="#2778c4" stroke-width="1.5"></rect><text x="245" y="104" text-anchor="middle" fill="#2778c4" font-size="11">L1-D</text>
+<rect x="170" y="124" width="99" height="40" rx="4" fill="none" stroke="#2778c4" stroke-width="1.5"></rect><text x="219" y="149" text-anchor="middle" fill="#2778c4" font-size="12">L2</text>
+<line x1="219" y1="180" x2="219" y2="198" stroke="#8a8f98" stroke-width="1.5"></line>
+<rect x="289" y="52" width="115" height="128" rx="6" fill="none" stroke="#2778c4" stroke-width="2"></rect>
+<text x="346" y="72" text-anchor="middle" fill="#2778c4" font-weight="bold">Núcleo 2</text>
+<rect x="297" y="84" width="47" height="30" rx="4" fill="none" stroke="#2778c4" stroke-width="1.5"></rect><text x="320" y="104" text-anchor="middle" fill="#2778c4" font-size="11">L1-I</text>
+<rect x="349" y="84" width="47" height="30" rx="4" fill="none" stroke="#2778c4" stroke-width="1.5"></rect><text x="372" y="104" text-anchor="middle" fill="#2778c4" font-size="11">L1-D</text>
+<rect x="297" y="124" width="99" height="40" rx="4" fill="none" stroke="#2778c4" stroke-width="1.5"></rect><text x="346" y="149" text-anchor="middle" fill="#2778c4" font-size="12">L2</text>
+<line x1="346" y1="180" x2="346" y2="198" stroke="#8a8f98" stroke-width="1.5"></line>
+<rect x="416" y="52" width="115" height="128" rx="6" fill="none" stroke="#2778c4" stroke-width="2"></rect>
+<text x="473" y="72" text-anchor="middle" fill="#2778c4" font-weight="bold">Núcleo 3</text>
+<rect x="424" y="84" width="47" height="30" rx="4" fill="none" stroke="#2778c4" stroke-width="1.5"></rect><text x="447" y="104" text-anchor="middle" fill="#2778c4" font-size="11">L1-I</text>
+<rect x="476" y="84" width="47" height="30" rx="4" fill="none" stroke="#2778c4" stroke-width="1.5"></rect><text x="499" y="104" text-anchor="middle" fill="#2778c4" font-size="11">L1-D</text>
+<rect x="424" y="124" width="99" height="40" rx="4" fill="none" stroke="#2778c4" stroke-width="1.5"></rect><text x="473" y="149" text-anchor="middle" fill="#2778c4" font-size="12">L2</text>
+<line x1="473" y1="180" x2="473" y2="198" stroke="#8a8f98" stroke-width="1.5"></line>
+<rect x="35" y="198" width="495" height="62" rx="6" fill="none" stroke="#00aa9f" stroke-width="2"></rect>
+<text x="282" y="226" text-anchor="middle" fill="#00aa9f" font-weight="bold">L3, compartilhada por todos os núcleos</text>
+<text x="282" y="246" text-anchor="middle" fill="#00aa9f" font-size="11">dentro do chip, mais longe de cada núcleo que a L2</text>
+<rect x="585" y="110" width="100" height="90" rx="6" fill="none" stroke="#b1541b" stroke-width="2"></rect>
+<text x="635" y="150" text-anchor="middle" fill="#b1541b" font-weight="bold">RAM</text>
+<text x="635" y="170" text-anchor="middle" fill="#b1541b" font-size="11">fora do chip</text>
+<line x1="530" y1="229" x2="585" y2="170" stroke="#8a8f98" stroke-width="1.5"></line>
+</svg>
+<figcaption class="au-legenda">L1 (separada em instruções e dados) e L2 são privadas de cada núcleo; a L3 fica no mesmo chip e é compartilhada por todos; a RAM fica fora do chip. Tamanhos e latências de cada nível estão na tabela abaixo. Fonte: elaborado pelo professor com base em STALLINGS (2024, cap. 4, página [CONFIRMAR]).</figcaption>
+</figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Nível</th><th>Tamanho típico</th><th>Latência</th><th>Quem compartilha</th></tr></thead><tbody><tr><td><strong>Registradores</strong></td><td>Bytes (dezenas)</td><td>~1 ciclo de clock</td><td>Apenas o núcleo em uso</td></tr><tr><td><strong>Cache L1</strong></td><td>32–64 KB</td><td>1–4 ciclos</td><td>Privada por núcleo, separada em instruções (I-Cache) e dados (D-Cache), para o IF e o MEM do pipeline lerem no mesmo ciclo</td></tr><tr><td><strong>Cache L2</strong></td><td>256 KB – 1 MB</td><td>10–20 ciclos</td><td>Privada por núcleo</td></tr><tr><td><strong>Cache L3</strong></td><td>8 – 64 MB</td><td>30–50 ciclos</td><td><strong>Compartilhada</strong> entre todos os núcleos</td></tr><tr><td><strong>RAM (DRAM)</strong></td><td>8 – 128 GB</td><td>~100 ciclos</td><td>Todos os processos do sistema</td></tr><tr><td><strong>SSD NVMe</strong></td><td>500 GB – 4 TB</td><td>~100.000 ciclos</td><td>Todos os usuários e o SO</td></tr></tbody></table></div>
+<details class="au-aposta">
+<summary>Antes de abrir: por que os processadores têm L1, L2 e L3 em vez de uma única cache L1 gigante de 32 MB?</summary>
+<p><strong>Por limitação física.</strong> Cache maior exige circuitos de decodificação de endereço mais complexos e distâncias maiores dentro do chip, e isso aumenta a latência de acesso. A saída é ter níveis pequenos e muito rápidos junto de cada núcleo (L1/L2) e um nível maior compartilhado (L3). Assim a arquitetura ganha velocidade para o dado imediato e capacidade para a comunicação entre núcleos.</p>
+</details>
+<blockquote class="callout warning" data-callout="warning">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>⚠️ Gotcha — a penalidade do cache miss </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>Cada nível que não tem o dado é um <strong>cache miss</strong> naquele nível. Quando falham os três (L1, L2 e L3), o processador suspende a execução (<em>stall</em>) e vai buscar o dado na RAM: <strong>~100 ciclos</strong> gastos em espera, sem executar nada útil. Um hit na L1 responde em 1 a 4 ciclos; a RAM, em ~100: uma diferença de <strong>25 a 100 vezes</strong>.</p>
+</div>
+</blockquote>
+<blockquote class="callout tip" data-callout="tip">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>💡 Dica de produção — código que a cache gosta </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>Desenvolvedores experientes organizam os loops de dados para garantir <strong>localidade espacial e temporal</strong>: arrays contíguos na memória em vez de estruturas dispersas, como listas encadeadas. Ao buscar um dado na RAM, a CPU traz o bloco vizinho inteiro (a <strong>linha de cache</strong>); percorrer o array em sequência transforma um miss em vários hits (com linha de 64 bytes e inteiros de 4 bytes: 1 miss e 15 hits).</p>
+</div>
+</blockquote>
+<h3 id="31-a-busca-desce-nível-a-nível-e-cada-miss-custa-mais-que-o-anterior">3.1 A busca desce nível a nível, e cada miss custa mais que o anterior<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#31-a-busca-desce-nível-a-nível-e-cada-miss-custa-mais-que-o-anterior" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<pre><button class="expand-button" aria-label="Expand mermaid diagram" data-view-component="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 1.06L2.56 7h10.88l-2.22-2.22a.75.75 0 011.06-1.06l3.5 3.5a.75.75 0 010 1.06l-3.5 3.5a.75.75 0 11-1.06-1.06l2.22-2.22H2.56l2.22 2.22a.75.75 0 11-1.06 1.06l-3.5-3.5a.75.75 0 010-1.06l3.5-3.5z"></path></svg></button><code class="mermaid" data-clipboard="&quot;flowchart TD\n    A[🖥️ CPU solicita dado] --> B{Dado está na cache L1?}\n    B -- ✅ Cache HIT --> C[Retorna em 1 a 4 ciclos]\n    B -- ❌ Cache MISS --> D{Dado está na cache L2?}\n    D -- ✅ Cache HIT --> E[Retorna em 10 a 20 ciclos]\n    D -- ❌ Cache MISS --> F{Dado está na cache L3?}\n    F -- ✅ Cache HIT --> G[Retorna em 30 a 50 ciclos]\n    F -- ❌ Cache MISS --> H[Busca na RAM principal]\n    H --> I[Dado chega após ~100 ciclos]\n    I --> J[Copia a linha, o dado e os vizinhos, para as caches]\n    J --> K[Entrega à CPU: o PRÓXIMO acesso a ele vira hit]\n    style A fill:#2778c4,stroke:#2778c4,color:#fff\n    style H fill:#b1541b,stroke:#b1541b,color:#fff&quot;">flowchart TD
+    A[🖥️ CPU solicita dado] --> B{Dado está na cache L1?}
+    B -- ✅ Cache HIT --> C[Retorna em 1 a 4 ciclos]
+    B -- ❌ Cache MISS --> D{Dado está na cache L2?}
+    D -- ✅ Cache HIT --> E[Retorna em 10 a 20 ciclos]
+    D -- ❌ Cache MISS --> F{Dado está na cache L3?}
+    F -- ✅ Cache HIT --> G[Retorna em 30 a 50 ciclos]
+    F -- ❌ Cache MISS --> H[Busca na RAM principal]
+    H --> I[Dado chega após ~100 ciclos]
+    I --> J[Copia a linha, o dado e os vizinhos, para as caches]
+    J --> K[Entrega à CPU: o PRÓXIMO acesso a ele vira hit]
+    style A fill:#2778c4,stroke:#2778c4,color:#fff
+    style H fill:#b1541b,stroke:#b1541b,color:#fff
+</code><div id="mermaid-container" role="dialog"><div id="mermaid-space"><div class="mermaid-content"></div></div></div></pre>
+<p>A prioridade é sempre a memória mais rápida. Quando os misses se encadeiam, a CPU fica em <em>stall</em>, consumindo ciclos sem executar instruções úteis. E repare no último passo: o dado que veio da RAM é <strong>copiado para as caches</strong>, porque a aposta é que ele será usado de novo em breve (localidade temporal).</p>
+<hr/>
+<h2 id="4-a-memória-virtual-dá-a-cada-processo-a-ram-inteira-e-cobra-em-page-faults-teoria--13-min">4. A memória virtual dá a cada processo a RAM inteira, e cobra em page faults [Teoria ⏳ 13 min]<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#4-a-memória-virtual-dá-a-cada-processo-a-ram-inteira-e-cobra-em-page-faults-teoria--13-min" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<details class="au-aposta">
+<summary>Antes de abrir: você abre o Chrome com 50 abas, o Photoshop, o VS Code e um jogo, e a RAM de 8 GB esgota. O sistema trava, fecha um programa, ou continua?</summary>
+<p><strong>Em geral, continua, mais lento.</strong> (No Linux, se nem o swap der conta, o kernel encerra um processo para liberar memória.) O sistema operacional tira da RAM as páginas que ninguém usou recentemente e as guarda no disco. Os programas não percebem: cada um continua enxergando a “sua” memória inteira. O que muda é o tempo de resposta quando uma dessas páginas é pedida de volta.</p>
+</details>
+<p>A <strong>memória virtual</strong> é uma técnica gerenciada em conjunto pela <strong>MMU</strong> do processador e pelo <strong>sistema operacional</strong>. Ela “engana” os aplicativos: cada processo acredita ter toda a memória do sistema para si, enquanto na prática os dados ficam distribuídos entre a RAM e o disco.</p>
+<figure class="au-fig">
+<svg viewBox="0 0 760 350" role="img" aria-label="Paginação: um processo com páginas 0 a 3, a tabela de páginas com bit presente e número do frame, a RAM com frames 0 a 4 e a página 2 no disco" font-family="sans-serif" font-size="13">
+<defs>
+<marker id="pg-seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a8f98"></path></marker>
+<marker id="pg-seta-d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#b1541b"></path></marker>
+</defs>
+<rect x="20" y="40" width="150" height="230" rx="8" fill="none" stroke="#2778c4" stroke-width="2"></rect>
+<text x="95" y="30" text-anchor="middle" fill="#2778c4" font-weight="bold">Processo</text>
+<text x="95" y="62" text-anchor="middle" fill="#2778c4" font-size="11">endereço lógico</text>
+<rect x="40" y="80" width="110" height="36" rx="5" fill="none" stroke="#2778c4" stroke-width="2"></rect><text x="95" y="103" text-anchor="middle" fill="#2778c4">Página 0</text>
+<rect x="40" y="126" width="110" height="36" rx="5" fill="none" stroke="#2778c4" stroke-width="2"></rect><text x="95" y="149" text-anchor="middle" fill="#2778c4">Página 1</text>
+<rect x="40" y="172" width="110" height="36" rx="5" fill="none" stroke="#b1541b" stroke-width="3"></rect><text x="95" y="195" text-anchor="middle" fill="#b1541b" font-weight="bold">Página 2</text>
+<rect x="40" y="218" width="110" height="36" rx="5" fill="none" stroke="#2778c4" stroke-width="2"></rect><text x="95" y="241" text-anchor="middle" fill="#2778c4">Página 3</text>
+<rect x="230" y="40" width="230" height="230" rx="8" fill="none" stroke="#8a8f98" stroke-width="2"></rect>
+<text x="345" y="30" text-anchor="middle" fill="#8a8f98" font-weight="bold">Tabela de páginas</text>
+<text x="270" y="66" text-anchor="middle" fill="#8a8f98" font-size="11">Página</text>
+<text x="345" y="66" text-anchor="middle" fill="#8a8f98" font-size="11">Presente?</text>
+<text x="420" y="66" text-anchor="middle" fill="#8a8f98" font-size="11">Frame</text>
+<line x1="240" y1="72" x2="450" y2="72" stroke="#8a8f98" stroke-width="1"></line>
+<text x="270" y="103" text-anchor="middle" fill="#8a8f98">0</text><text x="345" y="103" text-anchor="middle" fill="#00aa9f" font-weight="bold">1</text><text x="420" y="103" text-anchor="middle" fill="#00aa9f">2</text>
+<text x="270" y="149" text-anchor="middle" fill="#8a8f98">1</text><text x="345" y="149" text-anchor="middle" fill="#00aa9f" font-weight="bold">1</text><text x="420" y="149" text-anchor="middle" fill="#00aa9f">0</text>
+<text x="270" y="195" text-anchor="middle" fill="#8a8f98">2</text><text x="345" y="195" text-anchor="middle" fill="#b1541b" font-weight="bold">0</text><text x="420" y="195" text-anchor="middle" fill="#b1541b">disco</text>
+<text x="270" y="241" text-anchor="middle" fill="#8a8f98">3</text><text x="345" y="241" text-anchor="middle" fill="#00aa9f" font-weight="bold">1</text><text x="420" y="241" text-anchor="middle" fill="#00aa9f">4</text>
+<line x1="150" y1="98" x2="228" y2="98" stroke="#8a8f98" stroke-width="1.5" marker-end="url(#pg-seta)"></line>
+<line x1="150" y1="144" x2="228" y2="144" stroke="#8a8f98" stroke-width="1.5" marker-end="url(#pg-seta)"></line>
+<line x1="150" y1="190" x2="228" y2="190" stroke="#8a8f98" stroke-width="1.5" marker-end="url(#pg-seta)"></line>
+<line x1="150" y1="236" x2="228" y2="236" stroke="#8a8f98" stroke-width="1.5" marker-end="url(#pg-seta)"></line>
+<rect x="540" y="40" width="200" height="238" rx="8" fill="none" stroke="#00aa9f" stroke-width="2"></rect>
+<text x="640" y="30" text-anchor="middle" fill="#00aa9f" font-weight="bold">RAM</text>
+<text x="640" y="62" text-anchor="middle" fill="#00aa9f" font-size="11">endereço físico</text>
+<rect x="555" y="70" width="170" height="34" rx="5" fill="none" stroke="#00aa9f" stroke-width="2"></rect><text x="640" y="92" text-anchor="middle" fill="#00aa9f">Frame 0 · Página 1</text>
+<rect x="555" y="112" width="170" height="34" rx="5" fill="none" stroke="#8a8f98" stroke-width="1.5" stroke-dasharray="4 3"></rect><text x="640" y="134" text-anchor="middle" fill="#8a8f98">Frame 1 · outro processo</text>
+<rect x="555" y="154" width="170" height="34" rx="5" fill="none" stroke="#00aa9f" stroke-width="2"></rect><text x="640" y="176" text-anchor="middle" fill="#00aa9f">Frame 2 · Página 0</text>
+<rect x="555" y="196" width="170" height="34" rx="5" fill="none" stroke="#8a8f98" stroke-width="1.5" stroke-dasharray="4 3"></rect><text x="640" y="218" text-anchor="middle" fill="#8a8f98">Frame 3 · livre</text>
+<rect x="555" y="238" width="170" height="34" rx="5" fill="none" stroke="#00aa9f" stroke-width="2"></rect><text x="640" y="260" text-anchor="middle" fill="#00aa9f">Frame 4 · Página 3</text>
+<rect x="555" y="300" width="170" height="36" rx="5" fill="none" stroke="#b1541b" stroke-width="2"></rect><text x="640" y="323" text-anchor="middle" fill="#b1541b" font-weight="bold">Disco (swap) · Página 2</text>
+<line x1="462" y1="98" x2="553" y2="171" stroke="#8a8f98" stroke-width="1.5" marker-end="url(#pg-seta)"></line>
+<line x1="462" y1="144" x2="553" y2="87" stroke="#8a8f98" stroke-width="1.5" marker-end="url(#pg-seta)"></line>
+<line x1="462" y1="236" x2="553" y2="255" stroke="#8a8f98" stroke-width="1.5" marker-end="url(#pg-seta)"></line>
+<line x1="462" y1="190" x2="553" y2="318" stroke="#b1541b" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#pg-seta-d)"></line>
+<text x="500" y="300" text-anchor="middle" fill="#b1541b" font-size="11" font-weight="bold">page fault</text>
+</svg>
+<figcaption class="au-legenda">O processo enxerga páginas numeradas em sequência (0 a 3); a tabela de páginas diz em qual <b>frame</b> da RAM cada uma está, e o bit <b>presente</b> diz se está. A página 2 está no disco: tocar nela dispara o <b>page fault</b>. Frames 1 e 3 pertencem a outro processo ou estão livres. Fonte: elaborado para a disciplina.</figcaption>
+</figure>
+<h3 id="41-a-mmu-traduz-sozinha-só-o-page-fault-chama-o-so-e-espera-o-disco">4.1 A MMU traduz sozinha; só o page fault chama o SO e espera o disco<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#41-a-mmu-traduz-sozinha-só-o-page-fault-chama-o-so-e-espera-o-disco" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<pre><button class="expand-button" aria-label="Expand mermaid diagram" data-view-component="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 1.06L2.56 7h10.88l-2.22-2.22a.75.75 0 011.06-1.06l3.5 3.5a.75.75 0 010 1.06l-3.5 3.5a.75.75 0 11-1.06-1.06l2.22-2.22H2.56l2.22 2.22a.75.75 0 11-1.06 1.06l-3.5-3.5a.75.75 0 010-1.06l3.5-3.5z"></path></svg></button><code class="mermaid" data-clipboard="&quot;sequenceDiagram\n    participant Processo as 🧩 Processo (App)\n    participant MMU as ⚙️ MMU (Hardware)\n    participant SO as 🖥️ Sistema Operacional\n    participant RAM as 🟦 RAM\n    participant Disco as 💾 Disco (pagefile.sys)\n\n    Processo->>MMU: Solicita acesso ao endereço lógico X\n    alt Página está na RAM (page HIT)\n        MMU->>MMU: Traduz sozinha, em hardware: TLB ou tabela de páginas\n        MMU->>RAM: Lê o dado no endereço físico\n        RAM-->>Processo: ✅ Dado entregue (rápido, o SO não participa)\n    else Página não está na RAM (page FAULT)\n        MMU->>SO: Interrupção de page fault\n        SO->>RAM: Encontra frame livre ou elege uma vítima (a que está há mais tempo sem uso, aproximadamente)\n        SO->>Disco: SWAP-OUT: grava a vítima no disco, só se ela foi modificada (página suja)\n        SO->>Disco: SWAP-IN: carrega a página solicitada do disco para a RAM\n        SO-->>MMU: Atualiza a tabela de páginas (e a TLB) com o novo frame\n        MMU->>RAM: Lê o dado agora disponível\n        RAM-->>Processo: ✅ Dado entregue (lento: houve E/S de disco)\n    end&quot;">sequenceDiagram
     participant Processo as 🧩 Processo (App)
-    participant SO as 🖥️ Sistema Operacional
     participant MMU as ⚙️ MMU (Hardware)
+    participant SO as 🖥️ Sistema Operacional
     participant RAM as 🟦 RAM
     participant Disco as 💾 Disco (pagefile.sys)
 
     Processo->>MMU: Solicita acesso ao endereço lógico X
-    MMU->>SO: Consulta Tabela de Páginas
-    alt Página está na RAM (Page HIT)
-        SO-->>MMU: Retorna endereço físico na RAM
-        MMU->>RAM: Lê dado diretamente
-        RAM-->>Processo: ✅ Dado entregue (rápido)
-    else Página não está na RAM (Page FAULT)
-        SO->>RAM: Encontra frame livre ou elege página para remover (algoritmo LRU)
-        SO->>Disco: SWAP-OUT: Move página substituída para o disco
-        SO->>Disco: SWAP-IN: Carrega a página solicitada do disco para a RAM
-        SO-->>MMU: Atualiza Tabela de Páginas com novo endereço físico
-        MMU->>RAM: Lê dado agora disponível
-        RAM-->>Processo: ✅ Dado entregue (lento — houve I/O de disco)
+    alt Página está na RAM (page HIT)
+        MMU->>MMU: Traduz sozinha, em hardware: TLB ou tabela de páginas
+        MMU->>RAM: Lê o dado no endereço físico
+        RAM-->>Processo: ✅ Dado entregue (rápido, o SO não participa)
+    else Página não está na RAM (page FAULT)
+        MMU->>SO: Interrupção de page fault
+        SO->>RAM: Encontra frame livre ou elege uma vítima (a que está há mais tempo sem uso, aproximadamente)
+        SO->>Disco: SWAP-OUT: grava a vítima no disco, só se ela foi modificada (página suja)
+        SO->>Disco: SWAP-IN: carrega a página solicitada do disco para a RAM
+        SO-->>MMU: Atualiza a tabela de páginas (e a TLB) com o novo frame
+        MMU->>RAM: Lê o dado agora disponível
+        RAM-->>Processo: ✅ Dado entregue (lento: houve E/S de disco)
     end
 </code><div id="mermaid-container" role="dialog"><div id="mermaid-space"><div class="mermaid-content"></div></div></div></pre>
-<blockquote>
-<p><em>Legenda: Sequência completa de um acesso à memória virtual. O Page Fault é o evento mais custoso — toda vez que ocorre, a CPU entra em estado de espera aguardando o disco.</em></p>
-</blockquote>
-<h3 id="o-perigo-thrashing">O Perigo: Thrashing<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#o-perigo-thrashing" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>No acerto, o sistema operacional não entra: a MMU traduz o endereço em hardware. E ela não lê a tabela de páginas na RAM a cada acesso, porque isso ao menos dobraria o custo de toda leitura.</p>
+<p>As traduções recentes ficam na <strong>TLB</strong>, a pequena cache dentro da própria MMU. A tabela só é consultada quando a TLB falha.</p>
+<p>O <strong>page fault</strong> é uma <strong>exceção</strong>. Ela funciona como a <strong>interrupção</strong> da Aula 05: salva PC e PSW e desvia para uma rotina do SO. A diferença é que acontece <strong>no meio</strong> da instrução, que depois é refeita do começo.</p>
+<p>É o evento mais caro da sequência, mas a CPU não fica parada esperando. O SO <strong>bloqueia o processo</strong> que causou o fault e escalona outro para rodar enquanto o disco responde.</p>
+<p>O caro é para o processo bloqueado. Ele só volta quando a página chegar, cerca de 100.000 ciclos depois, contra ~100 de um acesso à RAM.</p>
+<h3 id="42-thrashing-é-só-swap-cpu-ociosa-disco-em-100-">4.2 Thrashing é só swap: CPU ociosa, disco em 100 %<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#42-thrashing-é-só-swap-cpu-ociosa-disco-em-100-" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
 <blockquote class="callout warning" data-callout="warning">
 <div class="callout-title">
                   <div class="callout-icon"></div>
-                  <div class="callout-title-inner"><p>⚠️ Gotcha de Infraestrutura </p></div>
+                  <div class="callout-title-inner"><p>⚠️ Gotcha — degradação por thrashing </p></div>
                   
                 </div>
 <div class="callout-content">
-<p><strong>Degradação por Thrashing</strong>: O Thrashing ocorre quando a RAM física está tão escassa que o Sistema Operacional passa virtualmente 100% do seu tempo movendo páginas de dados de um lado para o outro (Swap-Out e Swap-In) entre o disco e a RAM. O uso de CPU despenca (ela fica em stall perpétuo aguardando I/O de disco) e o disco trava em 100% de uso.</p>
-<p><strong>Atenção:</strong> Em ambientes de nuvem/SRE (como Kubernetes ou AWS Auto Scaling), o Thrashing pode causar falhas em cascata de Liveness Probes, derrubando o microserviço e forçando reinicializações desnecessárias. A solução imediata é aumentar a memória RAM física (Scale-Up) ou aplicar limites rígidos de memória por container (cgroups).</p>
+<p>O <strong>thrashing</strong> ocorre quando a RAM física está tão escassa que o sistema operacional passa praticamente 100 % do tempo movendo páginas entre o disco e a RAM (swap-out e swap-in). O uso de CPU despenca não porque ela “para”, mas porque <strong>todos os processos estão bloqueados esperando E/S</strong> (entrada e saída) de disco ao mesmo tempo: o SO não tem ninguém pronto para escalonar, e o disco trava em 100 % de uso.</p>
+<p>Em servidor de nuvem, o thrashing derruba o serviço inteiro antes de qualquer alarme de CPU disparar; a saída imediata é mais RAM ou um limite rígido de memória por processo.</p>
 </div>
 </blockquote>
 
@@ -408,75 +739,112 @@ pre:hover > .expand-button {
 
 
 
-<div class="table-container"><table><thead><tr><th><strong>Situação</strong></th><th><strong>Causa</strong></th><th><strong>Solução</strong></th></tr></thead><tbody><tr><td>Máquina lenta, disco 100%</td><td>RAM esgotada → Thrashing</td><td>Adicionar RAM ou fechar processos</td></tr><tr><td>”Arquivo de paginação cheio”</td><td>pagefile.sys inadequado</td><td>Ampliar arquivo de paginação</td></tr><tr><td>Processo com “Page Fault” constante</td><td>Conjunto de trabalho maior que a RAM disponível</td><td>Otimizar uso de memória da aplicação</td></tr></tbody></table></div>
-<hr/>
-<h2 id="-resumo-estrutural">📋 Resumo Estrutural<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-resumo-estrutural" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="table-container"><table><thead><tr><th><strong>Conceito</strong></th><th><strong>Definição em Uma Frase</strong></th></tr></thead><tbody><tr><td><strong>Hierarquia de Memória</strong></td><td>Estrutura em pirâmide que balanceia velocidade, capacidade e custo das memórias do sistema.</td></tr><tr><td><strong>Cache (L1/L2/L3)</strong></td><td>Memória intermediária (SRAM) super-rápida que guarda cópias de dados frequentes da RAM, reduzindo os Cache Misses.</td></tr><tr><td><strong>Cache Hit / Cache Miss</strong></td><td>Hit: dado encontrado na cache (rápido). Miss: dado ausente, forçando busca na RAM (lento).</td></tr><tr><td><strong>RAM (Memória Principal)</strong></td><td>Memória de trabalho volátil (DRAM) onde residem os programas em execução ativa.</td></tr><tr><td><strong>Memória Secundária</strong></td><td>Armazenamento em massa (HDD/SSD), não volátil e feito para retenção a longo prazo.</td></tr><tr><td><strong>Memória Virtual</strong></td><td>Técnica do SO (com suporte da MMU) que usa espaço do disco rígido como extensão artificial da RAM.</td></tr><tr><td><strong>Página / Page Frame</strong></td><td>Bloco de tamanho fixo (tipicamente 4KB) em que a memória virtual é dividida para gerenciamento.</td></tr><tr><td><strong>Page Fault</strong></td><td>Evento que ocorre quando a CPU acessa uma página não presente na RAM, forçando leitura do disco.</td></tr><tr><td><strong>Swap-Out / Swap-In</strong></td><td>Mover páginas da RAM para o disco (Out) ou do disco para a RAM (In) durante a paginação.</td></tr><tr><td><strong>Thrashing</strong></td><td>Degradação extrema de desempenho causada por excesso de Page Faults e Swapping contínuo.</td></tr></tbody></table></div>
-<hr/>
-<h2 id="-artigo-de-aprofundamento">📄 Artigo de Aprofundamento<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-artigo-de-aprofundamento" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
-<ul>
-<li><a href="https://www.redhat.com/en/blog/what-virtual-memory" class="external">What is Virtual Memory? (Red Hat — En)<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
-</ul>
-<blockquote>
-<p><em>Resumo prático: Artigo direto ao ponto que explica como o kernel Linux gerencia a abstração da memória virtual, garantindo isolamento entre processos e escalabilidade do sistema operacional.</em></p>
+<div class="table-container"><table><thead><tr><th>Situação</th><th>Causa</th><th>Solução</th></tr></thead><tbody><tr><td>Máquina lenta, disco em 100 %</td><td>RAM esgotada → thrashing</td><td>Adicionar RAM ou fechar processos</td></tr><tr><td>”Arquivo de paginação cheio”</td><td><code>pagefile.sys</code> pequeno demais</td><td>Ampliar o arquivo de paginação</td></tr><tr><td>Processo com page fault constante</td><td>Conjunto de trabalho maior que a RAM disponível</td><td>Otimizar o uso de memória da aplicação</td></tr></tbody></table></div>
+<blockquote class="callout tip" data-callout="tip">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>💡 Dica de produção — veja o swap na sua máquina agora </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>No Windows, Gerenciador de Tarefas → Desempenho → Memória: a linha <strong>Comprometida</strong> <code>[CONFIRMAR: rótulo no Windows em português]</code> mostra RAM física mais arquivo de paginação. Comprometida acima da RAM instalada é sinal de que o sistema <strong>pode</strong> estar paginando; a confirmação vem do uso de disco subindo junto, ou do Monitor de Recursos (aba Memória), que mostra as falhas de página por processo <code>[CONFIRMAR: nome da coluna no Windows em português]</code>. No Linux, <code>free -h</code> mostra a linha <code>Swap</code>. Se o valor usado de swap cresce enquanto a máquina engasga, você está vendo o tópico 4 acontecer.</p>
+</div>
 </blockquote>
 <hr/>
+<div class="au-slot">
+<div class="au-slot-h"><b>Interativo</b> · Diagnóstico: em que degrau da pirâmide está o problema? · 12 min, em duplas</div>
+<div class="au-slot-c">
+<p>Para cada cenário: (1) em que nível da hierarquia está o gargalo? (2) qual conceito da aula explica? (3) o que você faria primeiro?</p>
+<ol>
+<li>Notebook com 8 GB de RAM, 40 abas do Chrome e o Photoshop aberto. A luz do SSD fica acesa direto e a CPU marca 10 % de uso.</li>
+<li>Num servidor de banco de dados, a mesma consulta leva 200 ms na primeira vez e 2 ms na segunda, sem nada ter mudado.</li>
+<li>Um jogo trava por um segundo quando muda de fase e depois flui sem engasgo.</li>
+<li>Um programa que percorre uma matriz por colunas leva 5 vezes mais tempo do que percorrendo por linhas, com a mesma quantidade de somas.</li>
+</ol>
+<details>
+<summary>Discussão (abrir só depois de a dupla decidir)</summary>
+<ol>
+<li><strong>Nível 2 → 3, thrashing.</strong> RAM esgotada, o SO faz swap sem parar. A CPU marca 10 % porque todos os processos estão bloqueados esperando E/S (entrada e saída) de disco e não há ninguém pronto para rodar. Fechar processos ou adicionar RAM.</li>
+<li><strong>Nível 3 → 2.</strong> Na primeira vez os dados vieram do disco; na segunda já estavam na RAM: o SO guarda ali cópias do que leu do disco (o <em>page cache</em>, que é RAM, não a cache SRAM do tópico 3). É a hierarquia funcionando a favor.</li>
+<li><strong>Nível 3 → 2.</strong> A fase nova é carregada do disco para a RAM; depois disso, tudo vem da RAM e da cache.</li>
+<li><strong>Nível 1, cache miss.</strong> Em C a matriz é guardada linha a linha; percorrer por colunas pula endereços e desperdiça a linha de cache (localidade espacial).</li>
+</ol>
+</details>
+<p class="au-pronto"><b>Critério de pronto:</b> os quatro cenários com nível, conceito e ação, e a dupla sabe explicar por que a CPU marca 10 % no cenário 1.</p>
+</div>
+<p class="au-slot-b"><b>Plano B:</b> a atividade não depende de ferramenta nem de rede. Se o projetor cair, os quatro cenários vão no quadro e a discussão segue igual.</p>
+</div>
+<hr/>
+<div class="au-resumo">
+<b>O que você viu acontecer hoje</b>
+<p>Oito coisas passaram na tela nesta aula. Tente responder o <em>porquê</em> antes de abrir. É o esforço de lembrar que fixa, não a releitura.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">O que você viu acontecer</th><th style="text-align:left;"></th></tr></thead><tbody><tr><td style="text-align:left;">No <code>STORE R1, 600</code>, o MAR ficou com 600 e o MBR com 42, e o dado saiu do MBR para a memória</td><td style="text-align:left;"><details><summary>por quê?</summary>O MAR guarda sempre o endereço (onde) e manda só de ida; o MBR guarda o dado (o quê) e anda nos dois sentidos: recebe na leitura, entrega na escrita. E o quando: na leitura, o MBR só muda no passo seguinte ao do MAR, depois que a memória responde. Na busca o MAR recebe do PC; na execução, do campo de endereço da instrução.</details></td></tr><tr><td style="text-align:left;">A pirâmide tinha o registrador no topo e a nuvem na base</td><td style="text-align:left;"><details><summary>por quê?</summary>Cada degrau para baixo é maior, mais barato por byte e mais lento. A hierarquia empilha tecnologias para a CPU enxergar uma memória rápida como o registrador e grande como o disco.</details></td></tr><tr><td style="text-align:left;">A tabela de latências pulou de 4 ciclos (L1) para 100 (RAM) e 100.000 (SSD)</td><td style="text-align:left;"><details><summary>por quê?</summary>Tecnologia e distância. SRAM junto do núcleo responde em poucos ciclos; DRAM fora do chip, em ~100; flash, por um barramento de E/S, em ~100.000.</details></td></tr><tr><td style="text-align:left;">A DRAM tem 1 transistor e 1 capacitor por bit, e a SRAM tem 6 transistores</td><td style="text-align:left;"><details><summary>por quê?</summary>É a troca entre densidade e velocidade. A célula pequena da DRAM cabe em gigabytes mas precisa de refresh; a célula grande da SRAM é rápida e estável, mas cara. Cada uma fica no degrau em que compensa.</details></td></tr><tr><td style="text-align:left;">No fluxograma, o dado que veio da RAM foi copiado para as caches</td><td style="text-align:left;"><details><summary>por quê?</summary>Localidade temporal: se o dado foi usado agora, a aposta é que será usado de novo em breve. O próximo acesso vira hit em vez de miss.</details></td></tr><tr><td style="text-align:left;">L1 e L2 eram privadas de cada núcleo, e a L3 era compartilhada</td><td style="text-align:left;"><details><summary>por quê?</summary>Cache maior é mais lenta. Níveis pequenos junto de cada núcleo dão velocidade; um nível grande compartilhado dá capacidade e serve à comunicação entre núcleos.</details></td></tr><tr><td style="text-align:left;">Na tabela de páginas, a página 2 tinha o bit presente em 0 e apontava para o disco</td><td style="text-align:left;"><details><summary>por quê?</summary>A RAM encheu e o SO fez swap-out dessa página. Se o processo tocar nela, ocorre page fault: o SO elege uma vítima, faz swap-in e só então o processo continua.</details></td></tr><tr><td style="text-align:left;">No cenário do notebook, a CPU marcava 10 % e o disco, 100 %</td><td style="text-align:left;"><details><summary>por quê?</summary>Thrashing. O SO passa o tempo inteiro trocando páginas entre RAM e disco; todos os processos ficam bloqueados esperando E/S, e a CPU não tem quem escalonar. Aumentar a RAM ou reduzir os processos resolve; um processador mais rápido, não.</details></td></tr></tbody></table></div>
+</div>
 <hr class="au-fim-aula"/>
+<div class="au-reflexao">
+<b>Para pensar até a próxima aula</b>
+<p>A cache e a memória virtual são duas mentiras contadas à CPU e aos programas: uma finge que a RAM é rápida, a outra finge que a RAM é infinita. As duas dependem de que o programa se comporte de um jeito previsível (localidade).</p>
+<p>Que tipo de programa quebra as duas mentiras ao mesmo tempo? E o que sobra de desempenho quando isso acontece?</p>
+</div>
 <div class="au-refs">
 <b>Referências desta aula</b>
 <ul>
-<li><strong>STALLINGS, William</strong>, <em>Arquitetura e Organização de Computadores: projetando com foco em desempenho</em>. 11ª ed. Pearson, 2024. <strong>(Capítulo 4: Memória Cache — p. 132–170; Capítulo 8: Memória Principal — p. 250–285)</strong>.</li>
-<li><strong>TANENBAUM, Andrew S.</strong>, <em>Sistemas Operacionais Modernos</em>. 4ª ed. Pearson, 2015. <strong>(Capítulo 3: Gerenciamento de Memória — Páginas e Memória Virtual — p. 193–267)</strong>.</li>
+<li>STALLINGS, W. <strong>Arquitetura e Organização de Computadores: projetando com foco em desempenho.</strong> 11. ed. São Paulo: Pearson, 2024 <code>[CONFIRMAR: edição e ano conforme o legado]</code>. <span class="au-pag">cap. 3 (função e interconexão: MAR e MBR), cap. [CONFIRMAR] (operação da unidade de controle: micro-operações t1, t2, t3), cap. 4 (cache), cap. 5 (memória interna) e cap. 8 (suporte ao SO), páginas [CONFIRMAR]</span> — MAR e MBR na leitura e na escrita, e o traço de micro-operações, do tópico 1; a hierarquia, DRAM e SRAM do tópico 2; os níveis de cache do tópico 3; paginação e memória virtual do tópico 4.</li>
+<li>TANENBAUM, A. S.; AUSTIN, T. <strong>Organização Estruturada de Computadores.</strong> 6. ed. São Paulo: Pearson <code>[CONFIRMAR: editora]</code>, 2013. <span class="au-pag">cap. [CONFIRMAR]</span> — memória principal e secundária, e a memória virtual vista do lado da máquina.</li>
+<li>PATTERSON, D. A.; HENNESSY, J. L. <strong>Computer Organization and Design: The Hardware/Software Interface.</strong> 6. ed. Cambridge, MA: Morgan Kaufmann, 2020. <span class="au-pag">cap. 5, páginas [CONFIRMAR]</span> — localidade, linha de cache e a penalidade do miss.</li>
 </ul>
+</div>
+<h3 id="para-ir-além">Para ir além<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#para-ir-além" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Nomenclatura no TANENBAUM (<em>Organização Estruturada de Computadores</em>): o par MAR/MBR aparece como <strong>MAR/MDR</strong>, e lá a sigla MBR nomeia <strong>outro</strong> registrador, o que recebe bytes de instrução. <code>[CONFIRMAR: página]</code></li>
+<li>Leitura complementar (fora da bibliografia do plano): TANENBAUM, A. S.; BOS, H. <strong>Sistemas Operacionais Modernos.</strong> 4. ed. [CONFIRMAR: legado dizia LTC], 2015, cap. 3 (Gerenciamento de memória), p. 193–267 [CONFIRMAR]. É a visão do sistema operacional sobre page fault, algoritmos de substituição e thrashing.</li>
+<li><a href="https://www.redhat.com/en/blog/what-virtual-memory" class="external">What is Virtual Memory? (Red Hat, em inglês)<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> — artigo direto ao ponto sobre como o kernel Linux gerencia a abstração da memória virtual, garantindo isolamento entre processos e escalabilidade do sistema operacional.</li>
+<li>Na sua máquina: Gerenciador de Tarefas (Windows) ou <code>free -h</code> e <code>vmstat 1</code> (Linux) mostram RAM, swap e page faults em tempo real. Abra programas até a RAM encher e observe a coluna de swap subir.</li>
+</ul>
+<div class="au-proxima">
+<b>Na próxima aula</b>
+<p>Hoje a memória apareceu como o lugar de onde a instrução vem, e como ela pode demorar. Na próxima, a instrução em si entra em foco: <b>o que ela diz, como é codificada e como o pipeline avança várias de uma vez</b>. E você vai ver o que acontece com a linha de montagem quando um cache miss segura o primeiro estágio.</p>
 </div>
 </div></article><hr/><div class="page-footer"></div></div><div class="right sidebar"></div><footer class="footer "><div class="footer__brand"><img src="https://uniube.br/img/landing/logo_azul.svg" alt="Universidade de Uberaba" class="footer__logo footer__logo--light"/><img src="https://uniube.br/img/landing/logo_branca.svg" alt="Universidade de Uberaba" class="footer__logo footer__logo--dark"/><div class="footer__info"><span class="footer__name">Prof. Romualdo Filho</span><a class="footer__email" href="mailto:romualdo.filho@uniube.br">romualdo.filho@uniube.br</a></div></div><ul class="footer__links"><li><a href="https://uniube.br" target="_blank" rel="noopener noreferrer">Mural Uniube</a></li></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
 </script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
