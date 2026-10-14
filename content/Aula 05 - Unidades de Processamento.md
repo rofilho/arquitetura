@@ -35,26 +35,19 @@ title: "🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução"
 <div class="au-caminho">
 <b>Nosso caminho até aqui</b>
 
-Na Aula 04 estudamos o Conjunto de Instruções — o "idioma" do processador — e as duas filosofias que o organizam. Hoje abrimos a máquina para ver **como** ela executa esse idioma. Responda **antes** de avançar; se errar, acabou de descobrir o que revisar.
+Tente responder de cabeça. Depois abra e confira.
 
 <details>
-<summary>Qual é a diferença fundamental entre as filosofias CISC e RISC quanto ao número e ao tamanho das instruções?</summary>
+<summary>Instrução RISC é simples ou complexa?</summary>
 
-CISC (Complex Instruction Set Computer) tem muitas instruções, de tamanhos variados, algumas fazendo bastante coisa por instrução. RISC (Reduced Instruction Set Computer) tem poucas instruções, de tamanho fixo e simples, pensadas para executar em um ciclo. A troca é complexidade do hardware contra regularidade: menos trabalho por instrução, mas mais fácil de encadear.
+**Simples.**
 
 </details>
 
 <details>
-<summary>O que é a técnica de <b>pipeline</b> e qual é a sua maior vantagem?</summary>
+<summary>O pipeline trabalha uma instrução por vez ou várias?</summary>
 
-É executar as etapas de várias instruções em paralelo, como uma linha de montagem: enquanto uma instrução é executada, a próxima já é decodificada e a seguinte, buscada. A vantagem é o aumento de vazão — o processador conclui mais instruções por unidade de tempo sem precisar de um clock mais rápido.
-
-</details>
-
-<details>
-<summary>O que significa CPI (Ciclos por Instrução) e qual filosofia busca aproximá-lo de 1?</summary>
-
-CPI (Cycles Per Instruction) é a média de ciclos de clock gastos por instrução. RISC busca aproximá-lo de 1: instruções simples e regulares, idealmente uma concluída por ciclo com o pipeline cheio.
+**Várias ao mesmo tempo, cada uma num estágio.**
 
 </details>
 </div>
