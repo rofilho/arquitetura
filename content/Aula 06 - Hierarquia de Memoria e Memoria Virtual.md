@@ -31,26 +31,26 @@ title: "🖥️ Aula - 06: Hierarquia de Memória e Memória Virtual"
 <div class="au-caminho">
 <b>Nosso caminho até aqui</b>
 
-Responda **antes** de abrir. Se errar, você acabou de descobrir o que revisar hoje.
+Tente responder de cabeça. Depois abra e confira.
 
 <details>
-<summary>Na prática da Aula 05, depois do primeiro passo da execução de <code>LOAD R1, 500</code>, o que estava no MAR: 101, 500, ou o conteúdo da posição 500?</summary>
+<summary>O MAR guarda um endereço ou um dado?</summary>
 
-**500.** O MAR guarda sempre um **endereço**, nunca um dado. Na busca ele recebeu o endereço do PC (100); na execução recebeu o endereço que veio **dentro da instrução** (500). Se você hesitou aqui, o bloco 1 de hoje é para você.
+**Um endereço, o "onde".**
 
 </details>
 
 <details>
-<summary>No subciclo de busca, o endereço do PC vai para o MAR e a RAM devolve a instrução pelo MBR. Quem fica esperando enquanto a RAM responde?</summary>
+<summary>O registrador fica dentro ou fora do processador?</summary>
 
-**A CPU inteira.** Nada avança até o MBR receber a instrução. Quanto tempo dura essa espera é a pergunta de hoje.
+**Dentro.**
 
 </details>
 
 <details>
-<summary>Na Aula 04, quais dos 5 estágios do pipeline tocam a memória?</summary>
+<summary>Por que toda instrução precisa ir à memória pelo menos uma vez?</summary>
 
-**IF** (busca da instrução) e **MEM** (leitura ou gravação de dados, só em `LOAD`/`STORE`). Toda instrução passa pelo IF, então toda instrução depende da memória pelo menos uma vez. Se a memória demora, o pipeline inteiro para. É o problema que a aula de hoje ataca.
+**Porque a própria instrução está guardada na memória.**
 
 </details>
 </div>
@@ -506,6 +506,15 @@ Oito coisas passaram na tela nesta aula. Tente responder o *porquê* antes de ab
 | Na tabela de páginas, a página 2 tinha o bit presente em 0 e apontava para o disco | <details><summary>por quê?</summary>A RAM encheu e o SO fez swap-out dessa página. Se o processo tocar nela, ocorre page fault: o SO elege uma vítima, faz swap-in e só então o processo continua.</details> |
 | No cenário do notebook, a CPU marcava 10 % e o disco, 100 % | <details><summary>por quê?</summary>Thrashing. O SO passa o tempo inteiro trocando páginas entre RAM e disco; todos os processos ficam bloqueados esperando E/S, e a CPU não tem quem escalonar. Aumentar a RAM ou reduzir os processos resolve; um processador mais rápido, não.</details> |
 
+</div>
+
+<div class="au-podcast" style="background:var(--au-sfc,var(--secondary,#f0f3f8));color:var(--au-tx,var(--dark,#1d2057));border:1px solid color-mix(in srgb,var(--au-par-verde,#2e7d52) 30%,transparent);border-radius:14px;padding:1.25rem 1.5rem;margin:1.5rem auto;max-width:720px">
+<b>🎧 Podcast da aula — "As duas grandes ilusões da memória"</b>
+<p class="au-podcast-origem"><b>Gerado por IA</b> (NotebookLM) a partir do material da disciplina — se divergir da aula, a aula vence.</p>
+<audio controls preload="none" style="width:100%;margin-top:.5rem">
+<source src="assets/aula06-memoria-podcast.m4a" type="audio/mp4">
+Seu navegador não reproduz áudio embutido — <a href="assets/aula06-memoria-podcast.m4a">baixe o episódio aqui</a>.
+</audio>
 </div>
 
 <hr class="au-fim-aula">
