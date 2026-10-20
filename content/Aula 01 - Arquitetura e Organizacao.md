@@ -8,7 +8,7 @@ title: "🖥️ Aula - 01: Arquitetura e Organização de Computadores – Plano
 
 **Disciplina:** 90388 — Arquitetura e Organização de Computadores · Sistemas de Informação (curso 160) — Uniube<br>
 **Professor:** Romualdo Mathias Filho · **romualdo.filho@uniube.br**<br>
-**Semana:** 01 · 2026-1 · 16/02 e 17/02 · 📘 Teórica (75 min)<br>
+**Semana:** 01 · {{PERIODO}} · 16/02 e 17/02 · 📘 Teórica (75 min)<br>
 **Tópicos:** Plano de ensino, ementa, objetivos, conteúdo programático, sistema de avaliação e planejamento semanal da disciplina.<br>
 **Página de referência:** [Plano de Ensino e Contrato](./Plano-de-Ensino-e-Contrato)
 

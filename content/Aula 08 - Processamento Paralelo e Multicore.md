@@ -8,7 +8,7 @@ title: "🖥️ Aula - 08: Processamento Paralelo, Multicore e Distribuído"
 
 **Disciplina:** 90388 — Arquitetura e Organização de Computadores · Sistemas de Informação (curso 160) — Uniube<br>
 **Professor:** Romualdo Mathias Filho · **romualdo.filho@uniube.br**<br>
-**Semana:** 08 · 2026-1 · [CONFIRMAR data] · 📘 Teórica (75 min)<br>
+**Semana:** 08 · {{PERIODO}} · [CONFIRMAR data] · 📘 Teórica (75 min)<br>
 **Tópicos:** Processamento Paralelo, Processamento Multicore, Diferenças para Pipeline, Processamento Distribuído<br>
 **Página de referência:** [Plano de Ensino e Contrato](./Plano-de-Ensino-e-Contrato)
 

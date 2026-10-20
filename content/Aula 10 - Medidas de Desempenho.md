@@ -8,7 +8,7 @@ title: "🖥️ Aula - 10: Medidas de Desempenho: Latência, Vazão e Lei de Amd
 
 **Disciplina:** 90388 — Arquitetura e Organização de Computadores · Sistemas de Informação (curso 160) — Uniube<br>
 **Professor:** Romualdo Mathias Filho · **romualdo.filho@uniube.br**<br>
-**Semana:** 10 · 2026-1 · [CONFIRMAR data] · 📘 Teórica (75 min)<br>
+**Semana:** 10 · {{PERIODO}} · [CONFIRMAR data] · 📘 Teórica (75 min)<br>
 **Tópicos:** O Dilema da Pizzaria (Latência vs. Vazão), A Receita de Escrever um Livro (Equação da CPU), e O Bolo no Forno (A Lei de Amdahl).<br>
 **Página de referência:** [Plano de Ensino e Contrato](./Plano-de-Ensino-e-Contrato)
 

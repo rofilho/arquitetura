@@ -1,0 +1,73 @@
+<!-- BRIEF: As 5 fases do ciclo da instrucao em fluxo: Busca(fetch) -> Decodificacao(decode) -> Execucao(execute) -> Acesso a Memoria(so load/store) -> Escrita(write-back). Cada fase mostra quem faz (hardware) e os registradores. A fase 4 marcada como "so as vezes" (tracejada). Estetica hand-drawn/Excalidraw, fundo transparente, halo off-white para o tema escuro. Paleta Uniube. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" width="100%" role="img"
+     font-family="'Comic Sans MS','Comic Neue',cursive"
+     aria-label="As cinco fases do ciclo da instrucao: busca, decodificacao, execucao, acesso a memoria (apenas load e store) e escrita, cada uma com o hardware que a executa.">
+  <defs>
+    <style>
+      .sk   { stroke-linecap:round; stroke-linejoin:round; fill:none; }
+      .lbl  { font-family:'Comic Sans MS','Comic Neue',cursive; }
+      text  { paint-order:stroke; stroke:#fafaf8; stroke-width:3px; stroke-linejoin:round; }
+      text[fill="#ffffff"] { stroke:none; }
+    </style>
+    <marker id="a7-ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1d2057"/>
+    </marker>
+  </defs>
+
+  <text x="480" y="36" text-anchor="middle" class="lbl" font-size="23" font-weight="bold" fill="#1d2057">O ciclo da instrução — 5 fases</text>
+  <path class="sk" d="M330,48 q75,7 150,3 q75,-4 150,2" stroke="#00aa9f" stroke-width="2.5"/>
+
+  <!-- 5 caixas em linha. x centros: 108, 294, 480, 666, 852. y topo 110, altura 96 -->
+  <!-- Fase 1: Busca -->
+  <g>
+    <path class="sk" d="M40,112 q66,-5 136,0 q5,46 0,92 q-66,5 -136,0 q-5,-46 0,-92 z" fill="#e4f0fb" stroke="#2778c4" stroke-width="2.8"/>
+    <text x="108" y="138" text-anchor="middle" class="lbl" font-size="15" font-weight="bold" fill="#1d2057">1 &#183; Busca</text>
+    <text x="108" y="156" text-anchor="middle" class="lbl" font-size="11.5" fill="#2778c4">(fetch)</text>
+    <text x="108" y="178" text-anchor="middle" class="lbl" font-size="11" fill="#1d2057">le a instrucao</text>
+    <text x="108" y="194" text-anchor="middle" class="lbl" font-size="11" fill="#1d2057">PC &#8594; IR</text>
+  </g>
+  <!-- Fase 2: Decode -->
+  <g>
+    <path class="sk" d="M226,112 q66,-5 136,0 q5,46 0,92 q-66,5 -136,0 q-5,-46 0,-92 z" fill="#e4f0fb" stroke="#2778c4" stroke-width="2.8"/>
+    <text x="294" y="138" text-anchor="middle" class="lbl" font-size="15" font-weight="bold" fill="#1d2057">2 &#183; Decod.</text>
+    <text x="294" y="156" text-anchor="middle" class="lbl" font-size="11.5" fill="#2778c4">(decode)</text>
+    <text x="294" y="178" text-anchor="middle" class="lbl" font-size="11" fill="#1d2057">le o opcode</text>
+    <text x="294" y="194" text-anchor="middle" class="lbl" font-size="11" fill="#1d2057">controle</text>
+  </g>
+  <!-- Fase 3: Execute -->
+  <g>
+    <path class="sk" d="M412,112 q66,-5 136,0 q5,46 0,92 q-66,5 -136,0 q-5,-46 0,-92 z" fill="#eaf5ee" stroke="#2e7d52" stroke-width="2.8"/>
+    <text x="480" y="138" text-anchor="middle" class="lbl" font-size="15" font-weight="bold" fill="#1d2057">3 &#183; Execucao</text>
+    <text x="480" y="156" text-anchor="middle" class="lbl" font-size="11.5" fill="#2e7d52">(execute)</text>
+    <text x="480" y="178" text-anchor="middle" class="lbl" font-size="11" fill="#1d2057">a conta</text>
+    <text x="480" y="194" text-anchor="middle" class="lbl" font-size="11" fill="#1d2057">ULA</text>
+  </g>
+  <!-- Fase 4: Memoria (tracejada, so as vezes) -->
+  <g>
+    <path class="sk" d="M598,112 q66,-5 136,0 q5,46 0,92 q-66,5 -136,0 q-5,-46 0,-92 z" fill="#fbeee6" stroke="#b1541b" stroke-width="2.8" stroke-dasharray="7 5"/>
+    <text x="666" y="138" text-anchor="middle" class="lbl" font-size="14" font-weight="bold" fill="#1d2057">4 &#183; Memoria</text>
+    <text x="666" y="156" text-anchor="middle" class="lbl" font-size="11" fill="#b1541b">so load/store</text>
+    <text x="666" y="178" text-anchor="middle" class="lbl" font-size="11" fill="#1d2057">le/grava dado</text>
+    <text x="666" y="194" text-anchor="middle" class="lbl" font-size="11" fill="#1d2057">MAR / MBR</text>
+  </g>
+  <!-- Fase 5: Escrita -->
+  <g>
+    <path class="sk" d="M784,112 q66,-5 136,0 q5,46 0,92 q-66,5 -136,0 q-5,-46 0,-92 z" fill="#eaf5ee" stroke="#2e7d52" stroke-width="2.8"/>
+    <text x="852" y="138" text-anchor="middle" class="lbl" font-size="15" font-weight="bold" fill="#1d2057">5 &#183; Escrita</text>
+    <text x="852" y="156" text-anchor="middle" class="lbl" font-size="11.5" fill="#2e7d52">(write-back)</text>
+    <text x="852" y="178" text-anchor="middle" class="lbl" font-size="11" fill="#1d2057">grava no</text>
+    <text x="852" y="194" text-anchor="middle" class="lbl" font-size="11" fill="#1d2057">registrador</text>
+  </g>
+
+  <!-- setas entre fases -->
+  <g stroke="#1d2057" stroke-width="2.6" class="sk" marker-end="url(#a7-ar)">
+    <path d="M178,158 l44,0"/>
+    <path d="M364,158 l44,0"/>
+    <path d="M550,158 l44,0"/>
+    <path d="M736,158 l44,0"/>
+  </g>
+
+  <!-- loop de volta (proxima instrucao) -->
+  <path class="sk" d="M852,206 q6,70 -372,70 q-372,0 -366,-70" stroke="#00aa9f" stroke-width="2.6" stroke-dasharray="6 5" marker-end="url(#a7-ar)"/>
+  <text x="480" y="300" text-anchor="middle" class="lbl" font-size="13" fill="#00aa9f">...e recomeça na próxima instrução (PC já aponta a seguinte)</text>
+</svg>

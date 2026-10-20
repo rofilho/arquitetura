@@ -1,0 +1,65 @@
+<!-- BRIEF: Formato das instrucoes tipo R, I e J (RISC/MIPS). Cada tipo como uma tira de campos: R = opcode + 3 registradores; I = opcode + registrador + imediato (constante); J = opcode + endereco-alvo. Exemplo em mono ao lado de cada. Cores: R verde, I azul, J laranja. Estetica hand-drawn/Excalidraw, fundo transparente, halo off-white para o tema escuro. Paleta Uniube. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" width="100%" role="img"
+     font-family="'Comic Sans MS','Comic Neue',cursive"
+     aria-label="Os tres formatos de instrucao: tipo R com opcode e tres registradores, tipo I com opcode registrador e imediato, tipo J com opcode e endereco de desvio.">
+  <defs>
+    <style>
+      .sk   { stroke-linecap:round; stroke-linejoin:round; fill:none; }
+      .lbl  { font-family:'Comic Sans MS','Comic Neue',cursive; }
+      .fld  { font-family:'Comic Sans MS','Comic Neue',cursive; font-size:13px; }
+      .mono { font-family:'JetBrains Mono','Consolas',monospace; }
+      text  { paint-order:stroke; stroke:#fafaf8; stroke-width:3px; stroke-linejoin:round; }
+      text[fill="#ffffff"] { stroke:none; }
+    </style>
+  </defs>
+
+  <text x="450" y="34" text-anchor="middle" class="lbl" font-size="23" font-weight="bold" fill="#1d2057">Os três formatos de instrução</text>
+  <path class="sk" d="M300,46 q75,7 150,3 q75,-4 150,2" stroke="#00aa9f" stroke-width="2.5"/>
+
+  <!-- ===== TIPO R (verde) ===== -->
+  <g>
+    <text x="40" y="104" class="lbl" font-size="19" font-weight="bold" fill="#2e7d52">R</text>
+    <text x="68" y="104" class="lbl" font-size="14" fill="#1d2057">&#183; só registradores &#183; a mais rápida</text>
+    <!-- tira de campos: opcode | rs | rt | rd -->
+    <g>
+      <rect x="40" y="114" width="120" height="40" rx="6" fill="#eaf5ee" stroke="#2e7d52" stroke-width="2.4"/><text x="100" y="139" text-anchor="middle" class="fld" fill="#1d2057">opcode</text>
+      <rect x="160" y="114" width="100" height="40" rx="6" fill="#eaf5ee" stroke="#2e7d52" stroke-width="2.4"/><text x="210" y="139" text-anchor="middle" class="fld" fill="#1d2057">reg. orig1</text>
+      <rect x="260" y="114" width="100" height="40" rx="6" fill="#eaf5ee" stroke="#2e7d52" stroke-width="2.4"/><text x="310" y="139" text-anchor="middle" class="fld" fill="#1d2057">reg. orig2</text>
+      <rect x="360" y="114" width="100" height="40" rx="6" fill="#eaf5ee" stroke="#2e7d52" stroke-width="2.4"/><text x="410" y="139" text-anchor="middle" class="fld" fill="#1d2057">reg. dest</text>
+    </g>
+    <!-- exemplo -->
+    <rect x="490" y="114" width="360" height="40" rx="8" fill="#1d2057"/>
+    <text x="508" y="139" class="mono" font-size="14" fill="#ffffff">add R3, R1, R2</text>
+    <text x="700" y="139" class="lbl" font-size="12" fill="#ffffff">R3 &#8592; R1 + R2</text>
+  </g>
+
+  <!-- ===== TIPO I (azul) ===== -->
+  <g>
+    <text x="40" y="214" class="lbl" font-size="19" font-weight="bold" fill="#2778c4">I</text>
+    <text x="64" y="214" class="lbl" font-size="14" fill="#1d2057">&#183; registrador + constante (imediato) &#183; load/store</text>
+    <g>
+      <rect x="40" y="224" width="120" height="40" rx="6" fill="#e4f0fb" stroke="#2778c4" stroke-width="2.4"/><text x="100" y="249" text-anchor="middle" class="fld" fill="#1d2057">opcode</text>
+      <rect x="160" y="224" width="100" height="40" rx="6" fill="#e4f0fb" stroke="#2778c4" stroke-width="2.4"/><text x="210" y="249" text-anchor="middle" class="fld" fill="#1d2057">registrador</text>
+      <rect x="260" y="224" width="200" height="40" rx="6" fill="#e4f0fb" stroke="#2778c4" stroke-width="2.4"/><text x="360" y="249" text-anchor="middle" class="fld" fill="#1d2057">valor imediato (constante)</text>
+    </g>
+    <rect x="490" y="224" width="360" height="40" rx="8" fill="#1d2057"/>
+    <text x="508" y="249" class="mono" font-size="14" fill="#ffffff">addi R1, R1, 4</text>
+    <text x="700" y="249" class="lbl" font-size="12" fill="#ffffff">R1 &#8592; R1 + 4</text>
+  </g>
+
+  <!-- ===== TIPO J (laranja) ===== -->
+  <g>
+    <text x="40" y="324" class="lbl" font-size="19" font-weight="bold" fill="#b1541b">J</text>
+    <text x="64" y="324" class="lbl" font-size="14" fill="#1d2057">&#183; só muda o fluxo do programa (salto)</text>
+    <g>
+      <rect x="40" y="334" width="120" height="40" rx="6" fill="#fbeee6" stroke="#b1541b" stroke-width="2.4"/><text x="100" y="359" text-anchor="middle" class="fld" fill="#1d2057">opcode</text>
+      <rect x="160" y="334" width="300" height="40" rx="6" fill="#fbeee6" stroke="#b1541b" stroke-width="2.4"/><text x="310" y="359" text-anchor="middle" class="fld" fill="#1d2057">endereço-alvo do desvio</text>
+    </g>
+    <rect x="490" y="334" width="360" height="40" rx="8" fill="#1d2057"/>
+    <text x="508" y="359" class="mono" font-size="14" fill="#ffffff">j  1000</text>
+    <text x="640" y="359" class="lbl" font-size="12" fill="#ffffff">vá para o endereço 1000</text>
+  </g>
+
+  <!-- dica -->
+  <text x="450" y="404" text-anchor="middle" class="lbl" font-size="13" fill="#00aa9f">Leia pelo que a instrução precisa: registradores &#8594; R &#183; constante/endereço de dado &#8594; I &#183; só desvia &#8594; J</text>
+</svg>
