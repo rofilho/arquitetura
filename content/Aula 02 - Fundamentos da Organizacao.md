@@ -8,7 +8,7 @@ title: "🖥️ Aula - 02: Fundamentos da Organização de Computadores"
 
 **Disciplina:** 90388 — Arquitetura e Organização de Computadores · Sistemas de Informação (curso 160) — Uniube<br>
 **Professor:** Romualdo Mathias Filho · **romualdo.filho@uniube.br**<br>
-**Semana:** 02 · 2026-1 · [CONFIRMAR data] · 📘 Teórica (75 min)<br>
+**Semana:** 02 · {{PERIODO}} · [CONFIRMAR data] · 📘 Teórica (75 min)<br>
 **Tópicos:** CPU, Memória e E/S, Fluxo Entrada → Processamento → Saída, Armazenamento, Barramento, Visão Sistêmica<br>
 **Página de referência:** [Plano de Ensino e Contrato](./Plano-de-Ensino-e-Contrato)
 

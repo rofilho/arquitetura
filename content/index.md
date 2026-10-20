@@ -16,7 +16,7 @@ title: "💻 Arquitetura de Computadores"
 <div class="au-vitrine">
 
 <div class="au-hero">
-  <span class="au-badge">90388 · 2026-1</span>
+  <span class="au-badge">{{CODIGO}} · {{PERIODO}}</span>
   <h1>Arquitetura de Computadores</h1>
   <p>Arquitetura e Organização de Computadores — Sistemas de Informação, Uniube. A máquina por dentro: como o processador busca e executa, onde a memória guarda, como se mede desempenho, e como virtualização e representação de dados fecham o quadro. Teoria com os pés no hardware real.</p>
 </div>

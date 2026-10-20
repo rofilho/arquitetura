@@ -8,7 +8,7 @@ title: "🖥️ Aula - 05: Unidades de Processamento e Ciclo de Instrução"
 
 **Disciplina:** 90388 — Arquitetura e Organização de Computadores · Sistemas de Informação (curso 160) — Uniube<br>
 **Professor:** Romualdo Mathias Filho · **romualdo.filho@uniube.br**<br>
-**Semana:** 05 · 2026-1 · [CONFIRMAR data] · 📘 Teórica (75 min)<br>
+**Semana:** 05 · {{PERIODO}} · [CONFIRMAR data] · 📘 Teórica (75 min)<br>
 **Tópicos do programa:** item 4 (Unidades de processamento / Registradores) + item 6 (Ciclo de instrução e suas ações)<br>
 **Página de referência:** [Plano de Ensino e Contrato](./Plano-de-Ensino-e-Contrato)
 
