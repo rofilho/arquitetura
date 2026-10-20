@@ -1,0 +1,72 @@
+<!-- BRIEF: Pipeline como linha de montagem. Grade ciclo x instrucao mostrando a DIAGONAL: a cada ciclo entra uma instrucao nova na Busca e sai uma pela Escrita. 3 instrucoes, 7 ciclos. 5 estagios coloridos (B/D/E/M/W). Legenda: latencia nao muda, vazao sobe. Estetica hand-drawn/Excalidraw, fundo transparente, halo off-white para o tema escuro. Paleta Uniube. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" width="100%" role="img"
+     font-family="'Comic Sans MS','Comic Neue',cursive"
+     aria-label="Pipeline em diagonal: tres instrucoes atravessam os cinco estagios ciclo a ciclo. A cada ciclo entra uma nova na busca e sai uma pela escrita.">
+  <defs>
+    <style>
+      .sk   { stroke-linecap:round; stroke-linejoin:round; fill:none; }
+      .lbl  { font-family:'Comic Sans MS','Comic Neue',cursive; }
+      .st   { font-family:'Comic Sans MS','Comic Neue',cursive; font-weight:bold; }
+      text  { paint-order:stroke; stroke:#fafaf8; stroke-width:3px; stroke-linejoin:round; }
+      text[fill="#ffffff"] { stroke:none; }
+    </style>
+  </defs>
+
+  <text x="450" y="34" text-anchor="middle" class="lbl" font-size="23" font-weight="bold" fill="#1d2057">Pipeline — a linha de montagem</text>
+  <path class="sk" d="M300,46 q75,7 150,3 q75,-4 150,2" stroke="#00aa9f" stroke-width="2.5"/>
+
+  <!-- cabecalho de ciclos -->
+  <text x="110" y="92" text-anchor="middle" class="lbl" font-size="14" fill="#1d2057">ciclo &#8594;</text>
+  <!-- 7 colunas, x de 190 a 790 passo ~95, largura 86 -->
+  <!-- estagios: B(azul) D(azul) E(verde) M(laranja) W(verde) -->
+  <!-- Helper: cada celula e um retangulo com rotulo do estagio -->
+
+  <!-- numeros dos ciclos -->
+  <g class="lbl" font-size="13" fill="#1d2057" text-anchor="middle">
+    <text x="190" y="92">1</text><text x="285" y="92">2</text><text x="380" y="92">3</text>
+    <text x="475" y="92">4</text><text x="570" y="92">5</text><text x="665" y="92">6</text><text x="760" y="92">7</text>
+  </g>
+
+  <!-- rotulos de instrucao -->
+  <g class="lbl" font-size="14" font-weight="bold" fill="#1d2057">
+    <text x="60" y="140">Instr.1</text>
+    <text x="60" y="200">Instr.2</text>
+    <text x="60" y="260">Instr.3</text>
+  </g>
+
+  <!-- INSTR 1: ciclos 1-5 = B D E M W -->
+  <g>
+    <rect x="149" y="116" width="82" height="36" rx="7" fill="#e4f0fb" stroke="#2778c4" stroke-width="2.4"/><text x="190" y="140" text-anchor="middle" class="st" font-size="14" fill="#1d2057">Busca</text>
+    <rect x="244" y="116" width="82" height="36" rx="7" fill="#e4f0fb" stroke="#2778c4" stroke-width="2.4"/><text x="285" y="140" text-anchor="middle" class="st" font-size="14" fill="#1d2057">Decod.</text>
+    <rect x="339" y="116" width="82" height="36" rx="7" fill="#eaf5ee" stroke="#2e7d52" stroke-width="2.4"/><text x="380" y="140" text-anchor="middle" class="st" font-size="14" fill="#1d2057">Exec.</text>
+    <rect x="434" y="116" width="82" height="36" rx="7" fill="#fbeee6" stroke="#b1541b" stroke-width="2.4"/><text x="475" y="140" text-anchor="middle" class="st" font-size="14" fill="#1d2057">Mem.</text>
+    <rect x="529" y="116" width="82" height="36" rx="7" fill="#eaf5ee" stroke="#2e7d52" stroke-width="2.4"/><text x="570" y="140" text-anchor="middle" class="st" font-size="14" fill="#1d2057">Escr.</text>
+  </g>
+  <!-- INSTR 2: ciclos 2-6 -->
+  <g>
+    <rect x="244" y="176" width="82" height="36" rx="7" fill="#e4f0fb" stroke="#2778c4" stroke-width="2.4"/><text x="285" y="200" text-anchor="middle" class="st" font-size="14" fill="#1d2057">Busca</text>
+    <rect x="339" y="176" width="82" height="36" rx="7" fill="#e4f0fb" stroke="#2778c4" stroke-width="2.4"/><text x="380" y="200" text-anchor="middle" class="st" font-size="14" fill="#1d2057">Decod.</text>
+    <rect x="434" y="176" width="82" height="36" rx="7" fill="#eaf5ee" stroke="#2e7d52" stroke-width="2.4"/><text x="475" y="200" text-anchor="middle" class="st" font-size="14" fill="#1d2057">Exec.</text>
+    <rect x="529" y="176" width="82" height="36" rx="7" fill="#fbeee6" stroke="#b1541b" stroke-width="2.4"/><text x="570" y="200" text-anchor="middle" class="st" font-size="14" fill="#1d2057">Mem.</text>
+    <rect x="624" y="176" width="82" height="36" rx="7" fill="#eaf5ee" stroke="#2e7d52" stroke-width="2.4"/><text x="665" y="200" text-anchor="middle" class="st" font-size="14" fill="#1d2057">Escr.</text>
+  </g>
+  <!-- INSTR 3: ciclos 3-7 -->
+  <g>
+    <rect x="339" y="236" width="82" height="36" rx="7" fill="#e4f0fb" stroke="#2778c4" stroke-width="2.4"/><text x="380" y="260" text-anchor="middle" class="st" font-size="14" fill="#1d2057">Busca</text>
+    <rect x="434" y="236" width="82" height="36" rx="7" fill="#e4f0fb" stroke="#2778c4" stroke-width="2.4"/><text x="475" y="260" text-anchor="middle" class="st" font-size="14" fill="#1d2057">Decod.</text>
+    <rect x="529" y="236" width="82" height="36" rx="7" fill="#eaf5ee" stroke="#2e7d52" stroke-width="2.4"/><text x="570" y="260" text-anchor="middle" class="st" font-size="14" fill="#1d2057">Exec.</text>
+    <rect x="624" y="236" width="82" height="36" rx="7" fill="#fbeee6" stroke="#b1541b" stroke-width="2.4"/><text x="665" y="260" text-anchor="middle" class="st" font-size="14" fill="#1d2057">Mem.</text>
+    <rect x="719" y="236" width="82" height="36" rx="7" fill="#eaf5ee" stroke="#2e7d52" stroke-width="2.4"/><text x="760" y="260" text-anchor="middle" class="st" font-size="14" fill="#1d2057">Escr.</text>
+  </g>
+
+  <!-- seta da diagonal -->
+  <path class="sk" d="M196,150 q210,70 560,120" stroke="#00aa9f" stroke-width="2.6" stroke-dasharray="6 5"/>
+  <text x="470" y="312" text-anchor="middle" class="lbl" font-size="13" fill="#00aa9f">a diagonal: a cada ciclo entra uma e sai uma</text>
+
+  <!-- legenda inferior -->
+  <g>
+    <path class="sk" d="M90,336 q360,-10 720,0 q4,32 0,60 q-360,10 -720,0 q-4,-26 0,-60 z" fill="#eaf7f6" stroke="#00aa9f" stroke-width="2.4"/>
+    <text x="450" y="364" text-anchor="middle" class="lbl" font-size="14.5" font-weight="bold" fill="#00aa9f">3 instruções terminam em 7 ciclos, não em 15.</text>
+    <text x="450" y="386" text-anchor="middle" class="lbl" font-size="13" fill="#1d2057">A latência de cada uma continua 5; o que cresce é a vazão.</text>
+  </g>
+</svg>

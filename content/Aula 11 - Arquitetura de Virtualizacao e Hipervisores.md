@@ -8,7 +8,7 @@ title: "🖥️ Aula - 11: Arquitetura de Virtualização e Hipervisores"
 
 **Disciplina:** 90388 — Arquitetura e Organização de Computadores · Sistemas de Informação (curso 160) — Uniube<br>
 **Professor:** Romualdo Mathias Filho · **romualdo.filho@uniube.br**<br>
-**Semana:** 11 · 2026-1 · [CONFIRMAR data] · 📘 Teórica (75 min)<br>
+**Semana:** 11 · {{PERIODO}} · [CONFIRMAR data] · 📘 Teórica (75 min)<br>
 **Tópicos:** Anéis de proteção da CPU e o Teorema de Popek-Goldberg; hipervisores Tipo 1 vs. Tipo 2 e aceleração por hardware (Intel VT-x/AMD-V, SLAT/EPT); laboratório de provisionamento com Hyper-V, Nginx e Docker<br>
 **Página de referência:** [Plano de Ensino e Contrato](./Plano-de-Ensino-e-Contrato)
 

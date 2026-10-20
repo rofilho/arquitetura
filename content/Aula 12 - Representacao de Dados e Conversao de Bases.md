@@ -8,7 +8,7 @@ title: "🖥️ Aula - 12: Representação de Dados e Conversão de Bases"
 
 **Disciplina:** 90388 — Arquitetura e Organização de Computadores · Sistemas de Informação (curso 160) — Uniube<br>
 **Professor:** Romualdo Mathias Filho · **romualdo.filho@uniube.br**<br>
-**Semana:** 12 · 2026-1 · [CONFIRMAR data] · 📘 Teórica (75 min)<br>
+**Semana:** 12 · {{PERIODO}} · [CONFIRMAR data] · 📘 Teórica (75 min)<br>
 **Tópicos:** Sistemas posicionais e bases numéricas (decimal, binário e hexadecimal), algoritmos de conversão (divisões sucessivas e polinômio posicional), conversão direta por nibbles e unidades de armazenamento<br>
 **Página de referência:** [Plano de Ensino e Contrato](./Plano-de-Ensino-e-Contrato)
 

@@ -8,7 +8,7 @@ title: "🖥️ Aula - 04: Arquiteturas CISC vs. RISC"
 
 **Disciplina:** 90388 — Arquitetura e Organização de Computadores · Sistemas de Informação (curso 160) — Uniube<br>
 **Professor:** Romualdo Mathias Filho · **romualdo.filho@uniube.br**<br>
-**Semana:** 04 · 2026-1 · [CONFIRMAR data] · 📘 Teórica (75 min)<br>
+**Semana:** 04 · {{PERIODO}} · [CONFIRMAR data] · 📘 Teórica (75 min)<br>
 **Tópicos:** Conjunto de Instruções (ISA), Filosofia CISC, Filosofia RISC, Pipeline, Convergência CISC/RISC, ARM, RISC-V<br>
 **Página de referência:** [Plano de Ensino e Contrato](./Plano-de-Ensino-e-Contrato)
 
