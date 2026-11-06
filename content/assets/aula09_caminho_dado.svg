@@ -1,0 +1,107 @@
+<!-- BRIEF v2: caminho do dado, 2 paineis ricos. Esquerda (interrupcao): fluxo numerado 1-4: CPU manda comando -> controlador+dispositivo trabalham -> IRQ sobe -> dado passa PELA CPU ate a RAM, com setas finas palavra a palavra. Direita (DMA): CPU programa o DMA (1 seta) -> controlador DMA move o bloco direto disco->RAM contornando a CPU (seta grossa) -> 1 interrupcao no fim. A CPU no DMA fica livre. Hand-drawn, halo off-white, fundo transparente, paleta Uniube. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="100%" role="img"
+     font-family="'Comic Sans MS','Comic Neue',cursive"
+     aria-label="Dois painéis: na interrupção o dado atravessa a CPU palavra por palavra até a RAM; no DMA o dado contorna a CPU, que só programa o controlador uma vez e recebe uma interrupção no fim">
+  <defs>
+    <style>
+      .sk  { stroke-linecap:round; stroke-linejoin:round; fill:none; }
+      .lbl { font-family:'Comic Sans MS','Comic Neue',cursive; }
+      text { paint-order:stroke; stroke:#fafaf8; stroke-width:3px; stroke-linejoin:round; }
+      text[fill="#ffffff"] { stroke:none; }
+    </style>
+    <marker id="cd-org" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#b1541b"/>
+    </marker>
+    <marker id="cd-grn" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2e7d52"/>
+    </marker>
+    <marker id="cd-pur" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#7a4fb0"/>
+    </marker>
+  </defs>
+
+  <text x="480" y="40" text-anchor="middle" class="lbl" font-size="25" font-weight="bold" fill="#1d2057">O que muda é por onde o dado passa</text>
+  <path class="sk" d="M310,54 q85,8 170,3 q85,-5 170,2" stroke="#00aa9f" stroke-width="2.5"/>
+
+  <g>
+    <rect x="30" y="72" width="440" height="420" rx="16" class="sk" fill="#fbeee6" stroke="#b1541b" stroke-width="3"/>
+    <text x="250" y="106" text-anchor="middle" class="lbl" font-size="17" font-weight="bold" fill="#b1541b">E/S por interrupção</text>
+    <text x="250" y="128" text-anchor="middle" class="lbl" font-size="12" fill="#1d2057">a CPU trabalha entre avisos, mas carrega cada palavra</text>
+
+    <rect x="170" y="150" width="120" height="64" rx="11" class="sk" fill="#e4f0fb" stroke="#2778c4" stroke-width="3"/>
+    <text x="230" y="188" text-anchor="middle" class="lbl" font-size="17" font-weight="bold" fill="#2778c4">CPU</text>
+
+    <rect x="60" y="360" width="110" height="56" rx="10" class="sk" fill="#ffffff" stroke="#1d2057" stroke-width="2.5"/>
+    <text x="115" y="393" text-anchor="middle" class="lbl" font-size="13" fill="#1d2057">impressora</text>
+
+    <rect x="60" y="250" width="110" height="56" rx="10" class="sk" fill="#ffffff" stroke="#1d2057" stroke-width="2.5"/>
+    <text x="115" y="275" text-anchor="middle" class="lbl" font-size="11" fill="#1d2057">controlador</text>
+    <text x="115" y="293" text-anchor="middle" class="lbl" font-size="11" fill="#1d2057">de E/S</text>
+
+    <rect x="360" y="250" width="80" height="56" rx="10" class="sk" fill="#eaf5ee" stroke="#2e7d52" stroke-width="2.5"/>
+    <text x="400" y="283" text-anchor="middle" class="lbl" font-size="13" font-weight="bold" fill="#2e7d52">RAM</text>
+
+    <path class="sk" d="M212,216 q-40,24 -72,32" stroke="#2778c4" stroke-width="2.5" marker-end="url(#cd-org)"/>
+    <circle cx="150" cy="238" r="12" fill="#2778c4"/>
+    <text x="150" y="243" text-anchor="middle" class="lbl" font-size="12" font-weight="bold" fill="#ffffff">1</text>
+
+    <path class="sk" d="M115,308 q0,42 0,48" stroke="#1d2057" stroke-width="2.5" marker-end="url(#cd-org)"/>
+    <circle cx="115" cy="332" r="12" fill="#1d2057"/>
+    <text x="115" y="337" text-anchor="middle" class="lbl" font-size="12" font-weight="bold" fill="#ffffff">2</text>
+
+    <path class="sk" d="M150,362 q60,-60 92,-122" stroke="#b1541b" stroke-width="3" marker-end="url(#cd-org)"/>
+    <circle cx="206" cy="296" r="12" fill="#b1541b"/>
+    <text x="206" y="301" text-anchor="middle" class="lbl" font-size="12" font-weight="bold" fill="#ffffff">3</text>
+    <text x="300" y="318" class="lbl" font-size="11" font-weight="bold" fill="#b1541b">IRQ</text>
+
+    <path class="sk" d="M232,216 q10,40 10,60" stroke="#b1541b" stroke-width="2" marker-end="url(#cd-org)"/>
+    <path class="sk" d="M252,216 q14,40 16,60" stroke="#b1541b" stroke-width="2" marker-end="url(#cd-org)"/>
+    <path class="sk" d="M272,216 q18,40 22,58" stroke="#b1541b" stroke-width="2" marker-end="url(#cd-org)"/>
+
+    <path class="sk" d="M292,240 q40,20 66,24" stroke="#b1541b" stroke-width="2.5" marker-end="url(#cd-org)"/>
+    <circle cx="330" cy="252" r="12" fill="#b1541b"/>
+    <text x="330" y="257" text-anchor="middle" class="lbl" font-size="12" font-weight="bold" fill="#ffffff">4</text>
+
+    <rect x="60" y="440" width="380" height="40" rx="10" class="sk" fill="#ffffff" stroke="#b1541b" stroke-width="2"/>
+    <text x="250" y="465" text-anchor="middle" class="lbl" font-size="13" font-weight="bold" fill="#b1541b">o dado passa PELA CPU, palavra por palavra</text>
+  </g>
+
+  <g>
+    <rect x="490" y="72" width="440" height="420" rx="16" class="sk" fill="#eaf5ee" stroke="#2e7d52" stroke-width="3"/>
+    <text x="710" y="106" text-anchor="middle" class="lbl" font-size="17" font-weight="bold" fill="#2e7d52">DMA</text>
+    <text x="710" y="128" text-anchor="middle" class="lbl" font-size="12" fill="#1d2057">a CPU sai do caminho: programa uma vez, é avisada uma vez</text>
+
+    <rect x="520" y="250" width="110" height="56" rx="10" class="sk" fill="#ffffff" stroke="#1d2057" stroke-width="2.5"/>
+    <text x="575" y="275" text-anchor="middle" class="lbl" font-size="12" fill="#1d2057">disco</text>
+
+    <rect x="660" y="330" width="130" height="60" rx="10" class="sk" fill="#f3eafa" stroke="#7a4fb0" stroke-width="3"/>
+    <text x="725" y="355" text-anchor="middle" class="lbl" font-size="12" font-weight="bold" fill="#7a4fb0">controlador</text>
+    <text x="725" y="375" text-anchor="middle" class="lbl" font-size="12" font-weight="bold" fill="#7a4fb0">de DMA</text>
+
+    <rect x="800" y="150" width="110" height="64" rx="11" class="sk" fill="#e4f0fb" stroke="#2778c4" stroke-width="3"/>
+    <text x="855" y="188" text-anchor="middle" class="lbl" font-size="17" font-weight="bold" fill="#2778c4">CPU</text>
+    <text x="855" y="230" text-anchor="middle" class="lbl" font-size="11" fill="#2e7d52">livre, trabalhando</text>
+
+    <rect x="820" y="330" width="80" height="56" rx="10" class="sk" fill="#eaf5ee" stroke="#2e7d52" stroke-width="2.5"/>
+    <text x="860" y="363" text-anchor="middle" class="lbl" font-size="13" font-weight="bold" fill="#2e7d52">RAM</text>
+
+    <path class="sk" d="M800,190 q-80,20 -116,132" stroke="#2778c4" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#cd-pur)"/>
+    <circle cx="720" cy="252" r="12" fill="#2778c4"/>
+    <text x="720" y="257" text-anchor="middle" class="lbl" font-size="12" font-weight="bold" fill="#ffffff">1</text>
+    <text x="688" y="240" class="lbl" font-size="11" fill="#2778c4">programa 1x</text>
+
+    <path class="sk" d="M610,290 q30,30 76,52" stroke="#2e7d52" stroke-width="4.5" marker-end="url(#cd-grn)"/>
+    <path class="sk" d="M792,358 q16,2 24,2" stroke="#2e7d52" stroke-width="4.5" marker-end="url(#cd-grn)"/>
+    <circle cx="640" cy="316" r="12" fill="#2e7d52"/>
+    <text x="640" y="321" text-anchor="middle" class="lbl" font-size="12" font-weight="bold" fill="#ffffff">2</text>
+    <text x="660" y="300" class="lbl" font-size="12" font-weight="bold" fill="#2e7d52">o bloco inteiro, sem a CPU</text>
+
+    <path class="sk" d="M770,334 q40,-60 74,-116" stroke="#7a4fb0" stroke-width="2.5" marker-end="url(#cd-pur)"/>
+    <circle cx="820" cy="276" r="12" fill="#7a4fb0"/>
+    <text x="820" y="281" text-anchor="middle" class="lbl" font-size="12" font-weight="bold" fill="#ffffff">3</text>
+    <text x="790" y="424" text-anchor="middle" class="lbl" font-size="12" font-weight="bold" fill="#7a4fb0">1 interrupção, no fim do bloco</text>
+
+    <rect x="520" y="440" width="380" height="40" rx="10" class="sk" fill="#ffffff" stroke="#2e7d52" stroke-width="2"/>
+    <text x="710" y="465" text-anchor="middle" class="lbl" font-size="13" font-weight="bold" fill="#2e7d52">o dado contorna a CPU</text>
+  </g>
+</svg>

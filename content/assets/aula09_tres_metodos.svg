@@ -1,0 +1,86 @@
+<!-- BRIEF v2: tres linhas do tempo do uso da CPU, detalhadas. Cada linha: rotulo do metodo a esquerda, faixa do tempo com fatias coloridas e texto legivel dentro, e o custo anotado a direita. Polling: faixa inteira de "espera" (laço), custo: CPU 100% ocupada esperando. Interrupcao: faixa verde com muitas fatias roxas ISR, custo: livre entre avisos, mas ISR a cada palavra. DMA: faixa quase toda verde, 1 programa no inicio + 1 ISR no fim, custo: quase toda livre. Legenda: espera / trabalho util / ISR-programa. Hand-drawn, halo off-white, fundo transparente, paleta Uniube. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" role="img"
+     font-family="'Comic Sans MS','Comic Neue',cursive"
+     aria-label="Três linhas do tempo do uso da CPU: no polling a CPU só espera em laço; na interrupção ela trabalha mas é cortada por muitas rotinas de interrupção; no DMA ela trabalha quase o tempo todo e só é chamada no início e no fim">
+  <defs>
+    <style>
+      .sk  { stroke-linecap:round; stroke-linejoin:round; fill:none; }
+      .lbl { font-family:'Comic Sans MS','Comic Neue',cursive; }
+      text { paint-order:stroke; stroke:#fafaf8; stroke-width:3px; stroke-linejoin:round; }
+      text[fill="#ffffff"] { stroke:none; }
+    </style>
+  </defs>
+
+  <text x="480" y="40" text-anchor="middle" class="lbl" font-size="25" font-weight="bold" fill="#1d2057">O que a CPU faz enquanto o dispositivo trabalha</text>
+  <path class="sk" d="M300,54 q90,8 180,3 q90,-5 180,2" stroke="#00aa9f" stroke-width="2.5"/>
+
+  <g>
+    <rect x="230" y="66" width="22" height="16" rx="4" fill="#cdd3df" stroke="#6a7390" stroke-width="1.5"/>
+    <text x="260" y="80" class="lbl" font-size="12" fill="#1d2057">espera (sem trabalho útil)</text>
+    <rect x="440" y="66" width="22" height="16" rx="4" fill="#2e7d52"/>
+    <text x="470" y="80" class="lbl" font-size="12" fill="#1d2057">trabalho útil</text>
+    <rect x="590" y="66" width="22" height="16" rx="4" fill="#7a4fb0"/>
+    <text x="620" y="80" class="lbl" font-size="12" fill="#1d2057">ISR / programa</text>
+    <text x="860" y="80" text-anchor="end" class="lbl" font-size="13" font-weight="bold" fill="#1d2057">tempo &#8594;</text>
+  </g>
+
+  <g>
+    <rect x="30" y="118" width="140" height="80" rx="11" class="sk" fill="#eef1f7" stroke="#6a7390" stroke-width="2.5"/>
+    <text x="100" y="152" text-anchor="middle" class="lbl" font-size="16" font-weight="bold" fill="#1d2057">polling</text>
+    <text x="100" y="174" text-anchor="middle" class="lbl" font-size="11" fill="#1d2057">E/S programada</text>
+    <rect x="190" y="118" width="520" height="80" rx="11" class="sk" fill="#cdd3df" stroke="#6a7390" stroke-width="2.5"/>
+    <text x="240" y="146" text-anchor="middle" class="lbl" font-size="13" fill="#1d2057">pronto?</text>
+    <text x="360" y="146" text-anchor="middle" class="lbl" font-size="13" fill="#1d2057">pronto?</text>
+    <text x="480" y="146" text-anchor="middle" class="lbl" font-size="13" fill="#1d2057">pronto?</text>
+    <text x="600" y="146" text-anchor="middle" class="lbl" font-size="13" fill="#1d2057">pronto?</text>
+    <text x="450" y="180" text-anchor="middle" class="lbl" font-size="13" font-weight="bold" fill="#1d2057">a CPU presa no laço, sem fazer mais nada</text>
+    <rect x="726" y="118" width="204" height="80" rx="11" class="sk" fill="#fbeee6" stroke="#b1541b" stroke-width="2.5"/>
+    <text x="828" y="146" text-anchor="middle" class="lbl" font-size="12" font-weight="bold" fill="#b1541b">CPU 100% ocupada</text>
+    <text x="828" y="166" text-anchor="middle" class="lbl" font-size="12" fill="#1d2057">esperando, sem trabalho útil</text>
+    <text x="828" y="186" text-anchor="middle" class="lbl" font-size="11" fill="#1d2057">ok se não há outro trabalho</text>
+  </g>
+
+  <g>
+    <rect x="30" y="228" width="140" height="80" rx="11" class="sk" fill="#eaf5ee" stroke="#2e7d52" stroke-width="2.5"/>
+    <text x="100" y="262" text-anchor="middle" class="lbl" font-size="16" font-weight="bold" fill="#2e7d52">interrupção</text>
+    <text x="100" y="284" text-anchor="middle" class="lbl" font-size="11" fill="#1d2057">o dispositivo avisa</text>
+    <rect x="190" y="228" width="520" height="80" rx="11" class="sk" fill="#eaf5ee" stroke="#2e7d52" stroke-width="2.5"/>
+    <g>
+      <rect x="230" y="228" width="18" height="80" fill="#7a4fb0"/>
+      <rect x="320" y="228" width="18" height="80" fill="#7a4fb0"/>
+      <rect x="410" y="228" width="18" height="80" fill="#7a4fb0"/>
+      <rect x="500" y="228" width="18" height="80" fill="#7a4fb0"/>
+      <rect x="590" y="228" width="18" height="80" fill="#7a4fb0"/>
+      <rect x="672" y="228" width="18" height="80" fill="#7a4fb0"/>
+    </g>
+    <text x="450" y="262" text-anchor="middle" class="lbl" font-size="13" font-weight="bold" fill="#2e7d52">trabalho útil entre os avisos</text>
+    <text x="450" y="286" text-anchor="middle" class="lbl" font-size="12" fill="#1d2057">mas uma ISR a cada palavra que chega</text>
+    <rect x="726" y="228" width="204" height="80" rx="11" class="sk" fill="#eaf5ee" stroke="#2e7d52" stroke-width="2.5"/>
+    <text x="828" y="256" text-anchor="middle" class="lbl" font-size="12" font-weight="bold" fill="#2e7d52">CPU livre entre eventos</text>
+    <text x="828" y="276" text-anchor="middle" class="lbl" font-size="12" fill="#1d2057">paga o contexto a cada ISR</text>
+    <text x="828" y="296" text-anchor="middle" class="lbl" font-size="11" fill="#1d2057">ideal p/ lento e imprevisível</text>
+  </g>
+
+  <g>
+    <rect x="30" y="338" width="140" height="80" rx="11" class="sk" fill="#eaf5ee" stroke="#2e7d52" stroke-width="2.5"/>
+    <text x="100" y="372" text-anchor="middle" class="lbl" font-size="16" font-weight="bold" fill="#2e7d52">DMA</text>
+    <text x="100" y="394" text-anchor="middle" class="lbl" font-size="11" fill="#1d2057">acesso direto</text>
+    <rect x="190" y="338" width="520" height="80" rx="11" class="sk" fill="#eaf5ee" stroke="#2e7d52" stroke-width="2.5"/>
+    <rect x="190" y="338" width="46" height="80" fill="#7a4fb0"/>
+    <text x="213" y="374" text-anchor="middle" class="lbl" font-size="10" font-weight="bold" fill="#ffffff">prog.</text>
+    <rect x="664" y="338" width="46" height="80" fill="#7a4fb0" stroke="#5a3890" stroke-width="3"/>
+    <text x="687" y="374" text-anchor="middle" class="lbl" font-size="10" font-weight="bold" fill="#ffffff">1 ISR</text>
+    <text x="450" y="372" text-anchor="middle" class="lbl" font-size="13" font-weight="bold" fill="#2e7d52">trabalho útil quase o tempo todo</text>
+    <text x="450" y="396" text-anchor="middle" class="lbl" font-size="12" fill="#1d2057">o bloco inteiro passa sem a CPU</text>
+    <rect x="726" y="338" width="204" height="80" rx="11" class="sk" fill="#eaf5ee" stroke="#2e7d52" stroke-width="2.5"/>
+    <text x="828" y="366" text-anchor="middle" class="lbl" font-size="12" font-weight="bold" fill="#2e7d52">CPU quase toda livre</text>
+    <text x="828" y="386" text-anchor="middle" class="lbl" font-size="12" fill="#1d2057">disputa o barramento (roubo de ciclo)</text>
+    <text x="828" y="406" text-anchor="middle" class="lbl" font-size="11" fill="#1d2057">ideal p/ blocos grandes</text>
+  </g>
+
+  <g>
+    <rect x="190" y="448" width="580" height="56" rx="11" class="sk" fill="#fffdf7" stroke="#b1541b" stroke-width="2.5"/>
+    <text x="480" y="474" text-anchor="middle" class="lbl" font-size="14" font-weight="bold" fill="#1d2057">a pergunta certa para escolher:</text>
+    <text x="480" y="496" text-anchor="middle" class="lbl" font-size="13" fill="#b1541b">a CPU tem outro trabalho esperando? o dado vem aos poucos ou em blocos?</text>
+  </g>
+</svg>
