@@ -375,7 +375,7 @@ Tente explicar cada linha antes de reler a seção. É o esforço de lembrar que
 <div class="au-refs">
 <b>Referências desta aula</b>
 
-- STALLINGS, W. **Arquitetura e Organização de Computadores: projetando com foco em desempenho.** São Paulo: Pearson. <span class="au-pag">cap. 7 (Entrada/Saída), página não conferida; cap. 3 (barramentos e interconexão), página não conferida — edição e ano a confirmar no acervo</span> — controlador de E/S, E/S programada, E/S por interrupção, DMA e roubo de ciclo (tópicos 2 a 6); barramentos de dados, endereços e controle (tópico 2).
+- STALLINGS, W. **Arquitetura e Organização de Computadores: projetando com foco em desempenho.** São Paulo: Pearson. <span class="au-pag">cap. 7 (Entrada/Saída), página não conferida; cap. 3 (barramentos e interconexão), página não conferida</span> — controlador de E/S, E/S programada, E/S por interrupção, DMA e roubo de ciclo (tópicos 2 a 6); barramentos de dados, endereços e controle (tópico 2).
 - TANENBAUM, A. S.; AUSTIN, T. **Organização Estruturada de Computadores.** 6. ed. São Paulo: Pearson, 2013. <span class="au-pag">capítulo de entrada/saída e barramentos, página não conferida</span> — barramentos e chips controladores de dispositivos.
 - PATTERSON, D. A.; HENNESSY, J. L. **Organização e Projeto de Computadores: A Interface Hardware/Software.** 5. ed. Rio de Janeiro: Elsevier, 2014. <span class="au-pag">capítulo de entrada/saída e desempenho, página não conferida</span> — impacto da E/S no desempenho do sistema.
 

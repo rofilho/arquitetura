@@ -1,0 +1,90 @@
+<!-- Aula 10, figura 2: tempo de CPU = IC x CPI x T_clock. Quatro caixas (IC, CPI, T_clock, tempo) com a analogia do livro escrito à mão e o dono de cada fator. Embaixo, o exemplo da aposta: 100 instruções x 2 ciclos e 50 instruções x 4 ciclos dão os mesmos 200 ciclos. Fundo transparente, halo off-white nos textos, paleta Uniube. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="100%" role="img"
+     font-family="'Comic Sans MS','Comic Neue',cursive"
+     aria-label="O tempo de CPU é o produto de três fatores. IC, o número de instruções executadas, é como as palavras do livro e é o trabalho do programador e do compilador. CPI, os ciclos por instrução em média, é como as batidas de caneta por palavra e é o trabalho do engenheiro de hardware. T clock, a duração de um ciclo, é como a velocidade da mão e depende do silício e do clock. Multiplicados, dão o tempo de CPU. Embaixo, duas barras do mesmo tamanho: 100 instruções vezes 2 ciclos e 50 instruções vezes 4 ciclos dão os mesmos 200 ciclos, então o tempo é o mesmo se o clock for o mesmo.">
+  <title>Tempo de CPU é IC vezes CPI vezes o período do clock</title>
+  <defs>
+    <style>
+      .sk  { stroke-linecap:round; stroke-linejoin:round; fill:none; }
+      .lbl { font-family:'Comic Sans MS','Comic Neue',cursive; }
+      text { paint-order:stroke; stroke:#fafaf8; stroke-width:3px; stroke-linejoin:round; }
+      text[fill="#ffffff"] { stroke:none; }
+    </style>
+  </defs>
+  <rect id="fundo-card" x="0" y="0" width="960" height="560" rx="18" fill="#fafaf8"/>
+
+  <text x="480" y="40" text-anchor="middle" class="lbl" font-size="25" font-weight="bold" fill="#1d2057">Três fatores, um só tempo</text>
+  <path class="sk" d="M330,54 q70,8 140,3 q70,-5 140,2" stroke="#00aa9f" stroke-width="2.5"/>
+
+  <!-- IC -->
+  <rect x="20" y="80" width="200" height="220" rx="11" class="sk" stroke="#2778c4" stroke-width="2.5"/>
+  <text x="120" y="122" text-anchor="middle" class="lbl" font-size="30" font-weight="bold" fill="#2778c4">IC</text>
+  <text x="120" y="148" text-anchor="middle" class="lbl" font-size="13" fill="#1d2057">instruções</text>
+  <text x="120" y="166" text-anchor="middle" class="lbl" font-size="13" fill="#1d2057">executadas</text>
+  <text x="120" y="194" text-anchor="middle" class="lbl" font-size="13" font-weight="bold" fill="#2778c4">as palavras</text>
+  <text x="120" y="212" text-anchor="middle" class="lbl" font-size="13" font-weight="bold" fill="#2778c4">do livro</text>
+  <path class="sk" d="M40,228 H200" stroke="#2778c4" stroke-width="1.5"/>
+  <text x="120" y="248" text-anchor="middle" class="lbl" font-size="12" fill="#1d2057">quem mexe:</text>
+  <text x="120" y="268" text-anchor="middle" class="lbl" font-size="13" font-weight="bold" fill="#1d2057">programador e</text>
+  <text x="120" y="286" text-anchor="middle" class="lbl" font-size="13" font-weight="bold" fill="#1d2057">compilador</text>
+
+  <text x="240" y="204" text-anchor="middle" class="lbl" font-size="38" font-weight="bold" fill="#00aa9f">×</text>
+
+  <!-- CPI -->
+  <rect x="260" y="80" width="200" height="220" rx="11" class="sk" stroke="#2e7d52" stroke-width="2.5"/>
+  <text x="360" y="122" text-anchor="middle" class="lbl" font-size="30" font-weight="bold" fill="#2e7d52">CPI</text>
+  <text x="360" y="148" text-anchor="middle" class="lbl" font-size="13" fill="#1d2057">ciclos por instrução</text>
+  <text x="360" y="166" text-anchor="middle" class="lbl" font-size="13" fill="#1d2057">(em média)</text>
+  <text x="360" y="194" text-anchor="middle" class="lbl" font-size="13" font-weight="bold" fill="#2e7d52">batidas de caneta</text>
+  <text x="360" y="212" text-anchor="middle" class="lbl" font-size="13" font-weight="bold" fill="#2e7d52">por palavra</text>
+  <path class="sk" d="M280,228 H440" stroke="#2e7d52" stroke-width="1.5"/>
+  <text x="360" y="248" text-anchor="middle" class="lbl" font-size="12" fill="#1d2057">quem mexe:</text>
+  <text x="360" y="268" text-anchor="middle" class="lbl" font-size="13" font-weight="bold" fill="#1d2057">engenheiro de</text>
+  <text x="360" y="286" text-anchor="middle" class="lbl" font-size="13" font-weight="bold" fill="#1d2057">hardware</text>
+
+  <text x="480" y="204" text-anchor="middle" class="lbl" font-size="38" font-weight="bold" fill="#00aa9f">×</text>
+
+  <!-- T clock -->
+  <rect x="500" y="80" width="200" height="220" rx="11" class="sk" stroke="#7a4fb0" stroke-width="2.5"/>
+  <text x="600" y="122" text-anchor="middle" class="lbl" font-size="30" font-weight="bold" fill="#7a4fb0">T<tspan font-size="17" dy="8">clock</tspan></text>
+  <text x="600" y="148" text-anchor="middle" class="lbl" font-size="13" fill="#1d2057">duração de</text>
+  <text x="600" y="166" text-anchor="middle" class="lbl" font-size="13" fill="#1d2057">um ciclo</text>
+  <text x="600" y="194" text-anchor="middle" class="lbl" font-size="13" font-weight="bold" fill="#7a4fb0">a velocidade</text>
+  <text x="600" y="212" text-anchor="middle" class="lbl" font-size="13" font-weight="bold" fill="#7a4fb0">da mão</text>
+  <path class="sk" d="M520,228 H680" stroke="#7a4fb0" stroke-width="1.5"/>
+  <text x="600" y="248" text-anchor="middle" class="lbl" font-size="12" fill="#1d2057">quem mexe:</text>
+  <text x="600" y="268" text-anchor="middle" class="lbl" font-size="13" font-weight="bold" fill="#1d2057">o silício</text>
+  <text x="600" y="286" text-anchor="middle" class="lbl" font-size="13" font-weight="bold" fill="#1d2057">e o clock</text>
+
+  <text x="720" y="204" text-anchor="middle" class="lbl" font-size="38" font-weight="bold" fill="#00aa9f">=</text>
+
+  <!-- tempo -->
+  <rect x="740" y="80" width="200" height="220" rx="11" class="sk" stroke="#b1541b" stroke-width="2.5"/>
+  <text x="840" y="122" text-anchor="middle" class="lbl" font-size="26" font-weight="bold" fill="#b1541b">tempo</text>
+  <text x="840" y="148" text-anchor="middle" class="lbl" font-size="13" fill="#1d2057">de CPU</text>
+  <text x="840" y="166" text-anchor="middle" class="lbl" font-size="13" fill="#1d2057">(em segundos)</text>
+  <text x="840" y="194" text-anchor="middle" class="lbl" font-size="13" font-weight="bold" fill="#b1541b">quanto leva para</text>
+  <text x="840" y="212" text-anchor="middle" class="lbl" font-size="13" font-weight="bold" fill="#b1541b">escrever o livro</text>
+  <path class="sk" d="M760,228 H920" stroke="#b1541b" stroke-width="1.5"/>
+  <text x="840" y="248" text-anchor="middle" class="lbl" font-size="12" fill="#1d2057">quem sente:</text>
+  <text x="840" y="268" text-anchor="middle" class="lbl" font-size="13" font-weight="bold" fill="#1d2057">quem espera</text>
+  <text x="840" y="286" text-anchor="middle" class="lbl" font-size="13" font-weight="bold" fill="#1d2057">o programa</text>
+
+  <!-- mesmo tempo, dois caminhos -->
+  <text x="480" y="340" text-anchor="middle" class="lbl" font-size="17" font-weight="bold" fill="#1d2057">Dois caminhos diferentes, o mesmo total de ciclos</text>
+
+  <text x="20" y="378" class="lbl" font-size="16" font-weight="bold" fill="#1d2057">antes</text>
+  <rect x="120" y="355" width="540" height="40" rx="8" fill="#2778c4"/>
+  <text x="390" y="381" text-anchor="middle" class="lbl" font-size="16" font-weight="bold" fill="#ffffff">100 instruções × 2 ciclos = 200 ciclos</text>
+
+  <text x="20" y="436" class="lbl" font-size="16" font-weight="bold" fill="#1d2057">depois</text>
+  <rect x="120" y="413" width="540" height="40" rx="8" fill="#2e7d52"/>
+  <text x="390" y="439" text-anchor="middle" class="lbl" font-size="16" font-weight="bold" fill="#ffffff">50 instruções × 4 ciclos = 200 ciclos</text>
+
+  <path class="sk" d="M676,355 q14,0 14,14 v35 q0,14 -14,14" stroke="#b1541b" stroke-width="3"/>
+  <text x="702" y="396" class="lbl" font-size="16" font-weight="bold" fill="#b1541b">o mesmo tempo,</text>
+  <text x="702" y="418" class="lbl" font-size="14" fill="#1d2057">se o clock é o mesmo</text>
+
+  <rect x="130" y="478" width="700" height="56" rx="11" class="sk" stroke="#b1541b" stroke-width="2.5"/>
+  <text x="480" y="513" text-anchor="middle" class="lbl" font-size="16" font-weight="bold" fill="#1d2057">melhorar um fator sem olhar os outros dois pode não mudar nada</text>
+</svg>

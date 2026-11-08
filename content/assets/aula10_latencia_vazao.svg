@@ -1,0 +1,64 @@
+<!-- Aula 10, figura 1: latência x vazão na pizzaria. Esquerda: o relógio de UM pedido (30 min, etapas fora de escala). Direita: a cozinha inteira (12 círculos de 10 pizzas = 120 pizzas por hora). Faixa de baixo: mais motoboys sobem a vazão; o pedido sem fila segue em 30 min. Fundo transparente, halo off-white nos textos, paleta Uniube. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 510" width="100%" role="img"
+     font-family="'Comic Sans MS','Comic Neue',cursive"
+     aria-label="Duas réguas para a mesma pizzaria. À esquerda, a latência: a linha do tempo de um pedido só, do clique no aplicativo até a campainha, passando por preparo, forno e moto, com 30 minutos no total e as etapas fora de escala. À direita, a vazão: doze círculos, cada um valendo dez pizzas, somando 120 pizzas por hora na cozinha inteira. Na faixa de baixo: mais motoboys sobem a vazão, e um pedido sem fila continua levando 30 minutos.">
+  <title>Latência é o tempo de um pedido; vazão é quantos pedidos saem por hora</title>
+  <defs>
+    <style>
+      .sk  { stroke-linecap:round; stroke-linejoin:round; fill:none; }
+      .lbl { font-family:'Comic Sans MS','Comic Neue',cursive; }
+      text { paint-order:stroke; stroke:#fafaf8; stroke-width:3px; stroke-linejoin:round; }
+      text[fill="#ffffff"] { stroke:none; }
+    </style>
+  </defs>
+  <rect id="fundo-card" x="0" y="0" width="960" height="510" rx="18" fill="#fafaf8"/>
+
+  <text x="480" y="40" text-anchor="middle" class="lbl" font-size="25" font-weight="bold" fill="#1d2057">Duas réguas para a mesma cozinha</text>
+  <path class="sk" d="M300,54 q90,8 180,3 q90,-5 180,2" stroke="#00aa9f" stroke-width="2.5"/>
+
+  <!-- painel da latência -->
+  <rect x="30" y="80" width="440" height="290" rx="11" class="sk" fill="#eef1f7" stroke="#2778c4" stroke-width="2.5"/>
+  <text x="250" y="116" text-anchor="middle" class="lbl" font-size="21" font-weight="bold" fill="#2778c4">LATÊNCIA</text>
+  <text x="250" y="140" text-anchor="middle" class="lbl" font-size="13" fill="#1d2057">o relógio de um pedido só</text>
+
+  <path class="sk" d="M70,222 v-10 h360 v10" stroke="#2778c4" stroke-width="3"/>
+  <text x="250" y="198" text-anchor="middle" class="lbl" font-size="23" font-weight="bold" fill="#b1541b">30 minutos</text>
+
+  <rect x="70" y="236" width="120" height="50" rx="6" fill="#2778c4"/>
+  <rect x="190" y="236" width="120" height="50" rx="6" fill="#b1541b"/>
+  <rect x="310" y="236" width="120" height="50" rx="6" fill="#2e7d52"/>
+  <text x="130" y="267" text-anchor="middle" class="lbl" font-size="15" font-weight="bold" fill="#ffffff">preparo</text>
+  <text x="250" y="267" text-anchor="middle" class="lbl" font-size="15" font-weight="bold" fill="#ffffff">forno</text>
+  <text x="370" y="267" text-anchor="middle" class="lbl" font-size="15" font-weight="bold" fill="#ffffff">moto</text>
+
+  <circle cx="70" cy="311" r="6" fill="#00aa9f"/>
+  <circle cx="430" cy="311" r="6" fill="#00aa9f"/>
+  <text x="82" y="316" class="lbl" font-size="13" fill="#1d2057">clique</text>
+  <text x="418" y="316" text-anchor="end" class="lbl" font-size="13" fill="#1d2057">campainha</text>
+  <text x="250" y="348" text-anchor="middle" class="lbl" font-size="12" fill="#1d2057">(etapas fora de escala)</text>
+
+  <!-- painel da vazão -->
+  <rect x="490" y="80" width="440" height="290" rx="11" class="sk" fill="#eaf5ee" stroke="#2e7d52" stroke-width="2.5"/>
+  <text x="710" y="116" text-anchor="middle" class="lbl" font-size="21" font-weight="bold" fill="#2e7d52">VAZÃO</text>
+  <text x="710" y="140" text-anchor="middle" class="lbl" font-size="13" fill="#1d2057">quantos pedidos saem por hora</text>
+
+  <g class="sk" fill="#fbeee6" stroke="#b1541b" stroke-width="2.5">
+    <circle cx="560" cy="188" r="21"/><circle cx="618" cy="188" r="21"/><circle cx="676" cy="188" r="21"/>
+    <circle cx="734" cy="188" r="21"/><circle cx="792" cy="188" r="21"/><circle cx="850" cy="188" r="21"/>
+    <circle cx="560" cy="246" r="21"/><circle cx="618" cy="246" r="21"/><circle cx="676" cy="246" r="21"/>
+    <circle cx="734" cy="246" r="21"/><circle cx="792" cy="246" r="21"/><circle cx="850" cy="246" r="21"/>
+  </g>
+  <g class="sk" fill="none" stroke="#b1541b" stroke-width="1.5">
+    <circle cx="560" cy="188" r="9"/><circle cx="618" cy="188" r="9"/><circle cx="676" cy="188" r="9"/>
+    <circle cx="734" cy="188" r="9"/><circle cx="792" cy="188" r="9"/><circle cx="850" cy="188" r="9"/>
+    <circle cx="560" cy="246" r="9"/><circle cx="618" cy="246" r="9"/><circle cx="676" cy="246" r="9"/>
+    <circle cx="734" cy="246" r="9"/><circle cx="792" cy="246" r="9"/><circle cx="850" cy="246" r="9"/>
+  </g>
+  <text x="710" y="299" text-anchor="middle" class="lbl" font-size="13" fill="#1d2057">cada círculo = 10 pizzas</text>
+  <text x="710" y="340" text-anchor="middle" class="lbl" font-size="22" font-weight="bold" fill="#b1541b">12 círculos = 120 pizzas por hora</text>
+
+  <!-- faixa final -->
+  <rect x="130" y="402" width="700" height="82" rx="11" class="sk" fill="#fffdf7" stroke="#b1541b" stroke-width="2.5"/>
+  <text x="480" y="436" text-anchor="middle" class="lbl" font-size="17" font-weight="bold" fill="#1d2057">mais motoboys sobem a vazão</text>
+  <text x="480" y="464" text-anchor="middle" class="lbl" font-size="15" fill="#b1541b">um pedido sem fila continua levando 30 minutos</text>
+</svg>

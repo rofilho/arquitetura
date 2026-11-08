@@ -1,0 +1,74 @@
+<!-- Aula 10, figura 3: curvas da Lei de Amdahl. Ganho (1x a 10x) em função do número de núcleos (1, 2, 4, 8, 16, 32, 64; cada marca dobra a anterior) para três programas: 10% serial (teto 10x), 20% serial (teto 5x) e 80% serial, o bolo (teto 1,25x). Pontos calculados com S = 1 / ((1-F) + F/N), F = 0,9; 0,8; 0,2. Fundo transparente, halo off-white nos textos, paleta Uniube. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="100%" role="img"
+     font-family="'Comic Sans MS','Comic Neue',cursive"
+     aria-label="Gráfico do ganho de velocidade em função do número de núcleos, de 1 a 64, cada marca dobrando a anterior. A curva do programa com 10 por cento serial, o pagamento da Aula 8, sobe até 8,8 vezes com 64 núcleos e tem teto de 10 vezes. A curva com 20 por cento serial chega a 4,7 vezes com 64 núcleos e tem teto de 5 vezes. A curva com 80 por cento serial, o bolo, fica quase reta em 1,25 vezes. O teto é um dividido pela parte serial.">
+  <title>Ganho pela Lei de Amdahl: o teto é um dividido pela parte serial</title>
+  <defs>
+    <style>
+      .sk  { stroke-linecap:round; stroke-linejoin:round; fill:none; }
+      .lbl { font-family:'Comic Sans MS','Comic Neue',cursive; }
+      text { paint-order:stroke; stroke:#fafaf8; stroke-width:3px; stroke-linejoin:round; }
+      text[fill="#ffffff"] { stroke:none; }
+    </style>
+  </defs>
+  <rect id="fundo-card" x="0" y="0" width="960" height="600" rx="18" fill="#fafaf8"/>
+
+  <text x="480" y="40" text-anchor="middle" class="lbl" font-size="25" font-weight="bold" fill="#1d2057">Mais núcleos, até onde?</text>
+  <path class="sk" d="M350,54 q70,8 140,3 q70,-5 140,2" stroke="#00aa9f" stroke-width="2.5"/>
+
+  <!-- grade e eixos -->
+  <g class="sk" stroke="#8a8f98" stroke-width="1" stroke-opacity="0.45">
+    <path d="M130,425.6 H870"/><path d="M130,336.7 H870"/><path d="M130,247.8 H870"/><path d="M130,158.9 H870"/>
+  </g>
+  <path class="sk" d="M130,70 V470 H870" stroke="#8a8f98" stroke-width="2"/>
+
+  <text x="20" y="62" class="lbl" font-size="14" font-weight="bold" fill="#1d2057">ganho (S)</text>
+  <text x="118" y="475" text-anchor="end" class="lbl" font-size="13" fill="#1d2057">1×</text>
+  <text x="118" y="431" text-anchor="end" class="lbl" font-size="13" fill="#1d2057">2×</text>
+  <text x="118" y="342" text-anchor="end" class="lbl" font-size="13" fill="#1d2057">4×</text>
+  <text x="118" y="253" text-anchor="end" class="lbl" font-size="13" fill="#1d2057">6×</text>
+  <text x="118" y="164" text-anchor="end" class="lbl" font-size="13" fill="#1d2057">8×</text>
+  <text x="118" y="76" text-anchor="end" class="lbl" font-size="13" fill="#1d2057">10×</text>
+
+  <text x="130" y="496" text-anchor="middle" class="lbl" font-size="13" fill="#1d2057">1</text>
+  <text x="253" y="496" text-anchor="middle" class="lbl" font-size="13" fill="#1d2057">2</text>
+  <text x="377" y="496" text-anchor="middle" class="lbl" font-size="13" fill="#1d2057">4</text>
+  <text x="500" y="496" text-anchor="middle" class="lbl" font-size="13" fill="#1d2057">8</text>
+  <text x="623" y="496" text-anchor="middle" class="lbl" font-size="13" fill="#1d2057">16</text>
+  <text x="747" y="496" text-anchor="middle" class="lbl" font-size="13" fill="#1d2057">32</text>
+  <text x="870" y="496" text-anchor="middle" class="lbl" font-size="13" fill="#1d2057">64</text>
+  <text x="500" y="522" text-anchor="middle" class="lbl" font-size="14" font-weight="bold" fill="#1d2057">número de núcleos (N): cada marca dobra a anterior</text>
+
+  <!-- tetos tracejados -->
+  <path class="sk" d="M130,70 H870" stroke="#2778c4" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="140" y="92" class="lbl" font-size="13" font-weight="bold" fill="#2778c4">teto 10×</text>
+  <path class="sk" d="M130,292.2 H870" stroke="#00aa9f" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="140" y="286" class="lbl" font-size="13" font-weight="bold" fill="#00aa9f">teto 5×</text>
+  <text x="400" y="448" class="lbl" font-size="13" font-weight="bold" fill="#b1541b">teto 1,25×</text>
+
+  <!-- curvas -->
+  <polyline class="sk" points="130.0,470.0 253.3,433.6 376.7,377.7 500.0,305.3 623.3,230.0 746.7,167.6 870.0,124.8" stroke="#2778c4" stroke-width="3.5"/>
+  <g fill="#2778c4"><circle cx="130" cy="470" r="4.5"/><circle cx="253.3" cy="433.6" r="4.5"/><circle cx="376.7" cy="377.7" r="4.5"/><circle cx="500" cy="305.3" r="4.5"/><circle cx="623.3" cy="230" r="4.5"/><circle cx="746.7" cy="167.6" r="4.5"/><circle cx="870" cy="124.8" r="4.5"/></g>
+  <polyline class="sk" points="130.0,470.0 253.3,440.4 376.7,403.3 500.0,366.3 623.3,336.7 746.7,316.9 870.0,305.3" stroke="#00aa9f" stroke-width="3.5"/>
+  <g fill="#00aa9f"><circle cx="253.3" cy="440.4" r="4.5"/><circle cx="376.7" cy="403.3" r="4.5"/><circle cx="500" cy="366.3" r="4.5"/><circle cx="623.3" cy="336.7" r="4.5"/><circle cx="746.7" cy="316.9" r="4.5"/><circle cx="870" cy="305.3" r="4.5"/></g>
+  <polyline class="sk" points="130.0,470.0 253.3,465.1 376.7,462.2 500.0,460.6 623.3,459.7 746.7,459.3 870.0,459.1" stroke="#b1541b" stroke-width="3.5"/>
+  <g fill="#b1541b"><circle cx="253.3" cy="465.1" r="4.5"/><circle cx="376.7" cy="462.2" r="4.5"/><circle cx="500" cy="460.6" r="4.5"/><circle cx="623.3" cy="459.7" r="4.5"/><circle cx="746.7" cy="459.3" r="4.5"/><circle cx="870" cy="459.1" r="4.5"/></g>
+
+  <!-- valores com 64 núcleos -->
+  <text x="882" y="130" class="lbl" font-size="15" font-weight="bold" fill="#2778c4">8,8×</text>
+  <text x="882" y="310" class="lbl" font-size="15" font-weight="bold" fill="#00aa9f">4,7×</text>
+  <text x="882" y="451" class="lbl" font-size="15" font-weight="bold" fill="#b1541b">1,25×</text>
+
+  <!-- legenda -->
+  <path class="sk" d="M150,134 H190" stroke="#2778c4" stroke-width="4"/>
+  <text x="202" y="139" class="lbl" font-size="14" fill="#1d2057">10% serial (o pagamento da Aula 08)</text>
+  <path class="sk" d="M150,162 H190" stroke="#00aa9f" stroke-width="4"/>
+  <text x="202" y="167" class="lbl" font-size="14" fill="#1d2057">20% serial</text>
+  <path class="sk" d="M150,190 H190" stroke="#b1541b" stroke-width="4"/>
+  <text x="202" y="195" class="lbl" font-size="14" fill="#1d2057">80% serial (o bolo)</text>
+
+  <text x="640" y="410" text-anchor="middle" class="lbl" font-size="17" font-weight="bold" fill="#b1541b">teto = 1 ÷ parte serial</text>
+
+  <rect x="130" y="540" width="700" height="46" rx="11" class="sk" stroke="#b1541b" stroke-width="2.5"/>
+  <text x="480" y="570" text-anchor="middle" class="lbl" font-size="16" font-weight="bold" fill="#1d2057">mesmos 64 núcleos, ganhos muito diferentes: quem manda é a parte serial</text>
+</svg>
