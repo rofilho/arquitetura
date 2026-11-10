@@ -12,7 +12,7 @@ tags: [arquitetura, {{PERIODO}}, aula10, desempenho, latencia, vazao, amdahl, cp
 **Professor:** Romualdo Mathias Filho · **romualdo.filho@uniube.br**<br>
 **Data:** Quarta, 11/11/2026 · {{PERIODO}} · 📘 Teórica (75 min)<br>
 **Tópicos:** Latência e vazão: as duas réguas · Tempo de CPU (*Central Processing Unit*, o processador) em três fatores, e por que a propaganda engana · Lei de Amdahl: o teto do ganho e onde gastar o esforço<br>
-**Página de referência:** [Plano de Ensino e Contrato](./Plano-de-Ensino-e-Contrato)
+**Página da disciplina:** [todas as aulas](./)
 
 ---
 
@@ -65,7 +65,7 @@ Tente responder de cabeça. Depois abra e confira.
 > - Usar a **Lei de Amdahl** para prever o teto de ganho de uma melhoria que acelera só uma parte do trabalho, e decidir **onde** gastar o esforço.
 >
 > **📂 Recursos**
-> - [Plano de Ensino e Contrato](./Plano-de-Ensino-e-Contrato) — calendário, notas, prazos e regras
+> - [Página da disciplina](./) — a lista de todas as aulas
 > - [Amdahl's Law Calculator (Omni)](https://www.omnicalculator.com/other/amdahls-law) — calculadora em inglês, para conferir as contas do momento interativo
 > - Papel e caneta (ou a calculadora do celular) — as contas do momento interativo são feitas à mão primeiro
 
@@ -415,7 +415,7 @@ Tente explicar cada linha antes de reler a seção. É o esforço de lembrar que
 
 ### Para ir além
 
-- [Amdahl's Law — GeeksforGeeks (em inglês)](https://www.geeksforgeeks.org/amdahls-law-in-computer-architecture/) — artigo com gráficos para ver como o número de núcleos influencia a velocidade de uma aplicação. Complementa a figura do tópico 3.
+- [Amdahl's law in Computer Organization — GeeksforGeeks (em inglês)](https://www.geeksforgeeks.org/computer-organization-architecture/computer-organization-amdahls-law-and-its-proof/) — artigo sobre a lei de Amdahl, com a dedução da fórmula. Complementa a figura do tópico 3.
 - [Amdahl's Law Calculator (Omni)](https://www.omnicalculator.com/other/amdahls-law) — a calculadora do momento interativo: mude a fração e o fator e veja o teto de ganho na hora.
 - Em casa: abra o Gerenciador de Tarefas (`Ctrl+Shift+Esc`), aba Desempenho, CPU. Ele mostra a velocidade da sua máquina em GHz. Calcule o período do ciclo (1 ÷ frequência) e compare com os 0,33 ns da aula.
 - Depois de pensar na reflexão, procure por **Lei de Gustafson**.

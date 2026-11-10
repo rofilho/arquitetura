@@ -12,7 +12,7 @@ tags: [arquitetura, {{PERIODO}}, aula09, entrada-saida, polling, interrupcao, dm
 **Professor:** Romualdo Mathias Filho · **romualdo.filho@uniube.br**<br>
 **Data:** Quarta, 04/11/2026 · {{PERIODO}} · 📘 Teórica (75 min)<br>
 **Tópicos:** O custo de esperar o dispositivo · Controlador de E/S e barramento · E/S programada (polling) · E/S por interrupção · Acesso direto à memória (DMA)<br>
-**Página de referência:** [Plano de Ensino e Contrato](./Plano-de-Ensino-e-Contrato)
+**Página da disciplina:** [todas as aulas](./)
 
 ---
 
@@ -67,7 +67,7 @@ Tente responder de cabeça. Depois abra e confira.
 > - Escolher o método certo para um dispositivo (teclado, disco, placa de rede, sensor de microcontrolador) e justificar com dois critérios: volume de dados e trabalho livre da CPU.
 >
 > **📂 Recursos**
-> - [Plano de Ensino e Contrato](./Plano-de-Ensino-e-Contrato) — calendário, notas, prazos e regras
+> - [Página da disciplina](./) — a lista de todas as aulas
 > - Celular com acesso a **vevox.app** — para a votação do bloco interativo
 > - Em casa: o **Gerenciador de Tarefas do Windows** (`Ctrl+Shift+Esc`, aba Desempenho), para ver a CPU quase parada durante a cópia de um arquivo grande
 
@@ -384,7 +384,7 @@ Tente explicar cada linha antes de reler a seção. É o esforço de lembrar que
 
 ### Para ir além
 
-- [Input/Output Organization — GeeksforGeeks (em inglês)](https://www.geeksforgeeks.org/input-output-organization-in-computer-architecture/) — artigo com diagramas dos três métodos de E/S, incluindo o roubo de ciclo. Complementa as figuras da aula; não substitui o capítulo 7 do Stallings.
+- [I/O Interface (Interrupt and DMA Mode) — GeeksforGeeks (em inglês)](https://www.geeksforgeeks.org/computer-organization-architecture/io-interface-interrupt-dma-mode/) — artigo sobre a E/S por interrupção e por DMA. Complementa as figuras da aula; não substitui o capítulo 7 do Stallings.
 - Em casa: abra o Gerenciador de Tarefas (`Ctrl+Shift+Esc`), aba Desempenho, e copie um arquivo grande entre dois discos. Observe a CPU enquanto o disco trabalha: é o DMA em ação.
 - Quando a interrupção vira o problema: num servidor que recebe muitos pacotes de rede por segundo, uma interrupção por pacote afoga a CPU no custo de **entrar e sair da rotina de tratamento** (salvar e restaurar o contexto), uma vez por pacote. Sob carga alta, o Linux desliga a interrupção da placa de rede e volta a fazer polling por um instante, porque com a fila cheia perguntar sai mais barato que ser interrompido. O mecanismo se chama NAPI (*New API*); procure por esse nome.
 
