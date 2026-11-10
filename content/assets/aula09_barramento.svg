@@ -1,122 +1,95 @@
-<!-- BRIEF v2: barramento do computador, rico. CPU e RAM grandes à esquerda; no centro um barramento central espesso com 3 faixas rotuladas (dados/enderecos/controle); pendurados nele 3 controladores (teclado, disco, rede) e o controlador DMA, cada um com seus 3 registradores (controle/status/dados) miniaturizados. Na faixa de controle, duas linhas de sinal em destaque: IRQ subindo do controlador do teclado ate a CPU, e o pedido de barramento do DMA. Hand-drawn, halo off-white, fundo transparente, paleta Uniube. -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" width="100%" role="img"
+<!-- BRIEF: Aula 09 (Arquitetura). Um barramento compartilhado, desenhado como tres faixas horizontais (dados, enderecos, controle). CPU e RAM em cima; controladores de teclado, disco e rede e o controlador de DMA embaixo; todos se ligam as tres faixas. Na faixa de controle, em destaque, o pedido de interrupcao (IRQ) do teclado para a CPU e o pedido de barramento do DMA. Redesenhada em 2026-11-10: a versao anterior ligava cada peca a uma faixa so, tinha o rotulo CONTROLE cortado e setas por cima do texto. Fundo: cartao off-white fixo. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" width="100%" role="img"
      font-family="'Comic Sans MS','Comic Neue',cursive"
-     aria-label="CPU e memória RAM ligadas a um barramento central de três faixas — dados, endereços e controle — de onde pendem três controladores de E/S e o controlador de DMA; a linha de interrupção do teclado e o pedido de barramento do DMA em destaque">
+     aria-label="A CPU e a RAM, em cima, e os controladores de teclado, disco e rede e o controlador de DMA, embaixo, ligados todos a um mesmo barramento de tres faixas: dados, enderecos e controle. Na faixa de controle, em destaque, o teclado manda o pedido de interrupcao (IRQ) a CPU e o DMA pede o barramento emprestado. Um aviso lembra que o barramento e compartilhado: um de cada vez.">
   <defs>
     <style>
-      .sk  { stroke-linecap:round; stroke-linejoin:round; fill:none; }
       .lbl { font-family:'Comic Sans MS','Comic Neue',cursive; }
       text { paint-order:stroke; stroke:#fafaf8; stroke-width:3px; stroke-linejoin:round; }
       text[fill="#ffffff"] { stroke:none; }
     </style>
-    <marker id="b2-org" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <marker id="b-lar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
       <path d="M0,0 L10,5 L0,10 z" fill="#b1541b"/>
     </marker>
-    <marker id="b2-pur" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <marker id="b-rox" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
       <path d="M0,0 L10,5 L0,10 z" fill="#7a4fb0"/>
     </marker>
   </defs>
+  <rect id="fundo-card" x="0" y="0" width="900" height="560" rx="18" fill="#fafaf8"/>
 
-  <text x="480" y="40" text-anchor="middle" class="lbl" font-size="25" font-weight="bold" fill="#1d2057">Um corredor só, três faixas, todos pendurados nele</text>
-  <path class="sk" d="M300,54 q90,8 180,3 q90,-5 180,2" stroke="#00aa9f" stroke-width="2.5"/>
+  <text x="450" y="38" text-anchor="middle" class="lbl" font-size="22" font-weight="bold" fill="#1d2057">Um corredor só, três faixas, todos pendurados nele</text>
+  <path d="M190,48 q130,7 260,3 q130,-4 260,2" fill="none" stroke="#00aa9f" stroke-width="2.5" stroke-linecap="round"/>
 
-  <g>
-    <rect x="60" y="80" width="150" height="74" rx="12" class="sk" fill="#e4f0fb" stroke="#2778c4" stroke-width="3.5"/>
-    <text x="135" y="112" text-anchor="middle" class="lbl" font-size="19" font-weight="bold" fill="#2778c4">CPU</text>
-    <text x="135" y="134" text-anchor="middle" class="lbl" font-size="11" fill="#1d2057">lê status · escreve controle</text>
-    <rect x="60" y="168" width="150" height="64" rx="12" class="sk" fill="#eaf5ee" stroke="#2e7d52" stroke-width="3.5"/>
-    <text x="135" y="194" text-anchor="middle" class="lbl" font-size="18" font-weight="bold" fill="#2e7d52">RAM</text>
-    <text x="135" y="214" text-anchor="middle" class="lbl" font-size="11" fill="#1d2057">onde o dado mora</text>
+  <!-- EM CIMA: CPU e RAM -->
+  <rect x="150" y="66" width="200" height="66" rx="12" fill="#e4f0fb" stroke="#2778c4" stroke-width="2.5"/>
+  <text x="250" y="94" text-anchor="middle" class="lbl" font-size="20" font-weight="bold" fill="#2778c4">CPU</text>
+  <text x="250" y="117" text-anchor="middle" class="lbl" font-size="12" fill="#1d2057">lê status · escreve controle</text>
+  <rect x="550" y="66" width="200" height="66" rx="12" fill="#eaf5ee" stroke="#2e7d52" stroke-width="2.5"/>
+  <text x="650" y="94" text-anchor="middle" class="lbl" font-size="20" font-weight="bold" fill="#2e7d52">RAM</text>
+  <text x="650" y="117" text-anchor="middle" class="lbl" font-size="12" fill="#1d2057">onde o dado mora</text>
+
+  <!-- LIGACOES VERTICAIS (atravessam as tres faixas) -->
+  <g stroke="#9aa0ad" stroke-width="3">
+    <line x1="250" y1="132" x2="250" y2="300"/>
+    <line x1="650" y1="132" x2="650" y2="300"/>
+    <line x1="140" y1="174" x2="140" y2="340"/>
+    <line x1="340" y1="174" x2="340" y2="340"/>
+    <line x1="540" y1="174" x2="540" y2="340"/>
+    <line x1="760" y1="174" x2="760" y2="340"/>
+  </g>
+  <g fill="#1d2057">
+    <circle cx="250" cy="190" r="4"/><circle cx="250" cy="236" r="4"/><circle cx="250" cy="282" r="4"/>
+    <circle cx="650" cy="190" r="4"/><circle cx="650" cy="236" r="4"/><circle cx="650" cy="282" r="4"/>
+    <circle cx="140" cy="190" r="4"/><circle cx="140" cy="236" r="4"/><circle cx="140" cy="282" r="4"/>
+    <circle cx="340" cy="190" r="4"/><circle cx="340" cy="236" r="4"/><circle cx="340" cy="282" r="4"/>
+    <circle cx="540" cy="190" r="4"/><circle cx="540" cy="236" r="4"/><circle cx="540" cy="282" r="4"/>
+    <circle cx="760" cy="190" r="4"/><circle cx="760" cy="236" r="4"/><circle cx="760" cy="282" r="4"/>
   </g>
 
+  <!-- AS TRES FAIXAS -->
+  <rect x="40" y="176" width="820" height="28" rx="8" fill="#2778c4" fill-opacity="0.18" stroke="#2778c4" stroke-width="2"/>
+  <text x="440" y="195" text-anchor="middle" class="lbl" font-size="12" font-weight="bold" fill="#2778c4">DADOS: o que passa</text>
+  <rect x="40" y="222" width="820" height="28" rx="8" fill="#2e7d52" fill-opacity="0.18" stroke="#2e7d52" stroke-width="2"/>
+  <text x="440" y="241" text-anchor="middle" class="lbl" font-size="12" font-weight="bold" fill="#2e7d52">ENDEREÇOS: origem e destino</text>
+  <rect x="40" y="268" width="820" height="28" rx="8" fill="#b1541b" fill-opacity="0.18" stroke="#b1541b" stroke-width="2"/>
+  <text x="440" y="287" text-anchor="middle" class="lbl" font-size="12" font-weight="bold" fill="#b1541b">CONTROLE: sinais, IRQ, DMA</text>
+
+  <!-- EMBAIXO: controladores -->
   <g>
-    <rect x="300" y="90" width="64" height="430" rx="10" class="sk" fill="#e4f0fb" stroke="#2778c4" stroke-width="3"/>
-    <text x="332" y="120" text-anchor="middle" class="lbl" font-size="14" font-weight="bold" fill="#2778c4">D</text>
-    <text x="332" y="140" text-anchor="middle" class="lbl" font-size="14" font-weight="bold" fill="#2778c4">A</text>
-    <text x="332" y="160" text-anchor="middle" class="lbl" font-size="14" font-weight="bold" fill="#2778c4">D</text>
-    <text x="332" y="180" text-anchor="middle" class="lbl" font-size="14" font-weight="bold" fill="#2778c4">O</text>
-    <text x="332" y="200" text-anchor="middle" class="lbl" font-size="14" font-weight="bold" fill="#2778c4">S</text>
-    <text x="332" y="490" text-anchor="middle" class="lbl" font-size="10" fill="#2778c4">bytes</text>
-    <rect x="376" y="90" width="64" height="430" rx="10" class="sk" fill="#eaf5ee" stroke="#2e7d52" stroke-width="3"/>
-    <text x="408" y="120" text-anchor="middle" class="lbl" font-size="14" font-weight="bold" fill="#2e7d52">E</text>
-    <text x="408" y="140" text-anchor="middle" class="lbl" font-size="14" font-weight="bold" fill="#2e7d52">N</text>
-    <text x="408" y="160" text-anchor="middle" class="lbl" font-size="14" font-weight="bold" fill="#2e7d52">D</text>
-    <text x="408" y="180" text-anchor="middle" class="lbl" font-size="14" font-weight="bold" fill="#2e7d52">E</text>
-    <text x="408" y="200" text-anchor="middle" class="lbl" font-size="14" font-weight="bold" fill="#2e7d52">R</text>
-    <text x="408" y="490" text-anchor="middle" class="lbl" font-size="10" fill="#2e7d52">de onde / p/ onde</text>
-    <rect x="452" y="90" width="72" height="430" rx="10" class="sk" fill="#fffdf7" stroke="#b1541b" stroke-width="3.5"/>
-    <text x="488" y="120" text-anchor="middle" class="lbl" font-size="14" font-weight="bold" fill="#b1541b">C</text>
-    <text x="488" y="140" text-anchor="middle" class="lbl" font-size="14" font-weight="bold" fill="#b1541b">O</text>
-    <text x="488" y="160" text-anchor="middle" class="lbl" font-size="14" font-weight="bold" fill="#b1541b">N</text>
-    <text x="488" y="180" text-anchor="middle" class="lbl" font-size="14" font-weight="bold" fill="#b1541b">T</text>
-    <text x="488" y="200" text-anchor="middle" class="lbl" font-size="14" font-weight="bold" fill="#b1541b">R</text>
-    <text x="488" y="490" text-anchor="middle" class="lbl" font-size="10" fill="#b1541b">sinais</text>
+    <rect x="60" y="340" width="160" height="78" rx="12" fill="#fbeee6" stroke="#b1541b" stroke-width="2.5"/>
+    <text x="140" y="364" text-anchor="middle" class="lbl" font-size="14" font-weight="bold" fill="#1d2057">controlador</text>
+    <text x="140" y="382" text-anchor="middle" class="lbl" font-size="14" font-weight="bold" fill="#1d2057">de teclado</text>
+    <text x="140" y="405" text-anchor="middle" class="lbl" font-size="11" fill="#1d2057">ctrl · status · dados</text>
+
+    <rect x="260" y="340" width="160" height="78" rx="12" fill="#fbeee6" stroke="#b1541b" stroke-width="2.5"/>
+    <text x="340" y="364" text-anchor="middle" class="lbl" font-size="14" font-weight="bold" fill="#1d2057">controlador</text>
+    <text x="340" y="382" text-anchor="middle" class="lbl" font-size="14" font-weight="bold" fill="#1d2057">de disco</text>
+    <text x="340" y="405" text-anchor="middle" class="lbl" font-size="11" fill="#1d2057">ctrl · status · dados</text>
+
+    <rect x="460" y="340" width="160" height="78" rx="12" fill="#fbeee6" stroke="#b1541b" stroke-width="2.5"/>
+    <text x="540" y="364" text-anchor="middle" class="lbl" font-size="14" font-weight="bold" fill="#1d2057">controlador</text>
+    <text x="540" y="382" text-anchor="middle" class="lbl" font-size="14" font-weight="bold" fill="#1d2057">de rede</text>
+    <text x="540" y="405" text-anchor="middle" class="lbl" font-size="11" fill="#1d2057">ctrl · status · dados</text>
+
+    <rect x="670" y="340" width="180" height="78" rx="12" fill="#f1ebf8" stroke="#7a4fb0" stroke-width="2.5"/>
+    <text x="760" y="364" text-anchor="middle" class="lbl" font-size="14" font-weight="bold" fill="#7a4fb0">controlador</text>
+    <text x="760" y="382" text-anchor="middle" class="lbl" font-size="14" font-weight="bold" fill="#7a4fb0">de DMA</text>
+    <text x="760" y="405" text-anchor="middle" class="lbl" font-size="11" fill="#1d2057">move o bloco sem a CPU</text>
   </g>
 
-  <g>
-    <path class="sk" d="M212,120 q60,-8 86,-2" stroke="#2778c4" stroke-width="3"/>
-    <path class="sk" d="M212,200 q60,-6 86,30" stroke="#2e7d52" stroke-width="3"/>
-  </g>
+  <!-- DESTAQUES NA FAIXA DE CONTROLE -->
+  <path d="M120,340 C110,316 120,300 150,300 L228,300 C238,300 236,290 240,284" fill="none" stroke="#b1541b" stroke-width="3" marker-end="url(#b-lar)"/>
+  <rect x="40" y="436" width="200" height="30" rx="15" fill="#b1541b"/>
+  <text x="140" y="456" text-anchor="middle" class="lbl" font-size="13" font-weight="bold" fill="#ffffff">IRQ: "terminei!"</text>
+  <line x1="140" y1="418" x2="140" y2="436" stroke="#b1541b" stroke-width="2"/>
 
-  <g>
-    <rect x="600" y="80" width="160" height="104" rx="12" class="sk" fill="#ffffff" stroke="#b1541b" stroke-width="2.5"/>
-    <text x="680" y="104" text-anchor="middle" class="lbl" font-size="13" font-weight="bold" fill="#1d2057">controlador de teclado</text>
-    <rect x="614" y="116" width="40" height="18" rx="4" fill="#fbeee6" stroke="#b1541b" stroke-width="1.5"/>
-    <text x="634" y="130" text-anchor="middle" class="lbl" font-size="9" fill="#1d2057">ctrl</text>
-    <rect x="660" y="116" width="40" height="18" rx="4" fill="#fbeee6" stroke="#b1541b" stroke-width="1.5"/>
-    <text x="680" y="130" text-anchor="middle" class="lbl" font-size="9" fill="#1d2057">status</text>
-    <rect x="706" y="116" width="40" height="18" rx="4" fill="#fbeee6" stroke="#b1541b" stroke-width="1.5"/>
-    <text x="726" y="130" text-anchor="middle" class="lbl" font-size="9" fill="#1d2057">dados</text>
-    <path class="sk" d="M600,150 q-60,10 -80,-20 q-24,-34 -60,-30" stroke="#b1541b" stroke-width="3" marker-end="url(#b2-org)"/>
-    <rect x="586" y="140" width="116" height="26" rx="7" fill="#fbeee6" stroke="#b1541b" stroke-width="2"/>
-    <text x="644" y="158" text-anchor="middle" class="lbl" font-size="11" font-weight="bold" fill="#b1541b">IRQ: "terminei!"</text>
-    <path class="sk" d="M524,132 q-100,-60 -314,-14" stroke="#b1541b" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#b2-org)"/>
-  </g>
+  <rect x="640" y="436" width="240" height="30" rx="15" fill="#7a4fb0"/>
+  <text x="760" y="456" text-anchor="middle" class="lbl" font-size="13" font-weight="bold" fill="#ffffff">"me empresta o barramento"</text>
+  <line x1="760" y1="418" x2="760" y2="436" stroke="#7a4fb0" stroke-width="2"/>
+  <path d="M790,340 C798,318 792,302 780,296" fill="none" stroke="#7a4fb0" stroke-width="3" marker-end="url(#b-rox)"/>
 
-  <g>
-    <rect x="600" y="212" width="160" height="104" rx="12" class="sk" fill="#ffffff" stroke="#b1541b" stroke-width="2.5"/>
-    <text x="680" y="236" text-anchor="middle" class="lbl" font-size="13" font-weight="bold" fill="#1d2057">controlador de disco</text>
-    <rect x="614" y="248" width="40" height="18" rx="4" fill="#fbeee6" stroke="#b1541b" stroke-width="1.5"/>
-    <text x="634" y="262" text-anchor="middle" class="lbl" font-size="9" fill="#1d2057">ctrl</text>
-    <rect x="660" y="248" width="40" height="18" rx="4" fill="#fbeee6" stroke="#b1541b" stroke-width="1.5"/>
-    <text x="680" y="262" text-anchor="middle" class="lbl" font-size="9" fill="#1d2057">status</text>
-    <rect x="706" y="248" width="40" height="18" rx="4" fill="#fbeee6" stroke="#b1541b" stroke-width="1.5"/>
-    <text x="726" y="262" text-anchor="middle" class="lbl" font-size="9" fill="#1d2057">dados</text>
-  </g>
-
-  <g>
-    <rect x="600" y="344" width="160" height="104" rx="12" class="sk" fill="#ffffff" stroke="#b1541b" stroke-width="2.5"/>
-    <text x="680" y="368" text-anchor="middle" class="lbl" font-size="13" font-weight="bold" fill="#1d2057">controlador de rede</text>
-    <rect x="614" y="380" width="40" height="18" rx="4" fill="#fbeee6" stroke="#b1541b" stroke-width="1.5"/>
-    <text x="634" y="394" text-anchor="middle" class="lbl" font-size="9" fill="#1d2057">ctrl</text>
-    <rect x="660" y="380" width="40" height="18" rx="4" fill="#fbeee6" stroke="#b1541b" stroke-width="1.5"/>
-    <text x="680" y="394" text-anchor="middle" class="lbl" font-size="9" fill="#1d2057">status</text>
-    <rect x="706" y="380" width="40" height="18" rx="4" fill="#fbeee6" stroke="#b1541b" stroke-width="1.5"/>
-    <text x="726" y="394" text-anchor="middle" class="lbl" font-size="9" fill="#1d2057">dados</text>
-  </g>
-
-  <g>
-    <rect x="600" y="476" width="160" height="76" rx="12" class="sk" fill="#f3eafa" stroke="#7a4fb0" stroke-width="3"/>
-    <text x="680" y="502" text-anchor="middle" class="lbl" font-size="13" font-weight="bold" fill="#7a4fb0">controlador de DMA</text>
-    <text x="680" y="522" text-anchor="middle" class="lbl" font-size="11" fill="#1d2057">move o bloco sem a CPU</text>
-    <path class="sk" d="M600,516 q-50,-10 -76,-30" stroke="#7a4fb0" stroke-width="3" marker-end="url(#b2-pur)"/>
-    <text x="560" y="472" text-anchor="middle" class="lbl" font-size="11" font-weight="bold" fill="#7a4fb0">"me empresta o barramento"</text>
-  </g>
-
-  <g>
-    <path class="sk" d="M524,132 q40,2 74,4" stroke="#9aa4bd" stroke-width="2"/>
-    <path class="sk" d="M524,264 q40,2 74,2" stroke="#9aa4bd" stroke-width="2"/>
-    <path class="sk" d="M524,396 q40,2 74,0" stroke="#9aa4bd" stroke-width="2"/>
-    <path class="sk" d="M524,486 q40,20 74,26" stroke="#9aa4bd" stroke-width="2"/>
-  </g>
-
-  <g>
-    <rect x="60" y="300" width="200" height="180" rx="12" class="sk" fill="#fffdf7" stroke="#b1541b" stroke-width="2.5"/>
-    <text x="160" y="330" text-anchor="middle" class="lbl" font-size="15" font-weight="bold" fill="#b1541b">compartilhado</text>
-    <text x="160" y="356" text-anchor="middle" class="lbl" font-size="13" font-weight="bold" fill="#b1541b">= um de cada vez</text>
-    <text x="160" y="392" text-anchor="middle" class="lbl" font-size="12" fill="#1d2057">CPU e DMA querendo</text>
-    <text x="160" y="412" text-anchor="middle" class="lbl" font-size="12" fill="#1d2057">o barramento no mesmo</text>
-    <text x="160" y="432" text-anchor="middle" class="lbl" font-size="12" fill="#1d2057">ciclo: um espera.</text>
-    <text x="160" y="460" text-anchor="middle" class="lbl" font-size="12" font-weight="bold" fill="#1d2057">&#8594; roubo de ciclo</text>
-  </g>
+  <!-- AVISO -->
+  <rect x="150" y="486" width="600" height="56" rx="12" fill="#fbeee6" stroke="#b1541b" stroke-width="2"/>
+  <text x="450" y="509" text-anchor="middle" class="lbl" font-size="15" font-weight="bold" fill="#b1541b">compartilhado = um de cada vez</text>
+  <text x="450" y="530" text-anchor="middle" class="lbl" font-size="13" fill="#1d2057">CPU e DMA querendo o barramento no mesmo ciclo: um espera (roubo de ciclo)</text>
 </svg>

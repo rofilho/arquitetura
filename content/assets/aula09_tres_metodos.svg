@@ -4,15 +4,16 @@
      aria-label="Três linhas do tempo do uso da CPU: no polling a CPU só espera em laço; na interrupção ela trabalha mas é cortada por muitas rotinas de interrupção; no DMA ela trabalha quase o tempo todo e só é chamada no início e no fim">
   <defs>
     <style>
-      .sk  { stroke-linecap:round; stroke-linejoin:round; fill:none; }
+      .sk  { stroke-linecap:round; stroke-linejoin:round; }
       .lbl { font-family:'Comic Sans MS','Comic Neue',cursive; }
       text { paint-order:stroke; stroke:#fafaf8; stroke-width:3px; stroke-linejoin:round; }
       text[fill="#ffffff"] { stroke:none; }
     </style>
   </defs>
+  <rect id="fundo-card" x="0" y="0" width="960" height="540" rx="18" fill="#fafaf8"/>
 
   <text x="480" y="40" text-anchor="middle" class="lbl" font-size="25" font-weight="bold" fill="#1d2057">O que a CPU faz enquanto o dispositivo trabalha</text>
-  <path class="sk" d="M300,54 q90,8 180,3 q90,-5 180,2" stroke="#00aa9f" stroke-width="2.5"/>
+  <path class="sk" fill="none" d="M300,54 q90,8 180,3 q90,-5 180,2" stroke="#00aa9f" stroke-width="2.5"/>
 
   <g>
     <rect x="230" y="66" width="22" height="16" rx="4" fill="#cdd3df" stroke="#6a7390" stroke-width="1.5"/>
@@ -46,15 +47,15 @@
     <text x="100" y="284" text-anchor="middle" class="lbl" font-size="11" fill="#1d2057">o dispositivo avisa</text>
     <rect x="190" y="228" width="520" height="80" rx="11" class="sk" fill="#eaf5ee" stroke="#2e7d52" stroke-width="2.5"/>
     <g>
-      <rect x="230" y="228" width="18" height="80" fill="#7a4fb0"/>
-      <rect x="320" y="228" width="18" height="80" fill="#7a4fb0"/>
-      <rect x="410" y="228" width="18" height="80" fill="#7a4fb0"/>
-      <rect x="500" y="228" width="18" height="80" fill="#7a4fb0"/>
-      <rect x="590" y="228" width="18" height="80" fill="#7a4fb0"/>
-      <rect x="672" y="228" width="18" height="80" fill="#7a4fb0"/>
+      <rect x="230" y="232" width="18" height="26" rx="3" fill="#7a4fb0"/>
+      <rect x="320" y="232" width="18" height="26" rx="3" fill="#7a4fb0"/>
+      <rect x="410" y="232" width="18" height="26" rx="3" fill="#7a4fb0"/>
+      <rect x="500" y="232" width="18" height="26" rx="3" fill="#7a4fb0"/>
+      <rect x="590" y="232" width="18" height="26" rx="3" fill="#7a4fb0"/>
+      <rect x="672" y="232" width="18" height="26" rx="3" fill="#7a4fb0"/>
     </g>
-    <text x="450" y="262" text-anchor="middle" class="lbl" font-size="13" font-weight="bold" fill="#2e7d52">trabalho útil entre os avisos</text>
-    <text x="450" y="286" text-anchor="middle" class="lbl" font-size="12" fill="#1d2057">mas uma ISR a cada palavra que chega</text>
+    <text x="450" y="281" text-anchor="middle" class="lbl" font-size="13" font-weight="bold" fill="#2e7d52">trabalho útil entre os avisos</text>
+    <text x="450" y="300" text-anchor="middle" class="lbl" font-size="12" fill="#1d2057">mas uma ISR (roxo) a cada palavra que chega</text>
     <rect x="726" y="228" width="204" height="80" rx="11" class="sk" fill="#eaf5ee" stroke="#2e7d52" stroke-width="2.5"/>
     <text x="828" y="256" text-anchor="middle" class="lbl" font-size="12" font-weight="bold" fill="#2e7d52">CPU livre entre eventos</text>
     <text x="828" y="276" text-anchor="middle" class="lbl" font-size="12" fill="#1d2057">paga o contexto a cada ISR</text>
@@ -74,7 +75,7 @@
     <text x="450" y="396" text-anchor="middle" class="lbl" font-size="12" fill="#1d2057">o bloco inteiro passa sem a CPU</text>
     <rect x="726" y="338" width="204" height="80" rx="11" class="sk" fill="#eaf5ee" stroke="#2e7d52" stroke-width="2.5"/>
     <text x="828" y="366" text-anchor="middle" class="lbl" font-size="12" font-weight="bold" fill="#2e7d52">CPU quase toda livre</text>
-    <text x="828" y="386" text-anchor="middle" class="lbl" font-size="12" fill="#1d2057">disputa o barramento (roubo de ciclo)</text>
+    <text x="828" y="386" text-anchor="middle" class="lbl" font-size="12" fill="#1d2057">rouba ciclos do barramento</text>
     <text x="828" y="406" text-anchor="middle" class="lbl" font-size="11" fill="#1d2057">ideal p/ blocos grandes</text>
   </g>
 
